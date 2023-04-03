@@ -89,7 +89,7 @@ export default function LogoPanel(props: LogoPanelProps) {
       <Box
         id="title"
         sx={{
-          height: "calc(100vh + 50px)",
+          height: "100vh",
           width: "100vw",
           backgroundImage: `url(${props.backgroundImage.src})`,
           backgroundSize: "cover",
@@ -102,7 +102,7 @@ export default function LogoPanel(props: LogoPanelProps) {
           sx={{
             width: "100%",
             height: "100%",
-            backgroundColor: "rgba(0,0,0,0.5)",
+            backgroundColor: "rgba(0,0,0,0.6)",
           }}
         >
           <Box id="title-contents-container" sx={{ height: "100%" }}>
@@ -114,20 +114,17 @@ export default function LogoPanel(props: LogoPanelProps) {
                 aria-haspopup="true"
                 onClick={() => setDrawerOpen(true)}
                 sx={{
-                  ml: 2,
-                  mt: 2,
-                  margin: 0,
                   top: 12,
-                  right: "auto",
+                  right: 12,
                   bottom: "auto",
-                  left: 12,
+                  left: "auto",
                   position: "fixed",
                 }}
               >
                 <ListIcon sx={{ height: 45, width: 45 }} />
               </IconButton>
               <Drawer
-                anchor="left"
+                anchor="right"
                 open={drawerOpen}
                 onClose={() => setDrawerOpen(false)}
               >
@@ -137,20 +134,18 @@ export default function LogoPanel(props: LogoPanelProps) {
             <Slide in direction="up" {...{ timeout: 1000 }}>
               <Box
                 sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  height: "60%",
+                  mx: "auto",
+                  position: "relative",
+                  width: "80%",
+                  height: "40%",
+                  maxWidth: 500,
                 }}
               >
                 <Image
                   src={props.logoImage.src}
                   alt={"Logo"}
-                  width={props.isBrewPub ? 425 : 450}
-                  height={190}
-                  //objectFit="cover"
-                  // shrink to fit mobile size
-                  //style={{ width: "100%" }}
+                  fill
+                  style={{ objectFit: "contain" }}
                 />
               </Box>
             </Slide>

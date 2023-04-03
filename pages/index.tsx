@@ -11,6 +11,7 @@ import theme from "@/Theme";
 import React from "react";
 import Image from "next/image";
 import background1 from "@/public/oven.jpg";
+import background2 from "@/public/taps.jpg";
 import Link from "next/link";
 import LocationIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -40,20 +41,21 @@ export default function Home() {
           sx={{
             height: "100vh",
             width: "100vw",
+            py: 5,
           }}
         >
           <Box
             id="content-container"
             sx={{ mx: "auto", height: "100%", width: "100%" }}
           >
-            {/* <Fade in={animateTopLabel} timeout={1000}>
+            <Fade in={animateTopLabel} timeout={1000}>
               <Box
                 sx={{
                   display: "flex",
                   justifyContent: "center",
                 }}
               >
-                <Box sx={{ textAlign: "left" }}>
+                <Box sx={{ textAlign: "center" }}>
                   <Typography
                     variant="h5"
                     sx={{ color: theme.palette.text.primary }}
@@ -64,11 +66,11 @@ export default function Home() {
                     variant="h6"
                     sx={{ color: theme.palette.text.secondary }}
                   >
-                    Which location are you looking for?
+                    Please select a location to continue
                   </Typography>
                 </Box>
               </Box>
-            </Fade> */}
+            </Fade>
             <Box
               id="logos-container"
               sx={{
@@ -121,6 +123,7 @@ export default function Home() {
                         },
                         mb: { xs: 3, md: 0 },
                         height: "60vh",
+                        width: { xs: "70vw", md: "40vw" },
                       }}
                     >
                       <Box
@@ -135,8 +138,10 @@ export default function Home() {
                           id="benniditos-logo-container"
                           sx={{
                             position: "relative",
-                            width: "100%",
+                            width: "80%",
                             height: "200px",
+                            mx: "auto",
+                            mb: 8,
                           }}
                         >
                           <Image
@@ -192,8 +197,6 @@ export default function Home() {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    width: "40%",
-                    height: "100%",
                     mx: "auto",
                   }}
                 >
@@ -211,7 +214,7 @@ export default function Home() {
                         textAlign: "center",
                         border: `1px solid white`,
                         borderRadius: "10px",
-                        backgroundImage: `url(${background1.src})`,
+                        backgroundImage: `url(${background2.src})`,
                         backgroundSize: "cover",
                         overflow: "hidden",
                         backgroundPosition: "center",
@@ -220,7 +223,9 @@ export default function Home() {
                           transform: "scale(1.05)",
                           cursor: "pointer",
                         },
+                        mb: { xs: 3, md: 0 },
                         height: "60vh",
+                        width: { xs: "70vw", md: "40vw" },
                       }}
                     >
                       <Box
@@ -235,8 +240,10 @@ export default function Home() {
                           id="brewpub-logo-container"
                           sx={{
                             position: "relative",
-                            width: "100%",
+                            width: "80%",
                             height: "200px",
+                            mx: "auto",
+                            mb: 8,
                           }}
                         >
                           <Image
@@ -258,7 +265,7 @@ export default function Home() {
                               mb: 3,
                             }}
                           >
-                            1426 S Lincoln St, Spokane, WA 99203
+                            1909 E Sprague Ave, Spokane, WA 99202
                           </Typography>
                         </Box>
                         <Box
@@ -269,7 +276,7 @@ export default function Home() {
                         >
                           <PhoneIcon sx={{ mr: 2 }} fontSize="small" />
                           <Typography variant="body1" sx={{ mb: 3 }}>
-                            509-455-7411
+                            509-290-5018
                           </Typography>
                         </Box>
                       </Box>
