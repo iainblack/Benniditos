@@ -1,5 +1,8 @@
 import { createTheme } from "@mui/material/styles";
+import { Quicksand } from "next/font/google";
 
+const quicksand = Quicksand({ subsets: ["latin"] });
+const font = [quicksand.style.fontFamily, "sans-serif"].join(",");
 const headerFont = [
   "Calibre",
   "Inter",
@@ -24,11 +27,14 @@ const theme = createTheme({
       },
     },
     h5: {
+      fontFamily: headerFont,
+      fontWeight: 700,
       "@media (max-width:600px)": {
         fontSize: "1.25rem",
       },
     },
     h6: {
+      fontFamily: font,
       "@media (max-width:600px)": {
         fontSize: "1rem",
       },
@@ -47,22 +53,21 @@ const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#006CE5",
-      contrastText: "#BFC5CA",
+      main: "#e1a32b",
     },
     secondary: {
-      main: "#3293FF",
+      main: "#98c855",
     },
     text: {
-      primary: "#BFC5CA",
-      secondary: "#697782",
+      primary: "#EAEAE8",
+      secondary: "#878277",
     },
     background: {
-      default: "#192734",
-      paper: "#0F1A25",
+      default: "#29241A",
+      paper: "#534C3D",
     },
     info: {
-      main: "#65AEFF",
+      main: "#FFC86F",
     },
   },
 });
