@@ -179,7 +179,7 @@ export default function Header(props: HeaderProps) {
               }}
             />
             <Tab
-              label="Delivery"
+              label="On Tap"
               sx={{
                 textTransform: "none",
                 color: "white",

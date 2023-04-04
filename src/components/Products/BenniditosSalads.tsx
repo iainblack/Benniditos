@@ -31,7 +31,7 @@ export default function BenniditosSalads({
             sx={{
               border: 1,
               p: 1,
-              mb: 2,
+              mb: 3,
               borderColor: theme.palette.primary.main,
               mx: 12,
             }}

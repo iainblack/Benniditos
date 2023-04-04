@@ -33,7 +33,7 @@ export default function BenniditosDessertSoda({
               p: 1,
               borderColor: theme.palette.primary.main,
               mx: 12,
-              mb: 2,
+              mb: 3,
             }}
           >
             <Typography variant="h4" color="primary">
@@ -85,7 +85,7 @@ export default function BenniditosDessertSoda({
               sx={{
                 border: 1,
                 p: 1,
-                mb: 2,
+                mb: 3,
                 borderColor: theme.palette.primary.main,
                 mx: 12,
               }}
