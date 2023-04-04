@@ -85,17 +85,7 @@ export default function Header(props: HeaderProps) {
   const containerRef = React.useRef(null);
 
   return (
-    <AppBar
-      position="fixed"
-      enableColorOnDark
-      color="transparent"
-      sx={{
-        backdropFilter: "blur(5px)",
-        backgroundColor: theme.palette.primary.main,
-        opacity: 0.95,
-        px: { xs: 4, sm: 4, md: 12 },
-      }}
-    >
+    <>
       <Toolbar disableGutters>
         <IconButton
           disableRipple={true}
@@ -218,6 +208,6 @@ export default function Header(props: HeaderProps) {
           </Button>
         </Box>
       </Toolbar>
-    </AppBar>
+    </>
   );
 }

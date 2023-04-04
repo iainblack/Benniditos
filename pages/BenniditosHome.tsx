@@ -1,4 +1,14 @@
-import { CssBaseline, Box, ThemeProvider, Divider } from "@mui/material";
+import {
+  CssBaseline,
+  Box,
+  ThemeProvider,
+  Divider,
+  Slide,
+  useScrollTrigger,
+  AppBar,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import { PanelContainer } from "@/src/components/styles";
 import theme from "@/Theme";
 import { useEffect } from "react";
@@ -9,6 +19,7 @@ import { BenniditosHours } from "@/src/components/Panels/HoursLocation";
 import TitlePanel from "@/src/components/Panels/TitlePanel";
 import { BenniditosMenu } from "@/src/components/Panels/MenuPanel";
 import { BenniditosOnTap } from "@/src/components/Panels/OnTapPanel";
+import { HideOnScroll, Props } from "@/src/utils/utils";
 
 interface ScrollState {
   hoursTransitionIn: boolean;
@@ -17,7 +28,7 @@ interface ScrollState {
   tabValue: number | false;
 }
 
-export default function BenniditosHome() {
+export default function BenniditosHome(props: Props) {
   const [scrollState, setScrollState] = React.useState<ScrollState>({
     hoursTransitionIn: false,
     menuTransitionIn: false,
@@ -62,18 +73,18 @@ export default function BenniditosHome() {
       const menuTop = menuRef.current?.offsetTop;
       const tapListTop = tapListRef.current?.offsetTop;
       const scrollPosition = window.scrollY;
-      if (hoursTop && scrollPosition < hoursTop + 50) {
+      if (hoursTop && scrollPosition < hoursTop) {
         setScrollState({
           ...scrollState,
           hoursTransitionIn: true,
         });
-      } else if (menuTop && scrollPosition < menuTop + 50) {
+      } else if (menuTop && scrollPosition < menuTop) {
         setScrollState({
           ...scrollState,
           hoursTransitionIn: true,
           menuTransitionIn: true,
         });
-      } else if (tapListTop && scrollPosition < tapListTop + 50) {
+      } else if (tapListTop && scrollPosition < tapListTop) {
         setScrollState({
           ...scrollState,
           hoursTransitionIn: true,
@@ -89,15 +100,26 @@ export default function BenniditosHome() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box
-        id="benniditosHome"
-        sx={{ height: "100vh", width: "100vw", backgroundColor: "white" }}
-      >
-        <Header
-          tabValue={scrollState.tabValue}
-          handleTabChange={handleTabChange}
-        />
-        <PanelContainer noPaddingTop marginTop={"76px"}>
+      <Box id="benniditosHome" sx={{ backgroundColor: "white" }}>
+        <HideOnScroll {...props}>
+          <AppBar
+            position="sticky"
+            enableColorOnDark
+            color="transparent"
+            sx={{
+              backdropFilter: "blur(5px)",
+              backgroundColor: theme.palette.primary.main,
+              opacity: 0.95,
+              px: { xs: 4, sm: 4, md: 12 },
+            }}
+          >
+            <Header
+              tabValue={scrollState.tabValue}
+              handleTabChange={handleTabChange}
+            />
+          </AppBar>
+        </HideOnScroll>
+        <PanelContainer noPaddingTop>
           <TitlePanel
             handleTabChange={handleTabChange}
             backgroundImage={background}
