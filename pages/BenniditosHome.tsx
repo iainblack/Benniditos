@@ -13,7 +13,7 @@ import { BenniditosOnTap } from "@/src/components/Panels/OnTapPanel";
 interface ScrollState {
   hoursTransitionIn: boolean;
   menuTransitionIn: boolean;
-  portfolioTransitionIn: boolean;
+  tapListTransitionIn: boolean;
   tabValue: number | false;
 }
 
@@ -21,13 +21,13 @@ export default function BenniditosHome() {
   const [scrollState, setScrollState] = React.useState<ScrollState>({
     hoursTransitionIn: false,
     menuTransitionIn: false,
-    portfolioTransitionIn: false,
+    tapListTransitionIn: false,
     tabValue: false,
   });
 
   const hoursRef = React.useRef<HTMLDivElement>(null);
   const menuRef = React.useRef<HTMLDivElement>(null);
-  const portfolioRef = React.useRef<HTMLDivElement>(null);
+  const tapListRef = React.useRef<HTMLDivElement>(null);
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     switch (newValue) {
@@ -47,8 +47,8 @@ export default function BenniditosHome() {
           });
         break;
       case 2:
-        portfolioRef.current &&
-          portfolioRef.current.scrollIntoView({
+        tapListRef.current &&
+          tapListRef.current.scrollIntoView({
             behavior: "smooth",
             block: "start",
           });
@@ -60,7 +60,7 @@ export default function BenniditosHome() {
     const handleScroll = () => {
       const hoursTop = hoursRef.current?.offsetTop;
       const menuTop = menuRef.current?.offsetTop;
-      const portfolioTop = portfolioRef.current?.offsetTop;
+      const tapListTop = tapListRef.current?.offsetTop;
       const scrollPosition = window.scrollY;
       if (hoursTop && scrollPosition < hoursTop + 50) {
         setScrollState({
@@ -73,12 +73,12 @@ export default function BenniditosHome() {
           hoursTransitionIn: true,
           menuTransitionIn: true,
         });
-      } else if (portfolioTop && scrollPosition < portfolioTop + 50) {
+      } else if (tapListTop && scrollPosition < tapListTop + 50) {
         setScrollState({
           ...scrollState,
           hoursTransitionIn: true,
           menuTransitionIn: true,
-          portfolioTransitionIn: true,
+          tapListTransitionIn: true,
         });
       }
     };
@@ -111,8 +111,8 @@ export default function BenniditosHome() {
         <PanelContainer id="menu-container" ref={menuRef}>
           <BenniditosMenu transitionIn={scrollState.menuTransitionIn} />
         </PanelContainer>
-        <PanelContainer id="on-tap-container" ref={null}>
-          <BenniditosOnTap transitionIn={true} />
+        <PanelContainer id="on-tap-container" ref={tapListRef}>
+          <BenniditosOnTap transitionIn={scrollState.tapListTransitionIn} />
         </PanelContainer>
       </Box>
     </ThemeProvider>

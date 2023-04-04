@@ -36,7 +36,7 @@ export function BenniditosMenu(props: MenuPanelProps) {
       ref={containerRef}
       sx={{
         height: "fit-content",
-        width: "100vw",
+        width: "100%",
       }}
     >
       <Fade in={props.transitionIn} timeout={1000}>

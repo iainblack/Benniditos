@@ -1,6 +1,7 @@
 import { Box, Typography, Divider } from "@mui/material";
 import { BenniditosMenuProps } from "../../utils/utils";
 import { BenniditosMenuData } from "../../utils/BenniditosMenu";
+import { BenniditosTapListData } from "@/src/utils/BenniditosTapList";
 
 export default function BenniditosTapList({
   theme,
@@ -40,7 +41,7 @@ export default function BenniditosTapList({
               {"On Tap"}
             </Typography>
           </Box>
-          {BenniditosMenuData.desserts.map((item, index) => {
+          {BenniditosTapListData.beers.map((item, index) => {
             return (
               <Box key={item.name} sx={{ mb: 2, px: 1 }}>
                 <Box sx={{ mb: 2 }}>
@@ -65,7 +66,7 @@ export default function BenniditosTapList({
                     </Typography>
                   )}
                 </Box>
-                {index !== BenniditosMenuData.desserts.length - 1 ? (
+                {index !== BenniditosTapListData.beers.length - 1 ? (
                   <Divider sx={{ mx: { xs: 4, md: 8 } }} />
                 ) : null}
               </Box>
@@ -89,21 +90,62 @@ export default function BenniditosTapList({
             </Box>
           </Box>
           <Box>
-            {BenniditosMenuData.soda.options.map((item) => {
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "right",
+                mb: 1,
+                pr: 4,
+              }}
+            >
+              <Typography variant="caption">
+                <b>Clocktower*</b>
+              </Typography>
+            </Box>
+            {BenniditosTapListData.prices.map((item) => {
               return (
-                <Box key={item} sx={{ px: 1 }}>
-                  <Box>
-                    <Typography
-                      variant="body2"
-                      fontSize={12}
-                      sx={{
-                        maxWidth: 400,
-                        mx: "auto",
-                      }}
-                    >
-                      {item}
-                    </Typography>
+                <Box>
+                  <Box
+                    key={item.name}
+                    sx={{
+                      display: "flex",
+                      textAlign: "left",
+                      justifyContent: "space-between",
+                      px: 2,
+                    }}
+                  >
+                    <Box sx={{ mb: 1 }}>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          width: 100,
+                        }}
+                      >
+                        <b>{item.name}</b>
+                      </Typography>
+                    </Box>
+                    <Box sx={{ textAlign: "center" }}>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          width: 100,
+                        }}
+                      >
+                        {item.price}
+                      </Typography>
+                    </Box>
+                    <Box sx={{ textAlign: "center" }}>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          width: 100,
+                        }}
+                      >
+                        {`${item.clocktower}*`}
+                      </Typography>
+                    </Box>
                   </Box>
+                  <Divider sx={{ mb: 1, mx: 2 }} />
                 </Box>
               );
             })}

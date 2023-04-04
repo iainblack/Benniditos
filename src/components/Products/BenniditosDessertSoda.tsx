@@ -108,7 +108,6 @@ export default function BenniditosDessertSoda({
                   <Box>
                     <Typography
                       variant="body2"
-                      fontSize={12}
                       sx={{
                         maxWidth: 400,
                         mx: "auto",

@@ -1,29 +1,29 @@
-export const BenniditosTapList = {
+export const BenniditosTapListData = {
   prices: [
     {
       name: "16oz",
-      price: 6.0,
-      clocktower: 7.0,
+      price: "6.00",
+      clocktower: "7.00",
     },
     {
       name: "20oz",
-      price: 6.5,
-      clocktower: 7.5,
+      price: "6.50",
+      clocktower: "7.50",
     },
     {
       name: "Pitcher",
-      price: 19.0,
-      clocktower: 23.0,
+      price: "19.00",
+      clocktower: "23.00",
     },
     {
       name: "19.6oz Can",
-      price: 7.0,
-      clocktower: 8.0,
+      price: "7.00",
+      clocktower: "8.00",
     },
     {
       name: "Four Pack",
-      price: 14.99,
-      clocktower: 19.99,
+      price: "14.99",
+      clocktower: "19.99",
     },
   ],
   beers: [

@@ -16,7 +16,7 @@ export function BenniditosOnTap(props: MenuPanelProps) {
       ref={containerRef}
       sx={{
         height: { xs: "calc( 140vh - 76px)", md: "calc(90vh - 76px)" },
-        width: "100vw",
+        width: "100%",
       }}
     >
       <Fade in={props.transitionIn} timeout={1000}>
