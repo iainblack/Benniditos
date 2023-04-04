@@ -1,8 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-import { Quicksand } from "next/font/google";
-
-const quicksand = Quicksand({ subsets: ["latin"] });
-const font = [quicksand.style.fontFamily, "sans-serif"].join(",");
 const headerFont = [
   "Calibre",
   "Inter",
