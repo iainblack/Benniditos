@@ -16,6 +16,8 @@ import BenniditosBread from "../Menu/BenniditosBreadPasta";
 import BenniditosSpecialtyPizzaMenu from "../Menu/BenniditosSpecialtyPizzaMenu";
 import BenniditosToppings from "../Menu/BenniditosToppings";
 import BenniditosSalads from "../Menu/BenniditosSalads";
+import BenniditosCalzoneSammies from "../Menu/BenniditosCalzoneSammies";
+import BenniditosDessertSoda from "../Menu/BenniditosDessertSoda";
 interface MenuPanelProps {
   transitionIn: boolean;
 }
@@ -83,7 +85,7 @@ export function BenniditosMenu(props: MenuPanelProps) {
                   label="Calzones & Sandwiches"
                   sx={{ textTransform: "none" }}
                 />
-                <Tab label="Etc." sx={{ textTransform: "none" }} />
+                <Tab label="Desserts & Soda" sx={{ textTransform: "none" }} />
               </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
@@ -102,28 +104,16 @@ export function BenniditosMenu(props: MenuPanelProps) {
               <BenniditosSalads theme={theme} isSmallScreen={isSmallScreen} />
             </TabPanel>
             <TabPanel value={value} index={4}>
-              <Box
-                sx={{
-                  textAlign: "center",
-                  width: "100%",
-                  border: "1px solid",
-                  height: "calc(170vh - 76px)",
-                  py: 2,
-                  position: "relative",
-                }}
-              ></Box>
+              <BenniditosCalzoneSammies
+                theme={theme}
+                isSmallScreen={isSmallScreen}
+              />
             </TabPanel>
             <TabPanel value={value} index={5}>
-              <Box
-                sx={{
-                  textAlign: "center",
-                  width: "100%",
-                  border: "1px solid",
-                  height: "calc(170vh - 76px)",
-                  py: 2,
-                  position: "relative",
-                }}
-              ></Box>
+              <BenniditosDessertSoda
+                theme={theme}
+                isSmallScreen={isSmallScreen}
+              />
             </TabPanel>
           </Box>
         </Box>

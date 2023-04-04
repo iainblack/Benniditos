@@ -107,7 +107,7 @@ export default function BenniditosToppings({
                           mx: "auto",
                         }}
                       >
-                        <b>(Sm: 2.00, Med: 2.65, Lg: 3.00)</b>
+                        <b>(2.00 | 2.65 | 3.00)</b>
                       </Typography>
                     ) : null}
                   </Box>

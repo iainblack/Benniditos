@@ -1,7 +1,7 @@
 import { Box, Typography, Divider } from "@mui/material";
 import { BenniditosMenuData, BenniditosMenuProps } from "../utils";
 
-export default function BenniditosBreadPasta({
+export default function BenniditosCalzoneSammies({
   theme,
   isSmallScreen,
 }: BenniditosMenuProps) {
@@ -37,10 +37,10 @@ export default function BenniditosBreadPasta({
             }}
           >
             <Typography variant="h4" color="primary">
-              {"Bread"}
+              {"Calzones"}
             </Typography>
           </Box>
-          {BenniditosMenuData.breadsAndBreadsticks.map((item, index) => {
+          {BenniditosMenuData.calzones.map((item, index) => {
             return (
               <Box key={item.name} sx={{ mb: 2, px: 1 }}>
                 <Box sx={{ mb: 2 }}>
@@ -68,8 +68,7 @@ export default function BenniditosBreadPasta({
                     <b>{`${item.price}`}</b>
                   </Typography>
                 </Box>
-                {index !==
-                BenniditosMenuData.breadsAndBreadsticks.length - 1 ? (
+                {index !== BenniditosMenuData.calzones.length - 1 ? (
                   <Divider sx={{ mx: { xs: 4, md: 8 } }} />
                 ) : null}
               </Box>
@@ -88,30 +87,19 @@ export default function BenniditosBreadPasta({
               }}
             >
               <Typography variant="h4" color="primary">
-                {"Pasta"}
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                maxWidth: 400,
-                mx: "auto",
-                mb: 1,
-                px: { xs: 1, md: 0 },
-              }}
-            >
-              <Typography variant="caption">
-                Pair one of our delicious <b>Fettuccine or Spaghetti</b> pastas
-                with your choice of signature sauce and a side of our new
-                homemade pizza bread
+                {"Sandwiches"}
               </Typography>
             </Box>
           </Box>
           <Box>
-            {BenniditosMenuData.pasta.sauces.map((item, index) => {
+            {BenniditosMenuData.sandwiches.map((item, index) => {
               return (
                 <Box key={item.name} sx={{ mb: 2, px: 1 }}>
                   <Box sx={{ mb: 2 }}>
-                    <Typography variant="h5" sx={{ mb: 1 }}>
+                    <Typography
+                      variant="h5"
+                      sx={{ mb: item.description ? 0 : 2 }}
+                    >
                       {item.name}
                     </Typography>
                     {item.description && (
@@ -136,50 +124,13 @@ export default function BenniditosBreadPasta({
                       )}
                     </Typography>
                   </Box>
-                  {index !== BenniditosMenuData.pasta.sauces.length - 1 ? (
+                  {index !== BenniditosMenuData.sandwiches.length - 1 ? (
                     <Divider sx={{ mx: { xs: 4, md: 8 } }} />
                   ) : null}
                 </Box>
               );
             })}
           </Box>
-          <Box
-            sx={{
-              border: 1,
-              p: 1,
-              borderColor: theme.palette.primary.main,
-              mx: 12,
-              mt: 3,
-              mb: 2,
-            }}
-          >
-            <Typography variant="h4" color="primary">
-              {"Meatballs"}
-            </Typography>
-          </Box>
-          <Typography
-            variant="body2"
-            fontSize={12}
-            sx={{
-              maxWidth: 400,
-              mx: "auto",
-              height: { xs: "auto", md: 30 },
-            }}
-          >
-            <b>2 - 2.50 • 4 - 5.00 • 6 - 7.50</b>
-          </Typography>
-          <Typography
-            variant="body2"
-            fontSize={12}
-            sx={{
-              maxWidth: 400,
-              mx: "auto",
-              mb: 2,
-              height: { xs: "auto", md: 30 },
-            }}
-          >
-            Add marinara, bolognese, or alfredo for 1.00 more
-          </Typography>
         </Box>
       </Box>
     </Box>
