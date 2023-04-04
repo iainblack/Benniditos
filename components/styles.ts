@@ -2,31 +2,24 @@ import { Box, Fab } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const PanelContainer = styled(Box, {
-  shouldForwardProp: (prop) =>
-    prop !== "backgroundColor" &&
-    prop !== "marginTop" &&
-    prop !== "minHeight" &&
-    prop !== "odd",
+  shouldForwardProp: (prop) => prop !== "noPaddingTop" && prop !== "marginTop",
 })<{
-  backgroundColor?: string;
-  marginTop?: number;
-  minHeight?: string;
-  odd?: boolean;
-}>(({ marginTop, backgroundColor, minHeight, theme, odd }) => ({
-  marginTop: marginTop ? marginTop : 0,
-  padding: theme.spacing(12),
+  noPaddingTop?: boolean;
+  marginTop?: string;
+}>(({ noPaddingTop, marginTop, theme }) => ({
+  marginTop: marginTop ? marginTop : theme.spacing(0),
+  paddingLeft: theme.spacing(6),
+  paddingRight: theme.spacing(6),
+  paddingTop: noPaddingTop ? 0 : theme.spacing(8),
+  paddingBottom: theme.spacing(8),
   [theme.breakpoints.down("sm")]: {
-    padding: theme.spacing(4),
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
+    paddingTop: noPaddingTop ? 0 : theme.spacing(4),
+    paddingBottom: theme.spacing(4),
   },
-  minHeight: minHeight ? minHeight : "calc(100vh - 64px)",
   display: "flex",
-  backgroundColor: backgroundColor
-    ? backgroundColor
-    : odd
-    ? theme.palette.background.paper
-    : theme.palette.background.default,
+  justifyContent: "center",
 }));
 
 export const InfoBox = styled(Box, {

@@ -13,8 +13,8 @@ const headerFont = [
 
 const theme = createTheme({
   typography: {
+    fontFamily: "Special Elite",
     h1: {
-      fontFamily: headerFont,
       fontSize: "4.5rem",
       "@media (max-width:600px)": {
         fontSize: "3rem",
@@ -27,19 +27,18 @@ const theme = createTheme({
       },
     },
     h5: {
-      fontFamily: headerFont,
       fontWeight: 700,
       "@media (max-width:600px)": {
         fontSize: "1.25rem",
       },
     },
     h6: {
-      fontFamily: font,
       "@media (max-width:600px)": {
         fontSize: "1rem",
       },
     },
     body1: {
+      fontFamily: "Special Elite",
       "@media (max-width:600px)": {
         fontSize: "1rem",
       },
@@ -51,7 +50,6 @@ const theme = createTheme({
     },
   },
   palette: {
-    mode: "dark",
     primary: {
       main: "#e1a32b",
     },
@@ -59,11 +57,11 @@ const theme = createTheme({
       main: "#98c855",
     },
     text: {
-      primary: "#EAEAE8",
+      primary: "#000000",
       secondary: "#878277",
     },
     background: {
-      default: "#29241A",
+      default: "FBF4E6",
       paper: "#534C3D",
     },
     info: {
