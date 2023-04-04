@@ -1,5 +1,6 @@
 import { Box, Typography, Divider } from "@mui/material";
-import { BenniditosMenuProps, BenniditosMenuData } from "../utils";
+import { BenniditosMenuProps } from "../../utils/utils";
+import { BenniditosMenuData } from "../../utils/BenniditosMenu";
 
 export default function BenniditosSpecialtyPizzaMenu({
   theme,
@@ -8,7 +9,6 @@ export default function BenniditosSpecialtyPizzaMenu({
   return (
     <Box>
       <Box
-        id="menu-columns"
         sx={{
           width: "100%",
           border: "1px solid",

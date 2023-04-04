@@ -11,13 +11,13 @@ import {
 } from "@mui/material";
 import React from "react";
 import Image, { StaticImageData } from "next/image";
-import { TabPanel, BenniditosMenuData } from "../utils";
-import BenniditosBread from "../Menu/BenniditosBreadPasta";
-import BenniditosSpecialtyPizzaMenu from "../Menu/BenniditosSpecialtyPizzaMenu";
-import BenniditosToppings from "../Menu/BenniditosToppings";
-import BenniditosSalads from "../Menu/BenniditosSalads";
-import BenniditosCalzoneSammies from "../Menu/BenniditosCalzoneSammies";
-import BenniditosDessertSoda from "../Menu/BenniditosDessertSoda";
+import { TabPanel } from "../../utils/utils";
+import BenniditosBread from "../Products/BenniditosBreadPasta";
+import BenniditosSpecialtyPizzaMenu from "../Products/BenniditosSpecialtyPizzaMenu";
+import BenniditosToppings from "../Products/BenniditosToppings";
+import BenniditosSalads from "../Products/BenniditosSalads";
+import BenniditosCalzoneSammies from "../Products/BenniditosCalzoneSammies";
+import BenniditosDessertSoda from "../Products/BenniditosDessertSoda";
 interface MenuPanelProps {
   transitionIn: boolean;
 }
@@ -35,7 +35,7 @@ export function BenniditosMenu(props: MenuPanelProps) {
     <Box
       ref={containerRef}
       sx={{
-        height: { xs: "calc( 140vh - 76px)", md: "calc(90vh - 76px)" },
+        height: "fit-content",
         width: "100vw",
       }}
     >

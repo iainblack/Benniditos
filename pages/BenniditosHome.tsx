@@ -1,13 +1,14 @@
 import { CssBaseline, Box, ThemeProvider, Divider } from "@mui/material";
-import { PanelContainer } from "@/components/styles";
+import { PanelContainer } from "@/src/components/styles";
 import theme from "@/Theme";
 import { useEffect } from "react";
 import React from "react";
-import Header from "@/components/header";
+import Header from "@/src/components/header";
 import background from "@/public/ditosMain.jpg";
-import { BenniditosHours } from "@/components/Panels/HoursLocation";
-import TitlePanel from "@/components/Panels/TitlePanel";
-import { BenniditosMenu } from "@/components/Panels/MenuPanel";
+import { BenniditosHours } from "@/src/components/Panels/HoursLocation";
+import TitlePanel from "@/src/components/Panels/TitlePanel";
+import { BenniditosMenu } from "@/src/components/Panels/MenuPanel";
+import { BenniditosOnTap } from "@/src/components/Panels/OnTapPanel";
 
 interface ScrollState {
   hoursTransitionIn: boolean;
@@ -104,14 +105,14 @@ export default function BenniditosHome() {
             otherLocationPath="/BrewPubHome"
           />
         </PanelContainer>
-        <PanelContainer id="Hours-container" ref={hoursRef}>
+        <PanelContainer id="hours-container" ref={hoursRef}>
           <BenniditosHours transitionIn={scrollState.hoursTransitionIn} />
         </PanelContainer>
         <PanelContainer id="menu-container" ref={menuRef}>
           <BenniditosMenu transitionIn={scrollState.menuTransitionIn} />
         </PanelContainer>
-        <PanelContainer ref={null}>
-          <Box />
+        <PanelContainer id="on-tap-container" ref={null}>
+          <BenniditosOnTap transitionIn={true} />
         </PanelContainer>
       </Box>
     </ThemeProvider>

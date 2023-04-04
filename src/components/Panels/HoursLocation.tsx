@@ -62,6 +62,9 @@ export function BenniditosHours(props: HoursLocationProps) {
               mr: { xs: 0, md: 3 },
               mb: { xs: 8, md: 0 },
               py: 2,
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-evenly",
             }}
           >
             <Box sx={{ justifyContent: "center", mb: 6 }}>

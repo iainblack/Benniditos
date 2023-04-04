@@ -1,9 +1,9 @@
 import { CssBaseline, Box, ThemeProvider } from "@mui/material";
-import { PanelContainer } from "@/components/styles";
+import { PanelContainer } from "@/src/components/styles";
 import theme from "@/Theme";
 import { useEffect } from "react";
 import React from "react";
-import TitlePanel from "@/components/Panels/LogoPanel";
+import TitlePanel from "@/src/components/Panels/LogoPanel";
 import background from "@/public/ditosMain.jpg";
 import logo from "@/public/brewpubLogoCropped.png";
 
