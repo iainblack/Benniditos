@@ -1,4 +1,11 @@
-import { Box, Button, Fade, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  Fade,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -58,9 +65,10 @@ export function BenniditosHours(props: HoursLocationProps) {
             }}
           >
             <Box sx={{ justifyContent: "center", mb: 6 }}>
-              <Typography sx={{ textAlign: "center", mb: 3 }} variant="h4">
+              <Typography sx={{ textAlign: "center", mb: 1 }} variant="h4">
                 Hours
               </Typography>
+              <Divider sx={{ mb: 1, mx: 3 }} />
               <Typography variant="body1" sx={{ mb: 1 }}>
                 <b>Monday - Thursday</b>
               </Typography>
@@ -89,9 +97,10 @@ export function BenniditosHours(props: HoursLocationProps) {
             <Box sx={{ pb: 2 }}>
               <Box>
                 <Box sx={{ alignItems: "center" }}>
-                  <Typography sx={{ textAlign: "center", mb: 3 }} variant="h4">
+                  <Typography sx={{ textAlign: "center", mb: 1 }} variant="h4">
                     Location
                   </Typography>
+                  <Divider sx={{ mb: 1, mx: 3 }} />
                   <Button
                     startIcon={<LocationOnIcon />}
                     onClick={() => {

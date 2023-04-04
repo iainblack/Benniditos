@@ -1,28 +1,34 @@
 import {
   Box,
   Button,
+  Divider,
   Fade,
   Tab,
   Tabs,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import React from "react";
 import Image, { StaticImageData } from "next/image";
-import { TabPanel } from "../utils";
-
+import { TabPanel, BenniditosMenuData } from "../utils";
+import BenniditosBread from "../Menu/BenniditosBreadPasta";
+import BenniditosSpecialtyPizzaMenu from "../Menu/BenniditosSpecialtyPizzaMenu";
+import BenniditosToppings from "../Menu/BenniditosToppings";
+import BenniditosSalads from "../Menu/BenniditosSalads";
 interface MenuPanelProps {
   transitionIn: boolean;
 }
 
 export function BenniditosMenu(props: MenuPanelProps) {
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const theme = useTheme();
   return (
     <Box
       ref={containerRef}
@@ -35,13 +41,67 @@ export function BenniditosMenu(props: MenuPanelProps) {
         <Box>
           <Box>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-              <Tabs value={value} onChange={handleChange} centered>
-                <Tab label="Item One" />
-                <Tab label="Item Two" />
-                <Tab label="Item Three" />
+              <Typography sx={{ textAlign: "center", mb: 3 }} variant="h4">
+                Menu
+              </Typography>
+              <Box sx={{ textAlign: "center", mb: 2 }}>
+                <Box sx={{ mr: { xs: 0, md: 1 } }}>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      fontSize: 12,
+                    }}
+                  >
+                    Crust is available in Traditional Hand Tossed <i>or</i>{" "}
+                    Detroit Style (10”x14”).
+                  </Typography>
+                </Box>
+                <Box>
+                  <Typography
+                    variant="caption"
+                    sx={{
+                      color: theme.palette.text.secondary,
+                      fontSize: 12,
+                    }}
+                  >
+                    GF dough available for $3 extra.
+                  </Typography>
+                </Box>
+              </Box>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                centered
+                variant={isSmallScreen ? "scrollable" : "standard"}
+              >
+                <Tab label="Specialty Pizzas" sx={{ textTransform: "none" }} />
+                <Tab label="Build Your Own" sx={{ textTransform: "none" }} />
+                <Tab label="Bread & Pasta" sx={{ textTransform: "none" }} />
+                <Tab label="Salads" sx={{ textTransform: "none" }} />
+                <Tab
+                  label="Calzones & Sandwiches"
+                  sx={{ textTransform: "none" }}
+                />
+                <Tab label="Etc." sx={{ textTransform: "none" }} />
               </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
+              <BenniditosSpecialtyPizzaMenu
+                theme={theme}
+                isSmallScreen={isSmallScreen}
+              />
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+              <BenniditosToppings theme={theme} isSmallScreen={isSmallScreen} />
+            </TabPanel>
+            <TabPanel value={value} index={2}>
+              <BenniditosBread theme={theme} isSmallScreen={isSmallScreen} />
+            </TabPanel>
+            <TabPanel value={value} index={3}>
+              <BenniditosSalads theme={theme} isSmallScreen={isSmallScreen} />
+            </TabPanel>
+            <TabPanel value={value} index={4}>
               <Box
                 sx={{
                   textAlign: "center",
@@ -51,51 +111,19 @@ export function BenniditosMenu(props: MenuPanelProps) {
                   py: 2,
                   position: "relative",
                 }}
-              >
-                {/* <Box sx={{ justifyContent: "center", mb: 6 }}>
-                  <Typography sx={{ textAlign: "center", mb: 3 }} variant="h4">
-                    Hours
-                  </Typography>
-                  <Typography variant="body1" sx={{ mb: 1 }}>
-                    <b>Monday - Thursday</b>
-                  </Typography>
-                  <Typography variant="body2" sx={{ mb: 2 }}>
-                    11:00 AM - 10:00 PM
-                  </Typography>
-                  <Typography variant="body1" sx={{ mb: 1 }}>
-                    <b>Friday</b>
-                  </Typography>
-                  <Typography variant="body2" sx={{ mb: 2 }}>
-                    11:00 AM - 11:00 PM
-                  </Typography>
-                  <Typography variant="body1" sx={{ mb: 1 }}>
-                    <b>Saturday</b>
-                  </Typography>
-                  <Typography variant="body2" sx={{ mb: 2 }}>
-                    11:00 AM - 10:00 PM
-                  </Typography>
-                  <Typography variant="body1" sx={{ mb: 1 }}>
-                    <b>Sunday</b>
-                  </Typography>
-                  <Typography variant="body2" sx={{ mb: 2 }}>
-                    12:00 PM - 9:00 PM
-                  </Typography>
-                </Box> */}
-                {/* <iframe
-                  src="/pizzaMenu1.pdf#zoom=90"
-                  style={{
-                    height: "100%",
-                    width: "100%",
-                    border: "none",
-                  }}
-                /> */}
-              </Box>
+              ></Box>
             </TabPanel>
-            <TabPanel value={value} index={1}>
-              Item Two
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-              Item Three
+            <TabPanel value={value} index={5}>
+              <Box
+                sx={{
+                  textAlign: "center",
+                  width: "100%",
+                  border: "1px solid",
+                  height: "calc(170vh - 76px)",
+                  py: 2,
+                  position: "relative",
+                }}
+              ></Box>
             </TabPanel>
           </Box>
         </Box>

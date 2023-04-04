@@ -11,6 +11,14 @@ const headerFont = [
   "-apple-system,system-ui,sans-serif",
 ].join(",");
 
+const bodyFont = [
+  "red-hat-display",
+  "Inter",
+  "San Francisco",
+  "SF Pro Text",
+  "-apple-system,system-ui,sans-serif",
+].join(",");
+
 const theme = createTheme({
   typography: {
     fontFamily: "Special Elite",
@@ -44,6 +52,7 @@ const theme = createTheme({
       },
     },
     body2: {
+      fontFamily: bodyFont,
       "@media (max-width:600px)": {
         fontSize: "1rem",
       },
