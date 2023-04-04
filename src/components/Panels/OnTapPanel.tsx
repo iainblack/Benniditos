@@ -9,11 +9,7 @@ interface MenuPanelProps {
 export function BenniditosOnTap(props: MenuPanelProps) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
   const containerRef = React.useRef<HTMLDivElement>(null);
   return (
     <Box

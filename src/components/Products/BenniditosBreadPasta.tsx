@@ -70,7 +70,7 @@ export default function BenniditosBreadPasta({
                 </Box>
                 {index !==
                 BenniditosMenuData.breadsAndBreadsticks.length - 1 ? (
-                  <Divider sx={{ mx: { xs: 4, md: 8 } }} />
+                  <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
                 ) : null}
               </Box>
             );
@@ -137,7 +137,7 @@ export default function BenniditosBreadPasta({
                     </Typography>
                   </Box>
                   {index !== BenniditosMenuData.pasta.sauces.length - 1 ? (
-                    <Divider sx={{ mx: { xs: 4, md: 8 } }} />
+                    <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
                   ) : null}
                 </Box>
               );

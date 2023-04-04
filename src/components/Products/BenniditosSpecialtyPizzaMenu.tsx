@@ -41,7 +41,7 @@ export default function BenniditosSpecialtyPizzaMenu({
                 </Box>
                 {index !==
                 BenniditosMenuData.specialtyPizzas.left.length - 1 ? (
-                  <Divider sx={{ mx: 4 }} />
+                  <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
                 ) : null}
               </Box>
             );
@@ -70,7 +70,7 @@ export default function BenniditosSpecialtyPizzaMenu({
                 </Box>
                 {index !==
                 BenniditosMenuData.specialtyPizzas.right.length - 1 ? (
-                  <Divider sx={{ mx: 4 }} />
+                  <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
                 ) : null}
               </Box>
             );

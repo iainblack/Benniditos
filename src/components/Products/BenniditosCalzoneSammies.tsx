@@ -69,7 +69,7 @@ export default function BenniditosCalzoneSammies({
                   </Typography>
                 </Box>
                 {index !== BenniditosMenuData.calzones.length - 1 ? (
-                  <Divider sx={{ mx: { xs: 4, md: 8 } }} />
+                  <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
                 ) : null}
               </Box>
             );
@@ -125,7 +125,7 @@ export default function BenniditosCalzoneSammies({
                     </Typography>
                   </Box>
                   {index !== BenniditosMenuData.sandwiches.length - 1 ? (
-                    <Divider sx={{ mx: { xs: 4, md: 8 } }} />
+                    <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
                   ) : null}
                 </Box>
               );

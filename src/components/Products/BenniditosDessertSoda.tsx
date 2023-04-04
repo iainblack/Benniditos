@@ -73,7 +73,7 @@ export default function BenniditosDessertSoda({
                   </Typography>
                 </Box>
                 {index !== BenniditosMenuData.desserts.length - 1 ? (
-                  <Divider sx={{ mx: { xs: 4, md: 8 } }} />
+                  <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
                 ) : null}
               </Box>
             );
@@ -98,11 +98,9 @@ export default function BenniditosDessertSoda({
           <Typography variant="body2" sx={{ mb: 1 }}>
             <b>2.99</b>
           </Typography>
-          {isSmallScreen ? (
-            <Divider sx={{ mx: 5, mb: 2 }} />
-          ) : (
-            <Divider sx={{ mb: 1, mx: 8 }} />
-          )}
+          <Divider
+            sx={{ mx: { xs: 4, sm: 20, md: 8 }, mb: { xs: 2, md: 1 } }}
+          />
           <Box>
             {BenniditosMenuData.soda.options.map((item) => {
               return (

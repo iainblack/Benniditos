@@ -63,7 +63,7 @@ export default function BenniditosSalads({
                   </Typography>
                 </Box>
                 {index !== BenniditosMenuData.salads.length - 1 ? (
-                  <Divider sx={{ mx: { xs: 4, md: 8 } }} />
+                  <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
                 ) : null}
               </Box>
             );
