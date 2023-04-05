@@ -1,4 +1,4 @@
-import { Fade, Box, useTheme, useMediaQuery } from "@mui/material";
+import { Fade, Box, useTheme, useMediaQuery, Slide } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
@@ -16,7 +16,15 @@ export default function TitlePanel(props: TitlePanelProps) {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
-    <Fade in {...{ timeout: 2000 }}>
+    <Slide
+      in
+      direction="up"
+      timeout={1000}
+      easing={{
+        enter: "cubic-bezier(0, 1.5, .8, 1)",
+        exit: "linear",
+      }}
+    >
       <Box
         id="title-panel-container"
         sx={{
@@ -47,6 +55,6 @@ export default function TitlePanel(props: TitlePanelProps) {
           />
         </Box>
       </Box>
-    </Fade>
+    </Slide>
   );
 }

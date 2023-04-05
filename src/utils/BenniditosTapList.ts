@@ -28,37 +28,45 @@ export const BenniditosTapListData = {
   ],
   beers: [
     {
-      name: "Kolsch - 5.0% ABV",
+      name: "Kolsch",
+      abv: "5.0% ABV",
       description: "Clean & crisp with a spicy herbal hop character",
     },
     {
-      name: "Citraburst - 6.8& ABV",
+      name: "Citraburst",
+      abv: "6.8% ABV",
       description: "Our flagship IPA loaded with fruity juicy hops",
     },
+    // {
+    //   name: "Dog Days IPA",
+    //   abv: "4.2% ABV",
+    //   description:
+    //     "Light and crisp low alcahol IPA that is perfect for the dog days of summer",
+    // },
     {
-      name: "Dog Days IPA - 4.2% ABV",
-      description:
-        "Light and crisp low alcahol IPA that is perfect for the dog days of summer",
-    },
-    {
-      name: "Good Ole' Pale - 5.3% ABV",
+      name: "Good Ole' Pale",
+      abv: "5.3% ABV",
       description: "Classic citrusy Pale Ale",
     },
     {
-      name: "Amber - 5.5% ABV",
+      name: "Amber",
+      abv: "5.5% ABV",
       description: "Perfectly Balanced with subtle fruitiness",
     },
     {
-      name: "Old Bill's Stout - 6.3% ABV",
+      name: "Old Bill's Stout",
+      abv: "6.3% ABV",
       description: "A sweet milk stout with chocolate and roasted malt flavors",
     },
+    // {
+    //   name: "Hazy 10",
+    //   abv: "6.8% ABV",
+    //   description:
+    //     "Flaked oats & honey malt add body & sweetness to five hop varieties, creating a delicious fruit bomb!",
+    // },
     {
-      name: "Hazy 10 - 6.8% ABV",
-      description:
-        "Flaked oats & honey malt add body & sweetness to five hop varieties, creating a delicious fruit bomb!",
-    },
-    {
-      name: "Clocktower - 8% ABV",
+      name: "Clocktower",
+      abv: "8% ABV",
       description:
         "Our Imperial IPA brewed with tons of citrus & fruity hoppiness",
     },

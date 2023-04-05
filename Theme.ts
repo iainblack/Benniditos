@@ -10,14 +10,12 @@ const theme = createTheme({
     },
     h4: {
       fontWeight: 800,
-      "@media (max-width:600px)": {
-        fontSize: "1.5rem",
-      },
     },
     h5: {
       fontWeight: 700,
+      fontSize: "1.25rem",
       "@media (max-width:600px)": {
-        fontSize: "1.25rem",
+        fontSize: "1rem",
       },
     },
     h6: {

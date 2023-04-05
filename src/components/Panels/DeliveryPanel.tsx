@@ -25,7 +25,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        height: { xs: "140vh", md: "100vh" },
+        height: { xs: "fit-content", md: "100vh" },
       }}
     >
       <Box ref={containerRef}>
@@ -64,7 +64,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 border: "1px solid",
                 height: { xs: "80vh", md: "80vh" },
                 ml: { xs: 0, md: 3 },
-                mb: { xs: 8, md: 0 },
+                mb: { xs: 4, md: 0 },
                 py: 2,
                 display: "flex",
                 flexDirection: "column",
@@ -88,6 +88,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 <Divider sx={{ mb: 1, mx: 3 }} />
                 <Typography
                   variant="body1"
+                  fontSize={12}
                   sx={{ mb: 1, px: 1, fontFamily: "body" }}
                 >
                   Here is some information about our delivery service and where

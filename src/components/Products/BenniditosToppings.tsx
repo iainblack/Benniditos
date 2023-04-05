@@ -12,6 +12,7 @@ export default function BenniditosToppings({
         sx={{
           width: "100%",
           border: "1px solid",
+          borderTop: 0,
           height: "fit-content",
           py: 2,
         }}
@@ -20,15 +21,12 @@ export default function BenniditosToppings({
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Box
               sx={{
-                border: 1,
                 p: 1,
                 mb: 3,
-                borderColor: theme.palette.primary.main,
-                mx: 12,
               }}
             >
-              <Typography variant="h4" color="primary">
-                {"Toppings"}
+              <Typography variant="h4" color="primary" fontFamily={"header"}>
+                {"TOPPINGS"}
               </Typography>
             </Box>
           </Box>
@@ -41,10 +39,13 @@ export default function BenniditosToppings({
             <Box>
               <Box sx={{ textAlign: "center", mb: 3 }}>
                 <Box>
-                  <Typography variant="h5" sx={{ mb: 1 }}>
+                  <Typography
+                    variant="h5"
+                    sx={{ mb: 1, fontFamily: "subheader" }}
+                  >
                     {"Cheeses"}
                   </Typography>
-                  <Divider sx={{ mx: { xs: 20, sm: 30, md: 0 }, mb: 1 }} />
+                  <Divider sx={{ mx: { xs: 8, sm: 30, md: 0 }, mb: 1 }} />
                 </Box>
                 {BenniditosMenuData.toppings.cheese.map((item) => {
                   return (
@@ -56,6 +57,7 @@ export default function BenniditosToppings({
                           sx={{
                             maxWidth: 400,
                             mx: "auto",
+                            fontFamily: "body",
                           }}
                         >
                           {item}
@@ -67,10 +69,13 @@ export default function BenniditosToppings({
               </Box>
               <Box sx={{ textAlign: "center", mb: 3 }}>
                 <Box>
-                  <Typography variant="h5" sx={{ mb: 1 }}>
+                  <Typography
+                    variant="h5"
+                    sx={{ mb: 1, fontFamily: "subheader" }}
+                  >
                     {"Meats"}
                   </Typography>
-                  <Divider sx={{ mx: { xs: 20, sm: 30, md: 0 }, mb: 1 }} />
+                  <Divider sx={{ mx: { xs: 8, sm: 30, md: 0 }, mb: 1 }} />
                 </Box>
                 {BenniditosMenuData.toppings.meats.map((item) => {
                   return (
@@ -82,6 +87,7 @@ export default function BenniditosToppings({
                           sx={{
                             maxWidth: 400,
                             mx: "auto",
+                            fontFamily: "body",
                           }}
                         >
                           {item}
@@ -93,10 +99,13 @@ export default function BenniditosToppings({
               </Box>
               <Box sx={{ textAlign: "center", mb: 3 }}>
                 <Box>
-                  <Typography variant="h5" sx={{ mb: 1 }}>
+                  <Typography
+                    variant="h5"
+                    sx={{ mb: 1, fontFamily: "subheader" }}
+                  >
                     {"Sauces"}
                   </Typography>
-                  <Divider sx={{ mx: { xs: 20, sm: 30, md: 0 }, mb: 1 }} />
+                  <Divider sx={{ mx: { xs: 8, sm: 30, md: 0 }, mb: 1 }} />
                 </Box>
                 {BenniditosMenuData.toppings.sauces.map((item) => {
                   return (
@@ -108,6 +117,7 @@ export default function BenniditosToppings({
                           sx={{
                             maxWidth: 400,
                             mx: "auto",
+                            fontFamily: "body",
                           }}
                         >
                           {item}
@@ -133,10 +143,13 @@ export default function BenniditosToppings({
             <Box>
               <Box sx={{ textAlign: "center", mb: 3 }}>
                 <Box>
-                  <Typography variant="h5" sx={{ mb: 1 }}>
+                  <Typography
+                    variant="h5"
+                    sx={{ mb: 1, fontFamily: "subheader" }}
+                  >
                     {"Veggies"}
                   </Typography>
-                  <Divider sx={{ mx: { xs: 20, sm: 30, md: 0 }, mb: 1 }} />
+                  <Divider sx={{ mx: { xs: 8, sm: 30, md: 0 }, mb: 1 }} />
                 </Box>
                 {BenniditosMenuData.toppings.veggies.map((item) => {
                   return (
@@ -148,6 +161,7 @@ export default function BenniditosToppings({
                           sx={{
                             maxWidth: 400,
                             mx: "auto",
+                            fontFamily: "body",
                           }}
                         >
                           {item}
@@ -158,7 +172,12 @@ export default function BenniditosToppings({
                 })}
                 <Typography
                   variant="caption"
-                  sx={{ mt: 6, display: "flex", justifyContent: "center" }}
+                  sx={{
+                    mt: 6,
+                    display: "flex",
+                    justifyContent: "center",
+                    fontFamily: "subheader",
+                  }}
                 >
                   <b>* add .50¢</b>
                 </Typography>

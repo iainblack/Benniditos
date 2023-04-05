@@ -25,7 +25,7 @@ export function BenniditosHours(props: HoursLocationProps) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        height: { xs: "140vh", md: "100vh" },
+        height: { xs: "fit-content", md: "100vh" },
       }}
     >
       <Box ref={containerRef}>
@@ -34,7 +34,7 @@ export function BenniditosHours(props: HoursLocationProps) {
             sx={{
               display: "flex",
               flexDirection: { xs: "column", md: "row" },
-              justifyContent: "space-between",
+              justifyContent: "space-evenly",
             }}
           >
             <Box
@@ -43,7 +43,6 @@ export function BenniditosHours(props: HoursLocationProps) {
                 height: { xs: "50vh", md: "80vh" },
                 width: { xs: "100%", md: "70%" },
                 order: 2,
-                mb: { xs: 3, md: 0 },
                 border: 1,
               }}
             >
@@ -62,9 +61,9 @@ export function BenniditosHours(props: HoursLocationProps) {
                 textAlign: "center",
                 width: { xs: "100%", md: "30%" },
                 border: "1px solid",
-                height: { xs: "80vh", md: "80vh" },
+                height: { xs: "85vh", md: "80vh" },
                 mr: { xs: 0, md: 3 },
-                mb: { xs: 8, md: 0 },
+                mb: { xs: 4, md: 0 },
                 py: 2,
                 display: "flex",
                 flexDirection: "column",
@@ -137,7 +136,7 @@ export function BenniditosHours(props: HoursLocationProps) {
                       sx={{
                         textAlign: "center",
                         mb: 1,
-                        fontFamily: "Header",
+                        fontFamily: "header",
                       }}
                       variant="h4"
                     >
@@ -145,7 +144,6 @@ export function BenniditosHours(props: HoursLocationProps) {
                     </Typography>
                     <Divider sx={{ mb: 1, mx: 3 }} />
                     <Button
-                      startIcon={<LocationOnIcon />}
                       onClick={() => {
                         window.open(
                           "http://maps.google.com/?q=1426 S Lincoln St, Spokane, WA 99203",
@@ -153,17 +151,15 @@ export function BenniditosHours(props: HoursLocationProps) {
                         );
                       }}
                       sx={{
-                        fontFamily: "body",
+                        fontFamily: "header",
                         textTransform: "none",
-                        whiteSpace: "nowrap",
                       }}
                     >
                       1426 S Lincoln St, Spokane, WA 99203
                     </Button>
                   </Box>
                   <Button
-                    startIcon={<LocalPhoneIcon />}
-                    sx={{ fontFamily: "body" }}
+                    sx={{ fontFamily: "header" }}
                     onClick={() => {
                       window.open("tel:+5094557411", "_blank");
                     }}

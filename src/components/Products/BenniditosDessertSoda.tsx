@@ -20,6 +20,7 @@ export default function BenniditosDessertSoda({
         sx={{
           width: "100%",
           border: "1px solid",
+          borderTop: 0,
           height: "fit-content",
           py: 2,
           display: { xs: "block", md: "flex" },
@@ -29,15 +30,13 @@ export default function BenniditosDessertSoda({
         <Box sx={{ textAlign: "center", mb: { xs: 3, md: 0 } }}>
           <Box
             sx={{
-              border: 1,
               p: 1,
-              borderColor: theme.palette.primary.main,
               mx: 12,
               mb: 3,
             }}
           >
-            <Typography variant="h4" color="primary">
-              {"Desserts"}
+            <Typography variant="h4" color="primary" fontFamily="header">
+              {"DESSERTS"}
             </Typography>
           </Box>
           {BenniditosMenuData.desserts.map((item, index) => {
@@ -46,7 +45,8 @@ export default function BenniditosDessertSoda({
                 <Box sx={{ mb: 2 }}>
                   <Typography
                     variant="h5"
-                    sx={{ mb: item.description ? 0 : 2 }}
+                    fontFamily="subheader"
+                    sx={{ mb: 2 }}
                   >
                     {item.name}
                   </Typography>
@@ -54,6 +54,7 @@ export default function BenniditosDessertSoda({
                     <Typography
                       variant="body2"
                       fontSize={12}
+                      fontFamily="body"
                       sx={{
                         maxWidth: 400,
                         mx: "auto",
@@ -64,7 +65,7 @@ export default function BenniditosDessertSoda({
                       {item.description}
                     </Typography>
                   )}
-                  <Typography variant="body2" fontSize={12}>
+                  <Typography variant="body2" fontSize={12} fontFamily="body">
                     {item.medium && item.large ? (
                       <b>{`${item.small} | ${item.medium} | ${item.large}`}</b>
                     ) : (
@@ -83,19 +84,22 @@ export default function BenniditosDessertSoda({
           <Box sx={{ mb: 2 }}>
             <Box
               sx={{
-                border: 1,
                 p: 1,
                 mb: 3,
-                borderColor: theme.palette.primary.main,
                 mx: 12,
               }}
             >
-              <Typography variant="h4" color="primary" sx={{ px: 4 }}>
-                {"Soda"}
+              <Typography
+                variant="h4"
+                color="primary"
+                sx={{ px: 4 }}
+                fontFamily="header"
+              >
+                {"SODA"}
               </Typography>
             </Box>
           </Box>
-          <Typography variant="body2" sx={{ mb: 1 }}>
+          <Typography variant="body2" sx={{ mb: 1 }} fontFamily="body">
             <b>2.99</b>
           </Typography>
           <Divider
@@ -108,6 +112,7 @@ export default function BenniditosDessertSoda({
                   <Box>
                     <Typography
                       variant="body2"
+                      fontFamily="body"
                       sx={{
                         maxWidth: 400,
                         mx: "auto",

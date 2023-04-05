@@ -20,6 +20,7 @@ export default function BenniditosCalzoneSammies({
         sx={{
           width: "100%",
           border: "1px solid",
+          borderTop: 0,
           height: "fit-content",
           py: 2,
           display: { xs: "block", md: "flex" },
@@ -29,15 +30,13 @@ export default function BenniditosCalzoneSammies({
         <Box sx={{ textAlign: "center", mb: { xs: 3, md: 0 } }}>
           <Box
             sx={{
-              border: 1,
               p: 1,
-              borderColor: theme.palette.primary.main,
               mx: 12,
               mb: 3,
             }}
           >
-            <Typography variant="h4" color="primary">
-              {"Calzones"}
+            <Typography variant="h4" color="primary" fontFamily="header">
+              {"CALZONES"}
             </Typography>
           </Box>
           {BenniditosMenuData.calzones.map((item, index) => {
@@ -46,7 +45,8 @@ export default function BenniditosCalzoneSammies({
                 <Box sx={{ mb: 2 }}>
                   <Typography
                     variant="h5"
-                    sx={{ mb: item.description ? 0 : 2 }}
+                    fontFamily="subheader"
+                    sx={{ mb: 2 }}
                   >
                     {item.name}
                   </Typography>
@@ -54,6 +54,7 @@ export default function BenniditosCalzoneSammies({
                     <Typography
                       variant="body2"
                       fontSize={12}
+                      fontFamily="body"
                       sx={{
                         maxWidth: 400,
                         mx: "auto",
@@ -64,7 +65,7 @@ export default function BenniditosCalzoneSammies({
                       {item.description}
                     </Typography>
                   )}
-                  <Typography variant="body2" fontSize={12}>
+                  <Typography variant="body2" fontSize={12} fontFamily="body">
                     <b>{`${item.price}`}</b>
                   </Typography>
                 </Box>
@@ -79,15 +80,13 @@ export default function BenniditosCalzoneSammies({
           <Box sx={{ mb: 2 }}>
             <Box
               sx={{
-                border: 1,
                 p: 1,
                 mb: 3,
-                borderColor: theme.palette.primary.main,
                 mx: 12,
               }}
             >
-              <Typography variant="h4" color="primary">
-                {"Sandwiches"}
+              <Typography variant="h4" color="primary" fontFamily="header">
+                {"SANDWICHES"}
               </Typography>
             </Box>
           </Box>
@@ -98,7 +97,8 @@ export default function BenniditosCalzoneSammies({
                   <Box sx={{ mb: 2 }}>
                     <Typography
                       variant="h5"
-                      sx={{ mb: item.description ? 0 : 2 }}
+                      fontFamily="subheader"
+                      sx={{ mb: 2 }}
                     >
                       {item.name}
                     </Typography>
@@ -106,6 +106,7 @@ export default function BenniditosCalzoneSammies({
                       <Typography
                         variant="body2"
                         fontSize={12}
+                        fontFamily="body"
                         sx={{
                           maxWidth: 400,
                           mx: "auto",
@@ -116,7 +117,7 @@ export default function BenniditosCalzoneSammies({
                         {item.description}
                       </Typography>
                     )}
-                    <Typography variant="body2" fontSize={12}>
+                    <Typography variant="body2" fontSize={12} fontFamily="body">
                       {item.whole ? (
                         <b>{`${item.half} | ${item.whole}`}</b>
                       ) : (

@@ -20,6 +20,7 @@ export default function BenniditosBreadPasta({
         sx={{
           width: "100%",
           border: "1px solid",
+          borderTop: 0,
           height: "fit-content",
           py: 2,
           display: { xs: "block", md: "flex" },
@@ -27,26 +28,28 @@ export default function BenniditosBreadPasta({
         }}
       >
         <Box sx={{ textAlign: "center", mb: { xs: 3, md: 0 } }}>
-          <Box
-            sx={{
-              border: 1,
-              p: 1,
-              borderColor: theme.palette.primary.main,
-              mx: 12,
-              mb: 2,
-            }}
-          >
-            <Typography variant="h4" color="primary">
-              {"Bread"}
-            </Typography>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Box
+              sx={{
+                p: 1,
+                mb: 3,
+              }}
+            >
+              <Typography variant="h4" color="primary" fontFamily={"header"}>
+                {"BREAD"}
+              </Typography>
+            </Box>
           </Box>
           {BenniditosMenuData.breadsAndBreadsticks.map((item, index) => {
             return (
-              <Box key={item.name} sx={{ mb: 2, px: 1 }}>
+              <Box key={item.name} sx={{ mb: 2, px: 1, height: 125 }}>
                 <Box sx={{ mb: 2 }}>
                   <Typography
                     variant="h5"
-                    sx={{ mb: item.description ? 0 : 2 }}
+                    sx={{
+                      mb: 2,
+                      fontFamily: "subheader",
+                    }}
                   >
                     {item.name}
                   </Typography>
@@ -58,60 +61,66 @@ export default function BenniditosBreadPasta({
                         maxWidth: 400,
                         mx: "auto",
                         mb: 2,
-                        height: { xs: "auto", md: 30 },
+                        fontFamily: "body",
                       }}
                     >
                       {item.description}
                     </Typography>
                   )}
-                  <Typography variant="body2" fontSize={12}>
+                  <Typography variant="body2" fontSize={12} fontFamily="body">
                     <b>{`${item.price}`}</b>
                   </Typography>
                 </Box>
                 {index !==
                 BenniditosMenuData.breadsAndBreadsticks.length - 1 ? (
-                  <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
+                  <Divider
+                    sx={{
+                      mx: { xs: 4, sm: 20, md: 8 },
+                    }}
+                  />
                 ) : null}
               </Box>
             );
           })}
         </Box>
-        <Box sx={{ textAlign: "center" }}>
-          <Box sx={{ mb: 2 }}>
+        <Box sx={{ textAlign: "center", mb: 2 }}>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Box
               sx={{
-                border: 1,
                 p: 1,
                 mb: 3,
-                borderColor: theme.palette.primary.main,
-                mx: 12,
               }}
             >
-              <Typography variant="h4" color="primary">
-                {"Pasta"}
+              <Typography variant="h4" color="primary" fontFamily={"header"}>
+                {"PASTA"}
               </Typography>
             </Box>
-            <Box
-              sx={{
-                maxWidth: 400,
-                mx: "auto",
-                mb: 1,
-                px: { xs: 1, md: 0 },
-              }}
-            >
+          </Box>
+          <Box
+            sx={{
+              maxWidth: 400,
+              mx: "auto",
+              px: { xs: 1, md: 0 },
+            }}
+          >
+            <Box sx={{ mb: 2 }}>
               <Typography variant="caption">
                 Pair one of our delicious <b>Fettuccine or Spaghetti</b> pastas
                 with your choice of signature sauce and a side of our new
                 homemade pizza bread
               </Typography>
             </Box>
+            <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 }, mt: 5 }} />
           </Box>
-          <Box>
+          <Box sx={{ mt: 2 }}>
             {BenniditosMenuData.pasta.sauces.map((item, index) => {
               return (
                 <Box key={item.name} sx={{ mb: 2, px: 1 }}>
                   <Box sx={{ mb: 2 }}>
-                    <Typography variant="h5" sx={{ mb: 1 }}>
+                    <Typography
+                      variant="h5"
+                      sx={{ mb: 2, fontFamily: "subheader" }}
+                    >
                       {item.name}
                     </Typography>
                     {item.description && (
@@ -123,12 +132,13 @@ export default function BenniditosBreadPasta({
                           mx: "auto",
                           mb: 2,
                           height: { xs: "auto", md: 30 },
+                          fontFamily: "body",
                         }}
                       >
                         {item.description}
                       </Typography>
                     )}
-                    <Typography variant="body2" fontSize={12}>
+                    <Typography variant="body2" fontSize={12} fontFamily="body">
                       {item.whole ? (
                         <b>{`${item.half} | ${item.whole}`}</b>
                       ) : (
@@ -145,37 +155,56 @@ export default function BenniditosBreadPasta({
           </Box>
           <Box
             sx={{
-              border: 1,
               p: 1,
-              borderColor: theme.palette.primary.main,
               mx: 12,
               mt: 3,
-              mb: 2,
             }}
           >
-            <Typography variant="h4" color="primary">
-              {"Meatballs"}
+            <Typography variant="h4" color="primary" fontFamily="header">
+              {"MEATBALLS"}
             </Typography>
           </Box>
           <Typography
             variant="body2"
-            fontSize={12}
+            fontFamily="body"
             sx={{
               maxWidth: 400,
               mx: "auto",
-              height: { xs: "auto", md: 30 },
+              mb: 1,
             }}
           >
-            <b>2 - 2.50 • 4 - 5.00 • 6 - 7.50</b>
+            <b>2 - 2.50</b>
+          </Typography>
+          <Typography
+            variant="body2"
+            fontFamily="body"
+            sx={{
+              maxWidth: 400,
+              mx: "auto",
+              my: 1,
+            }}
+          >
+            <b>4 - 5.00</b>
+          </Typography>
+          <Typography
+            variant="body2"
+            fontFamily="body"
+            sx={{
+              maxWidth: 400,
+              mx: "auto",
+              my: 1,
+            }}
+          >
+            <b>6 - 7.50</b>
           </Typography>
           <Typography
             variant="body2"
             fontSize={12}
+            fontFamily="body"
             sx={{
               maxWidth: 400,
               mx: "auto",
-              mb: 2,
-              height: { xs: "auto", md: 30 },
+              mt: 2,
             }}
           >
             Add marinara, bolognese, or alfredo for 1.00 more

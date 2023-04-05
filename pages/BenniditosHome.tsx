@@ -133,7 +133,8 @@ export default function BenniditosHome() {
             color="transparent"
             sx={{
               backgroundColor: theme.palette.primary.main,
-              px: { xs: 6, lg: 6 },
+              pr: { xs: 2, lg: 6 },
+              pl: { xs: 0, lg: 6 },
             }}
           >
             <Header
@@ -155,7 +156,7 @@ export default function BenniditosHome() {
         </PanelContainer>
         <PanelContainer id="delivery-container" ref={deliveryRef}>
           <BenniditosDeliveryPanel
-            transitionIn={scrollState.hoursTransitionIn}
+            transitionIn={scrollState.deliveryTransitionIn}
           />
         </PanelContainer>
         <PanelContainer id="menu-container" ref={menuRef} tallPanel>

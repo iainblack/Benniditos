@@ -30,15 +30,13 @@ export default function BenniditosTapList({
         <Box sx={{ textAlign: "center", mb: { xs: 3, md: 0 } }}>
           <Box
             sx={{
-              border: 1,
               p: 1,
-              borderColor: theme.palette.primary.main,
               mx: 12,
               mb: 3,
             }}
           >
-            <Typography variant="h4" color="primary">
-              {"On Tap"}
+            <Typography variant="h4" color="primary" fontFamily="header">
+              {"ON TAP"}
             </Typography>
           </Box>
           {BenniditosTapListData.beers.map((item, index) => {
@@ -47,7 +45,8 @@ export default function BenniditosTapList({
                 <Box sx={{ mb: 2 }}>
                   <Typography
                     variant="h5"
-                    sx={{ mb: item.description ? 0 : 2 }}
+                    fontFamily="subheader"
+                    sx={{ mb: 2 }}
                   >
                     {item.name}
                   </Typography>
@@ -65,6 +64,9 @@ export default function BenniditosTapList({
                       {item.description}
                     </Typography>
                   )}
+                  <Typography variant="body2" fontFamily="header" fontSize={12}>
+                    <b>{`${item.abv}`}</b>
+                  </Typography>
                 </Box>
                 {index !== BenniditosTapListData.beers.length - 1 ? (
                   <Divider sx={{ mx: { xs: 4, md: 8 } }} />
@@ -77,15 +79,18 @@ export default function BenniditosTapList({
           <Box sx={{ mb: 2 }}>
             <Box
               sx={{
-                border: 1,
                 p: 1,
                 mb: 3,
-                borderColor: theme.palette.primary.main,
                 mx: 12,
               }}
             >
-              <Typography variant="h4" color="primary" sx={{ px: 4 }}>
-                {"Prices"}
+              <Typography
+                variant="h4"
+                color="primary"
+                sx={{ px: 4 }}
+                fontFamily="header"
+              >
+                {"PRICES"}
               </Typography>
             </Box>
           </Box>
@@ -95,11 +100,15 @@ export default function BenniditosTapList({
                 display: "flex",
                 justifyContent: "right",
                 mb: 1,
-                pr: 4,
+                pr: 1,
               }}
             >
-              <Typography variant="caption">
-                <b>Clocktower*</b>
+              <Typography
+                variant="caption"
+                fontFamily="body"
+                sx={{ textDecoration: "underline" }}
+              >
+                <b>Clocktower</b>
               </Typography>
             </Box>
             {BenniditosTapListData.prices.map((item) => {
@@ -116,6 +125,7 @@ export default function BenniditosTapList({
                     <Box sx={{ mb: 1 }}>
                       <Typography
                         variant="body2"
+                        fontFamily="body"
                         sx={{
                           width: 100,
                         }}
@@ -126,6 +136,7 @@ export default function BenniditosTapList({
                     <Box sx={{ textAlign: "center" }}>
                       <Typography
                         variant="body2"
+                        fontFamily="body"
                         sx={{
                           width: 100,
                         }}
@@ -133,18 +144,19 @@ export default function BenniditosTapList({
                         {item.price}
                       </Typography>
                     </Box>
-                    <Box sx={{ textAlign: "center" }}>
+                    <Box sx={{ textAlign: "right" }}>
                       <Typography
                         variant="body2"
+                        fontFamily="body"
                         sx={{
                           width: 100,
                         }}
                       >
-                        {`${item.clocktower}*`}
+                        {`${item.clocktower}`}
                       </Typography>
                     </Box>
                   </Box>
-                  <Divider sx={{ mb: 1, mx: 2 }} />
+                  <Divider sx={{ mb: 1, mx: 2, borderBottomStyle: "dashed" }} />
                 </Box>
               );
             })}

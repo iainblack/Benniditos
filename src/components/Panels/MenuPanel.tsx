@@ -77,7 +77,7 @@ export function BenniditosMenu(props: MenuPanelProps) {
               <Tabs
                 value={value}
                 onChange={handleChange}
-                centered
+                centered={isSmallScreen ? false : true}
                 variant={isSmallScreen ? "scrollable" : "standard"}
                 sx={{ backgroundColor: "white", border: 1, borderBottom: 0 }}
               >

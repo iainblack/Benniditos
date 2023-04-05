@@ -20,6 +20,7 @@ export default function BenniditosSalads({
         sx={{
           width: "100%",
           border: "1px solid",
+          borderTop: 0,
           height: "fit-content",
           py: 2,
           display: { xs: "block", md: "flex" },
@@ -29,15 +30,14 @@ export default function BenniditosSalads({
         <Box sx={{ textAlign: "center" }}>
           <Box
             sx={{
-              border: 1,
               p: 1,
               mb: 3,
               borderColor: theme.palette.primary.main,
               mx: 12,
             }}
           >
-            <Typography variant="h4" color="primary">
-              {"Salads"}
+            <Typography variant="h4" color="primary" fontFamily="header">
+              {"SALADS"}
             </Typography>
           </Box>
           {BenniditosMenuData.salads.map((item, index) => {
@@ -50,6 +50,7 @@ export default function BenniditosSalads({
                   <Typography
                     variant="body2"
                     fontSize={12}
+                    fontFamily="body"
                     sx={{
                       maxWidth: 400,
                       mx: "auto",
@@ -58,7 +59,7 @@ export default function BenniditosSalads({
                   >
                     {item.description}
                   </Typography>
-                  <Typography variant="body2" fontSize={12}>
+                  <Typography variant="body2" fontSize={12} fontFamily="body">
                     <b>{`${item.small} | ${item.medium} | ${item.large}`}</b>
                   </Typography>
                 </Box>

@@ -21,17 +21,15 @@ export default function BenniditosSpecialtyPizzaMenu({
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Box
               sx={{
-                borderBottom: 1,
                 p: 1,
                 mb: 3,
-                borderColor: theme.palette.primary.main,
                 mx: 12,
               }}
             >
               <Typography
                 variant="h4"
                 color="primary"
-                sx={{ fontFamily: "header" }}
+                sx={{ fontFamily: "header", textAlign: "center" }}
               >
                 {"SPECIALTY PIZZAS"}
               </Typography>
@@ -76,12 +74,12 @@ export default function BenniditosSpecialtyPizzaMenu({
                       </Typography>
                     </Box>
                     {isSmallScreen && (
-                      <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
+                      <Divider sx={{ mx: { xs: 6, sm: 20, md: 8 } }} />
                     )}
                     {!isSmallScreen &&
                     index !==
                       BenniditosMenuData.specialtyPizzas.left.length - 1 ? (
-                      <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
+                      <Divider sx={{ mx: { xs: 6, sm: 20, md: 8 } }} />
                     ) : null}
                   </Box>
                 );
@@ -119,6 +117,9 @@ export default function BenniditosSpecialtyPizzaMenu({
                         <b>{`${item.small} | ${item.medium} | ${item.large}`}</b>
                       </Typography>
                     </Box>
+                    {isSmallScreen && (
+                      <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
+                    )}
                     {!isSmallScreen &&
                     index !==
                       BenniditosMenuData.specialtyPizzas.right.length - 1 ? (
