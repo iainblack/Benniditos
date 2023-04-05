@@ -10,12 +10,13 @@ import Image, { StaticImageData } from "next/image";
 import React from "react";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import SectionHeader from "../SectionHeader";
 
-interface HoursLocationProps {
+interface AboutUsProps {
   transitionIn: boolean;
 }
 
-export function BenniditosHours(props: HoursLocationProps) {
+export function BenniditosAboutUs(props: AboutUsProps) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const theme = useTheme();
   return (
@@ -25,7 +26,7 @@ export function BenniditosHours(props: HoursLocationProps) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        height: "objectFit",
+        height: "fit-content",
       }}
     >
       <Box ref={containerRef}>
@@ -33,33 +34,15 @@ export function BenniditosHours(props: HoursLocationProps) {
           <Box
             sx={{
               display: "flex",
-              flexDirection: { xs: "column", md: "row" },
+              flexDirection: { xs: "column" },
               justifyContent: "space-evenly",
             }}
           >
-            <Box
-              sx={{
-                position: "relative",
-                height: { xs: "50vh", md: "80vh" },
-                width: { xs: "100%", md: "70%" },
-                order: 2,
-                border: 1,
-              }}
-            >
-              <Image
-                src={"/ditosMain.jpg"}
-                fill
-                alt="ditos"
-                style={{
-                  objectFit: "cover",
-                  objectPosition: "center",
-                }}
-              />
-            </Box>
+            <SectionHeader title="ABOUT US" imagePath={"/ditosMain.jpg"} />
             <Box
               sx={{
                 textAlign: "center",
-                width: { xs: "100%", md: "30%" },
+                width: "100%",
                 border: "1px solid",
                 height: { xs: "85vh", md: "80vh" },
                 mr: { xs: 0, md: 3 },
@@ -69,6 +52,7 @@ export function BenniditosHours(props: HoursLocationProps) {
                 flexDirection: "column",
                 justifyContent: "space-evenly",
                 backgroundColor: "white",
+                order: 2,
               }}
             >
               <Box
@@ -85,54 +69,37 @@ export function BenniditosHours(props: HoursLocationProps) {
                   }}
                   variant="h4"
                 >
-                  HOURS
+                  OUR MISSION
                 </Typography>
                 <Divider
                   sx={{
                     mb: 1,
-                    mx: { xs: "15%", sm: "30%", md: "20%" },
+                    mx: { xs: "15%", sm: "30%" },
                     borderBottomStyle: "dashed",
                   }}
                 />
                 <Typography
+                  sx={{
+                    textAlign: "center",
+                    px: 6,
+                    fontFamily: "body",
+                  }}
                   variant="body1"
-                  fontFamily="subheader"
-                  sx={{ mb: 1 }}
                 >
-                  <b>Monday - Thursday</b>
-                </Typography>
-                <Typography variant="body2" sx={{ mb: 2 }}>
-                  11:00 AM - 10:00 PM
-                </Typography>
-                <Typography
-                  variant="body1"
-                  fontFamily="subheader"
-                  sx={{ mb: 1 }}
-                >
-                  <b>Friday</b>
-                </Typography>
-                <Typography variant="body2" sx={{ mb: 2 }}>
-                  11:00 AM - 11:00 PM
-                </Typography>
-                <Typography
-                  variant="body1"
-                  fontFamily="subheader"
-                  sx={{ mb: 1 }}
-                >
-                  <b>Saturday</b>
-                </Typography>
-                <Typography variant="body2" sx={{ mb: 2 }}>
-                  11:00 AM - 10:00 PM
-                </Typography>
-                <Typography
-                  variant="body1"
-                  fontFamily="subheader"
-                  sx={{ mb: 1 }}
-                >
-                  <b>Sunday</b>
-                </Typography>
-                <Typography variant="body2" sx={{ mb: 2 }}>
-                  12:00 PM - 9:00 PM
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse ut risus convallis, aliquet felis sit amet,
+                  vulputate tellus. Sed mattis quis nunc eu maximus. Ut eget
+                  feugiat nisi, nec varius nibh. Proin pharetra scelerisque
+                  metus vitae finibus. Aliquam suscipit est vitae ligula iaculis
+                  sollicitudin. Vivamus eget convallis turpis. Phasellus sed
+                  libero dui. Vestibulum ante ipsum primis in faucibus orci
+                  luctus et ultrices posuere cubilia curae; Sed at mauris sit
+                  amet odio egestas egestas. Mauris ullamcorper leo vel
+                  efficitur ullamcorper. Suspendisse vehicula dolor arcu,
+                  hendrerit lobortis eros consequat eget. Praesent venenatis est
+                  a augue eleifend consectetur. Phasellus porttitor id lectus
+                  non congue. Nullam faucibus quis tortor sed accumsan. Nulla
+                  sapien lectus, mattis non turpis vitae, tempus mollis neque.
                 </Typography>
               </Box>
               <Box>
@@ -146,12 +113,12 @@ export function BenniditosHours(props: HoursLocationProps) {
                       }}
                       variant="h4"
                     >
-                      LOCATION
+                      CONTACT US
                     </Typography>
                     <Divider
                       sx={{
                         mb: 1,
-                        mx: { xs: "15%", sm: "30%", md: "20%" },
+                        mx: { xs: "15%", sm: "30%" },
                         borderBottomStyle: "dashed",
                       }}
                     />

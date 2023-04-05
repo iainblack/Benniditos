@@ -26,33 +26,54 @@ export default function TitlePanel(props: TitlePanelProps) {
       }}
     >
       <Box
-        id="title-panel-container"
         sx={{
           width: "100%",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          height: "calc(100vh - 76px)",
+          p: 3,
+          pb: 0,
         }}
       >
         <Box
-          id="image-slide-container"
           sx={{
-            position: "relative",
-            height: "90%",
-            width: "100%",
-            border: 1,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            border: 3,
           }}
         >
-          <Image
-            src={"/ditosMain.jpg"}
-            fill
-            alt="ditos"
-            style={{
-              objectFit: "cover",
-              objectPosition: "center",
+          <Box
+            id="title-panel-container"
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              height: "calc(90vh - 76px)",
+              px: 4,
             }}
-          />
+          >
+            <Box
+              id="image-slide-container"
+              sx={{
+                position: "relative",
+                height: "90%",
+                width: "100%",
+                border: 1,
+              }}
+            >
+              <Image
+                src={"/ditosMain.jpg"}
+                fill
+                alt="ditos"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center",
+                }}
+              />
+            </Box>
+          </Box>
         </Box>
       </Box>
     </Slide>

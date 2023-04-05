@@ -25,7 +25,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        height: { xs: "fit-content", md: "100vh" },
+        height: "fit-content",
       }}
     >
       <Box ref={containerRef}>
@@ -96,14 +96,20 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                   fontSize={12}
                   sx={{
                     mx: "auto",
-                    px: 1,
+                    px: 2,
                     fontFamily: "body",
                     maxWidth: 400,
                   }}
                 >
-                  Here is some information about our delivery service and where
-                  we deliver to. Blah Blah Blah Blah Blah Blah Blah Blah Blah
-                  Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse ut risus convallis, aliquet felis sit amet,
+                  vulputate tellus. Sed mattis quis nunc eu maximus. Ut eget
+                  feugiat nisi, nec varius nibh. Proin pharetra scelerisque
+                  metus vitae finibus. Aliquam suscipit est vitae ligula iaculis
+                  sollicitudin. Vivamus eget convallis turpis. Phasellus sed
+                  libero dui. Vestibulum ante ipsum primis in faucibus orci
+                  luctus et ultrices posuere cubilia curae; Sed at mauris sit
+                  amet odio egestas egestas.
                 </Typography>
               </Box>
               <Box

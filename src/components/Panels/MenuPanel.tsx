@@ -3,6 +3,11 @@ import {
   Button,
   Divider,
   Fade,
+  FormControl,
+  Input,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
   Tab,
   Tabs,
   Typography,
@@ -19,6 +24,7 @@ import BenniditosSalads from "../Products/BenniditosSalads";
 import BenniditosCalzoneSammies from "../Products/BenniditosCalzoneSammies";
 import BenniditosDessertSoda from "../Products/BenniditosDessertSoda";
 import { InfoBox } from "../styles";
+import SectionHeader from "../SectionHeader";
 interface MenuPanelProps {
   transitionIn: boolean;
 }
@@ -26,86 +32,153 @@ interface MenuPanelProps {
 export function BenniditosMenu(props: MenuPanelProps) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const isLargeSreen = useMediaQuery(theme.breakpoints.up("lg"));
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
+  const handleSelectChange = (event: SelectChangeEvent) => {
+    setValue(parseInt(event.target.value));
+  };
+
   const containerRef = React.useRef<HTMLDivElement>(null);
   return (
     <Box
       sx={{
         height: "fit-content",
         width: "100%",
-        py: 3,
       }}
     >
       <Box ref={containerRef}>
         <Fade in={props.transitionIn} timeout={1000}>
           <Box>
+            <SectionHeader title="MENU" imagePath={"/ditosMain.jpg"} />
             <Box sx={{ backgroundColor: "white" }}>
-              <InfoBox>
-                <Typography sx={{ textAlign: "center", mb: 3 }} variant="h4">
-                  Menu
-                </Typography>
-                <Box sx={{ textAlign: "center", mb: 2 }}>
-                  <Box sx={{ mr: { xs: 0, md: 1 } }}>
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        color: theme.palette.text.secondary,
-                        fontSize: 12,
-                      }}
+              {isLargeSreen && (
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  centered={isSmallScreen ? false : true}
+                  variant={isSmallScreen ? "scrollable" : "standard"}
+                  sx={{ backgroundColor: "white", border: 1, borderBottom: 0 }}
+                >
+                  <Tab
+                    label="Specialty Pizzas"
+                    sx={{ textTransform: "none", fontFamily: "subheader" }}
+                  />
+                  <Tab
+                    label="Build Your Own"
+                    sx={{ textTransform: "none", fontFamily: "subheader" }}
+                  />
+                  <Tab
+                    label="Bread & Pasta"
+                    sx={{ textTransform: "none", fontFamily: "subheader" }}
+                  />
+                  <Tab
+                    label="Salads"
+                    sx={{ textTransform: "none", fontFamily: "subheader" }}
+                  />
+                  <Tab
+                    label="Calzones & Sandwiches"
+                    sx={{ textTransform: "none", fontFamily: "subheader" }}
+                  />
+                  <Tab
+                    label="Desserts & Soda"
+                    sx={{ textTransform: "none", fontFamily: "subheader" }}
+                  />
+                </Tabs>
+              )}
+              {!isLargeSreen && (
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    minWidth: 120,
+                    border: 1,
+                    borderBottom: 0,
+                    backgroundColor: "white",
+                    pt: 2,
+                  }}
+                >
+                  <FormControl sx={{ textAlign: "center" }}>
+                    <Select
+                      value={value.toString()}
+                      onChange={handleSelectChange}
+                      variant="standard"
+                      inputProps={{ MenuProps: { disableScrollLock: true } }}
+                      sx={{ fontFamily: "subheader", color: "text.secondary" }}
                     >
-                      Crust is available in Traditional Hand Tossed <i>or</i>{" "}
-                      Detroit Style (10”x14”).
-                    </Typography>
-                  </Box>
-                  <Box>
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        color: theme.palette.text.secondary,
-                        fontSize: 12,
-                      }}
-                    >
-                      GF dough available for $3 extra.
-                    </Typography>
-                  </Box>
+                      <MenuItem
+                        value={0}
+                        sx={{
+                          color: "text.secondary",
+                          fontFamily: "subheader",
+                          display: "flex",
+                          justifyContent: "center",
+                        }}
+                      >
+                        Specialty Pizzas
+                      </MenuItem>
+                      <MenuItem
+                        value={1}
+                        sx={{
+                          fontFamily: "subheader",
+                          color: "text.secondary",
+                          display: "flex",
+                          justifyContent: "center",
+                        }}
+                      >
+                        Build Your Own
+                      </MenuItem>
+                      <MenuItem
+                        value={2}
+                        sx={{
+                          color: "text.secondary",
+                          fontFamily: "subheader",
+                          display: "flex",
+                          justifyContent: "center",
+                        }}
+                      >
+                        Bread & Pasta
+                      </MenuItem>
+                      <MenuItem
+                        value={3}
+                        sx={{
+                          color: "text.secondary",
+                          fontFamily: "subheader",
+                          display: "flex",
+                          justifyContent: "center",
+                        }}
+                      >
+                        Salads
+                      </MenuItem>
+                      <MenuItem
+                        value={4}
+                        sx={{
+                          color: "text.secondary",
+                          fontFamily: "subheader",
+                          display: "flex",
+                          justifyContent: "center",
+                        }}
+                      >
+                        Calzones & Sandwiches
+                      </MenuItem>
+                      <MenuItem
+                        value={5}
+                        sx={{
+                          color: "text.secondary",
+                          fontFamily: "subheader",
+                          display: "flex",
+                          justifyContent: "center",
+                        }}
+                      >
+                        Desserts & Soda
+                      </MenuItem>
+                    </Select>
+                  </FormControl>
                 </Box>
-              </InfoBox>
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                centered={isSmallScreen ? false : true}
-                variant={isSmallScreen ? "scrollable" : "standard"}
-                sx={{ backgroundColor: "white", border: 1, borderBottom: 0 }}
-              >
-                <Tab
-                  label="Specialty Pizzas"
-                  sx={{ textTransform: "none", fontFamily: "subheader" }}
-                />
-                <Tab
-                  label="Build Your Own"
-                  sx={{ textTransform: "none", fontFamily: "subheader" }}
-                />
-                <Tab
-                  label="Bread & Pasta"
-                  sx={{ textTransform: "none", fontFamily: "subheader" }}
-                />
-                <Tab
-                  label="Salads"
-                  sx={{ textTransform: "none", fontFamily: "subheader" }}
-                />
-                <Tab
-                  label="Calzones & Sandwiches"
-                  sx={{ textTransform: "none", fontFamily: "subheader" }}
-                />
-                <Tab
-                  label="Desserts & Soda"
-                  sx={{ textTransform: "none", fontFamily: "subheader" }}
-                />
-              </Tabs>
+              )}
 
               <TabPanel value={value} index={0}>
                 <BenniditosSpecialtyPizzaMenu

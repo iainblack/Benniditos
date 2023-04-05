@@ -22,6 +22,7 @@ import { BenniditosOnTap } from "@/src/components/Panels/OnTapPanel";
 import { HideOnScroll } from "@/src/utils/utils";
 import { BenniditosDeliveryPanel } from "@/src/components/Panels/DeliveryPanel";
 import bg3 from "@/public/bg3.jpeg";
+import { BenniditosAboutUs } from "@/src/components/Panels/BenniditosAboutUs";
 
 interface ScrollState {
   hoursTransitionIn: boolean;
@@ -129,7 +130,7 @@ export default function BenniditosHome() {
       >
         <HideOnScroll>
           <AppBar
-            position="sticky"
+            //position="sticky"
             color="transparent"
             sx={{
               backgroundColor: theme.palette.primary.main,
@@ -143,7 +144,7 @@ export default function BenniditosHome() {
             />
           </AppBar>
         </HideOnScroll>
-        <PanelContainer id="title-container" noPaddingTop>
+        <PanelContainer id="title-container" noPaddingTop marginTop={"76px"}>
           <TitlePanel
             handleTabChange={handleTabChange}
             backgroundImage={background}
@@ -159,11 +160,14 @@ export default function BenniditosHome() {
             transitionIn={scrollState.deliveryTransitionIn}
           />
         </PanelContainer>
-        <PanelContainer id="menu-container" ref={menuRef} tallPanel>
+        <PanelContainer id="menu-container" ref={menuRef}>
           <BenniditosMenu transitionIn={scrollState.menuTransitionIn} />
         </PanelContainer>
-        <PanelContainer id="on-tap-container" ref={tapListRef} tallPanel>
+        <PanelContainer id="on-tap-container" ref={tapListRef}>
           <BenniditosOnTap transitionIn={scrollState.tapListTransitionIn} />
+        </PanelContainer>
+        <PanelContainer id="about-container" ref={null}>
+          <BenniditosAboutUs transitionIn={scrollState.deliveryTransitionIn} />
         </PanelContainer>
       </Box>
     </ThemeProvider>

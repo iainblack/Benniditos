@@ -13,10 +13,12 @@ import {
   Tabs,
   Slide,
   useTheme,
+  Typography,
 } from "@mui/material";
 import React, { useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import Image from "next/image";
+import bg3 from "@/public/bg3.jpeg";
 
 interface HeaderProps {
   tabValue: number | false;
@@ -48,38 +50,59 @@ export default function Header(props: HeaderProps) {
   }, [drawerOpen]);
 
   const list = () => (
-    <Box role="presentation" color={"text.primary"}>
+    <Box
+      role="presentation"
+      color={"text.primary"}
+      sx={{ width: 250, borderLeft: 1 }}
+    >
       <List>
         {sections.map((text, index) => (
           <ListItem key={text} disablePadding alignItems="center">
             <ListItemButton
+              sx={{
+                border: 1,
+                my: 1,
+                mx: "10%",
+                backgroundColor: "white",
+              }}
               onClick={(e) => {
                 scrollAfterClose.current = { event: e, index: index };
                 setDrawerOpen(false);
               }}
             >
-              <ListItemText
-                primary={text}
-                primaryTypographyProps={{
-                  fontFamily: theme.typography.body2.fontFamily,
-                  textAlign: "center",
-                }}
-              />
+              <ListItemText>
+                <Typography
+                  sx={{
+                    fontFamily: "header",
+                    color: "text.primary",
+                    textAlign: "center",
+                  }}
+                >
+                  {text}
+                </Typography>
+              </ListItemText>
             </ListItemButton>
           </ListItem>
         ))}
-        <ListItem disablePadding alignItems="center">
+        <ListItem disablePadding>
           <ListItemButton
+            sx={{
+              backgroundColor: "white",
+              mx: "10%",
+              whiteSpace: "nowrap",
+              border: 1,
+              my: 1,
+            }}
             onClick={() => {
               setDrawerOpen(false);
             }}
           >
             <ListItemText
-              primary="Get In Touch"
+              primary="Order Online"
               primaryTypographyProps={{
-                fontFamily: theme.typography.body2.fontFamily,
                 textAlign: "center",
-                color: theme.palette.info.main,
+                color: "primary.main",
+                fontFamily: "header",
               }}
             />
           </ListItemButton>
@@ -132,9 +155,17 @@ export default function Header(props: HeaderProps) {
             <MenuIcon />
           </IconButton>
           <Drawer
-            anchor="top"
+            anchor="right"
             open={drawerOpen}
             onClose={() => setDrawerOpen(false)}
+            PaperProps={{
+              sx: {
+                width: 250,
+                backgroundImage: `url(${bg3.src})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              },
+            }}
           >
             {list()}
           </Drawer>
@@ -207,6 +238,10 @@ export default function Header(props: HeaderProps) {
               color: "white",
               borderColor: "white",
               whiteSpace: "nowrap",
+              "$:hover": {
+                backgroundColor: "primary.main",
+                color: "white",
+              },
             }}
             onClick={(e) => {}}
           >

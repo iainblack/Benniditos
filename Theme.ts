@@ -12,27 +12,14 @@ const theme = createTheme({
       fontWeight: 700,
       fontSize: "1.25rem",
     },
-    h6: {},
-    body1: {},
-    body2: {},
   },
   palette: {
     primary: {
       main: "#e1a32b",
     },
-    secondary: {
-      main: "#98c855",
-    },
     text: {
       primary: "#000000",
       secondary: "#878277",
-    },
-    background: {
-      default: "FBF4E6",
-      paper: "#534C3D",
-    },
-    info: {
-      main: "#FFC86F",
     },
   },
   breakpoints: {
@@ -40,7 +27,7 @@ const theme = createTheme({
       xs: 0,
       sm: 600,
       md: 930,
-      lg: 1015,
+      lg: 1120,
       xl: 1536,
     },
   },
