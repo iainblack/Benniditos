@@ -4,9 +4,6 @@ const theme = createTheme({
   typography: {
     h1: {
       fontSize: "4.5rem",
-      "@media (max-width:600px)": {
-        fontSize: "3rem",
-      },
     },
     h4: {
       fontWeight: 800,
@@ -14,25 +11,10 @@ const theme = createTheme({
     h5: {
       fontWeight: 700,
       fontSize: "1.25rem",
-      "@media (max-width:600px)": {
-        fontSize: "1rem",
-      },
     },
-    h6: {
-      "@media (max-width:600px)": {
-        fontSize: "1rem",
-      },
-    },
-    body1: {
-      "@media (max-width:600px)": {
-        fontSize: "1rem",
-      },
-    },
-    body2: {
-      "@media (max-width:600px)": {
-        fontSize: "1rem",
-      },
-    },
+    h6: {},
+    body1: {},
+    body2: {},
   },
   palette: {
     primary: {

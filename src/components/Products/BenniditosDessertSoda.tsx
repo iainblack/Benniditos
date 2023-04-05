@@ -31,7 +31,6 @@ export default function BenniditosDessertSoda({
           <Box
             sx={{
               p: 1,
-              mx: 12,
               mb: 3,
             }}
           >
@@ -86,7 +85,6 @@ export default function BenniditosDessertSoda({
               sx={{
                 p: 1,
                 mb: 3,
-                mx: 12,
               }}
             >
               <Typography

@@ -23,7 +23,6 @@ export default function BenniditosSpecialtyPizzaMenu({
               sx={{
                 p: 1,
                 mb: 3,
-                mx: 12,
               }}
             >
               <Typography
@@ -74,12 +73,22 @@ export default function BenniditosSpecialtyPizzaMenu({
                       </Typography>
                     </Box>
                     {isSmallScreen && (
-                      <Divider sx={{ mx: { xs: 6, sm: 20, md: 8 } }} />
+                      <Divider
+                        sx={{
+                          mb: 1,
+                          mx: { xs: "15%", sm: "30%", md: "20%" },
+                        }}
+                      />
                     )}
                     {!isSmallScreen &&
                     index !==
                       BenniditosMenuData.specialtyPizzas.left.length - 1 ? (
-                      <Divider sx={{ mx: { xs: 6, sm: 20, md: 8 } }} />
+                      <Divider
+                        sx={{
+                          mb: 1,
+                          mx: { xs: "15%", sm: "30%", md: "20%" },
+                        }}
+                      />
                     ) : null}
                   </Box>
                 );
@@ -118,12 +127,22 @@ export default function BenniditosSpecialtyPizzaMenu({
                       </Typography>
                     </Box>
                     {isSmallScreen && (
-                      <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
+                      <Divider
+                        sx={{
+                          mb: 1,
+                          mx: { xs: "15%", sm: "30%", md: "20%" },
+                        }}
+                      />
                     )}
                     {!isSmallScreen &&
                     index !==
                       BenniditosMenuData.specialtyPizzas.right.length - 1 ? (
-                      <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
+                      <Divider
+                        sx={{
+                          mb: 1,
+                          mx: { xs: "15%", sm: "30%", md: "20%" },
+                        }}
+                      />
                     ) : null}
                   </Box>
                 );

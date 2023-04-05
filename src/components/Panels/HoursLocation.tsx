@@ -87,7 +87,13 @@ export function BenniditosHours(props: HoursLocationProps) {
                 >
                   HOURS
                 </Typography>
-                <Divider sx={{ mb: 1, mx: 3 }} />
+                <Divider
+                  sx={{
+                    mb: 1,
+                    mx: { xs: "15%", sm: "30%", md: "20%" },
+                    borderBottomStyle: "dashed",
+                  }}
+                />
                 <Typography
                   variant="body1"
                   fontFamily="subheader"
@@ -129,7 +135,7 @@ export function BenniditosHours(props: HoursLocationProps) {
                   12:00 PM - 9:00 PM
                 </Typography>
               </Box>
-              <Box sx={{ pb: 2 }}>
+              <Box>
                 <Box>
                   <Box sx={{ alignItems: "center" }}>
                     <Typography
@@ -142,7 +148,13 @@ export function BenniditosHours(props: HoursLocationProps) {
                     >
                       LOCATION
                     </Typography>
-                    <Divider sx={{ mb: 1, mx: 3 }} />
+                    <Divider
+                      sx={{
+                        mb: 1,
+                        mx: { xs: "15%", sm: "30%", md: "20%" },
+                        borderBottomStyle: "dashed",
+                      }}
+                    />
                     <Button
                       onClick={() => {
                         window.open(

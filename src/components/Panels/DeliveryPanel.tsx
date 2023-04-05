@@ -65,7 +65,6 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 height: { xs: "80vh", md: "80vh" },
                 ml: { xs: 0, md: 3 },
                 mb: { xs: 4, md: 0 },
-                py: 2,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-evenly",
@@ -85,22 +84,57 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 >
                   WE DELIVER
                 </Typography>
-                <Divider sx={{ mb: 1, mx: 3 }} />
+                <Divider
+                  sx={{
+                    mb: 2,
+                    mx: { xs: "15%", sm: "30%", md: "20%" },
+                    borderBottomStyle: "dashed",
+                  }}
+                />
                 <Typography
                   variant="body1"
                   fontSize={12}
-                  sx={{ mb: 1, px: 1, fontFamily: "body" }}
+                  sx={{
+                    mx: "auto",
+                    px: 1,
+                    fontFamily: "body",
+                    maxWidth: 400,
+                  }}
                 >
                   Here is some information about our delivery service and where
                   we deliver to. Blah Blah Blah Blah Blah Blah Blah Blah Blah
                   Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah
                 </Typography>
               </Box>
-              <Box>
-                <Button variant="outlined">Order Online</Button>
-              </Box>
-              <Box>
-                <Button variant="outlined">Call the shop</Button>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Box sx={{ my: 1 }}>
+                  <Button
+                    sx={{ textTransform: "none", fontFamily: "header" }}
+                    onClick={() => {
+                      window.open(
+                        "https://weborder7.microworks.com/benniditos/",
+                        "_blank"
+                      );
+                    }}
+                  >
+                    Order Online
+                  </Button>
+                </Box>
+                <Box sx={{ my: 1 }}>
+                  <Button
+                    sx={{ textTransform: "none", fontFamily: "header" }}
+                    onClick={() => {
+                      window.open("tel:+5094557411", "_blank");
+                    }}
+                  >
+                    Call the shop
+                  </Button>
+                </Box>
               </Box>
             </Box>
           </Box>

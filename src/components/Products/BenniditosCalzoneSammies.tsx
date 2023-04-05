@@ -31,7 +31,6 @@ export default function BenniditosCalzoneSammies({
           <Box
             sx={{
               p: 1,
-              mx: 12,
               mb: 3,
             }}
           >
@@ -82,7 +81,6 @@ export default function BenniditosCalzoneSammies({
               sx={{
                 p: 1,
                 mb: 3,
-                mx: 12,
               }}
             >
               <Typography variant="h4" color="primary" fontFamily="header">

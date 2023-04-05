@@ -33,7 +33,6 @@ export default function BenniditosSalads({
               p: 1,
               mb: 3,
               borderColor: theme.palette.primary.main,
-              mx: 12,
             }}
           >
             <Typography variant="h4" color="primary" fontFamily="header">

@@ -25,7 +25,13 @@ interface HeaderProps {
 
 export default function Header(props: HeaderProps) {
   const theme = useTheme();
-  const sections = ["About", "Locations & Hours", "Menu"];
+  const sections = [
+    "Hours & Location",
+    "Delivery",
+    "Menu",
+    "Tap List",
+    "About",
+  ];
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const scrollAfterClose = React.useRef<Record<string, any> | undefined>(
     undefined
@@ -177,7 +183,7 @@ export default function Header(props: HeaderProps) {
               }}
             />
             <Tab
-              label="On Tap"
+              label="Tap List"
               sx={{
                 textTransform: "none",
                 color: "white",

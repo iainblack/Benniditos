@@ -42,7 +42,17 @@ export default function BenniditosBreadPasta({
           </Box>
           {BenniditosMenuData.breadsAndBreadsticks.map((item, index) => {
             return (
-              <Box key={item.name} sx={{ mb: 2, px: 1, height: 125 }}>
+              <Box
+                key={item.name}
+                sx={{
+                  mb: 2,
+                  px: 1,
+                  display: "flex",
+                  height: { xs: "auto", md: 125 },
+                  flexDirection: "column",
+                  justifyContent: "center",
+                }}
+              >
                 <Box sx={{ mb: 2 }}>
                   <Typography
                     variant="h5"
@@ -75,7 +85,8 @@ export default function BenniditosBreadPasta({
                 BenniditosMenuData.breadsAndBreadsticks.length - 1 ? (
                   <Divider
                     sx={{
-                      mx: { xs: 4, sm: 20, md: 8 },
+                      mb: 1,
+                      mx: { xs: "15%", sm: "30%", md: "20%" },
                     }}
                   />
                 ) : null}
@@ -110,12 +121,28 @@ export default function BenniditosBreadPasta({
                 homemade pizza bread
               </Typography>
             </Box>
-            <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 }, mt: 5 }} />
+            <Divider
+              sx={{
+                mb: 1,
+                mx: { xs: "15%", sm: "30%", md: "20%" },
+                mt: { xs: 2, md: 5 },
+              }}
+            />
           </Box>
           <Box sx={{ mt: 2 }}>
             {BenniditosMenuData.pasta.sauces.map((item, index) => {
               return (
-                <Box key={item.name} sx={{ mb: 2, px: 1 }}>
+                <Box
+                  key={item.name}
+                  sx={{
+                    mb: 2,
+                    px: 1,
+                    height: { xs: "auto", md: 125 },
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                  }}
+                >
                   <Box sx={{ mb: 2 }}>
                     <Typography
                       variant="h5"
@@ -156,7 +183,6 @@ export default function BenniditosBreadPasta({
           <Box
             sx={{
               p: 1,
-              mx: 12,
               mt: 3,
             }}
           >

@@ -31,7 +31,6 @@ export default function BenniditosTapList({
           <Box
             sx={{
               p: 1,
-              mx: 12,
               mb: 3,
             }}
           >
@@ -81,15 +80,9 @@ export default function BenniditosTapList({
               sx={{
                 p: 1,
                 mb: 3,
-                mx: 12,
               }}
             >
-              <Typography
-                variant="h4"
-                color="primary"
-                sx={{ px: 4 }}
-                fontFamily="header"
-              >
+              <Typography variant="h4" color="primary" fontFamily="header">
                 {"PRICES"}
               </Typography>
             </Box>
@@ -100,7 +93,7 @@ export default function BenniditosTapList({
                 display: "flex",
                 justifyContent: "right",
                 mb: 1,
-                pr: 1,
+                pr: 2,
               }}
             >
               <Typography
@@ -127,7 +120,7 @@ export default function BenniditosTapList({
                         variant="body2"
                         fontFamily="body"
                         sx={{
-                          width: 100,
+                          width: { xs: 50, sm: 100 },
                         }}
                       >
                         <b>{item.name}</b>
@@ -138,7 +131,7 @@ export default function BenniditosTapList({
                         variant="body2"
                         fontFamily="body"
                         sx={{
-                          width: 100,
+                          width: { xs: "fit-content", md: 100 },
                         }}
                       >
                         {item.price}
@@ -149,7 +142,7 @@ export default function BenniditosTapList({
                         variant="body2"
                         fontFamily="body"
                         sx={{
-                          width: 100,
+                          width: { xs: "fit-content", md: 100 },
                         }}
                       >
                         {`${item.clocktower}`}
@@ -160,6 +153,9 @@ export default function BenniditosTapList({
                 </Box>
               );
             })}
+            <Typography fontFamily="subheader" sx={{ mt: { xs: 4, md: 8 } }}>
+              Ask about our rotating tap list!
+            </Typography>
           </Box>
         </Box>
       </Box>
