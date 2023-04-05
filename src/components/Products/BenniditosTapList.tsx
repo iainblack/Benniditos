@@ -104,9 +104,8 @@ export default function BenniditosTapList({
             </Box>
             {BenniditosTapListData.prices.map((item) => {
               return (
-                <Box>
+                <Box key={item.name}>
                   <Box
-                    key={item.name}
                     sx={{
                       display: "flex",
                       textAlign: "left",
