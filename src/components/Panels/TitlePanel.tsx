@@ -27,18 +27,19 @@ export default function TitlePanel(props: TitlePanelProps) {
       <Box
         id="title-panel-container"
         sx={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
           height: "calc(100vh - 76px)",
-          width: "100vw",
         }}
       >
         <Box
           id="image-slide-container"
           sx={{
             position: "relative",
-            height: "95%",
+            height: "90%",
             width: "100%",
-            mx: "auto",
-            mt: 2,
           }}
         >
           <Image

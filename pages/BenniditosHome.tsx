@@ -19,7 +19,7 @@ import { BenniditosHours } from "@/src/components/Panels/HoursLocation";
 import TitlePanel from "@/src/components/Panels/TitlePanel";
 import { BenniditosMenu } from "@/src/components/Panels/MenuPanel";
 import { BenniditosOnTap } from "@/src/components/Panels/OnTapPanel";
-import { HideOnScroll, Props } from "@/src/utils/utils";
+import { HideOnScroll } from "@/src/utils/utils";
 
 interface ScrollState {
   hoursTransitionIn: boolean;
@@ -28,7 +28,7 @@ interface ScrollState {
   tabValue: number | false;
 }
 
-export default function BenniditosHome(props: Props) {
+export default function BenniditosHome() {
   const [scrollState, setScrollState] = React.useState<ScrollState>({
     hoursTransitionIn: false,
     menuTransitionIn: false,
@@ -47,7 +47,7 @@ export default function BenniditosHome(props: Props) {
           hoursRef.current.scrollIntoView({
             behavior: "smooth",
             block: "start",
-            inline: "start",
+            inline: "center",
           });
         break;
       case 1:
@@ -55,6 +55,7 @@ export default function BenniditosHome(props: Props) {
           menuRef.current.scrollIntoView({
             behavior: "smooth",
             block: "start",
+            inline: "start",
           });
         break;
       case 2:
@@ -101,15 +102,11 @@ export default function BenniditosHome(props: Props) {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box id="benniditosHome" sx={{ backgroundColor: "white" }}>
-        <HideOnScroll {...props}>
+        <HideOnScroll>
           <AppBar
             position="sticky"
-            enableColorOnDark
-            color="transparent"
             sx={{
-              backdropFilter: "blur(5px)",
               backgroundColor: theme.palette.primary.main,
-              opacity: 0.95,
               px: { xs: 4, sm: 4, md: 12 },
             }}
           >
@@ -119,7 +116,7 @@ export default function BenniditosHome(props: Props) {
             />
           </AppBar>
         </HideOnScroll>
-        <PanelContainer noPaddingTop>
+        <PanelContainer id="title-container" noPaddingTop>
           <TitlePanel
             handleTabChange={handleTabChange}
             backgroundImage={background}
@@ -130,7 +127,7 @@ export default function BenniditosHome(props: Props) {
         <PanelContainer id="hours-container" ref={hoursRef}>
           <BenniditosHours transitionIn={scrollState.hoursTransitionIn} />
         </PanelContainer>
-        <PanelContainer id="menu-container" ref={menuRef}>
+        <PanelContainer id="menu-container" ref={menuRef} tallPanel>
           <BenniditosMenu transitionIn={scrollState.menuTransitionIn} />
         </PanelContainer>
         <PanelContainer id="on-tap-container" ref={tapListRef}>

@@ -13,26 +13,31 @@ export function BenniditosOnTap(props: MenuPanelProps) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   return (
     <Box
-      ref={containerRef}
       sx={{
-        height: { xs: "calc( 140vh - 76px)", md: "calc(90vh - 76px)" },
+        height: "fit-content",
         width: "100%",
+        py: 3,
       }}
     >
-      <Fade in={props.transitionIn} timeout={1000}>
-        <Box>
+      <Box ref={containerRef}>
+        <Fade in={props.transitionIn} timeout={1000}>
           <Box>
-            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-              <Typography sx={{ textAlign: "center", mb: 3 }} variant="h4">
-                Tap List
-              </Typography>
-            </Box>
             <Box>
-              <BenniditosTapList theme={theme} isSmallScreen={isSmallScreen} />
+              <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                <Typography sx={{ textAlign: "center", mb: 3 }} variant="h4">
+                  Tap List
+                </Typography>
+              </Box>
+              <Box>
+                <BenniditosTapList
+                  theme={theme}
+                  isSmallScreen={isSmallScreen}
+                />
+              </Box>
             </Box>
           </Box>
-        </Box>
-      </Fade>
+        </Fade>
+      </Box>
     </Box>
   );
 }
