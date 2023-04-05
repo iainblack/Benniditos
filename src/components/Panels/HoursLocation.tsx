@@ -40,10 +40,11 @@ export function BenniditosHours(props: HoursLocationProps) {
             <Box
               sx={{
                 position: "relative",
-                height: { xs: "calc(50vh - 76px)", md: "calc(90vh - 76px)" },
+                height: { xs: "50vh", md: "80vh" },
                 width: { xs: "100%", md: "70%" },
                 order: 2,
                 mb: { xs: 3, md: 0 },
+                border: 1,
               }}
             >
               <Image
@@ -61,39 +62,68 @@ export function BenniditosHours(props: HoursLocationProps) {
                 textAlign: "center",
                 width: { xs: "100%", md: "30%" },
                 border: "1px solid",
-                height: "calc(90vh - 76px)",
+                height: { xs: "80vh", md: "80vh" },
                 mr: { xs: 0, md: 3 },
                 mb: { xs: 8, md: 0 },
                 py: 2,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-evenly",
+                backgroundColor: "white",
               }}
             >
-              <Box sx={{ justifyContent: "center", mb: 6 }}>
-                <Typography sx={{ textAlign: "center", mb: 1 }} variant="h4">
-                  Hours
+              <Box
+                sx={{
+                  justifyContent: "center",
+                  mb: 6,
+                }}
+              >
+                <Typography
+                  sx={{
+                    textAlign: "center",
+                    mb: 1,
+                    fontFamily: "Header",
+                  }}
+                  variant="h4"
+                >
+                  HOURS
                 </Typography>
                 <Divider sx={{ mb: 1, mx: 3 }} />
-                <Typography variant="body1" sx={{ mb: 1 }}>
+                <Typography
+                  variant="body1"
+                  fontFamily="subheader"
+                  sx={{ mb: 1 }}
+                >
                   <b>Monday - Thursday</b>
                 </Typography>
                 <Typography variant="body2" sx={{ mb: 2 }}>
                   11:00 AM - 10:00 PM
                 </Typography>
-                <Typography variant="body1" sx={{ mb: 1 }}>
+                <Typography
+                  variant="body1"
+                  fontFamily="subheader"
+                  sx={{ mb: 1 }}
+                >
                   <b>Friday</b>
                 </Typography>
                 <Typography variant="body2" sx={{ mb: 2 }}>
                   11:00 AM - 11:00 PM
                 </Typography>
-                <Typography variant="body1" sx={{ mb: 1 }}>
+                <Typography
+                  variant="body1"
+                  fontFamily="subheader"
+                  sx={{ mb: 1 }}
+                >
                   <b>Saturday</b>
                 </Typography>
                 <Typography variant="body2" sx={{ mb: 2 }}>
                   11:00 AM - 10:00 PM
                 </Typography>
-                <Typography variant="body1" sx={{ mb: 1 }}>
+                <Typography
+                  variant="body1"
+                  fontFamily="subheader"
+                  sx={{ mb: 1 }}
+                >
                   <b>Sunday</b>
                 </Typography>
                 <Typography variant="body2" sx={{ mb: 2 }}>
@@ -104,10 +134,14 @@ export function BenniditosHours(props: HoursLocationProps) {
                 <Box>
                   <Box sx={{ alignItems: "center" }}>
                     <Typography
-                      sx={{ textAlign: "center", mb: 1 }}
+                      sx={{
+                        textAlign: "center",
+                        mb: 1,
+                        fontFamily: "Header",
+                      }}
                       variant="h4"
                     >
-                      Location
+                      LOCATION
                     </Typography>
                     <Divider sx={{ mb: 1, mx: 3 }} />
                     <Button
@@ -118,13 +152,18 @@ export function BenniditosHours(props: HoursLocationProps) {
                           "_blank"
                         );
                       }}
-                      sx={{ textTransform: "none" }}
+                      sx={{
+                        fontFamily: "body",
+                        textTransform: "none",
+                        whiteSpace: "nowrap",
+                      }}
                     >
                       1426 S Lincoln St, Spokane, WA 99203
                     </Button>
                   </Box>
                   <Button
                     startIcon={<LocalPhoneIcon />}
+                    sx={{ fontFamily: "body" }}
                     onClick={() => {
                       window.open("tel:+5094557411", "_blank");
                     }}

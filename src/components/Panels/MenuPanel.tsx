@@ -18,6 +18,7 @@ import BenniditosToppings from "../Products/BenniditosToppings";
 import BenniditosSalads from "../Products/BenniditosSalads";
 import BenniditosCalzoneSammies from "../Products/BenniditosCalzoneSammies";
 import BenniditosDessertSoda from "../Products/BenniditosDessertSoda";
+import { InfoBox } from "../styles";
 interface MenuPanelProps {
   transitionIn: boolean;
 }
@@ -42,8 +43,8 @@ export function BenniditosMenu(props: MenuPanelProps) {
       <Box ref={containerRef}>
         <Fade in={props.transitionIn} timeout={1000}>
           <Box>
-            <Box>
-              <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Box sx={{ backgroundColor: "white" }}>
+              <InfoBox>
                 <Typography sx={{ textAlign: "center", mb: 3 }} variant="h4">
                   Menu
                 </Typography>
@@ -72,26 +73,40 @@ export function BenniditosMenu(props: MenuPanelProps) {
                     </Typography>
                   </Box>
                 </Box>
-                <Tabs
-                  value={value}
-                  onChange={handleChange}
-                  centered
-                  variant={isSmallScreen ? "scrollable" : "standard"}
-                >
-                  <Tab
-                    label="Specialty Pizzas"
-                    sx={{ textTransform: "none" }}
-                  />
-                  <Tab label="Build Your Own" sx={{ textTransform: "none" }} />
-                  <Tab label="Bread & Pasta" sx={{ textTransform: "none" }} />
-                  <Tab label="Salads" sx={{ textTransform: "none" }} />
-                  <Tab
-                    label="Calzones & Sandwiches"
-                    sx={{ textTransform: "none" }}
-                  />
-                  <Tab label="Desserts & Soda" sx={{ textTransform: "none" }} />
-                </Tabs>
-              </Box>
+              </InfoBox>
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                centered
+                variant={isSmallScreen ? "scrollable" : "standard"}
+                sx={{ backgroundColor: "white", border: 1, borderBottom: 0 }}
+              >
+                <Tab
+                  label="Specialty Pizzas"
+                  sx={{ textTransform: "none", fontFamily: "subheader" }}
+                />
+                <Tab
+                  label="Build Your Own"
+                  sx={{ textTransform: "none", fontFamily: "subheader" }}
+                />
+                <Tab
+                  label="Bread & Pasta"
+                  sx={{ textTransform: "none", fontFamily: "subheader" }}
+                />
+                <Tab
+                  label="Salads"
+                  sx={{ textTransform: "none", fontFamily: "subheader" }}
+                />
+                <Tab
+                  label="Calzones & Sandwiches"
+                  sx={{ textTransform: "none", fontFamily: "subheader" }}
+                />
+                <Tab
+                  label="Desserts & Soda"
+                  sx={{ textTransform: "none", fontFamily: "subheader" }}
+                />
+              </Tabs>
+
               <TabPanel value={value} index={0}>
                 <BenniditosSpecialtyPizzaMenu
                   theme={theme}

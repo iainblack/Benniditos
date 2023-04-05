@@ -1,11 +1,4 @@
-import {
-  Fade,
-  Box,
-  useTheme,
-  useMediaQuery,
-  Typography,
-  Button,
-} from "@mui/material";
+import { Fade, Box, useTheme, useMediaQuery } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
@@ -40,6 +33,7 @@ export default function TitlePanel(props: TitlePanelProps) {
             position: "relative",
             height: "90%",
             width: "100%",
+            border: 1,
           }}
         >
           <Image

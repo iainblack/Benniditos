@@ -11,7 +11,8 @@ export default function BenniditosSpecialtyPizzaMenu({
       <Box
         sx={{
           width: "100%",
-          border: "1px solid",
+          border: 1,
+          borderTop: 0,
           height: "fit-content",
           py: 2,
         }}
@@ -20,15 +21,19 @@ export default function BenniditosSpecialtyPizzaMenu({
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Box
               sx={{
-                border: 1,
+                borderBottom: 1,
                 p: 1,
                 mb: 3,
                 borderColor: theme.palette.primary.main,
                 mx: 12,
               }}
             >
-              <Typography variant="h4" color="primary">
-                {"Specialty Pizzas"}
+              <Typography
+                variant="h4"
+                color="primary"
+                sx={{ fontFamily: "header" }}
+              >
+                {"SPECIALTY PIZZAS"}
               </Typography>
             </Box>
           </Box>
@@ -43,7 +48,12 @@ export default function BenniditosSpecialtyPizzaMenu({
                 return (
                   <Box key={item.name} sx={{ mb: 2, px: 1 }}>
                     <Box sx={{ mb: 2 }}>
-                      <Typography variant="h5">{item.name}</Typography>
+                      <Typography
+                        variant="h5"
+                        sx={{ fontFamily: "subheader", mb: 2 }}
+                      >
+                        {item.name}
+                      </Typography>
                       <Typography
                         variant="body2"
                         fontSize={12}
@@ -51,16 +61,26 @@ export default function BenniditosSpecialtyPizzaMenu({
                           maxWidth: 400,
                           mx: "auto",
                           height: { xs: "auto", md: 50 },
+                          fontFamily: "body",
+                          mb: { xs: 2, md: 0 },
                         }}
                       >
                         {item.description}
                       </Typography>
-                      <Typography variant="body2" fontSize={12}>
+                      <Typography
+                        variant="body2"
+                        fontSize={12}
+                        fontFamily="body"
+                      >
                         <b>{`${item.small} | ${item.medium} | ${item.large}`}</b>
                       </Typography>
                     </Box>
-                    {index !==
-                    BenniditosMenuData.specialtyPizzas.left.length - 1 ? (
+                    {isSmallScreen && (
+                      <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
+                    )}
+                    {!isSmallScreen &&
+                    index !==
+                      BenniditosMenuData.specialtyPizzas.left.length - 1 ? (
                       <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
                     ) : null}
                   </Box>
@@ -72,7 +92,12 @@ export default function BenniditosSpecialtyPizzaMenu({
                 return (
                   <Box key={item.name} sx={{ mb: 2, px: 1 }}>
                     <Box sx={{ mb: 2 }}>
-                      <Typography variant="h5">{item.name}</Typography>
+                      <Typography
+                        variant="h5"
+                        sx={{ fontFamily: "subheader", mb: 2 }}
+                      >
+                        {item.name}
+                      </Typography>
                       <Typography
                         variant="body2"
                         fontSize={12}
@@ -80,16 +105,23 @@ export default function BenniditosSpecialtyPizzaMenu({
                           maxWidth: 400,
                           mx: "auto",
                           height: { xs: "auto", md: 50 },
+                          fontFamily: "body",
+                          mb: { xs: 2, md: 0 },
                         }}
                       >
                         {item.description}
                       </Typography>
-                      <Typography variant="body2" fontSize={12}>
+                      <Typography
+                        variant="body2"
+                        fontSize={12}
+                        fontFamily="body"
+                      >
                         <b>{`${item.small} | ${item.medium} | ${item.large}`}</b>
                       </Typography>
                     </Box>
-                    {index !==
-                    BenniditosMenuData.specialtyPizzas.right.length - 1 ? (
+                    {!isSmallScreen &&
+                    index !==
+                      BenniditosMenuData.specialtyPizzas.right.length - 1 ? (
                       <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
                     ) : null}
                   </Box>

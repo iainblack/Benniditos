@@ -19,7 +19,7 @@ export function BenniditosOnTap(props: MenuPanelProps) {
         py: 3,
       }}
     >
-      <Box ref={containerRef}>
+      <Box ref={containerRef} sx={{ backgroundColor: "white" }}>
         <Fade in={props.transitionIn} timeout={1000}>
           <Box>
             <Box>

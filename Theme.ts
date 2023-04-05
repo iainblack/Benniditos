@@ -1,23 +1,7 @@
 import { createTheme } from "@mui/material/styles";
-const headerFont = [
-  "Calibre",
-  "Inter",
-  "San Francisco",
-  "SF Pro Text",
-  "-apple-system,system-ui,sans-serif",
-].join(",");
-
-const bodyFont = [
-  "red-hat-display",
-  "Inter",
-  "San Francisco",
-  "SF Pro Text",
-  "-apple-system,system-ui,sans-serif",
-].join(",");
 
 const theme = createTheme({
   typography: {
-    fontFamily: "Special Elite",
     h1: {
       fontSize: "4.5rem",
       "@media (max-width:600px)": {
@@ -42,13 +26,11 @@ const theme = createTheme({
       },
     },
     body1: {
-      fontFamily: "Special Elite",
       "@media (max-width:600px)": {
         fontSize: "1rem",
       },
     },
     body2: {
-      fontFamily: bodyFont,
       "@media (max-width:600px)": {
         fontSize: "1rem",
       },
@@ -71,6 +53,15 @@ const theme = createTheme({
     },
     info: {
       main: "#FFC86F",
+    },
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 930,
+      lg: 1015,
+      xl: 1536,
     },
   },
 });

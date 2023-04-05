@@ -20,9 +20,12 @@ import TitlePanel from "@/src/components/Panels/TitlePanel";
 import { BenniditosMenu } from "@/src/components/Panels/MenuPanel";
 import { BenniditosOnTap } from "@/src/components/Panels/OnTapPanel";
 import { HideOnScroll } from "@/src/utils/utils";
+import { BenniditosDeliveryPanel } from "@/src/components/Panels/DeliveryPanel";
+import bg3 from "@/public/bg3.jpeg";
 
 interface ScrollState {
   hoursTransitionIn: boolean;
+  deliveryTransitionIn: boolean;
   menuTransitionIn: boolean;
   tapListTransitionIn: boolean;
   tabValue: number | false;
@@ -31,12 +34,14 @@ interface ScrollState {
 export default function BenniditosHome() {
   const [scrollState, setScrollState] = React.useState<ScrollState>({
     hoursTransitionIn: false,
+    deliveryTransitionIn: false,
     menuTransitionIn: false,
     tapListTransitionIn: false,
     tabValue: false,
   });
 
   const hoursRef = React.useRef<HTMLDivElement>(null);
+  const deliveryRef = React.useRef<HTMLDivElement>(null);
   const menuRef = React.useRef<HTMLDivElement>(null);
   const tapListRef = React.useRef<HTMLDivElement>(null);
 
@@ -47,22 +52,26 @@ export default function BenniditosHome() {
           hoursRef.current.scrollIntoView({
             behavior: "smooth",
             block: "start",
-            inline: "center",
           });
         break;
       case 1:
+        deliveryRef.current &&
+          deliveryRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        break;
+      case 2:
         menuRef.current &&
           menuRef.current.scrollIntoView({
             behavior: "smooth",
             block: "start",
-            inline: "start",
           });
         break;
-      case 2:
+      case 3:
         tapListRef.current &&
           tapListRef.current.scrollIntoView({
             behavior: "smooth",
-            block: "start",
           });
         break;
     }
@@ -71,6 +80,7 @@ export default function BenniditosHome() {
   useEffect(() => {
     const handleScroll = () => {
       const hoursTop = hoursRef.current?.offsetTop;
+      const deliveryTop = deliveryRef.current?.offsetTop;
       const menuTop = menuRef.current?.offsetTop;
       const tapListTop = tapListRef.current?.offsetTop;
       const scrollPosition = window.scrollY;
@@ -79,16 +89,24 @@ export default function BenniditosHome() {
           ...scrollState,
           hoursTransitionIn: true,
         });
+      } else if (deliveryTop && scrollPosition < deliveryTop) {
+        setScrollState({
+          ...scrollState,
+          hoursTransitionIn: true,
+          deliveryTransitionIn: true,
+        });
       } else if (menuTop && scrollPosition < menuTop) {
         setScrollState({
           ...scrollState,
           hoursTransitionIn: true,
+          deliveryTransitionIn: true,
           menuTransitionIn: true,
         });
       } else if (tapListTop && scrollPosition < tapListTop) {
         setScrollState({
           ...scrollState,
           hoursTransitionIn: true,
+          deliveryTransitionIn: true,
           menuTransitionIn: true,
           tapListTransitionIn: true,
         });
@@ -101,13 +119,21 @@ export default function BenniditosHome() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box id="benniditosHome" sx={{ backgroundColor: "white" }}>
+      <Box
+        id="benniditosHome"
+        sx={{
+          backgroundImage: `url(${bg3.src})`,
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+        }}
+      >
         <HideOnScroll>
           <AppBar
             position="sticky"
+            color="transparent"
             sx={{
               backgroundColor: theme.palette.primary.main,
-              px: { xs: 4, sm: 4, md: 12 },
+              px: { xs: 6, lg: 6 },
             }}
           >
             <Header
@@ -127,10 +153,15 @@ export default function BenniditosHome() {
         <PanelContainer id="hours-container" ref={hoursRef}>
           <BenniditosHours transitionIn={scrollState.hoursTransitionIn} />
         </PanelContainer>
+        <PanelContainer id="delivery-container" ref={deliveryRef}>
+          <BenniditosDeliveryPanel
+            transitionIn={scrollState.hoursTransitionIn}
+          />
+        </PanelContainer>
         <PanelContainer id="menu-container" ref={menuRef} tallPanel>
           <BenniditosMenu transitionIn={scrollState.menuTransitionIn} />
         </PanelContainer>
-        <PanelContainer id="on-tap-container" ref={tapListRef}>
+        <PanelContainer id="on-tap-container" ref={tapListRef} tallPanel>
           <BenniditosOnTap transitionIn={scrollState.tapListTransitionIn} />
         </PanelContainer>
       </Box>

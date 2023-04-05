@@ -113,7 +113,7 @@ export default function Header(props: HeaderProps) {
         <Box
           sx={{
             flexGrow: 1,
-            display: { xs: "flex", sm: "flex", md: "none" },
+            display: { xs: "flex", lg: "none" },
             justifyContent: "right",
           }}
         >
@@ -136,7 +136,7 @@ export default function Header(props: HeaderProps) {
         <Box
           sx={{
             flexGrow: 1,
-            display: { xs: "none", sm: "none", md: "flex" },
+            display: { xs: "none", lg: "flex" },
             overflow: "hidden",
             justifyContent: "right",
           }}
@@ -157,7 +157,15 @@ export default function Header(props: HeaderProps) {
               sx={{
                 textTransform: "none",
                 color: "white",
-                fontFamily: theme.typography.body2.fontFamily,
+                fontFamily: "subheader",
+              }}
+            />
+            <Tab
+              label="Delivery"
+              sx={{
+                textTransform: "none",
+                color: "white",
+                fontFamily: "subheader",
               }}
             />
             <Tab
@@ -165,7 +173,7 @@ export default function Header(props: HeaderProps) {
               sx={{
                 textTransform: "none",
                 color: "white",
-                fontFamily: theme.typography.body2.fontFamily,
+                fontFamily: "subheader",
               }}
             />
             <Tab
@@ -173,7 +181,7 @@ export default function Header(props: HeaderProps) {
               sx={{
                 textTransform: "none",
                 color: "white",
-                fontFamily: theme.typography.body2.fontFamily,
+                fontFamily: "subheader",
               }}
             />
             <Tab
@@ -181,15 +189,7 @@ export default function Header(props: HeaderProps) {
               sx={{
                 textTransform: "none",
                 color: "white",
-                fontFamily: theme.typography.body2.fontFamily,
-              }}
-            />
-            <Tab
-              label="Contact Us"
-              sx={{
-                textTransform: "none",
-                color: "white",
-                fontFamily: theme.typography.body2.fontFamily,
+                fontFamily: "subheader",
               }}
             />
           </Tabs>
@@ -197,14 +197,14 @@ export default function Header(props: HeaderProps) {
             variant={"outlined"}
             sx={{
               ml: 2,
-              textTransform: "none",
-              fontFamily: theme.typography.body2.fontFamily,
+              fontFamily: "header",
               color: "white",
               borderColor: "white",
+              whiteSpace: "nowrap",
             }}
             onClick={(e) => {}}
           >
-            BrewPub
+            Order Online
           </Button>
         </Box>
       </Toolbar>
