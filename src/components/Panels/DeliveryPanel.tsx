@@ -43,7 +43,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 height: { xs: "50vh", md: "80vh" },
                 width: { xs: "100%", md: "70%" },
                 order: { xs: 2, md: 1 },
-                mb: { xs: 3, md: 0 },
+                my: { xs: 4, md: 0 },
                 border: 1,
               }}
             >
@@ -64,7 +64,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 border: "1px solid",
                 height: { xs: "80vh", md: "80vh" },
                 ml: { xs: 0, md: 3 },
-                mb: { xs: 4, md: 0 },
+                my: { xs: 4, md: 0 },
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-evenly",

@@ -44,7 +44,6 @@ export function BenniditosAboutUs(props: AboutUsProps) {
                 textAlign: "center",
                 width: "100%",
                 border: "1px solid",
-                height: { xs: "85vh", md: "80vh" },
                 mr: { xs: 0, md: 3 },
                 mb: { xs: 4, md: 0 },
                 py: 2,

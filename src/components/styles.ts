@@ -9,12 +9,14 @@ export const PanelContainer = styled(Box, {
 }>(({ noPaddingTop, theme, marginTop }) => ({
   paddingLeft: theme.spacing(6),
   paddingRight: theme.spacing(6),
-  paddingBottom: theme.spacing(5),
-  paddingTop: noPaddingTop ? 0 : theme.spacing(5),
+  paddingBottom: theme.spacing(8),
+  paddingTop: noPaddingTop ? 0 : theme.spacing(8),
   marginTop: marginTop ? marginTop : 0,
   [theme.breakpoints.down("sm")]: {
-    padding: theme.spacing(2),
-    paddingTop: noPaddingTop ? 0 : theme.spacing(2),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
+    paddingBottom: theme.spacing(4),
+    paddingTop: noPaddingTop ? 0 : theme.spacing(4),
     marginTop: marginTop ? marginTop : 0,
   },
   display: "flex",

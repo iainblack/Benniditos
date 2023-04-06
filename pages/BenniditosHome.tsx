@@ -130,8 +130,6 @@ export default function BenniditosHome() {
       >
         <HideOnScroll>
           <AppBar
-            //position="sticky"
-            color="transparent"
             sx={{
               backgroundColor: theme.palette.primary.main,
               pr: { xs: 2, lg: 6 },
@@ -152,7 +150,7 @@ export default function BenniditosHome() {
             otherLocationPath="/BrewPubHome"
           />
         </PanelContainer>
-        <PanelContainer id="hours-container" ref={hoursRef}>
+        <PanelContainer id="hours-container" ref={hoursRef} noPaddingTop>
           <BenniditosHours transitionIn={scrollState.hoursTransitionIn} />
         </PanelContainer>
         <PanelContainer id="delivery-container" ref={deliveryRef}>
