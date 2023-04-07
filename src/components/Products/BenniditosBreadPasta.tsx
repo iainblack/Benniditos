@@ -1,10 +1,10 @@
 import { Box, Typography, Divider } from "@mui/material";
 import { BenniditosMenuProps } from "../../utils/utils";
-import { BenniditosMenuData } from "../../utils/BenniditosMenu";
 
 export default function BenniditosBreadPasta({
   theme,
   isSmallScreen,
+  data,
 }: BenniditosMenuProps) {
   return (
     <Box>
@@ -32,7 +32,7 @@ export default function BenniditosBreadPasta({
             <Box
               sx={{
                 p: 1,
-                mb: 3,
+                mb: data.breads.description ? 0 : 3,
               }}
             >
               <Typography variant="h4" color="primary" fontFamily={"header"}>
@@ -40,7 +40,23 @@ export default function BenniditosBreadPasta({
               </Typography>
             </Box>
           </Box>
-          {BenniditosMenuData.breadsAndBreadsticks.map((item, index) => {
+          {data.breads.description && (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                mb: 2,
+                mt: 2,
+                p: 1,
+                textAlign: "center",
+              }}
+            >
+              <Typography fontSize={12} fontFamily="body">
+                <i>{data.breads.description}</i>
+              </Typography>
+            </Box>
+          )}
+          {data.breads.options.map((item, index) => {
             return (
               <Box
                 key={item.name}
@@ -81,8 +97,7 @@ export default function BenniditosBreadPasta({
                     <b>{`${item.price}`}</b>
                   </Typography>
                 </Box>
-                {index !==
-                BenniditosMenuData.breadsAndBreadsticks.length - 1 ? (
+                {index !== data.breads.options.length - 1 ? (
                   <Divider
                     sx={{
                       mb: 1,
@@ -99,7 +114,7 @@ export default function BenniditosBreadPasta({
             <Box
               sx={{
                 p: 1,
-                mb: 3,
+                mb: 2,
               }}
             >
               <Typography variant="h4" color="primary" fontFamily={"header"}>
@@ -114,23 +129,18 @@ export default function BenniditosBreadPasta({
               px: { xs: 1, md: 0 },
             }}
           >
-            <Box sx={{ mb: 2 }}>
-              <Typography variant="caption">
-                Pair one of our delicious <b>Fettuccine or Spaghetti</b> pastas
-                with your choice of signature sauce and a side of our new
-                homemade pizza bread
+            <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
+              <Typography fontSize={12} fontFamily="body">
+                <i>
+                  Pair one of our delicious <b>Fettuccine or Spaghetti</b>{" "}
+                  pastas with your choice of signature sauce and a side of our
+                  new homemade pizza bread
+                </i>
               </Typography>
             </Box>
-            <Divider
-              sx={{
-                mb: 1,
-                mx: { xs: "15%", sm: "30%", md: "20%" },
-                mt: { xs: 2, md: 5 },
-              }}
-            />
           </Box>
           <Box sx={{ mt: 2 }}>
-            {BenniditosMenuData.pasta.sauces.map((item, index) => {
+            {data.pasta.sauces.map((item, index) => {
               return (
                 <Box
                   key={item.name}
@@ -173,7 +183,7 @@ export default function BenniditosBreadPasta({
                       )}
                     </Typography>
                   </Box>
-                  {index !== BenniditosMenuData.pasta.sauces.length - 1 ? (
+                  {index !== data.pasta.sauces.length - 1 ? (
                     <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
                   ) : null}
                 </Box>

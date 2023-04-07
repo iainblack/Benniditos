@@ -1,12 +1,11 @@
 import { Box, Typography, Divider } from "@mui/material";
-import { BenniditosMenuProps } from "../../utils/utils";
-import { BenniditosMenuData } from "../../utils/BenniditosMenu";
-import { BenniditosTapListData } from "@/src/utils/BenniditosTapList";
+import { BenniditosTapListProps } from "../../utils/utils";
 
 export default function BenniditosTapList({
   theme,
   isSmallScreen,
-}: BenniditosMenuProps) {
+  data,
+}: BenniditosTapListProps) {
   return (
     <Box>
       <Box
@@ -28,7 +27,7 @@ export default function BenniditosTapList({
         }}
       >
         <Box sx={{ textAlign: "center", mb: { xs: 3, md: 0 } }}>
-          {BenniditosTapListData.beers.map((item, index) => {
+          {data.beers.map((item, index) => {
             return (
               <Box key={item.name} sx={{ mb: 2, px: 1 }}>
                 <Box sx={{ mb: 2 }}>
@@ -57,7 +56,7 @@ export default function BenniditosTapList({
                     <b>{`${item.abv}`}</b>
                   </Typography>
                 </Box>
-                {index !== BenniditosTapListData.beers.length - 1 ? (
+                {index !== data.beers.length - 1 ? (
                   <Divider sx={{ mx: { xs: 4, md: 8 } }} />
                 ) : null}
               </Box>
@@ -94,7 +93,7 @@ export default function BenniditosTapList({
                 <b>Clocktower</b>
               </Typography>
             </Box>
-            {BenniditosTapListData.prices.map((item) => {
+            {data.prices.map((item) => {
               return (
                 <Box key={item.name}>
                   <Box

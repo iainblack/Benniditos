@@ -1,6 +1,19 @@
-export const BenniditosMenuData = {
-  specialtyPizzas: {
-    left: [
+import { BenniditosMenuConfig } from "./utils";
+
+export const BenniditosMenuData: BenniditosMenuConfig = {
+  pizza: {
+    description1:
+      'Available in traditional hand tossed or Detroit style (10"x14")',
+    description2: "Dough options: Flour or Gluten Free for 3.00 extra",
+    column1: [
+      {
+        name: "Your Own Creation",
+        description:
+          "We'll take the Cheese Pizza & add toppings of your choice! (Price per topping)",
+        small: "2.00",
+        medium: "2.75",
+        large: "3.00",
+      },
       {
         name: "Cheese",
         description:
@@ -89,6 +102,8 @@ export const BenniditosMenuData = {
         medium: "25.99",
         large: "32.00",
       },
+    ],
+    column2: [
       {
         name: "14th Ave Primo",
         description:
@@ -97,8 +112,6 @@ export const BenniditosMenuData = {
         medium: "25.99",
         large: "31.00",
       },
-    ],
-    right: [
       {
         name: "Double Pepperoni",
         description:
@@ -239,94 +252,100 @@ export const BenniditosMenuData = {
       "Alfredo Sauce",
     ],
   },
-  breadsAndBreadsticks: [
-    {
-      name: "Bennidito’s Pizza Bread",
-      description:
-        "Fresh baked pizza crust, topped with olive oil and aged parmesan",
-      price: "9.99",
-    },
-    {
-      name: "Cambozola Bread",
-      description:
-        "Bennidito’s Pizza Bread topped with roasted garlic and aged parmesan with Cambozola on the side",
-      price: "18.99",
-    },
-    {
-      name: "Garlic Bread",
-      price: "6.25",
-    },
-    {
-      name: "Garlic Cheese Bread",
-      price: "9.99",
-    },
-    {
-      name: "Bread Sticks with dipping sauce",
-      price: "6.99",
-    },
-    {
-      name: "Beer Buddies with dipping sauce",
-      price: "6.99",
-    },
-    {
-      name: "Dipping Sauce",
-      description: "Your choice of Red, Pesto, or Ranch",
-      price: "1.25",
-    },
-    {
-      name: "Alfredo Dipping Sauce",
-      price: "1.50",
-    },
-  ],
-  salads: [
-    {
-      name: "Mixed Green Salad",
-      description:
-        "Romaine lettuce mix, tomatoes, red onion, mushrooms. Your choice of dressing: Blue cheese, Vinegar & Oil, Pesto, or Ranch",
-      small: "5.50",
-      medium: "10.00",
-      large: "17.99",
-    },
-    {
-      name: "Antipasto Salad",
-      description:
-        "No Lettuce! Salami, roasted garlic, artichoke hearts, fontina cheese, roasted red peppers, green olives & kalamata olives with an oil & vinegar dressing",
-      small: "9.25",
-      medium: "21.00",
-      large: "28.00",
-    },
-    {
-      name: "Chicken Salad",
-      description: "Romaine lettuce mix & marinated chicken parmesan",
-      small: "6.99",
-      medium: "14.00",
-      large: "22.00",
-    },
-    {
-      name: "Greek Salad",
-      description:
-        "Romaine lettuce, feta, green olives, roasted red peppers, kalamata olives & pepperoncini",
-      small: "7.25",
-      medium: "14.00",
-      large: "21.00",
-    },
-    {
-      name: "Green Salad Primo",
-      description:
-        "Romaine lettuce, tomatoes, onions, mushrooms, feta & sunflower seeds",
-      small: "6.99",
-      medium: "11.99",
-      large: "19.99",
-    },
-    {
-      name: "Benniditos Salad Primo",
-      description:
-        "Romaine lettuce mix, salami, roasted garlic, artichokes, fontina cheese, green olives, red onions, and pepperoncini with oil & vinegar dressing",
-      small: "8.99",
-      medium: "16.50",
-      large: "24.00",
-    },
-  ],
+  breads: {
+    options: [
+      {
+        name: "Bennidito’s Pizza Bread",
+        description:
+          "Fresh baked pizza crust, topped with olive oil and aged parmesan",
+        price: "9.99",
+      },
+      {
+        name: "Cambozola Bread",
+        description:
+          "Bennidito’s Pizza Bread topped with roasted garlic and aged parmesan with Cambozola on the side",
+        price: "18.99",
+      },
+      {
+        name: "Garlic Bread",
+        price: "6.25",
+      },
+      {
+        name: "Garlic Cheese Bread",
+        price: "9.99",
+      },
+      {
+        name: "Bread Sticks with dipping sauce",
+        price: "6.99",
+      },
+      {
+        name: "Beer Buddies with dipping sauce",
+        price: "6.99",
+      },
+      {
+        name: "Dipping Sauce",
+        description: "Your choice of Red, Pesto, or Ranch",
+        price: "1.25",
+      },
+      {
+        name: "Alfredo Dipping Sauce",
+        price: "1.50",
+      },
+    ],
+  },
+  salads: {
+    description:
+      "Each additional topping: 1.00 small, 2.50 large, 5.00 family size",
+    options: [
+      {
+        name: "Mixed Green Salad",
+        description:
+          "Romaine lettuce mix, tomatoes, red onion, mushrooms. Your choice of dressing: Blue cheese, Vinegar & Oil, Pesto, or Ranch",
+        small: "5.50",
+        medium: "10.00",
+        large: "17.99",
+      },
+      {
+        name: "Antipasto Salad",
+        description:
+          "No Lettuce! Salami, roasted garlic, artichoke hearts, fontina cheese, roasted red peppers, green olives & kalamata olives with an oil & vinegar dressing",
+        small: "9.25",
+        medium: "21.00",
+        large: "28.00",
+      },
+      {
+        name: "Chicken Salad",
+        description: "Romaine lettuce mix & marinated chicken parmesan",
+        small: "6.99",
+        medium: "14.00",
+        large: "22.00",
+      },
+      {
+        name: "Greek Salad",
+        description:
+          "Romaine lettuce, feta, green olives, roasted red peppers, kalamata olives & pepperoncini",
+        small: "7.25",
+        medium: "14.00",
+        large: "21.00",
+      },
+      {
+        name: "Green Salad Primo",
+        description:
+          "Romaine lettuce, tomatoes, onions, mushrooms, feta & sunflower seeds",
+        small: "6.99",
+        medium: "11.99",
+        large: "19.99",
+      },
+      {
+        name: "Benniditos Salad Primo",
+        description:
+          "Romaine lettuce mix, salami, roasted garlic, artichokes, fontina cheese, green olives, red onions, and pepperoncini with oil & vinegar dressing",
+        small: "8.99",
+        medium: "16.50",
+        large: "24.00",
+      },
+    ],
+  },
   pasta: {
     description:
       "Pair one of our delicious pastas with your choice of any of our signature sauces and also enjoy a side of our new homemade pizza bread",
@@ -369,154 +388,158 @@ export const BenniditosMenuData = {
       },
     ],
   },
-  calzones: [
-    {
-      name: "Chicken Calzone",
-      description:
-        "Pesto Sauce, fresh garlic, marinated chicken, roasted garlic, mushrooms, ricotta, & fresh mozzarella",
-      price: "15.99",
-    },
-    {
-      name: "Chicken Alfredo Calzone",
-      description:
-        "Alfredo Sauce, spinach, mushrooms, artichokes, chicken, pancetta bacon, & fresh mozzarella",
-      price: "17.99",
-    },
-    {
-      name: "Greek Calzone",
-      description:
-        "Red sauce, green olives, roasted red peppers, pepperoncini, kalamata olives, feta & mozzarella cheese",
-      price: "15.00",
-    },
-    {
-      name: "Italian Calzone",
-      description:
-        "Garlic butter sauce, prosciutto ham, pancetta bacon, red onions, roasted red peppers, fontina cheese, & fresh mozzarella",
-      price: "14.49",
-    },
-    {
-      name: "Meatball Calzone",
-      description:
-        "Red sauce, homemade meatballs, mushrooms, onions, fresh garlic, & mozzarella cheese",
-      price: "14.49",
-    },
-    {
-      name: "New York Calzone",
-      description:
-        "Garlic butter sauce, mushrooms, artichoke hearts, ricotta, & fresh mozzarella",
-      price: "14.49",
-    },
-    {
-      name: "Super Veggie Primo",
-      description:
-        "Red sauce, tomatoes, roasted red peppers, mushrooms, onions, artichokes, green olives, zucchini, ricotta, & mozarella cheese",
-      price: "16.00",
-    },
-    {
-      name: "Vegetarian Calzone",
-      description:
-        "Red sauce, fresh garlic, fresh mushrooms, onions, kalamata olives, ricotta, & mozzarella cheese",
-      price: "14.49",
-    },
-    {
-      name: "Your Own Calzone",
-      description:
-        "Red sauce, mozzarella cheese, and any THREE toppings of your choice",
-      price: "14.49",
-    },
-  ],
-  sandwiches: [
-    {
-      name: "Meatball Sammie",
-      description:
-        "Mom's homemade meatballs, fresh mushrooms, onions, mozzarella cheese, tomato sauce, & spices",
-      half: "8.50",
-      whole: "13.99",
-    },
-    {
-      name: "Italian Sammie",
-      description:
-        "Italian sausage, fresh green peppers, mushrooms, onions, mozzarella, tomato sauce, & spices",
-      half: "7.50",
-      whole: "12.99",
-    },
-    {
-      name: "Meat Combo Sammie",
-      description:
-        "Marinara sauce mozzarella cheese, italian sausage, italian beef",
-      half: "8.50",
-      whole: "12.50",
-    },
-    {
-      name: "Italian BLT",
-      description:
-        "Pancetta bacon, fontina cheese, fresh tomatoes, & lettuce, with olive oil garlic white sauce",
-      half: "8.00",
-      whole: "11.00",
-    },
-    {
-      name: "Italian Beef Sammie",
-      description:
-        "Italian beef, fresh green peppers, red onions, & fontina cheese, with garlic white sauce",
-      half: "8.50",
-      whole: "12.50",
-    },
-    {
-      name: "Sicilian Sammie",
-      description:
-        "Prosciutto ham, roasted red peppers, red onions, & fontina cheese, with olive oil garlic mayo sauce",
-      half: "8.00",
-      whole: "12.50",
-    },
-    {
-      name: "Grand Blvd. Sammie",
-      description:
-        "Pepperoni, italian sausage, salami, mushrooms, green peppers, onions, & mozzarella cheese, with tomato sauce & spices",
-      half: "8.75",
-      whole: "12.50",
-    },
-    {
-      name: "Chicken Pesto Sammie",
-      description:
-        "Pesto dressing sauce, mozzarella cheese, chicken, pancetta bacon, lettuce, & tomatoes",
-      half: "8.00",
-      whole: "13.00",
-    },
-    {
-      name: "Veggie Sammie",
-      description:
-        "Fresh mushrooms, onions, tomatoes, green peppers, black olives, & mozzarella cheese, with tomato sauce & spices",
-      half: "7.75",
-      whole: "10.50",
-    },
-    {
-      name: "Margarita Sammie",
-      description:
-        "Garlic butter, mozzarella cheese, tomatoes, parmesan/romano cheese, topped with fresh basil",
-      half: "7.25",
-      whole: "10.50",
-    },
-  ],
-  desserts: [
-    {
-      name: "Dessert Pizza",
-      description:
-        "Cinnamon sugar over a buttery crust topped with cream cheese frosting",
-      small: "4.99",
-      medium: "5.99",
-      large: "6.99",
-    },
-    {
-      name: "Dessert Sticks",
-      description:
-        "Cinnamon sugar over our breadsticks with a side of cream cheese dipping sauce",
-      small: "6.50",
-    },
-    {
-      name: "Dessert Buddies",
-      small: "6.50",
-    },
-  ],
+  sandwiches: {
+    hotSandwiches: [
+      {
+        name: "Meatball Sammie",
+        description:
+          "Mom's homemade meatballs, fresh mushrooms, onions, mozzarella cheese, tomato sauce, & spices",
+        half: "8.50",
+        whole: "13.99",
+      },
+      {
+        name: "Italian Sammie",
+        description:
+          "Italian sausage, fresh green peppers, mushrooms, onions, mozzarella, tomato sauce, & spices",
+        half: "7.50",
+        whole: "12.99",
+      },
+      {
+        name: "Meat Combo Sammie",
+        description:
+          "Marinara sauce mozzarella cheese, italian sausage, italian beef",
+        half: "8.50",
+        whole: "12.50",
+      },
+      {
+        name: "Italian BLT",
+        description:
+          "Pancetta bacon, fontina cheese, fresh tomatoes, & lettuce, with olive oil garlic white sauce",
+        half: "8.00",
+        whole: "11.00",
+      },
+      {
+        name: "Italian Beef Sammie",
+        description:
+          "Italian beef, fresh green peppers, red onions, & fontina cheese, with garlic white sauce",
+        half: "8.50",
+        whole: "12.50",
+      },
+      {
+        name: "Sicilian Sammie",
+        description:
+          "Prosciutto ham, roasted red peppers, red onions, & fontina cheese, with olive oil garlic mayo sauce",
+        half: "8.00",
+        whole: "12.50",
+      },
+      {
+        name: "Grand Blvd. Sammie",
+        description:
+          "Pepperoni, italian sausage, salami, mushrooms, green peppers, onions, & mozzarella cheese, with tomato sauce & spices",
+        half: "8.75",
+        whole: "12.50",
+      },
+      {
+        name: "Chicken Pesto Sammie",
+        description:
+          "Pesto dressing sauce, mozzarella cheese, chicken, pancetta bacon, lettuce, & tomatoes",
+        half: "8.00",
+        whole: "13.00",
+      },
+      {
+        name: "Veggie Sammie",
+        description:
+          "Fresh mushrooms, onions, tomatoes, green peppers, black olives, & mozzarella cheese, with tomato sauce & spices",
+        half: "7.75",
+        whole: "10.50",
+      },
+      {
+        name: "Margarita Sammie",
+        description:
+          "Garlic butter, mozzarella cheese, tomatoes, parmesan/romano cheese, topped with fresh basil",
+        half: "7.25",
+        whole: "10.50",
+      },
+    ],
+    calzones: [
+      {
+        name: "Chicken Calzone",
+        description:
+          "Pesto Sauce, fresh garlic, marinated chicken, roasted garlic, mushrooms, ricotta, & fresh mozzarella",
+        price: "15.99",
+      },
+      {
+        name: "Chicken Alfredo Calzone",
+        description:
+          "Alfredo Sauce, spinach, mushrooms, artichokes, chicken, pancetta bacon, & fresh mozzarella",
+        price: "17.99",
+      },
+      {
+        name: "Greek Calzone",
+        description:
+          "Red sauce, green olives, roasted red peppers, pepperoncini, kalamata olives, feta & mozzarella cheese",
+        price: "15.00",
+      },
+      {
+        name: "Italian Calzone",
+        description:
+          "Garlic butter sauce, prosciutto ham, pancetta bacon, red onions, roasted red peppers, fontina cheese, & fresh mozzarella",
+        price: "14.49",
+      },
+      {
+        name: "Meatball Calzone",
+        description:
+          "Red sauce, homemade meatballs, mushrooms, onions, fresh garlic, & mozzarella cheese",
+        price: "14.49",
+      },
+      {
+        name: "New York Calzone",
+        description:
+          "Garlic butter sauce, mushrooms, artichoke hearts, ricotta, & fresh mozzarella",
+        price: "14.49",
+      },
+      {
+        name: "Super Veggie Primo",
+        description:
+          "Red sauce, tomatoes, roasted red peppers, mushrooms, onions, artichokes, green olives, zucchini, ricotta, & mozarella cheese",
+        price: "16.00",
+      },
+      {
+        name: "Vegetarian Calzone",
+        description:
+          "Red sauce, fresh garlic, fresh mushrooms, onions, kalamata olives, ricotta, & mozzarella cheese",
+        price: "14.49",
+      },
+      {
+        name: "Your Own Calzone",
+        description:
+          "Red sauce, mozzarella cheese, and any THREE toppings of your choice",
+        price: "14.49",
+      },
+    ],
+  },
+  desserts: {
+    options: [
+      {
+        name: "Dessert Pizza",
+        description:
+          "Cinnamon sugar over a buttery crust topped with cream cheese frosting",
+        small: "4.99",
+        medium: "5.99",
+        large: "6.99",
+      },
+      {
+        name: "Dessert Sticks",
+        description:
+          "Cinnamon sugar over our breadsticks with a side of cream cheese dipping sauce",
+        small: "6.50",
+      },
+      {
+        name: "Dessert Buddies",
+        small: "6.50",
+      },
+    ],
+  },
   soda: {
     price: "2.99",
     options: [

@@ -1,8 +1,8 @@
 import { Box, Fade, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
-import Image, { StaticImageData } from "next/image";
 import BenniditosTapList from "../Products/BenniditosTapList";
 import SectionHeader from "../SectionHeader";
+import { BenniditosTapListData } from "@/src/utils/BenniditosTapListData";
 interface MenuPanelProps {
   transitionIn: boolean;
 }
@@ -28,6 +28,7 @@ export function BenniditosOnTap(props: MenuPanelProps) {
                 <BenniditosTapList
                   theme={theme}
                   isSmallScreen={isSmallScreen}
+                  data={BenniditosTapListData}
                 />
               </Box>
             </Box>

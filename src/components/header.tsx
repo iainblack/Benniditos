@@ -8,14 +8,10 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  AppBar,
   Tab,
   Tabs,
-  Slide,
   useTheme,
-  Typography,
   Collapse,
-  ListItemIcon,
   Popover,
 } from "@mui/material";
 import React, { useEffect } from "react";
@@ -26,7 +22,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
-import bg from "@/public/bg3.jpeg";
+import { OpenInNewOutlined } from "@mui/icons-material";
 
 interface HeaderProps {
   handleTabChange: (event: React.SyntheticEvent, newValue: number) => void;
@@ -92,6 +88,32 @@ export default function Header(props: HeaderProps) {
             </ListItemButton>
           </ListItem>
         ))}
+        <ListItem disablePadding>
+          <ListItemButton
+            sx={{
+              backgroundColor: "white",
+              mx: "10%",
+              whiteSpace: "nowrap",
+              border: 1,
+              my: 1,
+              "&:hover": {
+                backgroundColor: "white",
+                color: "primary.main",
+              },
+            }}
+            onClick={() => {
+              router.push("/OnTap");
+            }}
+          >
+            <ListItemText
+              primary="Tap List"
+              primaryTypographyProps={{
+                textAlign: "center",
+                fontFamily: "header",
+              }}
+            />
+          </ListItemButton>
+        </ListItem>
         <ListItem
           disablePadding
           sx={{
@@ -149,7 +171,7 @@ export default function Header(props: HeaderProps) {
                 }}
               >
                 <ListItemText
-                  primary="Benniditos Pizza"
+                  primary="South Hill Menu"
                   primaryTypographyProps={{
                     textAlign: "center",
                     fontFamily: "header",
@@ -166,7 +188,7 @@ export default function Header(props: HeaderProps) {
             >
               <ListItemButton
                 onClick={() => {
-                  router.push("/BenniditosMenu");
+                  router.push("/BrewPubMenu");
                 }}
                 sx={{
                   textAlign: "center",
@@ -183,7 +205,7 @@ export default function Header(props: HeaderProps) {
                 }}
               >
                 <ListItemText
-                  primary="BrewPub"
+                  primary="BrewPub Menu"
                   primaryTypographyProps={{
                     textAlign: "center",
                     fontFamily: "header",
@@ -207,33 +229,11 @@ export default function Header(props: HeaderProps) {
               },
             }}
             onClick={() => {
-              router.push("/OnTap");
-            }}
-          >
-            <ListItemText
-              primary="Tap List"
-              primaryTypographyProps={{
-                textAlign: "center",
-                fontFamily: "header",
-              }}
-            />
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton
-            sx={{
-              backgroundColor: "white",
-              mx: "10%",
-              whiteSpace: "nowrap",
-              border: 1,
-              my: 1,
-              "&:hover": {
-                backgroundColor: "white",
-                color: "primary.main",
-              },
-            }}
-            onClick={() => {
               setDrawerOpen(false);
+              window.open(
+                "https://weborder7.microworks.com/benniditos/",
+                "_blank"
+              );
             }}
           >
             <ListItemText
@@ -243,9 +243,12 @@ export default function Header(props: HeaderProps) {
                 fontFamily: "header",
               }}
             />
+            <OpenInNewOutlined
+              fontSize="small"
+              sx={{ height: 14, width: 14 }}
+            />
           </ListItemButton>
         </ListItem>
-        <Link href="/OnTap">Test</Link>
       </List>
     </Box>
   );
@@ -405,7 +408,7 @@ export default function Header(props: HeaderProps) {
                     }}
                   >
                     <ListItemText
-                      primary="Benniditos Pizza"
+                      primary="South Hill Menu"
                       primaryTypographyProps={{
                         textAlign: "center",
                         fontFamily: "header",
@@ -425,11 +428,11 @@ export default function Header(props: HeaderProps) {
                       },
                     }}
                     onClick={() => {
-                      router.push("/OnTap");
+                      router.push("/BrewPubMenu");
                     }}
                   >
                     <ListItemText
-                      primary="Benniditos BrewPub"
+                      primary="BrewPub Menu"
                       primaryTypographyProps={{
                         textAlign: "center",
                         fontFamily: "header",

@@ -1,13 +1,11 @@
-import { BenniditosMenuPanel } from "@/src/components/Panels/BenniditosMenuPanel";
 import { PanelContainer } from "@/src/components/styles";
 import theme from "@/Theme";
 import { ThemeProvider, CssBaseline, AppBar } from "@mui/material";
 import background from "@/public/bg3.jpeg";
 import MenuHeader from "@/src/components/MenuHeader";
-import FileCopyIcon from "@mui/icons-material/FileCopyOutlined";
-import SaveIcon from "@mui/icons-material/Save";
-import PrintIcon from "@mui/icons-material/Print";
-import ShareIcon from "@mui/icons-material/Share";
+import { BenniditosMenuData } from "@/src/utils/BenniditosMenuData";
+import { MenuPanel } from "@/src/components/Panels/MenuPanel";
+import logo from "@/public/ditosLogo.png";
 
 export default function BenniditosMenuPage() {
   return (
@@ -20,7 +18,14 @@ export default function BenniditosMenuPage() {
           pl: { xs: 0, lg: 6 },
         }}
       >
-        <MenuHeader />
+        <MenuHeader
+          logo={logo}
+          firstNavName="BrewPub Menu"
+          firstNavPath="/BrewPubMenu"
+          secondNavName="Tap List"
+          secondNavPath="/OnTap"
+          phoneNum={"509-455-7411"}
+        />
       </AppBar>
       <PanelContainer
         marginTop={"76px"}
@@ -30,7 +35,7 @@ export default function BenniditosMenuPage() {
           backgroundPosition: "center",
         }}
       >
-        <BenniditosMenuPanel transitionIn />
+        <MenuPanel transitionIn data={BenniditosMenuData} />
       </PanelContainer>
     </ThemeProvider>
   );

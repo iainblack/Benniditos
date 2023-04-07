@@ -1,13 +1,11 @@
-import { BenniditosMenuPanel } from "@/src/components/Panels/BenniditosMenuPanel";
 import { PanelContainer } from "@/src/components/styles";
 import theme from "@/Theme";
 import { ThemeProvider, CssBaseline, AppBar } from "@mui/material";
 import background from "@/public/bg3.jpeg";
 import MenuHeader from "@/src/components/MenuHeader";
-import FileCopyIcon from "@mui/icons-material/FileCopyOutlined";
-import SaveIcon from "@mui/icons-material/Save";
-import PrintIcon from "@mui/icons-material/Print";
-import ShareIcon from "@mui/icons-material/Share";
+import { MenuPanel } from "@/src/components/Panels/MenuPanel";
+import { BrewPubMenuData } from "@/src/utils/BrewPubMenuData";
+import brewPub from "@/public/brewpubLogoCropped.png";
 
 export default function BrewPubMenuPage() {
   return (
@@ -20,7 +18,14 @@ export default function BrewPubMenuPage() {
           pl: { xs: 0, lg: 6 },
         }}
       >
-        <MenuHeader />
+        <MenuHeader
+          logo={brewPub}
+          firstNavName="South Hill Menu"
+          firstNavPath="/BenniditosMenu"
+          secondNavName="Tap List"
+          secondNavPath="/OnTap"
+          phoneNum={"509-290-5018"}
+        />
       </AppBar>
       <PanelContainer
         marginTop={"76px"}
@@ -30,7 +35,7 @@ export default function BrewPubMenuPage() {
           backgroundPosition: "center",
         }}
       >
-        <BenniditosMenuPanel transitionIn />
+        <MenuPanel transitionIn data={BrewPubMenuData} />
       </PanelContainer>
     </ThemeProvider>
   );

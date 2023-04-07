@@ -28,8 +28,6 @@ export default function BenniditosHome() {
   const hoursLocationsRef = React.useRef<HTMLDivElement>(null);
   const deliveryRef = React.useRef<HTMLDivElement>(null);
 
-  const tapListRef = React.useRef<HTMLDivElement>(null);
-
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     switch (newValue) {
       case 0:

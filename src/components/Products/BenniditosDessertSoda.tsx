@@ -1,10 +1,10 @@
 import { Box, Typography, Divider } from "@mui/material";
 import { BenniditosMenuProps } from "../../utils/utils";
-import { BenniditosMenuData } from "../../utils/BenniditosMenu";
 
 export default function BenniditosDessertSoda({
   theme,
   isSmallScreen,
+  data,
 }: BenniditosMenuProps) {
   return (
     <Box>
@@ -16,6 +16,7 @@ export default function BenniditosDessertSoda({
           flexDirection: { xs: "column", md: "row" },
         }}
       ></Box>
+
       <Box
         sx={{
           width: "100%",
@@ -34,11 +35,26 @@ export default function BenniditosDessertSoda({
               mb: 3,
             }}
           >
+            {data.desserts.description && (
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  mb: 2,
+                  p: 1,
+                  textAlign: "center",
+                }}
+              >
+                <Typography fontSize={12} fontFamily="body">
+                  <i>{data.desserts.description} </i>
+                </Typography>
+              </Box>
+            )}
             <Typography variant="h4" color="primary" fontFamily="header">
               {"DESSERTS"}
             </Typography>
           </Box>
-          {BenniditosMenuData.desserts.map((item, index) => {
+          {data.desserts.options.map((item, index) => {
             return (
               <Box key={item.name} sx={{ mb: 2, px: 1 }}>
                 <Box sx={{ mb: 2 }}>
@@ -72,8 +88,12 @@ export default function BenniditosDessertSoda({
                     )}
                   </Typography>
                 </Box>
-                {index !== BenniditosMenuData.desserts.length - 1 ? (
-                  <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
+                {index !== data.desserts.options.length - 1 ? (
+                  <Divider
+                    sx={{
+                      mx: { xs: "15%", sm: "30%", md: "20%" },
+                    }}
+                  />
                 ) : null}
               </Box>
             );
@@ -85,6 +105,7 @@ export default function BenniditosDessertSoda({
               sx={{
                 p: 1,
                 mb: 3,
+                mt: data.desserts.description ? 5 : 0,
               }}
             >
               <Typography
@@ -101,10 +122,13 @@ export default function BenniditosDessertSoda({
             <b>2.99</b>
           </Typography>
           <Divider
-            sx={{ mx: { xs: 4, sm: 20, md: 8 }, mb: { xs: 2, md: 1 } }}
+            sx={{
+              mx: { xs: "15%", sm: "30%", md: "20%" },
+              mb: { xs: 2, md: 1 },
+            }}
           />
           <Box>
-            {BenniditosMenuData.soda.options.map((item) => {
+            {data.soda.options.map((item) => {
               return (
                 <Box key={item} sx={{ px: 1 }}>
                   <Box>

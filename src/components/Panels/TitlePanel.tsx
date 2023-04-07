@@ -40,6 +40,7 @@ export default function TitlePanel(props: TitlePanelProps) {
           width: "100%",
           height: "100%",
           backgroundColor: "rgba(0,0,0,0.7)",
+          p: 3,
         }}
       >
         <Box
@@ -54,7 +55,7 @@ export default function TitlePanel(props: TitlePanelProps) {
         >
           <Box sx={{ maxWidth: 500, mt: { xs: 12, md: 6 } }}>
             <Typography
-              variant={isSmallScreen ? "h4" : "h2"}
+              variant={isSmallScreen ? "h4" : "h3"}
               fontFamily="header"
               sx={{ color: "white", mb: 1 }}
             >

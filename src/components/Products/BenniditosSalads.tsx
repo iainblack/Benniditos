@@ -1,10 +1,10 @@
 import { Box, Typography, Divider } from "@mui/material";
 import { BenniditosMenuProps } from "../../utils/utils";
-import { BenniditosMenuData } from "../../utils/BenniditosMenu";
 
 export default function BenniditosSalads({
   theme,
   isSmallScreen,
+  data,
 }: BenniditosMenuProps) {
   return (
     <Box>
@@ -28,6 +28,21 @@ export default function BenniditosSalads({
         }}
       >
         <Box sx={{ textAlign: "center" }}>
+          {data.salads.description && (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                mt: 1,
+                p: 1,
+                textAlign: "center",
+              }}
+            >
+              <Typography fontSize={12} fontFamily="body">
+                <i>{data.salads.description}</i>
+              </Typography>
+            </Box>
+          )}
           <Box
             sx={{
               p: 1,
@@ -39,7 +54,7 @@ export default function BenniditosSalads({
               {"SALADS"}
             </Typography>
           </Box>
-          {BenniditosMenuData.salads.map((item, index) => {
+          {data.salads.options.map((item, index) => {
             return (
               <Box key={item.name} sx={{ mb: 2, px: 1 }}>
                 <Box sx={{ mb: 2 }}>
@@ -62,7 +77,7 @@ export default function BenniditosSalads({
                     <b>{`${item.small} | ${item.medium} | ${item.large}`}</b>
                   </Typography>
                 </Box>
-                {index !== BenniditosMenuData.salads.length - 1 ? (
+                {index !== data.salads.options.length - 1 ? (
                   <Divider sx={{ mx: { xs: 4, sm: 20, md: 8 } }} />
                 ) : null}
               </Box>

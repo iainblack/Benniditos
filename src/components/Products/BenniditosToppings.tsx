@@ -1,10 +1,10 @@
 import { Box, Typography, Divider } from "@mui/material";
 import { BenniditosMenuProps } from "../../utils/utils";
-import { BenniditosMenuData } from "../../utils/BenniditosMenu";
 
 export default function BenniditosToppings({
   theme,
   isSmallScreen,
+  data,
 }: BenniditosMenuProps) {
   return (
     <Box>
@@ -18,6 +18,23 @@ export default function BenniditosToppings({
         }}
       >
         <Box>
+          {data.toppings.description && (
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                textAlign: "center",
+                mt: 2,
+                px: 1,
+              }}
+            >
+              <Typography fontSize={12} fontFamily="body">
+                <i>{data.toppings.description} </i>
+              </Typography>
+            </Box>
+          )}
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Box
               sx={{
@@ -47,7 +64,7 @@ export default function BenniditosToppings({
                   </Typography>
                   <Divider sx={{ mx: { xs: 8, sm: 30, md: 0 }, mb: 1 }} />
                 </Box>
-                {BenniditosMenuData.toppings.cheese.map((item) => {
+                {data.toppings.cheese.map((item) => {
                   return (
                     <Box key={item} sx={{ px: 1 }}>
                       <Box>
@@ -77,7 +94,7 @@ export default function BenniditosToppings({
                   </Typography>
                   <Divider sx={{ mx: { xs: 8, sm: 30, md: 0 }, mb: 1 }} />
                 </Box>
-                {BenniditosMenuData.toppings.meats.map((item) => {
+                {data.toppings.meats.map((item) => {
                   return (
                     <Box key={item} sx={{ px: 1 }}>
                       <Box>
@@ -107,7 +124,7 @@ export default function BenniditosToppings({
                   </Typography>
                   <Divider sx={{ mx: { xs: 8, sm: 30, md: 0 }, mb: 1 }} />
                 </Box>
-                {BenniditosMenuData.toppings.sauces.map((item) => {
+                {data.toppings.sauces.map((item) => {
                   return (
                     <Box key={item} sx={{ px: 1 }}>
                       <Box>
@@ -151,7 +168,7 @@ export default function BenniditosToppings({
                   </Typography>
                   <Divider sx={{ mx: { xs: 8, sm: 30, md: 0 }, mb: 1 }} />
                 </Box>
-                {BenniditosMenuData.toppings.veggies.map((item) => {
+                {data.toppings.veggies.map((item) => {
                   return (
                     <Box key={item} sx={{ px: 1 }}>
                       <Box>

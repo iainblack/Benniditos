@@ -3,9 +3,8 @@ import theme from "@/Theme";
 import { ThemeProvider, CssBaseline, AppBar } from "@mui/material";
 import background from "@/public/bg3.jpeg";
 import { BenniditosOnTap } from "@/src/components/Panels/OnTapPanel";
-import Header from "@/src/components/header";
-import { HideOnScroll } from "@/src/utils/utils";
 import MenuHeader from "@/src/components/MenuHeader";
+import logo from "@/public/ditosLogo.png";
 
 export default function BenniditosMenuPage() {
   return (
@@ -18,7 +17,13 @@ export default function BenniditosMenuPage() {
           pl: { xs: 0, lg: 6 },
         }}
       >
-        <MenuHeader />
+        <MenuHeader
+          logo={logo}
+          firstNavName="South Hill Menu"
+          firstNavPath="/BenniditosMenu"
+          secondNavName="BrewPub Menu"
+          secondNavPath="/BrewPubMenu"
+        />
       </AppBar>
       <PanelContainer
         marginTop={"76px"}

@@ -1,5 +1,6 @@
 import {
   Box,
+  Fab,
   Fade,
   FormControl,
   MenuItem,
@@ -11,22 +12,25 @@ import {
   useTheme,
 } from "@mui/material";
 import React from "react";
-import { TabPanel } from "../../utils/utils";
+import { BenniditosMenuConfig, ScrollTop, TabPanel } from "../../utils/utils";
 import BenniditosBread from "../Products/BenniditosBreadPasta";
-import BenniditosSpecialtyPizzaMenu from "../Products/BenniditosSpecialtyPizzaMenu";
+import BenniditosSpecialtyPizzaMenu from "../Products/BenniditosPizzaMenu";
 import BenniditosToppings from "../Products/BenniditosToppings";
 import BenniditosSalads from "../Products/BenniditosSalads";
 import BenniditosCalzoneSammies from "../Products/BenniditosCalzoneSammies";
 import BenniditosDessertSoda from "../Products/BenniditosDessertSoda";
 import SectionHeader from "../SectionHeader";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+
 interface MenuPanelProps {
   transitionIn: boolean;
+  data: BenniditosMenuConfig;
 }
 
-export function BenniditosMenuPanel(props: MenuPanelProps) {
+export function MenuPanel(props: MenuPanelProps) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
-  const isLargeSreen = useMediaQuery(theme.breakpoints.up("lg"));
+  const isLargeSreen = useMediaQuery(theme.breakpoints.up("md"));
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -39,6 +43,7 @@ export function BenniditosMenuPanel(props: MenuPanelProps) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   return (
     <Box
+      id="back-to-top-anchor"
       sx={{
         height: "fit-content",
         width: "100%",
@@ -49,7 +54,7 @@ export function BenniditosMenuPanel(props: MenuPanelProps) {
           <Box>
             <SectionHeader title="MENU" imagePath={"/ditosMain.jpg"} />
             <Box sx={{ backgroundColor: "white" }}>
-              {isLargeSreen && (
+              {!isSmallScreen && (
                 <Tabs
                   value={value}
                   onChange={handleChange}
@@ -58,11 +63,11 @@ export function BenniditosMenuPanel(props: MenuPanelProps) {
                   sx={{ backgroundColor: "white", border: 1, borderBottom: 0 }}
                 >
                   <Tab
-                    label="Specialty Pizzas"
+                    label="Pizzas"
                     sx={{ textTransform: "none", fontFamily: "subheader" }}
                   />
                   <Tab
-                    label="Build Your Own"
+                    label="Toppings"
                     sx={{ textTransform: "none", fontFamily: "subheader" }}
                   />
                   <Tab
@@ -83,7 +88,7 @@ export function BenniditosMenuPanel(props: MenuPanelProps) {
                   />
                 </Tabs>
               )}
-              {!isLargeSreen && (
+              {isSmallScreen && (
                 <Box
                   sx={{
                     display: "flex",
@@ -101,7 +106,7 @@ export function BenniditosMenuPanel(props: MenuPanelProps) {
                       onChange={handleSelectChange}
                       variant="standard"
                       inputProps={{ MenuProps: { disableScrollLock: true } }}
-                      sx={{ fontFamily: "subheader" }}
+                      sx={{ fontFamily: "subheader", minWidth: 120 }}
                     >
                       <MenuItem
                         value={0}
@@ -111,7 +116,7 @@ export function BenniditosMenuPanel(props: MenuPanelProps) {
                           justifyContent: "center",
                         }}
                       >
-                        Specialty Pizzas
+                        Pizzas
                       </MenuItem>
                       <MenuItem
                         value={1}
@@ -121,7 +126,7 @@ export function BenniditosMenuPanel(props: MenuPanelProps) {
                           justifyContent: "center",
                         }}
                       >
-                        Build Your Own
+                        Toppings
                       </MenuItem>
                       <MenuItem
                         value={2}
@@ -172,35 +177,52 @@ export function BenniditosMenuPanel(props: MenuPanelProps) {
                 <BenniditosSpecialtyPizzaMenu
                   theme={theme}
                   isSmallScreen={isSmallScreen}
+                  data={props.data}
                 />
               </TabPanel>
               <TabPanel value={value} index={1}>
                 <BenniditosToppings
                   theme={theme}
                   isSmallScreen={isSmallScreen}
+                  data={props.data}
                 />
               </TabPanel>
               <TabPanel value={value} index={2}>
-                <BenniditosBread theme={theme} isSmallScreen={isSmallScreen} />
+                <BenniditosBread
+                  theme={theme}
+                  isSmallScreen={isSmallScreen}
+                  data={props.data}
+                />
               </TabPanel>
               <TabPanel value={value} index={3}>
-                <BenniditosSalads theme={theme} isSmallScreen={isSmallScreen} />
+                <BenniditosSalads
+                  theme={theme}
+                  isSmallScreen={isSmallScreen}
+                  data={props.data}
+                />
               </TabPanel>
               <TabPanel value={value} index={4}>
                 <BenniditosCalzoneSammies
                   theme={theme}
                   isSmallScreen={isSmallScreen}
+                  data={props.data}
                 />
               </TabPanel>
               <TabPanel value={value} index={5}>
                 <BenniditosDessertSoda
                   theme={theme}
                   isSmallScreen={isSmallScreen}
+                  data={props.data}
                 />
               </TabPanel>
             </Box>
           </Box>
         </Fade>
+        <ScrollTop>
+          <Fab size="small" aria-label="scroll back to top">
+            <KeyboardArrowUpIcon />
+          </Fab>
+        </ScrollTop>
       </Box>
     </Box>
   );
