@@ -24,6 +24,7 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 interface MenuPanelProps {
   transitionIn: boolean;
+  header: string;
   data: BenniditosMenuConfig;
 }
 
@@ -52,7 +53,7 @@ export function MenuPanel(props: MenuPanelProps) {
       <Box ref={containerRef}>
         <Fade in={props.transitionIn} timeout={1000}>
           <Box>
-            <SectionHeader title="MENU" imagePath={"/ditosMain.jpg"} />
+            <SectionHeader title={props.header} imagePath={"/ditosMain.jpg"} />
             <Box sx={{ backgroundColor: "white" }}>
               {!isSmallScreen && (
                 <Tabs

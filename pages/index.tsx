@@ -78,6 +78,10 @@ export default function BenniditosHome() {
           backgroundImage: `url(${bg3.src})`,
           backgroundSize: "contain",
           backgroundPosition: "center",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <HideOnScroll>

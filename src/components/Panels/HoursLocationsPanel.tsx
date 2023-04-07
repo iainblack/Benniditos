@@ -26,7 +26,6 @@ export function BenniditosHours(props: HoursLocationProps) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        height: "objectFit",
       }}
     >
       <Box ref={containerRef}>
@@ -37,17 +36,19 @@ export function BenniditosHours(props: HoursLocationProps) {
               display: "flex",
               flexDirection: { xs: "column", md: "row" },
               justifyContent: "space-evenly",
+              alignItems: "center",
             }}
           >
             <Box
               sx={{
+                minWidth: { xs: "fit-content", lg: "70vw" },
                 textAlign: "center",
                 width: "100%",
                 border: "1px solid",
                 p: 2,
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "space-evenly",
+                justifyContent: "space-between",
                 backgroundColor: "white",
                 order: 1,
               }}
@@ -73,7 +74,7 @@ export function BenniditosHours(props: HoursLocationProps) {
 
 function BenniditosInfo() {
   return (
-    <Box sx={{ mb: { xs: 6, md: 0 } }}>
+    <Box sx={{ mb: { xs: 6, md: 0 }, p: { xs: 0, md: 4 } }}>
       <Box>
         <Box sx={{ mb: { xs: 3, md: 6 } }}>
           <Box sx={{ alignItems: "center" }}>
@@ -172,7 +173,7 @@ function BenniditosInfo() {
 
 function BrewPubInfo() {
   return (
-    <Box>
+    <Box sx={{ p: { xs: 0, md: 4 } }}>
       <Box sx={{ mb: { xs: 3, md: 6 } }}>
         <Box sx={{ alignItems: "center" }}>
           <Typography

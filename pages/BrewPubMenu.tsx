@@ -35,7 +35,7 @@ export default function BrewPubMenuPage() {
           backgroundPosition: "center",
         }}
       >
-        <MenuPanel transitionIn data={BrewPubMenuData} />
+        <MenuPanel transitionIn data={BrewPubMenuData} header="BREWPUB MENU" />
       </PanelContainer>
     </ThemeProvider>
   );

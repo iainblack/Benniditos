@@ -34,16 +34,16 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
             sx={{
               height: "fit-content",
               display: "flex",
-              flexDirection: { xs: "column", md: "row" },
+              flexDirection: { xs: "column", lg: "row" },
               justifyContent: "space-between",
             }}
           >
             <Box
               sx={{
                 position: "relative",
-                width: { xs: "100%", md: "70%" },
-                height: { xs: "50vh", md: "70vh" },
-                order: { xs: 2, md: 1 },
+                width: { xs: "100%", lg: "70%" },
+                height: { xs: "50vh", lg: "70vh" },
+                order: { xs: 2, lg: 1 },
                 border: 1,
               }}
             >
@@ -60,17 +60,17 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
             <Box
               sx={{
                 textAlign: "center",
-                width: { xs: "100%", md: "30%" },
+                width: { xs: "100%", lg: "30%" },
                 border: "1px solid",
-                ml: { xs: 0, md: 3 },
+                ml: { xs: 0, lg: 3 },
                 px: 2,
-                py: { xs: 4, md: 8 },
+                py: { xs: 4, lg: 8 },
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-evenly",
                 backgroundColor: "white",
-                order: { xs: 1, md: 2 },
-                height: { xs: "fit-content", md: "70vh" },
+                order: { xs: 1, lg: 2 },
+                height: { xs: "fit-content", lg: "70vh" },
               }}
             >
               <Box

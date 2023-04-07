@@ -46,7 +46,7 @@ export function BenniditosAboutUs(props: AboutUsProps) {
                 justifyContent: "center",
                 backgroundColor: "white",
                 order: 2,
-                minHeight: "30vh",
+                minHeight: "40vh",
               }}
             >
               <Box
@@ -57,7 +57,7 @@ export function BenniditosAboutUs(props: AboutUsProps) {
                 <Typography
                   sx={{
                     textAlign: "center",
-                    p: 2,
+                    px: { xs: 2, lg: 10 },
                     fontFamily: "body",
                   }}
                   variant="body1"

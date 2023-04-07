@@ -7,9 +7,9 @@ export const PanelContainer = styled(Box, {
   noPaddingTop?: boolean;
   marginTop?: string;
 }>(({ noPaddingTop, theme, marginTop }) => ({
-  paddingLeft: theme.spacing(6),
-  paddingRight: theme.spacing(6),
-  paddingBottom: theme.spacing(8),
+  minHeight: "100vh",
+  maxWidth: "80vw",
+  padding: theme.spacing(8),
   paddingTop: noPaddingTop ? 0 : theme.spacing(8),
   marginTop: marginTop ? marginTop : 0,
   [theme.breakpoints.down("md")]: {
@@ -18,6 +18,8 @@ export const PanelContainer = styled(Box, {
     paddingBottom: theme.spacing(4),
     paddingTop: noPaddingTop ? 0 : theme.spacing(4),
     marginTop: marginTop ? marginTop : 0,
+    minHeight: "fit-content",
+    maxWidth: "100vw",
   },
   display: "flex",
   justifyContent: "center",

@@ -35,7 +35,11 @@ export default function BenniditosMenuPage() {
           backgroundPosition: "center",
         }}
       >
-        <MenuPanel transitionIn data={BenniditosMenuData} />
+        <MenuPanel
+          transitionIn
+          data={BenniditosMenuData}
+          header="SOUTH HILL MENU"
+        />
       </PanelContainer>
     </ThemeProvider>
   );

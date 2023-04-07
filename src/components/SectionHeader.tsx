@@ -31,7 +31,7 @@ export default function SectionHeader({
             alignItems: "center",
           }}
         >
-          <Box>
+          <Box sx={{ textAlign: "center" }}>
             <Typography
               variant="h4"
               fontFamily="header"
