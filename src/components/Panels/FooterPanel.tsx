@@ -14,7 +14,7 @@ export default function FooterPanel() {
     >
       <Box
         sx={{
-          mt: 8,
+          mt: { xs: 4, md: 8 },
           width: "100%",
           height: "100%",
           backgroundColor: "rgba(0,0,0,0.7)",

@@ -50,13 +50,12 @@ export default function SlideShowPanel(props: TitlePanelProps) {
           flexDirection: "column",
           justifyContent: "center",
           border: 3,
-          height: "80vh",
+          height: { xs: "60vh", md: "80vh" },
         }}
       >
         <Box
           sx={{
             width: "100%",
-            height: "70vh",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -71,7 +70,7 @@ export default function SlideShowPanel(props: TitlePanelProps) {
                   key={index}
                   sx={{
                     width: "100%",
-                    height: { xs: "75vh", md: "70vh" },
+                    height: { xs: "55vh", md: "70vh" },
                   }}
                 >
                   <img

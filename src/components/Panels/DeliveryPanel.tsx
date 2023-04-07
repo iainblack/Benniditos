@@ -42,9 +42,8 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
               sx={{
                 position: "relative",
                 width: { xs: "100%", md: "70%" },
-                height: { xs: "50vh", md: "100%" },
+                height: { xs: "50vh", md: "70vh" },
                 order: { xs: 2, md: 1 },
-                my: { xs: 4, md: 0 },
                 border: 1,
               }}
             >
@@ -64,7 +63,6 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 width: { xs: "100%", md: "30%" },
                 border: "1px solid",
                 ml: { xs: 0, md: 3 },
-                my: { xs: 4, md: 0 },
                 px: 2,
                 py: { xs: 4, md: 8 },
                 display: "flex",
@@ -72,6 +70,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 justifyContent: "space-evenly",
                 backgroundColor: "white",
                 order: { xs: 1, md: 2 },
+                height: { xs: "fit-content", md: "70vh" },
               }}
             >
               <Box
@@ -106,10 +105,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                   vulputate tellus. Sed mattis quis nunc eu maximus. Ut eget
                   feugiat nisi, nec varius nibh. Proin pharetra scelerisque
                   metus vitae finibus. Aliquam suscipit est vitae ligula iaculis
-                  sollicitudin. Vivamus eget convallis turpis. Phasellus sed
-                  libero dui. Vestibulum ante ipsum primis in faucibus orci
-                  luctus et ultrices posuere cubilia curae; Sed at mauris sit
-                  amet odio egestas egestas.
+                  sollicitudin. Vivamus eget convallis turpis.
                 </Typography>
               </Box>
               <Box

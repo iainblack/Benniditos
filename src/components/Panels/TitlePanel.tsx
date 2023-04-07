@@ -33,7 +33,7 @@ export default function TitlePanel(props: TitlePanelProps) {
         backgroundImage: `url(${bg.src})`,
         backgroundSize: "cover",
         backgroundPosition: "center top",
-        mb: 8,
+        mb: { xs: 4, md: 8 },
       }}
     >
       <Box
@@ -55,25 +55,27 @@ export default function TitlePanel(props: TitlePanelProps) {
           }}
         >
           <Box sx={{ maxWidth: 500, mt: { xs: 12, md: 6 } }}>
-            <Fade in timeout={1000}>
+            <Fade in timeout={3000} style={{ transitionDelay: "500ms" }}>
+              <Typography
+                variant={isSmallScreen ? "h4" : "h2"}
+                fontFamily="header"
+                sx={{ color: "white" }}
+              >
+                {"Pizza,"}
+              </Typography>
+            </Fade>
+            <Fade in timeout={3000} style={{ transitionDelay: "1000ms" }}>
               <Typography
                 variant={isSmallScreen ? "h4" : "h3"}
                 fontFamily="header"
-                sx={{ color: "white", mb: 1 }}
+                sx={{ color: "white" }}
               >
-                {"Pizza, the right way."}
-              </Typography>
-            </Fade>
-            <Fade in timeout={1500}>
-              <Typography fontFamily="body" sx={{ color: "white" }}>
-                At Benniditos we have have been feeding Spokane since 19XX
-                adipiscing elit. Suspendisse ut risus convallis, aliquet felis
-                sit amet, vulputate tellus. Sed mattis quis nunc eu maximus.
+                {"done the right way."}
               </Typography>
             </Fade>
           </Box>
           <Box sx={{ mt: 6 }}>
-            <Fade in timeout={2000}>
+            <Fade in timeout={3000} style={{ transitionDelay: "1500ms" }}>
               <Box sx={{ mb: 2 }}>
                 <Typography sx={{ color: "white", fontFamily: "header" }}>
                   Benniditos Pizza
@@ -91,7 +93,7 @@ export default function TitlePanel(props: TitlePanelProps) {
                 </Button>
               </Box>
             </Fade>
-            <Fade in timeout={2500}>
+            <Fade in timeout={3000} style={{ transitionDelay: "1500ms" }}>
               <Box>
                 <Typography sx={{ color: "white", fontFamily: "header" }}>
                   Benniditos BrewPub

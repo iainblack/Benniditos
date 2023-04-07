@@ -6,10 +6,7 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import Image, { StaticImageData } from "next/image";
 import React from "react";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import SectionHeader from "../SectionHeader";
 
 interface AboutUsProps {
@@ -43,13 +40,13 @@ export function BenniditosAboutUs(props: AboutUsProps) {
                 textAlign: "center",
                 width: "100%",
                 border: "1px solid",
-                mb: { xs: 4, md: 0 },
                 p: 2,
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "space-evenly",
+                justifyContent: "center",
                 backgroundColor: "white",
                 order: 2,
+                minHeight: "30vh",
               }}
             >
               <Box
@@ -57,23 +54,6 @@ export function BenniditosAboutUs(props: AboutUsProps) {
                   justifyContent: "center",
                 }}
               >
-                <Typography
-                  sx={{
-                    textAlign: "center",
-                    mb: 1,
-                    fontFamily: "Header",
-                  }}
-                  variant="h4"
-                >
-                  Lorem ipsum
-                </Typography>
-                <Divider
-                  sx={{
-                    mb: 1,
-                    mx: { xs: "15%", sm: "30%" },
-                    borderBottomStyle: "dashed",
-                  }}
-                />
                 <Typography
                   sx={{
                     textAlign: "center",
