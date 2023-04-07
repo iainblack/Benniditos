@@ -57,3 +57,25 @@ left:-500px;
 left:-500px;    
 
 }
+
+@media only screen and (orientation: portrait) {
+  body {
+      .shrink {
+          width: 95%;
+      }
+  }
+}
+
+@media only screen and (orientation: landscape) {
+  body {
+      .shrink {
+          width: 90%;      /* Shrink a little more to avoid the notch. */
+      }
+  }
+}
+
+
+.center {
+  text-align: center;
+  margin: 0 auto;
+}

@@ -72,46 +72,48 @@ export default function BenniditosHome() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box
-        id="benniditosHome"
-        sx={{
-          backgroundImage: `url(${bg3.src})`,
-          backgroundSize: "contain",
-          backgroundPosition: "center",
-        }}
-      >
-        <HideOnScroll>
-          <AppBar
-            sx={{
-              backgroundColor: AppBarState.transparent
-                ? "transparent"
-                : theme.palette.primary.main,
-              pr: { xs: 2, lg: 6 },
-              pl: { xs: 0, lg: 6 },
-            }}
-            elevation={AppBarState.elevated ? 4 : 0}
-          >
-            <Header handleTabChange={handleTabChange} />
-          </AppBar>
-        </HideOnScroll>
-        <TitlePanel />
-        <PanelContainer id="about-container" ref={aboutUsRef}>
-          <BenniditosAboutUs transitionIn />
-        </PanelContainer>
-        <PanelContainer id="slideshow-container">
-          <SlideShowPanel
-            handleTabChange={handleTabChange}
-            backgroundImage={background}
-          />
-        </PanelContainer>
-        <PanelContainer id="hours-container" ref={hoursLocationsRef}>
-          <BenniditosHours transitionIn />
-        </PanelContainer>
-        <PanelContainer id="delivery-container" ref={deliveryRef}>
-          <BenniditosDeliveryPanel transitionIn />
-        </PanelContainer>
-        <FooterPanel />
-      </Box>
+      <main className="shrink center">
+        <Box
+          id="benniditosHome"
+          sx={{
+            backgroundImage: `url(${bg3.src})`,
+            backgroundSize: "contain",
+            backgroundPosition: "center",
+          }}
+        >
+          <HideOnScroll>
+            <AppBar
+              sx={{
+                backgroundColor: AppBarState.transparent
+                  ? "transparent"
+                  : theme.palette.primary.main,
+                pr: { xs: 2, lg: 6 },
+                pl: { xs: 0, lg: 6 },
+              }}
+              elevation={AppBarState.elevated ? 4 : 0}
+            >
+              <Header handleTabChange={handleTabChange} />
+            </AppBar>
+          </HideOnScroll>
+          <TitlePanel />
+          <PanelContainer id="about-container" ref={aboutUsRef}>
+            <BenniditosAboutUs transitionIn />
+          </PanelContainer>
+          <PanelContainer id="slideshow-container">
+            <SlideShowPanel
+              handleTabChange={handleTabChange}
+              backgroundImage={background}
+            />
+          </PanelContainer>
+          <PanelContainer id="hours-container" ref={hoursLocationsRef}>
+            <BenniditosHours transitionIn />
+          </PanelContainer>
+          <PanelContainer id="delivery-container" ref={deliveryRef}>
+            <BenniditosDeliveryPanel transitionIn />
+          </PanelContainer>
+          <FooterPanel />
+        </Box>
+      </main>
     </ThemeProvider>
   );
 }
