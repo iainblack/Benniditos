@@ -44,7 +44,7 @@ export default function BenniditosHome() {
             block: "start",
           });
         break;
-      case 5:
+      case 2:
         deliveryRef.current &&
           deliveryRef.current.scrollIntoView({
             behavior: "smooth",

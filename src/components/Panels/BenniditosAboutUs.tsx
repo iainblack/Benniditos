@@ -77,7 +77,7 @@ export function BenniditosAboutUs(props: AboutUsProps) {
                 <Typography
                   sx={{
                     textAlign: "center",
-                    p: 4,
+                    p: 2,
                     fontFamily: "body",
                   }}
                   variant="body1"
@@ -90,12 +90,7 @@ export function BenniditosAboutUs(props: AboutUsProps) {
                   sollicitudin. Vivamus eget convallis turpis. Phasellus sed
                   libero dui. Vestibulum ante ipsum primis in faucibus orci
                   luctus et ultrices posuere cubilia curae; Sed at mauris sit
-                  amet odio egestas egestas. Mauris ullamcorper leo vel
-                  efficitur ullamcorper. Suspendisse vehicula dolor arcu,
-                  hendrerit lobortis eros consequat eget. Praesent venenatis est
-                  a augue eleifend consectetur. Phasellus porttitor id lectus
-                  non congue. Nullam faucibus quis tortor sed accumsan. Nulla
-                  sapien lectus, mattis non turpis vitae, tempus mollis neque.
+                  amet odio egestas egestas.
                 </Typography>
               </Box>
             </Box>

@@ -32,6 +32,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
         <Fade in={props.transitionIn} timeout={1000}>
           <Box
             sx={{
+              height: "fit-content",
               display: "flex",
               flexDirection: { xs: "column", md: "row" },
               justifyContent: "space-between",
@@ -41,6 +42,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
               sx={{
                 position: "relative",
                 width: { xs: "100%", md: "70%" },
+                height: { xs: "50vh", md: "100%" },
                 order: { xs: 2, md: 1 },
                 my: { xs: 4, md: 0 },
                 border: 1,

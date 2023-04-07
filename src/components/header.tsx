@@ -361,6 +361,14 @@ export default function Header(props: HeaderProps) {
               }}
             />
             <Tab
+              label="Delivery"
+              sx={{
+                textTransform: "none",
+                color: "white",
+                fontFamily: "subheader",
+              }}
+            />
+            <Tab
               label="Menus"
               onClick={(e) => {
                 handleMenuTabClick(e);
@@ -447,14 +455,6 @@ export default function Header(props: HeaderProps) {
               onClick={() => {
                 router.push("/OnTap");
               }}
-              sx={{
-                textTransform: "none",
-                color: "white",
-                fontFamily: "subheader",
-              }}
-            />
-            <Tab
-              label="Delivery"
               sx={{
                 textTransform: "none",
                 color: "white",
