@@ -1,293 +1,119 @@
-import {
-  CssBaseline,
-  Box,
-  ThemeProvider,
-  Fade,
-  Slide,
-  Typography,
-  Button,
-} from "@mui/material";
+import { CssBaseline, Box, ThemeProvider, AppBar } from "@mui/material";
+import { PanelContainer } from "@/src/components/styles";
 import theme from "@/Theme";
+import { useEffect } from "react";
 import React from "react";
-import Image from "next/image";
-import background1 from "@/public/oven.jpg";
-import background2 from "@/public/taps.jpg";
-import Link from "next/link";
-import LocationIcon from "@mui/icons-material/LocationOn";
-import PhoneIcon from "@mui/icons-material/Phone";
+import Header from "@/src/components/header";
+import background from "@/public/ditosMain.jpg";
+import { BenniditosHours } from "@/src/components/Panels/HoursLocationsPanel";
+import { HideOnScroll } from "@/src/utils/utils";
+import { BenniditosDeliveryPanel } from "@/src/components/Panels/DeliveryPanel";
+import bg3 from "@/public/bg3.jpeg";
+import { BenniditosAboutUs } from "@/src/components/Panels/BenniditosAboutUs";
+import SlideShowPanel from "@/src/components/Panels/SlideShowPanel";
+import TitlePanel from "@/src/components/Panels/TitlePanel";
+import FooterPanel from "@/src/components/Panels/FooterPanel";
 
-interface ScrollState {
-  aboutMeTransitionIn: boolean;
-  experienceTransitionIn: boolean;
-  portfolioTransitionIn: boolean;
-  tabValue: number | false;
+interface AppBarState {
+  transparent: boolean;
+  elevated: boolean;
 }
 
-export default function Home() {
-  const [animateTopLabel, setAnimateTopLabel] = React.useState(false);
+export default function BenniditosHome() {
+  const [AppBarState, setAppBarState] = React.useState<AppBarState>({
+    transparent: true,
+    elevated: false,
+  });
+  const aboutUsRef = React.useRef<HTMLDivElement>(null);
+  const hoursLocationsRef = React.useRef<HTMLDivElement>(null);
+  const deliveryRef = React.useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
-    setTimeout(() => {
-      setAnimateTopLabel(true);
-    }, 1000);
+  const tapListRef = React.useRef<HTMLDivElement>(null);
+
+  const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
+    switch (newValue) {
+      case 0:
+        aboutUsRef.current &&
+          aboutUsRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        break;
+      case 1:
+        hoursLocationsRef.current &&
+          hoursLocationsRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        break;
+      case 5:
+        deliveryRef.current &&
+          deliveryRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        break;
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.visualViewport?.height &&
+        window.scrollY > window.visualViewport?.height
+      ) {
+        setAppBarState({ transparent: false, elevated: true });
+      } else {
+        setAppBarState({ transparent: true, elevated: false });
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Fade in {...{ timeout: 2000 }}>
-        <Box
-          id="background-container"
-          sx={{
-            height: "100vh",
-            width: "100vw",
-            py: 5,
-          }}
-        >
-          <Box
-            id="content-container"
-            sx={{ mx: "auto", height: "100%", width: "100%" }}
+      <Box
+        id="benniditosHome"
+        sx={{
+          backgroundImage: `url(${bg3.src})`,
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+        }}
+      >
+        <HideOnScroll>
+          <AppBar
+            sx={{
+              backgroundColor: AppBarState.transparent
+                ? "transparent"
+                : theme.palette.primary.main,
+              pr: { xs: 2, lg: 6 },
+              pl: { xs: 0, lg: 6 },
+            }}
+            elevation={AppBarState.elevated ? 4 : 0}
           >
-            <Fade in={animateTopLabel} timeout={1000}>
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                <Box sx={{ textAlign: "center" }}>
-                  <Typography
-                    variant="h5"
-                    sx={{ color: theme.palette.text.primary }}
-                  >
-                    Welcome to Benniditos!
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    sx={{ color: theme.palette.text.secondary }}
-                  >
-                    Please select a location to continue
-                  </Typography>
-                </Box>
-              </Box>
-            </Fade>
-            <Box
-              id="logos-container"
-              sx={{
-                height: "100%",
-                width: "100%",
-                display: { xs: "box", md: "flex" },
-                justifyContent: "space-between",
-              }}
-            >
-              <Slide
-                in
-                direction="up"
-                {...{ timeout: 1000 }}
-                easing={{
-                  enter: "cubic-bezier(0, 1.5, .8, 1)",
-                  exit: "linear",
-                }}
-              >
-                <Box
-                  id="benniditos-container"
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    mx: "auto",
-                  }}
-                >
-                  <Link
-                    href="/BenniditosHome"
-                    style={{
-                      textTransform: "none",
-                      color: "white",
-                      textDecoration: "none",
-                    }}
-                  >
-                    <Box
-                      id="benniditos-info-container"
-                      sx={{
-                        textAlign: "center",
-                        border: `1px solid white`,
-                        borderRadius: "10px",
-                        backgroundImage: `url(${background1.src})`,
-                        backgroundSize: "cover",
-                        overflow: "hidden",
-                        backgroundPosition: "center",
-                        transition: "all 0.2s ease-in-out",
-                        "&:hover": {
-                          transform: "scale(1.05)",
-                          cursor: "pointer",
-                        },
-                        mb: { xs: 3, md: 0 },
-                        height: "60vh",
-                        width: { xs: "70vw", md: "40vw" },
-                      }}
-                    >
-                      <Box
-                        sx={{
-                          width: "100%",
-                          height: "100%",
-                          backgroundColor: "rgba(0,0,0,0.7)",
-                          p: { xs: 4, md: 6 },
-                        }}
-                      >
-                        <Box
-                          id="benniditos-logo-container"
-                          sx={{
-                            position: "relative",
-                            width: "80%",
-                            height: "200px",
-                            mx: "auto",
-                            mb: 8,
-                          }}
-                        >
-                          <Image
-                            src={"/ditosLogo.png"}
-                            alt={"Benniditos"}
-                            fill
-                            style={{
-                              marginBottom: theme.spacing(3),
-                              objectFit: "contain",
-                            }}
-                          />
-                        </Box>
-
-                        <Box sx={{ display: "flex", justifyContent: "left" }}>
-                          <LocationIcon sx={{ mr: 2 }} fontSize="small" />
-                          <Typography
-                            variant="body1"
-                            sx={{
-                              mb: 3,
-                            }}
-                          >
-                            1426 S Lincoln St, Spokane, WA 99203
-                          </Typography>
-                        </Box>
-                        <Box
-                          sx={{
-                            display: "flex",
-                            justifyContent: "left",
-                          }}
-                        >
-                          <PhoneIcon sx={{ mr: 2 }} fontSize="small" />
-                          <Typography variant="body1" sx={{ mb: 3 }}>
-                            509-455-7411
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </Box>
-                  </Link>
-                </Box>
-              </Slide>
-              <Slide
-                in
-                direction="up"
-                {...{ timeout: 1000 }}
-                easing={{
-                  enter: "cubic-bezier(0, 1.5, .8, 1)",
-                  exit: "linear",
-                }}
-              >
-                <Box
-                  id="brewpub-container"
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    mx: "auto",
-                  }}
-                >
-                  <Link
-                    href="/BenniditosHome"
-                    style={{
-                      textTransform: "none",
-                      color: "white",
-                      textDecoration: "none",
-                    }}
-                  >
-                    <Box
-                      id="brewpub-info-container"
-                      sx={{
-                        textAlign: "center",
-                        border: `1px solid white`,
-                        borderRadius: "10px",
-                        backgroundImage: `url(${background2.src})`,
-                        backgroundSize: "cover",
-                        overflow: "hidden",
-                        backgroundPosition: "center",
-                        transition: "all 0.2s ease-in-out",
-                        "&:hover": {
-                          transform: "scale(1.05)",
-                          cursor: "pointer",
-                        },
-                        mb: { xs: 3, md: 0 },
-                        height: "60vh",
-                        width: { xs: "70vw", md: "40vw" },
-                      }}
-                    >
-                      <Box
-                        sx={{
-                          width: "100%",
-                          height: "100%",
-                          backgroundColor: "rgba(0,0,0,0.7)",
-                          p: { xs: 4, md: 6 },
-                        }}
-                      >
-                        <Box
-                          id="brewpub-logo-container"
-                          sx={{
-                            position: "relative",
-                            width: "80%",
-                            height: "200px",
-                            mx: "auto",
-                            mb: 8,
-                          }}
-                        >
-                          <Image
-                            src={"/brewpubLogoCropped.png"}
-                            alt={"Brewpub"}
-                            fill
-                            style={{
-                              marginBottom: theme.spacing(3),
-                              objectFit: "contain",
-                            }}
-                          />
-                        </Box>
-
-                        <Box sx={{ display: "flex", justifyContent: "left" }}>
-                          <LocationIcon sx={{ mr: 2 }} fontSize="small" />
-                          <Typography
-                            variant="body1"
-                            sx={{
-                              mb: 3,
-                            }}
-                          >
-                            1909 E Sprague Ave, Spokane, WA 99202
-                          </Typography>
-                        </Box>
-                        <Box
-                          sx={{
-                            display: "flex",
-                            justifyContent: "left",
-                          }}
-                        >
-                          <PhoneIcon sx={{ mr: 2 }} fontSize="small" />
-                          <Typography variant="body1" sx={{ mb: 3 }}>
-                            509-290-5018
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </Box>
-                  </Link>
-                </Box>
-              </Slide>
-            </Box>
-          </Box>
-        </Box>
-      </Fade>
+            <Header handleTabChange={handleTabChange} />
+          </AppBar>
+        </HideOnScroll>
+        <TitlePanel />
+        <PanelContainer id="about-container" ref={aboutUsRef}>
+          <BenniditosAboutUs transitionIn />
+        </PanelContainer>
+        <PanelContainer id="slideshow-container">
+          <SlideShowPanel
+            handleTabChange={handleTabChange}
+            backgroundImage={background}
+          />
+        </PanelContainer>
+        <PanelContainer id="hours-container" ref={hoursLocationsRef}>
+          <BenniditosHours transitionIn />
+        </PanelContainer>
+        <PanelContainer id="delivery-container" ref={deliveryRef}>
+          <BenniditosDeliveryPanel transitionIn />
+        </PanelContainer>
+        <FooterPanel />
+      </Box>
     </ThemeProvider>
   );
 }

@@ -26,7 +26,6 @@ export function BenniditosAboutUs(props: AboutUsProps) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        height: "fit-content",
       }}
     >
       <Box ref={containerRef}>
@@ -44,9 +43,8 @@ export function BenniditosAboutUs(props: AboutUsProps) {
                 textAlign: "center",
                 width: "100%",
                 border: "1px solid",
-                mr: { xs: 0, md: 3 },
                 mb: { xs: 4, md: 0 },
-                py: 2,
+                p: 2,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-evenly",
@@ -57,7 +55,6 @@ export function BenniditosAboutUs(props: AboutUsProps) {
               <Box
                 sx={{
                   justifyContent: "center",
-                  mb: 6,
                 }}
               >
                 <Typography
@@ -68,7 +65,7 @@ export function BenniditosAboutUs(props: AboutUsProps) {
                   }}
                   variant="h4"
                 >
-                  OUR MISSION
+                  Lorem ipsum
                 </Typography>
                 <Divider
                   sx={{
@@ -80,7 +77,7 @@ export function BenniditosAboutUs(props: AboutUsProps) {
                 <Typography
                   sx={{
                     textAlign: "center",
-                    px: 6,
+                    p: 4,
                     fontFamily: "body",
                   }}
                   variant="body1"
@@ -100,51 +97,6 @@ export function BenniditosAboutUs(props: AboutUsProps) {
                   non congue. Nullam faucibus quis tortor sed accumsan. Nulla
                   sapien lectus, mattis non turpis vitae, tempus mollis neque.
                 </Typography>
-              </Box>
-              <Box>
-                <Box>
-                  <Box sx={{ alignItems: "center" }}>
-                    <Typography
-                      sx={{
-                        textAlign: "center",
-                        mb: 1,
-                        fontFamily: "header",
-                      }}
-                      variant="h4"
-                    >
-                      CONTACT US
-                    </Typography>
-                    <Divider
-                      sx={{
-                        mb: 1,
-                        mx: { xs: "15%", sm: "30%" },
-                        borderBottomStyle: "dashed",
-                      }}
-                    />
-                    <Button
-                      onClick={() => {
-                        window.open(
-                          "http://maps.google.com/?q=1426 S Lincoln St, Spokane, WA 99203",
-                          "_blank"
-                        );
-                      }}
-                      sx={{
-                        fontFamily: "header",
-                        textTransform: "none",
-                      }}
-                    >
-                      1426 S Lincoln St, Spokane, WA 99203
-                    </Button>
-                  </Box>
-                  <Button
-                    sx={{ fontFamily: "header" }}
-                    onClick={() => {
-                      window.open("tel:+5094557411", "_blank");
-                    }}
-                  >
-                    (509) 455-7411
-                  </Button>
-                </Box>
               </Box>
             </Box>
           </Box>

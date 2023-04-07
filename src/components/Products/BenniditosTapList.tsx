@@ -28,16 +28,6 @@ export default function BenniditosTapList({
         }}
       >
         <Box sx={{ textAlign: "center", mb: { xs: 3, md: 0 } }}>
-          <Box
-            sx={{
-              p: 1,
-              mb: 3,
-            }}
-          >
-            <Typography variant="h4" color="primary" fontFamily="header">
-              {"ON TAP"}
-            </Typography>
-          </Box>
           {BenniditosTapListData.beers.map((item, index) => {
             return (
               <Box key={item.name} sx={{ mb: 2, px: 1 }}>
@@ -87,7 +77,7 @@ export default function BenniditosTapList({
               </Typography>
             </Box>
           </Box>
-          <Box>
+          <Box sx={{ px: { xs: 6, md: 0 } }}>
             <Box
               sx={{
                 display: "flex",

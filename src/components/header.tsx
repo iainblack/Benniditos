@@ -14,30 +14,37 @@ import {
   Slide,
   useTheme,
   Typography,
+  Collapse,
+  ListItemIcon,
+  Popover,
 } from "@mui/material";
 import React, { useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import Image from "next/image";
 import bg3 from "@/public/bg3.jpeg";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
+import bg from "@/public/bg3.jpeg";
 
 interface HeaderProps {
-  tabValue: number | false;
   handleTabChange: (event: React.SyntheticEvent, newValue: number) => void;
 }
 
 export default function Header(props: HeaderProps) {
+  const router = useRouter();
   const theme = useTheme();
-  const sections = [
-    "Hours & Location",
-    "Delivery",
-    "Menu",
-    "Tap List",
-    "About",
-  ];
+  const sections = ["About Us", "Hours & Locations", "Delivery"];
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const [menusOpen, setMenusOpen] = React.useState(false);
   const scrollAfterClose = React.useRef<Record<string, any> | undefined>(
     undefined
   );
+
+  const handleMenusClick = () => {
+    setMenusOpen(!menusOpen);
+  };
 
   useEffect(() => {
     if (scrollAfterClose.current) {
@@ -57,33 +64,135 @@ export default function Header(props: HeaderProps) {
     >
       <List>
         {sections.map((text, index) => (
-          <ListItem key={text} disablePadding alignItems="center">
+          <ListItem disablePadding key={text}>
             <ListItemButton
               sx={{
+                backgroundColor: "white",
+                mx: "10%",
+                whiteSpace: "nowrap",
                 border: 1,
                 my: 1,
-                mx: "10%",
-                backgroundColor: "white",
+                "&:hover": {
+                  backgroundColor: "white",
+                  color: "primary.main",
+                },
               }}
               onClick={(e) => {
                 scrollAfterClose.current = { event: e, index: index };
                 setDrawerOpen(false);
               }}
             >
-              <ListItemText>
-                <Typography
-                  sx={{
-                    fontFamily: "header",
-                    color: "text.primary",
-                    textAlign: "center",
-                  }}
-                >
-                  {text}
-                </Typography>
-              </ListItemText>
+              <ListItemText
+                primary={text}
+                primaryTypographyProps={{
+                  textAlign: "center",
+                  fontFamily: "header",
+                }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
+        <ListItem
+          disablePadding
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
+          <ListItemButton
+            sx={{
+              backgroundColor: "white",
+              whiteSpace: "nowrap",
+              width: "80%",
+              border: 1,
+              my: 1,
+              "&:hover": {
+                backgroundColor: "white",
+                color: "primary.main",
+              },
+            }}
+            onClick={handleMenusClick}
+          >
+            <ListItemText
+              primary="Menus"
+              primaryTypographyProps={{
+                textAlign: "center",
+                fontFamily: "header",
+              }}
+            />
+            {menusOpen ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={menusOpen} unmountOnExit sx={{ width: "100%" }}>
+            <ListItem
+              disablePadding
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <ListItemButton
+                onClick={() => {
+                  router.push("/BenniditosMenu");
+                }}
+                sx={{
+                  textAlign: "center",
+                  width: "70%",
+                  backgroundColor: "white",
+                  whiteSpace: "nowrap",
+                  border: 1,
+                  my: 1,
+                  "&:hover": {
+                    backgroundColor: "white",
+                    color: "primary.main",
+                  },
+                }}
+              >
+                <ListItemText
+                  primary="Benniditos Pizza"
+                  primaryTypographyProps={{
+                    textAlign: "center",
+                    fontFamily: "header",
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+            <ListItem
+              disablePadding
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <ListItemButton
+                onClick={() => {
+                  router.push("/BenniditosMenu");
+                }}
+                sx={{
+                  textAlign: "center",
+                  pl: 2,
+                  width: "70%",
+                  backgroundColor: "white",
+                  whiteSpace: "nowrap",
+                  border: 1,
+                  my: 1,
+                  "&:hover": {
+                    backgroundColor: "white",
+                    color: "primary.main",
+                  },
+                }}
+              >
+                <ListItemText
+                  primary="BrewPub"
+                  primaryTypographyProps={{
+                    textAlign: "center",
+                    fontFamily: "header",
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+          </Collapse>
+        </ListItem>
         <ListItem disablePadding>
           <ListItemButton
             sx={{
@@ -92,6 +201,36 @@ export default function Header(props: HeaderProps) {
               whiteSpace: "nowrap",
               border: 1,
               my: 1,
+              "&:hover": {
+                backgroundColor: "white",
+                color: "primary.main",
+              },
+            }}
+            onClick={() => {
+              router.push("/OnTap");
+            }}
+          >
+            <ListItemText
+              primary="Tap List"
+              primaryTypographyProps={{
+                textAlign: "center",
+                fontFamily: "header",
+              }}
+            />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding>
+          <ListItemButton
+            sx={{
+              backgroundColor: "white",
+              mx: "10%",
+              whiteSpace: "nowrap",
+              border: 1,
+              my: 1,
+              "&:hover": {
+                backgroundColor: "white",
+                color: "primary.main",
+              },
             }}
             onClick={() => {
               setDrawerOpen(false);
@@ -101,18 +240,28 @@ export default function Header(props: HeaderProps) {
               primary="Order Online"
               primaryTypographyProps={{
                 textAlign: "center",
-                color: "primary.main",
                 fontFamily: "header",
               }}
             />
           </ListItemButton>
         </ListItem>
+        <Link href="/OnTap">Test</Link>
       </List>
     </Box>
   );
 
+  const [anchorEl, setAnchorEl] = React.useState<any | null>(null);
   const containerRef = React.useRef(null);
 
+  const handleMenuTabClick = (event: React.MouseEvent<any>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuTabClose = () => {
+    setAnchorEl(null);
+  };
+
+  const popoverOpen = Boolean(anchorEl);
   return (
     <>
       <Toolbar disableGutters>
@@ -157,7 +306,10 @@ export default function Header(props: HeaderProps) {
           <Drawer
             anchor="right"
             open={drawerOpen}
-            onClose={() => setDrawerOpen(false)}
+            onClose={() => {
+              setDrawerOpen(false);
+              menusOpen && handleMenusClick();
+            }}
             PaperProps={{
               sx: {
                 width: 250,
@@ -181,7 +333,7 @@ export default function Header(props: HeaderProps) {
           ref={containerRef}
         >
           <Tabs
-            value={props.tabValue}
+            value={false}
             onChange={props.handleTabChange}
             TabIndicatorProps={{
               style: {
@@ -190,7 +342,108 @@ export default function Header(props: HeaderProps) {
             }}
           >
             <Tab
-              label="Hours & Location"
+              label="About Us"
+              sx={{
+                textTransform: "none",
+                color: "white",
+                fontFamily: "subheader",
+              }}
+            />
+            <Tab
+              label="Hours & Locations"
+              sx={{
+                textTransform: "none",
+                color: "white",
+                fontFamily: "subheader",
+              }}
+            />
+            <Tab
+              label="Menus"
+              onClick={(e) => {
+                handleMenuTabClick(e);
+              }}
+              sx={{
+                textTransform: "none",
+                color: "white",
+                fontFamily: "subheader",
+              }}
+            />
+            <Popover
+              disableScrollLock
+              open={popoverOpen}
+              anchorEl={anchorEl}
+              onClose={handleMenuTabClose}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "center",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "center",
+              }}
+              PaperProps={{
+                sx: {
+                  borderRadius: 1,
+                  border: 1,
+                },
+              }}
+            >
+              <List>
+                <ListItem disablePadding>
+                  <ListItemButton
+                    sx={{
+                      backgroundColor: "white",
+                      whiteSpace: "nowrap",
+                      "&:hover": {
+                        backgroundColor: "white",
+                        color: "primary.main",
+                        borderColor: "none",
+                      },
+                    }}
+                    onClick={() => {
+                      router.push("/BenniditosMenu");
+                    }}
+                  >
+                    <ListItemText
+                      primary="Benniditos Pizza"
+                      primaryTypographyProps={{
+                        textAlign: "center",
+                        fontFamily: "header",
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                  <ListItemButton
+                    sx={{
+                      backgroundColor: "white",
+                      whiteSpace: "nowrap",
+                      "&:hover": {
+                        backgroundColor: "white",
+                        color: "primary.main",
+                        borderColor: "none",
+                      },
+                    }}
+                    onClick={() => {
+                      router.push("/OnTap");
+                    }}
+                  >
+                    <ListItemText
+                      primary="Benniditos BrewPub"
+                      primaryTypographyProps={{
+                        textAlign: "center",
+                        fontFamily: "header",
+                      }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </Popover>
+            <Tab
+              label="Tap List"
+              onClick={() => {
+                router.push("/OnTap");
+              }}
               sx={{
                 textTransform: "none",
                 color: "white",
@@ -199,30 +452,6 @@ export default function Header(props: HeaderProps) {
             />
             <Tab
               label="Delivery"
-              sx={{
-                textTransform: "none",
-                color: "white",
-                fontFamily: "subheader",
-              }}
-            />
-            <Tab
-              label="Menu"
-              sx={{
-                textTransform: "none",
-                color: "white",
-                fontFamily: "subheader",
-              }}
-            />
-            <Tab
-              label="Tap List"
-              sx={{
-                textTransform: "none",
-                color: "white",
-                fontFamily: "subheader",
-              }}
-            />
-            <Tab
-              label="About"
               sx={{
                 textTransform: "none",
                 color: "white",
@@ -238,12 +467,17 @@ export default function Header(props: HeaderProps) {
               color: "white",
               borderColor: "white",
               whiteSpace: "nowrap",
-              "$:hover": {
-                backgroundColor: "primary.main",
-                color: "white",
+              "&:hover": {
+                backgroundColor: "white",
+                color: "primary.main",
               },
             }}
-            onClick={(e) => {}}
+            onClick={(e) => {
+              window.open(
+                "https://weborder7.microworks.com/benniditos/",
+                "_blank"
+              );
+            }}
           >
             Order Online
           </Button>

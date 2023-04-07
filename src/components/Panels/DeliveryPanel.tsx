@@ -40,7 +40,6 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
             <Box
               sx={{
                 position: "relative",
-                height: { xs: "50vh", md: "80vh" },
                 width: { xs: "100%", md: "70%" },
                 order: { xs: 2, md: 1 },
                 my: { xs: 4, md: 0 },
@@ -62,9 +61,10 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 textAlign: "center",
                 width: { xs: "100%", md: "30%" },
                 border: "1px solid",
-                height: { xs: "80vh", md: "80vh" },
                 ml: { xs: 0, md: 3 },
                 my: { xs: 4, md: 0 },
+                px: 2,
+                py: { xs: 4, md: 8 },
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-evenly",
@@ -82,7 +82,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                   sx={{ textAlign: "center", mb: 1, fontFamily: "Header" }}
                   variant="h4"
                 >
-                  WE DELIVER
+                  DELIVERY
                 </Typography>
                 <Divider
                   sx={{
@@ -93,12 +93,10 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 />
                 <Typography
                   variant="body1"
-                  fontSize={12}
                   sx={{
                     mx: "auto",
                     px: 2,
                     fontFamily: "body",
-                    maxWidth: 400,
                   }}
                 >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -120,6 +118,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
               >
                 <Box sx={{ my: 1 }}>
                   <Button
+                    variant="outlined"
                     sx={{ textTransform: "none", fontFamily: "header" }}
                     onClick={() => {
                       window.open(
@@ -129,16 +128,6 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                     }}
                   >
                     Order Online
-                  </Button>
-                </Box>
-                <Box sx={{ my: 1 }}>
-                  <Button
-                    sx={{ textTransform: "none", fontFamily: "header" }}
-                    onClick={() => {
-                      window.open("tel:+5094557411", "_blank");
-                    }}
-                  >
-                    Call the shop
                   </Button>
                 </Box>
               </Box>

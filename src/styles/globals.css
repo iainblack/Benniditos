@@ -28,3 +28,27 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+.targetdivclass:before{
+  content:" ";
+display:block;
+width:300%;
+height: 65px;
+background-image:url('https://ecorelos.com/wp-content/uploads/2020/04/torn-border2upside.png');
+position:absolute;
+margin-top:-80px;
+left:-500px;
+ z-index:1;
+}
+
+.targetdivclass:after{
+  content:" ";
+  display:block;
+  height: 45px;
+  background-image:url('https://ecorelos.com/wp-content/uploads/2020/04/torn-border2.png');
+  position:absolute;
+  bottom:-15px;
+ width:300%;
+left:-500px;    
+
+}

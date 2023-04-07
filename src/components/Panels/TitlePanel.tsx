@@ -1,30 +1,17 @@
-import { Fade } from "react-slideshow-image";
-import "react-slideshow-image/dist/styles.css";
-
-const fadeImages = [
-  {
-    url: "/taps.jpg",
-  },
-  {
-    url: "/ditosMain.jpg",
-  },
-  {
-    url: "/ditosMain.jpg",
-  },
-];
-
-import { Box, useTheme, useMediaQuery, Slide } from "@mui/material";
+import {
+  Box,
+  useTheme,
+  useMediaQuery,
+  Slide,
+  Typography,
+  Button,
+} from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import bg from "@/public/ditosTitle2.jpg";
+import React from "react";
 
-interface TitlePanelProps {
-  handleTabChange: (event: React.SyntheticEvent, newValue: number) => void;
-  backgroundImage: StaticImageData;
-  otherLocationName: string;
-  otherLocationPath: string;
-  isBrewPub?: boolean;
-}
+interface TitlePanelProps {}
 
 export default function TitlePanel(props: TitlePanelProps) {
   const theme = useTheme();
@@ -38,75 +25,83 @@ export default function TitlePanel(props: TitlePanelProps) {
   };
 
   return (
-    <Slide
-      in
-      direction="up"
-      timeout={1000}
-      easing={{
-        enter: "cubic-bezier(0, 1.5, .8, 1)",
-        exit: "linear",
+    <Box
+      sx={{
+        height: "100vh",
+        width: "100vw",
+        backgroundImage: `url(${bg.src})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center top",
+        mb: 8,
       }}
     >
       <Box
         sx={{
-          height: "calc(100vh - 76px)",
           width: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "start",
-          mx: "auto",
-          py: 3,
+          height: "100%",
+          backgroundColor: "rgba(0,0,0,0.7)",
         }}
       >
         <Box
           sx={{
+            height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
-            border: 3,
-            height: "calc(90vh - 76px)",
+            justifyContent: "space-around",
+            alignItems: "center",
+            textAlign: "center",
           }}
         >
-          <Box
-            sx={{
-              width: "100%",
-              height: "calc(90vh - 76px)",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              mx: "auto",
-              p: 2,
-            }}
-          >
-            <Box id="slide-container">
-              <Fade ref={null} {...slideProps}>
-                {fadeImages.map((fadeImage, index) => (
-                  <Box
-                    key={index}
-                    {...slideProps}
-                    sx={{
-                      width: "100%",
-                      height: {
-                        xs: "calc(85vh - 76px)",
-                        sm: "calc(80vh - 76px)",
-                      },
-                    }}
-                  >
-                    <img
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                      }}
-                      src={fadeImage.url}
-                    />
-                  </Box>
-                ))}
-              </Fade>
+          <Box sx={{ maxWidth: 500, mt: { xs: 12, md: 6 } }}>
+            <Typography
+              variant={isSmallScreen ? "h4" : "h2"}
+              fontFamily="header"
+              sx={{ color: "white", mb: 1 }}
+            >
+              {" Lorem ipsum dolor"}
+            </Typography>
+            <Typography fontFamily="body" sx={{ color: "white" }}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse ut risus convallis, aliquet felis sit amet, vulputate
+              tellus. Sed mattis quis nunc eu maximus.
+            </Typography>
+          </Box>
+          <Box sx={{ mt: 6 }}>
+            <Box sx={{ mb: 2 }}>
+              <Typography sx={{ color: "white", fontFamily: "header" }}>
+                Benniditos Pizza
+              </Typography>
+              <Typography sx={{ color: "white", fontFamily: "header" }}>
+                South Hill, Spokane, WA
+              </Typography>
+              <Button
+                sx={{ textTransform: "none", fontFamily: "body" }}
+                onClick={() => {
+                  window.open("tel:+5094557411", "_blank");
+                }}
+              >
+                509-455-7411
+              </Button>
+            </Box>
+            <Box>
+              <Typography sx={{ color: "white", fontFamily: "header" }}>
+                Benniditos BrewPub
+              </Typography>
+              <Typography sx={{ color: "white", fontFamily: "header" }}>
+                East on Sprague, Spokane, WA
+              </Typography>
+              <Button
+                sx={{ textTransform: "none", fontFamily: "body" }}
+                onClick={() => {
+                  window.open("tel:+5092905018", "_blank");
+                }}
+              >
+                509-290-5018
+              </Button>
             </Box>
           </Box>
         </Box>
       </Box>
-    </Slide>
+    </Box>
   );
 }

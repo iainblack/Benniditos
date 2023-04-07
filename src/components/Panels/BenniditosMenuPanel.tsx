@@ -1,21 +1,16 @@
 import {
   Box,
-  Button,
-  Divider,
   Fade,
   FormControl,
-  Input,
   MenuItem,
   Select,
   SelectChangeEvent,
   Tab,
   Tabs,
-  Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 import React from "react";
-import Image, { StaticImageData } from "next/image";
 import { TabPanel } from "../../utils/utils";
 import BenniditosBread from "../Products/BenniditosBreadPasta";
 import BenniditosSpecialtyPizzaMenu from "../Products/BenniditosSpecialtyPizzaMenu";
@@ -23,13 +18,12 @@ import BenniditosToppings from "../Products/BenniditosToppings";
 import BenniditosSalads from "../Products/BenniditosSalads";
 import BenniditosCalzoneSammies from "../Products/BenniditosCalzoneSammies";
 import BenniditosDessertSoda from "../Products/BenniditosDessertSoda";
-import { InfoBox } from "../styles";
 import SectionHeader from "../SectionHeader";
 interface MenuPanelProps {
   transitionIn: boolean;
 }
 
-export function BenniditosMenu(props: MenuPanelProps) {
+export function BenniditosMenuPanel(props: MenuPanelProps) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   const isLargeSreen = useMediaQuery(theme.breakpoints.up("lg"));
@@ -107,12 +101,11 @@ export function BenniditosMenu(props: MenuPanelProps) {
                       onChange={handleSelectChange}
                       variant="standard"
                       inputProps={{ MenuProps: { disableScrollLock: true } }}
-                      sx={{ fontFamily: "subheader", color: "text.secondary" }}
+                      sx={{ fontFamily: "subheader" }}
                     >
                       <MenuItem
                         value={0}
                         sx={{
-                          color: "text.secondary",
                           fontFamily: "subheader",
                           display: "flex",
                           justifyContent: "center",
@@ -124,7 +117,6 @@ export function BenniditosMenu(props: MenuPanelProps) {
                         value={1}
                         sx={{
                           fontFamily: "subheader",
-                          color: "text.secondary",
                           display: "flex",
                           justifyContent: "center",
                         }}
@@ -134,7 +126,6 @@ export function BenniditosMenu(props: MenuPanelProps) {
                       <MenuItem
                         value={2}
                         sx={{
-                          color: "text.secondary",
                           fontFamily: "subheader",
                           display: "flex",
                           justifyContent: "center",
@@ -145,7 +136,6 @@ export function BenniditosMenu(props: MenuPanelProps) {
                       <MenuItem
                         value={3}
                         sx={{
-                          color: "text.secondary",
                           fontFamily: "subheader",
                           display: "flex",
                           justifyContent: "center",
@@ -156,7 +146,6 @@ export function BenniditosMenu(props: MenuPanelProps) {
                       <MenuItem
                         value={4}
                         sx={{
-                          color: "text.secondary",
                           fontFamily: "subheader",
                           display: "flex",
                           justifyContent: "center",
@@ -167,7 +156,6 @@ export function BenniditosMenu(props: MenuPanelProps) {
                       <MenuItem
                         value={5}
                         sx={{
-                          color: "text.secondary",
                           fontFamily: "subheader",
                           display: "flex",
                           justifyContent: "center",

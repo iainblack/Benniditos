@@ -23,7 +23,7 @@ export function BenniditosOnTap(props: MenuPanelProps) {
         <Fade in={props.transitionIn} timeout={1000}>
           <Box>
             <Box>
-              <SectionHeader title="TAP LIST" imagePath="/ditosMain.jpg" />
+              <SectionHeader title="TAP LIST" imagePath="/taps.jpg" />
               <Box>
                 <BenniditosTapList
                   theme={theme}
