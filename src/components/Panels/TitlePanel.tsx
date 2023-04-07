@@ -57,7 +57,7 @@ export default function TitlePanel(props: TitlePanelProps) {
           <Box sx={{ maxWidth: 500, mt: { xs: 12, md: 6 } }}>
             <Fade in timeout={3000} style={{ transitionDelay: "500ms" }}>
               <Typography
-                variant={isSmallScreen ? "h4" : "h2"}
+                variant={isSmallScreen ? "h3" : "h2"}
                 fontFamily="header"
                 sx={{ color: "white" }}
               >

@@ -39,6 +39,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
             }}
           >
             <Box
+              id="map-container"
               sx={{
                 position: "relative",
                 width: { xs: "100%", lg: "70%" },
@@ -47,15 +48,13 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 border: 1,
               }}
             >
-              <Image
-                src={"/ditosMain.jpg"}
-                fill
-                alt="ditos"
-                style={{
-                  objectFit: "cover",
-                  objectPosition: "center",
-                }}
-              />
+              <iframe
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYtw6jLiRYtOFLkrDEoV0aR2J4U-Gd7b4&q=Bennidito's+Pizza+Spokane,+WA+99203&zoom=13"
+              ></iframe>
             </Box>
             <Box
               sx={{
