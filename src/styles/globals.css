@@ -58,7 +58,7 @@ left:-500px;
 
 }
 
-@media only screen and (orientation: portrait) {
+/* @media only screen and (orientation: portrait) {
   body {
       .shrink {
           width: 95%;
@@ -72,7 +72,7 @@ left:-500px;
           width: 90%;      /* Shrink a little more to avoid the notch. */
       }
   }
-}
+} */
 
 
 .center {
