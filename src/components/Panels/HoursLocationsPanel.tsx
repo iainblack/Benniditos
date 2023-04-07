@@ -3,13 +3,11 @@ import {
   Button,
   Divider,
   Fade,
+  Theme,
   Typography,
   useTheme,
 } from "@mui/material";
-import Image, { StaticImageData } from "next/image";
 import React from "react";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import SectionHeader from "../SectionHeader";
 
 interface HoursLocationProps {
@@ -17,8 +15,8 @@ interface HoursLocationProps {
 }
 
 export function BenniditosHours(props: HoursLocationProps) {
-  const containerRef = React.useRef<HTMLDivElement>(null);
   const theme = useTheme();
+  const containerRef = React.useRef<HTMLDivElement>(null);
   return (
     <Box
       sx={{
@@ -61,8 +59,8 @@ export function BenniditosHours(props: HoursLocationProps) {
                   my: 1,
                 }}
               >
-                <BenniditosInfo />
-                <BrewPubInfo />
+                <BenniditosInfo theme={theme} />
+                <BrewPubInfo theme={theme} />
               </Box>
             </Box>
           </Box>
@@ -72,7 +70,7 @@ export function BenniditosHours(props: HoursLocationProps) {
   );
 }
 
-function BenniditosInfo() {
+function BenniditosInfo(props: { theme: Theme }) {
   return (
     <Box sx={{ mb: { xs: 6, md: 0 }, p: { xs: 0, md: 4 } }}>
       <Box>
@@ -96,6 +94,7 @@ function BenniditosInfo() {
               }}
             />
             <Button
+              size="large"
               onClick={() => {
                 window.open(
                   "http://maps.google.com/?q=1426 S Lincoln St, Spokane, WA 99203",
@@ -105,13 +104,18 @@ function BenniditosInfo() {
               sx={{
                 fontFamily: "header",
                 textTransform: "none",
+                fontSize: props.theme.typography.body1.fontSize,
               }}
             >
               1426 S Lincoln St, Spokane, WA 99203
             </Button>
           </Box>
           <Button
-            sx={{ fontFamily: "header" }}
+            size="large"
+            sx={{
+              fontFamily: "header",
+              fontSize: props.theme.typography.body1.fontSize,
+            }}
             onClick={() => {
               window.open("tel:+5094557411", "_blank");
             }}
@@ -125,23 +129,6 @@ function BenniditosInfo() {
           justifyContent: "center",
         }}
       >
-        <Typography
-          sx={{
-            textAlign: "center",
-            mb: 1,
-            fontFamily: "Header",
-          }}
-          variant="h4"
-        >
-          HOURS
-        </Typography>
-        <Divider
-          sx={{
-            mb: 1,
-            mx: { xs: "15%", sm: "30%", md: "20%" },
-            borderBottomStyle: "dashed",
-          }}
-        />
         <Typography variant="body1" fontFamily="subheader" sx={{ mb: 1 }}>
           <b>Monday - Thursday</b>
         </Typography>
@@ -171,7 +158,7 @@ function BenniditosInfo() {
   );
 }
 
-function BrewPubInfo() {
+function BrewPubInfo(props: { theme: Theme }) {
   return (
     <Box sx={{ p: { xs: 0, md: 4 } }}>
       <Box sx={{ mb: { xs: 3, md: 6 } }}>
@@ -194,6 +181,7 @@ function BrewPubInfo() {
             }}
           />
           <Button
+            size="large"
             onClick={() => {
               window.open(
                 "http://maps.google.com/?q=1909 E Sprague Ave, Spokane, WA 99202",
@@ -203,13 +191,18 @@ function BrewPubInfo() {
             sx={{
               fontFamily: "header",
               textTransform: "none",
+              fontSize: props.theme.typography.body1.fontSize,
             }}
           >
             1909 E Sprague Ave, Spokane, WA 99202
           </Button>
         </Box>
         <Button
-          sx={{ fontFamily: "header" }}
+          size="large"
+          sx={{
+            fontFamily: "header",
+            fontSize: props.theme.typography.body1.fontSize,
+          }}
           onClick={() => {
             window.open("tel:+5092905018", "_blank");
           }}
@@ -222,23 +215,6 @@ function BrewPubInfo() {
           justifyContent: "center",
         }}
       >
-        <Typography
-          sx={{
-            textAlign: "center",
-            mb: 1,
-            fontFamily: "Header",
-          }}
-          variant="h4"
-        >
-          HOURS
-        </Typography>
-        <Divider
-          sx={{
-            mb: 1,
-            mx: { xs: "15%", sm: "30%", md: "20%" },
-            borderBottomStyle: "dashed",
-          }}
-        />
         <Typography variant="body1" fontFamily="subheader" sx={{ mb: 1 }}>
           <b>Monday - Wednesday</b>
         </Typography>

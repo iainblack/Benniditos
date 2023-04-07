@@ -84,7 +84,12 @@ export default function TitlePanel(props: TitlePanelProps) {
                   South Hill, Spokane, WA
                 </Typography>
                 <Button
-                  sx={{ textTransform: "none", fontFamily: "body" }}
+                  size="large"
+                  sx={{
+                    textTransform: "none",
+                    fontFamily: "body",
+                    fontSize: theme.typography.body1.fontSize,
+                  }}
                   onClick={() => {
                     window.open("tel:+5094557411", "_blank");
                   }}
@@ -102,7 +107,12 @@ export default function TitlePanel(props: TitlePanelProps) {
                   East on Sprague, Spokane, WA
                 </Typography>
                 <Button
-                  sx={{ textTransform: "none", fontFamily: "body" }}
+                  size="large"
+                  sx={{
+                    textTransform: "none",
+                    fontFamily: "body",
+                    fontSize: theme.typography.body1.fontSize,
+                  }}
                   onClick={() => {
                     window.open("tel:+5092905018", "_blank");
                   }}
