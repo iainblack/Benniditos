@@ -24,6 +24,7 @@ export function TabPanel(props: TabPanelProps) {
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
+      style={{ backgroundColor: "white" }}
       {...other}
     >
       {value === index && <Box>{children}</Box>}
@@ -158,13 +159,13 @@ export interface BenniditosMenuConfig {
     description?: string;
     hotSandwiches: SandwichOptions[];
     coldSandwiches?: SandwichOptions[];
-    calzones: {
-      name: string;
-      description: string;
-      price: string;
-    }[];
   };
-  pasta: {
+  calzones?: {
+    name: string;
+    description: string;
+    price: string;
+  }[];
+  pasta?: {
     description: string;
     pastas: string[];
     sauces: {
@@ -184,7 +185,7 @@ export interface BenniditosMenuConfig {
       large?: string;
     }[];
   };
-  breads: {
+  starters: {
     description?: string;
     options: {
       name: string;

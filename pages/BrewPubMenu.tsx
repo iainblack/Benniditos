@@ -4,7 +4,7 @@ import { ThemeProvider, CssBaseline, AppBar } from "@mui/material";
 import background from "@/public/bg3.jpeg";
 import MenuHeader from "@/src/components/MenuHeader";
 import { MenuPanel } from "@/src/components/Panels/MenuPanel";
-import { BrewPubMenuData } from "@/src/utils/BrewPubMenuData";
+import BrewPubMenuData from "@/src/utils/BrewPubMenuData.json";
 import brewPub from "@/public/brewpubLogoCropped.png";
 
 export default function BrewPubMenuPage() {

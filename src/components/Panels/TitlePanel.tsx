@@ -6,15 +6,17 @@ import {
   Typography,
   Button,
   Fade,
+  IconButton,
 } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import bg from "@/public/ditosTitle2.jpg";
-import React from "react";
+import React, { useEffect } from "react";
 
 interface TitlePanelProps {}
 
 export default function TitlePanel(props: TitlePanelProps) {
+  const [animateLabel, setAnimateLabel] = React.useState(false);
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const slideProps = {
@@ -24,6 +26,12 @@ export default function TitlePanel(props: TitlePanelProps) {
     infinite: true,
     easing: "ease",
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimateLabel(true);
+    }, 1000);
+  }, []);
 
   return (
     <Box
@@ -54,50 +62,73 @@ export default function TitlePanel(props: TitlePanelProps) {
             textAlign: "center",
           }}
         >
-          <Box sx={{ maxWidth: 500, mt: { xs: 12, md: 6 } }}>
-            <Fade in timeout={3000} style={{ transitionDelay: "500ms" }}>
-              <Typography
-                variant={"h2"}
-                fontFamily="header"
-                sx={{ color: "white" }}
-              >
-                {"Pizza,"}
-              </Typography>
-            </Fade>
-            <Fade in timeout={3000} style={{ transitionDelay: "1000ms" }}>
-              <Typography
-                variant={"h4"}
-                fontFamily="header"
-                sx={{ color: "white" }}
-              >
-                {"done the right way."}
-              </Typography>
-            </Fade>
-            <Fade in timeout={3000} style={{ transitionDelay: "1500ms" }}>
-              <Typography
-                variant={"h6"}
-                fontFamily="header"
-                sx={{ color: "white" }}
-              >
-                {"(or some shit like that)"}
-              </Typography>
-            </Fade>
-          </Box>
           <Box sx={{ mt: 6 }}>
-            <Fade in timeout={3000} style={{ transitionDelay: "2000ms" }}>
+            <Slide in timeout={1000}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  height: "30vh",
+                  width: { xs: "70vw", md: "40vw" },
+                  position: "relative",
+                }}
+              >
+                <Image
+                  src={"/ditosLogo.png"}
+                  alt="Benniditos"
+                  fill
+                  sizes="100%"
+                  style={{ objectFit: "contain", objectPosition: "center" }}
+                />
+              </Box>
+            </Slide>
+          </Box>
+          <Slide in={animateLabel} direction="up" timeout={1000}>
+            <Box sx={{ mt: 6 }}>
               <Box sx={{ mb: 2 }}>
-                <Typography sx={{ color: "white", fontFamily: "header" }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: theme.palette.primary.main,
+                    fontFamily: "subheader",
+                  }}
+                >
                   Benniditos Pizza
                 </Typography>
-                <Typography sx={{ color: "white", fontFamily: "header" }}>
-                  South Hill, Spokane, WA
-                </Typography>
+                <Box>
+                  <Button
+                    size="large"
+                    onClick={() => {
+                      window.open(
+                        "http://maps.google.com/?q=1426 S Lincoln St, Spokane, WA 99203",
+                        "_blank"
+                      );
+                    }}
+                    sx={{
+                      fontFamily: "body",
+                      textTransform: "none",
+                      fontSize: theme.typography.body1.fontSize,
+                      color: "white",
+                      "&:hover": {
+                        color: theme.palette.primary.main,
+                        backgroundColor: "transparent",
+                      },
+                    }}
+                  >
+                    1426 S Lincoln St, Spokane, WA 99203
+                  </Button>
+                </Box>
                 <Button
                   size="large"
                   sx={{
                     textTransform: "none",
                     fontFamily: "body",
                     fontSize: theme.typography.body1.fontSize,
+                    color: "white",
+                    "&:hover": {
+                      color: theme.palette.primary.main,
+                      backgroundColor: "transparent",
+                    },
                   }}
                   onClick={() => {
                     window.open("tel:+5094557411", "_blank");
@@ -106,21 +137,50 @@ export default function TitlePanel(props: TitlePanelProps) {
                   509-455-7411
                 </Button>
               </Box>
-            </Fade>
-            <Fade in timeout={3000} style={{ transitionDelay: "2000ms" }}>
               <Box>
-                <Typography sx={{ color: "white", fontFamily: "header" }}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: theme.palette.secondary.main,
+                    fontFamily: "subheader",
+                  }}
+                >
                   Benniditos BrewPub
                 </Typography>
-                <Typography sx={{ color: "white", fontFamily: "header" }}>
-                  East on Sprague, Spokane, WA
-                </Typography>
+                <Box>
+                  <Button
+                    size="large"
+                    onClick={() => {
+                      window.open(
+                        "http://maps.google.com/?q=1909 E Sprague Ave, Spokane, WA 99202",
+                        "_blank"
+                      );
+                    }}
+                    sx={{
+                      textTransform: "none",
+                      fontFamily: "body",
+                      fontSize: theme.typography.body1.fontSize,
+                      color: "white",
+                      "&:hover": {
+                        color: theme.palette.secondary.main,
+                        backgroundColor: "transparent",
+                      },
+                    }}
+                  >
+                    1909 E Sprague Ave, Spokane, WA 99202
+                  </Button>
+                </Box>
                 <Button
                   size="large"
                   sx={{
                     textTransform: "none",
                     fontFamily: "body",
                     fontSize: theme.typography.body1.fontSize,
+                    color: "white",
+                    "&:hover": {
+                      color: theme.palette.secondary.main,
+                      backgroundColor: "transparent",
+                    },
                   }}
                   onClick={() => {
                     window.open("tel:+5092905018", "_blank");
@@ -129,8 +189,8 @@ export default function TitlePanel(props: TitlePanelProps) {
                   509-290-5018
                 </Button>
               </Box>
-            </Fade>
-          </Box>
+            </Box>
+          </Slide>
         </Box>
       </Box>
     </Box>

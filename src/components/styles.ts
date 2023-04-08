@@ -10,7 +10,7 @@ export const PanelContainer = styled(Box, {
   marginTop?: string;
 }>(({ noPaddingTop, theme, fullWidth, marginTop }) => ({
   minHeight: "80vh",
-  width: fullWidth ? "100vw" : "80vw",
+  width: fullWidth ? "100vw" : "90vw",
   padding: theme.spacing(8),
   paddingTop: noPaddingTop ? 0 : theme.spacing(8),
   marginTop: marginTop ? marginTop : 0,

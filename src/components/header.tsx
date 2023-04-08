@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import React, { useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import bg3 from "@/public/bg3.jpeg";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -26,6 +26,7 @@ import { OpenInNewOutlined } from "@mui/icons-material";
 
 interface HeaderProps {
   handleTabChange: (event: React.SyntheticEvent, newValue: number) => void;
+  logo?: boolean;
 }
 
 export default function Header(props: HeaderProps) {
@@ -229,7 +230,6 @@ export default function Header(props: HeaderProps) {
               },
             }}
             onClick={() => {
-              setDrawerOpen(false);
               window.open(
                 "https://weborder7.microworks.com/benniditos/",
                 "_blank"
@@ -268,29 +268,31 @@ export default function Header(props: HeaderProps) {
   return (
     <>
       <Toolbar disableGutters>
-        <IconButton
-          disableRipple={true}
-          disableFocusRipple={true}
-          onClick={() => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-          sx={{
-            p: 0,
-          }}
-        >
-          <Image
-            src="/ditosLogo.png"
-            alt="logo"
-            width={200}
-            height={60}
-            priority
-            style={{
-              marginTop: theme.spacing(1),
-              marginBottom: theme.spacing(1),
-              objectFit: "contain",
+        {props.logo && (
+          <IconButton
+            disableRipple={true}
+            disableFocusRipple={true}
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-          />
-        </IconButton>
+            sx={{
+              p: 0,
+            }}
+          >
+            <Image
+              src="/ditosLogo.png"
+              alt="logo"
+              width={200}
+              height={60}
+              priority
+              style={{
+                marginTop: theme.spacing(1),
+                marginBottom: theme.spacing(1),
+                objectFit: "contain",
+              }}
+            />
+          </IconButton>
+        )}
         <Box
           sx={{
             flexGrow: 1,

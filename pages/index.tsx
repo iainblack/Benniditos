@@ -18,12 +18,14 @@ import ImageSlider from "@/src/components/imageSlider";
 interface AppBarState {
   transparent: boolean;
   elevated: boolean;
+  logo: boolean;
 }
 
 export default function BenniditosHome() {
   const [AppBarState, setAppBarState] = React.useState<AppBarState>({
     transparent: true,
     elevated: false,
+    logo: false,
   });
   const aboutUsRef = React.useRef<HTMLDivElement>(null);
   const hoursLocationsRef = React.useRef<HTMLDivElement>(null);
@@ -61,9 +63,9 @@ export default function BenniditosHome() {
         window.visualViewport?.height &&
         window.scrollY > window.visualViewport?.height
       ) {
-        setAppBarState({ transparent: false, elevated: true });
+        setAppBarState({ transparent: false, elevated: true, logo: true });
       } else {
-        setAppBarState({ transparent: true, elevated: false });
+        setAppBarState({ transparent: true, elevated: false, logo: false });
       }
     };
     window.addEventListener("scroll", handleScroll);
@@ -96,13 +98,10 @@ export default function BenniditosHome() {
             }}
             elevation={AppBarState.elevated ? 4 : 0}
           >
-            <Header handleTabChange={handleTabChange} />
+            <Header handleTabChange={handleTabChange} logo={AppBarState.logo} />
           </AppBar>
         </HideOnScroll>
         <TitlePanel />
-        <PanelContainer id="about-container" ref={aboutUsRef}>
-          <BenniditosAboutUs transitionIn />
-        </PanelContainer>
         <PanelContainer id="slideshow-container">
           <SlideShowPanel />
         </PanelContainer>

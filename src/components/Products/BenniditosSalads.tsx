@@ -28,12 +28,23 @@ export default function BenniditosSalads({
         }}
       >
         <Box sx={{ textAlign: "center" }}>
+          <Box
+            sx={{
+              p: 1,
+              mb: data.salads.description ? 0 : 3,
+              borderColor: theme.palette.primary.main,
+            }}
+          >
+            <Typography variant="h4" color="primary" fontFamily="header">
+              {"SALADS"}
+            </Typography>
+          </Box>
           {data.salads.description && (
             <Box
               sx={{
                 display: "flex",
                 justifyContent: "center",
-                mt: 1,
+                mb: 2,
                 p: 1,
                 textAlign: "center",
               }}
@@ -43,22 +54,14 @@ export default function BenniditosSalads({
               </Typography>
             </Box>
           )}
-          <Box
-            sx={{
-              p: 1,
-              mb: 3,
-              borderColor: theme.palette.primary.main,
-            }}
-          >
-            <Typography variant="h4" color="primary" fontFamily="header">
-              {"SALADS"}
-            </Typography>
-          </Box>
           {data.salads.options.map((item, index) => {
             return (
               <Box key={item.name} sx={{ mb: 2, px: 1 }}>
                 <Box sx={{ mb: 2 }}>
-                  <Typography variant="h5" sx={{ mb: 1 }}>
+                  <Typography
+                    variant="h5"
+                    sx={{ mb: 1, fontFamily: "subheader" }}
+                  >
                     {item.name}
                   </Typography>
                   <Typography
@@ -68,7 +71,7 @@ export default function BenniditosSalads({
                     sx={{
                       maxWidth: 400,
                       mx: "auto",
-                      mb: 2,
+                      my: 2,
                     }}
                   >
                     {item.description}

@@ -45,16 +45,18 @@ export default function FooterPanel() {
           <Box>
             <Box>
               <Box sx={{ textAlign: "center" }}>
-                <Typography
-                  sx={{
-                    color: "white",
-                    fontFamily: "subheader",
-                    fontSize: { xs: 10, md: theme.typography.h6.fontSize },
-                    mb: 1,
-                  }}
-                >
-                  Benniditos Pizza
-                </Typography>
+                <Box>
+                  <Typography
+                    sx={{
+                      color: "white",
+                      fontFamily: "subheader",
+                      fontSize: { xs: 10, md: theme.typography.body1.fontSize },
+                      mb: 1,
+                    }}
+                  >
+                    Benniditos Pizza
+                  </Typography>
+                </Box>
                 <Box>
                   <Button
                     size="small"
@@ -120,7 +122,7 @@ export default function FooterPanel() {
                   sx={{
                     color: "white",
                     fontFamily: "subheader",
-                    fontSize: { xs: 10, md: 12 },
+                    fontSize: { xs: 10, md: theme.typography.body1.fontSize },
                     mb: 1,
                   }}
                 >

@@ -7,7 +7,7 @@ export default function BenniditosToppings({
   data,
 }: BenniditosMenuProps) {
   return (
-    <Box>
+    <Box sx={{ width: "100%" }}>
       <Box
         sx={{
           width: "100%",
@@ -17,7 +17,7 @@ export default function BenniditosToppings({
           py: 2,
         }}
       >
-        <Box>
+        <Box sx={{ width: "100%" }}>
           {data.toppings.description && (
             <Box
               sx={{
@@ -26,6 +26,7 @@ export default function BenniditosToppings({
                 justifyContent: "center",
                 alignItems: "center",
                 textAlign: "center",
+                width: "100%",
                 mt: 2,
                 px: 1,
               }}

@@ -3,7 +3,7 @@ import theme from "@/Theme";
 import { ThemeProvider, CssBaseline, AppBar } from "@mui/material";
 import background from "@/public/bg3.jpeg";
 import MenuHeader from "@/src/components/MenuHeader";
-import { BenniditosMenuData } from "@/src/utils/BenniditosMenuData";
+import BenniditosMenuData from "@/src/utils/BenniditosMenuData.json";
 import { MenuPanel } from "@/src/components/Panels/MenuPanel";
 import logo from "@/public/ditosLogo.png";
 

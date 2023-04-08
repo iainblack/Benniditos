@@ -18,6 +18,22 @@ export default function BenniditosPizzaMenu({
         }}
       >
         <Box>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Box
+              sx={{
+                p: 1,
+                mb: data.pizza.description1 || data.pizza.description2 ? 0 : 3,
+              }}
+            >
+              <Typography
+                variant="h4"
+                color="primary"
+                sx={{ fontFamily: "header", textAlign: "center" }}
+              >
+                {"PIZZA"}
+              </Typography>
+            </Box>
+          </Box>
           {(data.pizza.description1 || data.pizza.description2) && (
             <Box
               sx={{
@@ -27,7 +43,6 @@ export default function BenniditosPizzaMenu({
                 alignItems: "center",
                 textAlign: "center",
                 mb: 2,
-                mt: 2,
                 px: 1,
               }}
             >
@@ -44,22 +59,6 @@ export default function BenniditosPizzaMenu({
               )}
             </Box>
           )}
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Box
-              sx={{
-                p: 1,
-                mb: 3,
-              }}
-            >
-              <Typography
-                variant="h4"
-                color="primary"
-                sx={{ fontFamily: "header", textAlign: "center" }}
-              >
-                {"PIZZAS"}
-              </Typography>
-            </Box>
-          </Box>
           <Box
             sx={{
               display: { xs: "block", md: "flex" },
@@ -83,7 +82,9 @@ export default function BenniditosPizzaMenu({
                         sx={{
                           maxWidth: 400,
                           mx: "auto",
-                          height: { xs: "auto", md: 50 },
+                          height: { xs: "auto", md: 100 },
+                          display: "flex",
+                          alignItems: "center",
                           fontFamily: "body",
                           mb: { xs: 2, md: 0 },
                         }}
@@ -137,7 +138,9 @@ export default function BenniditosPizzaMenu({
                           sx={{
                             maxWidth: 400,
                             mx: "auto",
-                            height: { xs: "auto", md: 50 },
+                            height: { xs: "auto", md: 100 },
+                            display: "flex",
+                            alignItems: "center",
                             fontFamily: "body",
                             mb: { xs: 2, md: 0 },
                           }}
@@ -152,16 +155,7 @@ export default function BenniditosPizzaMenu({
                           <b>{`${item.small} | ${item.medium} | ${item.large}`}</b>
                         </Typography>
                       </Box>
-                      {isSmallScreen && (
-                        <Divider
-                          sx={{
-                            mb: 1,
-                            mx: { xs: "15%", sm: "30%", md: "20%" },
-                          }}
-                        />
-                      )}
-                      {!isSmallScreen &&
-                      index !== data.pizza.column2.length - 1 ? (
+                      {index !== data.pizza.column2.length - 1 ? (
                         <Divider
                           sx={{
                             mb: 1,
@@ -217,7 +211,7 @@ export default function BenniditosPizzaMenu({
                   </Box>
                   <Box id="by-slice" sx={{ textAlign: "center" }}>
                     {data.pizza.bySlice.comboOptions &&
-                      data.pizza.bySlice.comboOptions.map((item, index) => {
+                      data.pizza.bySlice.comboOptions.map((item, index1) => {
                         return (
                           <Box key={item.name} sx={{ mb: 2, px: 1 }}>
                             <Box sx={{ mb: 1 }}>
@@ -233,19 +227,20 @@ export default function BenniditosPizzaMenu({
                                 sx={{
                                   maxWidth: 400,
                                   mx: "auto",
-                                  height: { xs: "auto", md: 50 },
+                                  mb: 3,
                                   fontFamily: "body",
+                                  textAlign: "center",
                                 }}
                               >
                                 {item.subtitle}
                               </Typography>
-                              {item.options.map((option, index) => {
+                              {item.options.map((option, index2) => {
                                 return (
                                   <Typography
                                     variant="body2"
                                     fontSize={12}
                                     fontFamily="body"
-                                    key={index}
+                                    key={index2}
                                     textAlign="center"
                                   >
                                     {option.topping} - <b>{option.price}</b>
@@ -253,16 +248,9 @@ export default function BenniditosPizzaMenu({
                                 );
                               })}
                             </Box>
-                            {isSmallScreen && (
-                              <Divider
-                                sx={{
-                                  mb: 1,
-                                  mx: { xs: "15%", sm: "30%", md: "20%" },
-                                }}
-                              />
-                            )}
-                            {!isSmallScreen &&
-                            index !== data.pizza.column2.length - 1 ? (
+                            {data.pizza.bySlice?.comboOptions &&
+                            index1 !==
+                              data.pizza.bySlice?.comboOptions.length - 1 ? (
                               <Divider
                                 sx={{
                                   mb: 1,

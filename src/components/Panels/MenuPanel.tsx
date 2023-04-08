@@ -13,14 +13,16 @@ import {
 } from "@mui/material";
 import React from "react";
 import { BenniditosMenuConfig, ScrollTop, TabPanel } from "../../utils/utils";
-import BenniditosBread from "../Products/BenniditosBreadPasta";
 import BenniditosSpecialtyPizzaMenu from "../Products/BenniditosPizzaMenu";
 import BenniditosToppings from "../Products/BenniditosToppings";
 import BenniditosSalads from "../Products/BenniditosSalads";
-import BenniditosCalzoneSammies from "../Products/BenniditosCalzoneSammies";
 import BenniditosDessertSoda from "../Products/BenniditosDessertSoda";
 import SectionHeader from "../SectionHeader";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import BenniditosPasta from "../Products/BenniditosPasta";
+import BenniditosStarters from "../Products/BenniditosStarters";
+import BenniditosCalzones from "../Products/BenniditosCalzones";
+import BenniditosSandwiches from "../Products/BenniditosSandwiches";
 
 interface MenuPanelProps {
   transitionIn: boolean;
@@ -47,7 +49,7 @@ export function MenuPanel(props: MenuPanelProps) {
       id="back-to-top-anchor"
       sx={{
         height: "fit-content",
-        width: "100%",
+        width: "100vw",
       }}
     >
       <Box ref={containerRef}>
@@ -56,167 +58,84 @@ export function MenuPanel(props: MenuPanelProps) {
             <SectionHeader title={props.header} imagePath={"/ditosMain.jpg"} />
             <Box sx={{ backgroundColor: "white" }}>
               {!isSmallScreen && (
-                <Tabs
+                <MenuTabs
+                  data={props.data}
                   value={value}
-                  onChange={handleChange}
-                  centered={isSmallScreen ? false : true}
-                  variant={isSmallScreen ? "scrollable" : "standard"}
-                  sx={{ backgroundColor: "white", border: 1, borderBottom: 0 }}
-                >
-                  <Tab
-                    label="Pizzas"
-                    sx={{ textTransform: "none", fontFamily: "subheader" }}
-                  />
-                  <Tab
-                    label="Toppings"
-                    sx={{ textTransform: "none", fontFamily: "subheader" }}
-                  />
-                  <Tab
-                    label="Bread & Pasta"
-                    sx={{ textTransform: "none", fontFamily: "subheader" }}
-                  />
-                  <Tab
-                    label="Salads"
-                    sx={{ textTransform: "none", fontFamily: "subheader" }}
-                  />
-                  <Tab
-                    label="Calzones & Sandwiches"
-                    sx={{ textTransform: "none", fontFamily: "subheader" }}
-                  />
-                  <Tab
-                    label="Desserts & Soda"
-                    sx={{ textTransform: "none", fontFamily: "subheader" }}
-                  />
-                </Tabs>
+                  isSmallScreen={isSmallScreen}
+                  handleChange={handleChange}
+                />
               )}
               {isSmallScreen && (
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    minWidth: 120,
-                    border: 1,
-                    borderBottom: 0,
-                    backgroundColor: "white",
-                    pt: 2,
-                  }}
-                >
-                  <FormControl sx={{ textAlign: "center" }}>
-                    <Select
-                      value={value.toString()}
-                      onChange={handleSelectChange}
-                      variant="standard"
-                      inputProps={{ MenuProps: { disableScrollLock: true } }}
-                      sx={{ fontFamily: "subheader", minWidth: 120 }}
-                    >
-                      <MenuItem
-                        value={0}
-                        sx={{
-                          fontFamily: "subheader",
-                          display: "flex",
-                          justifyContent: "center",
-                        }}
-                      >
-                        Pizzas
-                      </MenuItem>
-                      <MenuItem
-                        value={1}
-                        sx={{
-                          fontFamily: "subheader",
-                          display: "flex",
-                          justifyContent: "center",
-                        }}
-                      >
-                        Toppings
-                      </MenuItem>
-                      <MenuItem
-                        value={2}
-                        sx={{
-                          fontFamily: "subheader",
-                          display: "flex",
-                          justifyContent: "center",
-                        }}
-                      >
-                        Bread & Pasta
-                      </MenuItem>
-                      <MenuItem
-                        value={3}
-                        sx={{
-                          fontFamily: "subheader",
-                          display: "flex",
-                          justifyContent: "center",
-                        }}
-                      >
-                        Salads
-                      </MenuItem>
-                      <MenuItem
-                        value={4}
-                        sx={{
-                          fontFamily: "subheader",
-                          display: "flex",
-                          justifyContent: "center",
-                        }}
-                      >
-                        Calzones & Sandwiches
-                      </MenuItem>
-                      <MenuItem
-                        value={5}
-                        sx={{
-                          fontFamily: "subheader",
-                          display: "flex",
-                          justifyContent: "center",
-                        }}
-                      >
-                        Desserts & Soda
-                      </MenuItem>
-                    </Select>
-                  </FormControl>
-                </Box>
+                <MenuSelect
+                  data={props.data}
+                  handleChange={handleSelectChange}
+                  value={value}
+                  isSmallScreen={isSmallScreen}
+                />
               )}
-
-              <TabPanel value={value} index={0}>
-                <BenniditosSpecialtyPizzaMenu
-                  theme={theme}
-                  isSmallScreen={isSmallScreen}
-                  data={props.data}
-                />
-              </TabPanel>
-              <TabPanel value={value} index={1}>
-                <BenniditosToppings
-                  theme={theme}
-                  isSmallScreen={isSmallScreen}
-                  data={props.data}
-                />
-              </TabPanel>
-              <TabPanel value={value} index={2}>
-                <BenniditosBread
-                  theme={theme}
-                  isSmallScreen={isSmallScreen}
-                  data={props.data}
-                />
-              </TabPanel>
-              <TabPanel value={value} index={3}>
-                <BenniditosSalads
-                  theme={theme}
-                  isSmallScreen={isSmallScreen}
-                  data={props.data}
-                />
-              </TabPanel>
-              <TabPanel value={value} index={4}>
-                <BenniditosCalzoneSammies
-                  theme={theme}
-                  isSmallScreen={isSmallScreen}
-                  data={props.data}
-                />
-              </TabPanel>
-              <TabPanel value={value} index={5}>
-                <BenniditosDessertSoda
-                  theme={theme}
-                  isSmallScreen={isSmallScreen}
-                  data={props.data}
-                />
-              </TabPanel>
             </Box>
+            {Object.keys(props.data).map((item, index) => {
+              return (
+                <TabPanel key={index} value={value} index={index}>
+                  {item === "pizza" && (
+                    <BenniditosSpecialtyPizzaMenu
+                      theme={theme}
+                      isSmallScreen={isSmallScreen}
+                      data={props.data}
+                    />
+                  )}
+                  {item === "toppings" && (
+                    <BenniditosToppings
+                      theme={theme}
+                      isSmallScreen={isSmallScreen}
+                      data={props.data}
+                    />
+                  )}
+                  {item === "starters" && (
+                    <BenniditosStarters
+                      theme={theme}
+                      isSmallScreen={isSmallScreen}
+                      data={props.data}
+                    />
+                  )}
+                  {item === "calzones" && (
+                    <BenniditosCalzones
+                      theme={theme}
+                      isSmallScreen={isSmallScreen}
+                      data={props.data}
+                    />
+                  )}
+                  {item === "salads" && (
+                    <BenniditosSalads
+                      theme={theme}
+                      isSmallScreen={isSmallScreen}
+                      data={props.data}
+                    />
+                  )}
+                  {item === "sandwiches" && (
+                    <BenniditosSandwiches
+                      theme={theme}
+                      isSmallScreen={isSmallScreen}
+                      data={props.data}
+                    />
+                  )}
+                  {item === "pasta" && (
+                    <BenniditosPasta
+                      theme={theme}
+                      isSmallScreen={isSmallScreen}
+                      data={props.data}
+                    />
+                  )}
+                  {item === "desserts" && (
+                    <BenniditosDessertSoda
+                      theme={theme}
+                      isSmallScreen={isSmallScreen}
+                      data={props.data}
+                    />
+                  )}
+                </TabPanel>
+              );
+            })}
           </Box>
         </Fade>
         <ScrollTop>
@@ -225,6 +144,120 @@ export function MenuPanel(props: MenuPanelProps) {
           </Fab>
         </ScrollTop>
       </Box>
+    </Box>
+  );
+}
+
+function MenuTabs(props: {
+  data: BenniditosMenuConfig;
+  value: number;
+  handleChange: (event: React.SyntheticEvent, newValue: number) => void;
+  isSmallScreen: boolean;
+}) {
+  return (
+    <Tabs
+      value={props.value}
+      onChange={props.handleChange}
+      centered={props.isSmallScreen ? false : true}
+      variant={props.isSmallScreen ? "scrollable" : "standard"}
+      sx={{
+        backgroundColor: "white",
+        border: 1,
+        borderBottom: 0,
+      }}
+    >
+      {Object.keys(props.data).map((item, index) => {
+        if (item === "soda") {
+          return null;
+        }
+        if (item === "desserts") {
+          return (
+            <Tab
+              key={index}
+              label={"desserts & soda"}
+              sx={{
+                textTransform: "none",
+                fontFamily: "subheader",
+              }}
+            />
+          );
+        }
+        return (
+          <Tab
+            key={index}
+            label={item}
+            sx={{
+              textTransform: "none",
+              fontFamily: "subheader",
+            }}
+          />
+        );
+      })}
+    </Tabs>
+  );
+}
+
+function MenuSelect(props: {
+  data: BenniditosMenuConfig;
+  value: number;
+  handleChange: (event: SelectChangeEvent) => void;
+  isSmallScreen: boolean;
+}) {
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        minWidth: 120,
+        border: 1,
+        borderBottom: 0,
+        backgroundColor: "white",
+        pt: 2,
+      }}
+    >
+      <FormControl sx={{ textAlign: "center" }}>
+        <Select
+          value={props.value.toString()}
+          onChange={props.handleChange}
+          variant="standard"
+          inputProps={{ MenuProps: { disableScrollLock: true } }}
+          sx={{ fontFamily: "subheader", minWidth: 120 }}
+        >
+          {Object.keys(props.data).map((item, index) => {
+            if (item === "soda") {
+              return null;
+            }
+            if (item === "desserts") {
+              return (
+                <MenuItem
+                  key={index}
+                  value={index}
+                  sx={{
+                    fontFamily: "subheader",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  {"desserts & soda"}
+                </MenuItem>
+              );
+            }
+            return (
+              <MenuItem
+                key={index}
+                value={index}
+                sx={{
+                  fontFamily: "subheader",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                {item}
+              </MenuItem>
+            );
+          })}
+        </Select>
+      </FormControl>
     </Box>
   );
 }

@@ -12,25 +12,37 @@ const mainTheme = createTheme({
     },
     h4: {
       fontWeight: 800,
+      fontSize: "1.5rem",
+      "@media (min-width:600px)": {
+        fontSize: "3rem",
+      },
     },
     h5: {
-      fontWeight: 700,
-      fontSize: "1.25rem",
+      fontWeight: 800,
+      fontSize: "1.15rem",
+      "@media (min-width:600px)": {
+        fontSize: "1.75rem",
+      },
     },
     body1: {
+      fontSize: "0.8rem",
       "@media (min-width:600px)": {
-        fontSize: "1.5rem",
+        fontSize: "1rem",
       },
     },
     body2: {
+      fontSize: "0.8rem",
       "@media (min-width:600px)": {
-        fontSize: "1.25rem",
+        fontSize: "1rem",
       },
     },
   },
   palette: {
     primary: {
       main: "#e1a32b",
+    },
+    secondary: {
+      main: "#98c855",
     },
     text: {
       primary: "#000000",
@@ -41,7 +53,7 @@ const mainTheme = createTheme({
     values: {
       xs: 0,
       sm: 600,
-      md: 975,
+      md: 1015,
       lg: 1120,
       xl: 1536,
     },

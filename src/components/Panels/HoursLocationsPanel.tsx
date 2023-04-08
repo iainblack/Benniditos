@@ -221,16 +221,10 @@ function BrewPubInfo(props: { theme: Theme }) {
           <b>Monday - Wednesday</b>
         </Typography>
         <Typography variant="body2" sx={{ mb: 2 }}>
-          11:00 AM - 7:00 PM
-        </Typography>
-        <Typography variant="body1" fontFamily="subheader" sx={{ mb: 1 }}>
-          <b>Thursday - Saturday</b>
-        </Typography>
-        <Typography variant="body2" sx={{ mb: 2 }}>
           11:00 AM - 8:00 PM
         </Typography>
         <Typography variant="body1" fontFamily="subheader" sx={{ mb: 1 }}>
-          <b>Friday</b>
+          <b>Thursday - Saturday</b>
         </Typography>
         <Typography variant="body2" sx={{ mb: 2 }}>
           11:00 AM - 9:00 PM
