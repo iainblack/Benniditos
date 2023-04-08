@@ -148,9 +148,9 @@ export const BrewPubMenuData: BenniditosMenuConfig = {
         name: "SouthWestern Pizza",
         description:
           "A chipotle pesto base cooked with cheddar jack, chicken, black olives, & jalapeños. Topped with cilantro pesto, sour cream, geen onions, tomatoes, & thin tortilla chips",
-        small: "18.99",
+        small: "15.99",
         medium: "27.99",
-        large: "32.00",
+        large: "32.59",
       },
       {
         name: "L.C. Primo",

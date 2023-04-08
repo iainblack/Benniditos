@@ -13,6 +13,7 @@ import { BenniditosAboutUs } from "@/src/components/Panels/BenniditosAboutUs";
 import SlideShowPanel from "@/src/components/Panels/SlideShowPanel";
 import TitlePanel from "@/src/components/Panels/TitlePanel";
 import FooterPanel from "@/src/components/Panels/FooterPanel";
+import ImageSlider from "@/src/components/imageSlider";
 
 interface AppBarState {
   transparent: boolean;
@@ -103,10 +104,7 @@ export default function BenniditosHome() {
           <BenniditosAboutUs transitionIn />
         </PanelContainer>
         <PanelContainer id="slideshow-container">
-          <SlideShowPanel
-            handleTabChange={handleTabChange}
-            backgroundImage={background}
-          />
+          <SlideShowPanel />
         </PanelContainer>
         <PanelContainer id="hours-container" ref={hoursLocationsRef}>
           <BenniditosHours transitionIn />

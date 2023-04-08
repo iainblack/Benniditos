@@ -26,6 +26,7 @@ export default function BenniditosMenuPage() {
         />
       </AppBar>
       <PanelContainer
+        fullWidth
         marginTop={"76px"}
         id="menu-container"
         sx={{

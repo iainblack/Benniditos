@@ -28,6 +28,7 @@ export default function BrewPubMenuPage() {
         />
       </AppBar>
       <PanelContainer
+        fullWidth
         marginTop={"76px"}
         sx={{
           backgroundImage: `url(${background.src})`,

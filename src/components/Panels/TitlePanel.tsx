@@ -40,7 +40,7 @@ export default function TitlePanel(props: TitlePanelProps) {
         sx={{
           width: "100%",
           height: "100%",
-          backgroundColor: "rgba(0,0,0,0.7)",
+          backgroundColor: "rgba(0,0,0,0.8)",
           p: 3,
         }}
       >
@@ -73,9 +73,18 @@ export default function TitlePanel(props: TitlePanelProps) {
                 {"done the right way."}
               </Typography>
             </Fade>
+            <Fade in timeout={3000} style={{ transitionDelay: "1500ms" }}>
+              <Typography
+                variant={"h6"}
+                fontFamily="header"
+                sx={{ color: "white" }}
+              >
+                {"(or some shit like that)"}
+              </Typography>
+            </Fade>
           </Box>
           <Box sx={{ mt: 6 }}>
-            <Fade in timeout={3000} style={{ transitionDelay: "1500ms" }}>
+            <Fade in timeout={3000} style={{ transitionDelay: "2000ms" }}>
               <Box sx={{ mb: 2 }}>
                 <Typography sx={{ color: "white", fontFamily: "header" }}>
                   Benniditos Pizza
@@ -98,7 +107,7 @@ export default function TitlePanel(props: TitlePanelProps) {
                 </Button>
               </Box>
             </Fade>
-            <Fade in timeout={3000} style={{ transitionDelay: "1500ms" }}>
+            <Fade in timeout={3000} style={{ transitionDelay: "2000ms" }}>
               <Box>
                 <Typography sx={{ color: "white", fontFamily: "header" }}>
                   Benniditos BrewPub

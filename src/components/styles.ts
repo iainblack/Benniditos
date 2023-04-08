@@ -2,13 +2,15 @@ import { Box, Fab } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 export const PanelContainer = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "noPaddingTop" && prop !== "marginTop",
+  shouldForwardProp: (prop) =>
+    prop !== "noPaddingTop" && prop !== "fullWidth" && prop !== "marginTop",
 })<{
   noPaddingTop?: boolean;
+  fullWidth?: boolean;
   marginTop?: string;
-}>(({ noPaddingTop, theme, marginTop }) => ({
-  minHeight: "100vh",
-  maxWidth: "80vw",
+}>(({ noPaddingTop, theme, fullWidth, marginTop }) => ({
+  minHeight: "80vh",
+  width: fullWidth ? "100vw" : "80vw",
   padding: theme.spacing(8),
   paddingTop: noPaddingTop ? 0 : theme.spacing(8),
   marginTop: marginTop ? marginTop : 0,
@@ -17,9 +19,10 @@ export const PanelContainer = styled(Box, {
     paddingRight: theme.spacing(2),
     paddingBottom: theme.spacing(4),
     paddingTop: noPaddingTop ? 0 : theme.spacing(4),
-    marginTop: marginTop ? marginTop : 0,
     minHeight: "fit-content",
     maxWidth: "100vw",
+    width: "fit-content",
+    marginTop: marginTop ? marginTop : 0,
   },
   display: "flex",
   justifyContent: "center",

@@ -46,7 +46,7 @@ export function BenniditosAboutUs(props: AboutUsProps) {
                 justifyContent: "center",
                 backgroundColor: "white",
                 order: 2,
-                minHeight: "40vh",
+                minHeight: "50vh",
               }}
             >
               <Box

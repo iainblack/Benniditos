@@ -24,6 +24,7 @@ export function BenniditosHours(props: HoursLocationProps) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        //minWidth: { xs: "fit-content", lg: "100vw" },
       }}
     >
       <Box ref={containerRef}>
@@ -35,11 +36,11 @@ export function BenniditosHours(props: HoursLocationProps) {
               flexDirection: { xs: "column", md: "row" },
               justifyContent: "space-evenly",
               alignItems: "center",
+              width: "100%",
             }}
           >
             <Box
               sx={{
-                minWidth: { xs: "fit-content", lg: "70vw" },
                 textAlign: "center",
                 width: "100%",
                 border: "1px solid",
@@ -53,6 +54,7 @@ export function BenniditosHours(props: HoursLocationProps) {
             >
               <Box
                 sx={{
+                  width: "100%",
                   display: "flex",
                   flexDirection: { xs: "column", md: "row" },
                   justifyContent: "space-around",
