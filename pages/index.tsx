@@ -111,11 +111,11 @@ export default function BenniditosHome() {
           <SlideShowPanel />
         </PanelContainer>
         {/* </BackgroundWrapper> */}
-        <BackgroundWrapper>
-          <PanelContainer id="hours-container" ref={hoursLocationsRef}>
-            <BenniditosHours transitionIn />
-          </PanelContainer>
-        </BackgroundWrapper>
+        {/* <BackgroundWrapper> */}
+        <PanelContainer id="hours-container" ref={hoursLocationsRef}>
+          <BenniditosHours transitionIn />
+        </PanelContainer>
+        {/* </BackgroundWrapper> */}
         <PanelContainer id="delivery-container" ref={deliveryRef}>
           <BenniditosDeliveryPanel transitionIn />
         </PanelContainer>
