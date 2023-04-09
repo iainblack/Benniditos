@@ -83,7 +83,7 @@ export default function TitlePanel(props: TitlePanelProps) {
           {isSmallScreen && (
             <Box>
               <Slide in={animateLabel} direction="up" timeout={1000}>
-                <IconButton sx={{ pb: 4 }} onClick={props.scrollToFirst}>
+                <IconButton sx={{ pb: "15vh" }} onClick={props.scrollToFirst}>
                   <KeyboardDoubleArrowDownIcon
                     fontSize="large"
                     sx={{ color: "white" }}
