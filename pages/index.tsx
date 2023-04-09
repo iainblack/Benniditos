@@ -106,7 +106,7 @@ export default function BenniditosHome() {
           id="slideshow-container"
           ref={slideShowRef}
           contentHeight
-          backgroundColor="white"
+          //backgroundColor="white"
         >
           <SlideShowPanel />
         </PanelContainer>

@@ -82,7 +82,7 @@ export default function ImageSlider() {
               position: "relative",
               height: "100%",
               width: "100%",
-              backgroundColor: "white",
+              //backgroundColor: "white",
             }}
           >
             {urls.map((url, index) => {
