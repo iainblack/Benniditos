@@ -223,7 +223,7 @@ export default function MenuHeader(props: {
             onClick={() => setDrawerOpen(true)}
             sx={{ color: "white" }}
           >
-            <MenuIcon />
+            <MenuIcon fontSize="large" />
           </IconButton>
           <Drawer
             anchor="right"
