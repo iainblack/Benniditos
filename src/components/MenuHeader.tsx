@@ -203,7 +203,6 @@ export default function MenuHeader(props: {
             alt="logo"
             width={230}
             height={70}
-            priority
             style={{
               marginTop: theme.spacing(1),
               marginBottom: theme.spacing(1),
