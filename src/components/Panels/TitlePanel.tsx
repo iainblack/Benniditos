@@ -13,7 +13,6 @@ import Link from "next/link";
 import bg from "@/public/ditosTitle2.jpg";
 import chris from "@/public/chris2.jpg";
 import React, { useEffect } from "react";
-import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
 interface TitlePanelProps {
   scrollToFirst: () => void;
@@ -37,7 +36,7 @@ export default function TitlePanel(props: TitlePanelProps) {
         width: "100vw",
         backgroundImage: `url(${chris.src})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "center top",
         mb: { xs: 4, md: 8 },
       }}
     >
@@ -54,7 +53,7 @@ export default function TitlePanel(props: TitlePanelProps) {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: { xs: "space-between", md: "space-around" },
+            justifyContent: { xs: "flex-start", md: "space-around" },
             alignItems: "center",
             textAlign: "center",
           }}
@@ -63,6 +62,7 @@ export default function TitlePanel(props: TitlePanelProps) {
             <Slide in timeout={1000} direction={"down"}>
               <Box
                 sx={{
+                  mt: 8,
                   display: "flex",
                   justifyContent: "center",
                   height: "25vh",
@@ -81,18 +81,6 @@ export default function TitlePanel(props: TitlePanelProps) {
               </Box>
             </Slide>
           </Box>
-          {isSmallScreen && (
-            <Box className="scroll-hint">
-              <Slide in={animateLabel} direction="up" timeout={750}>
-                <IconButton sx={{ pb: "15vh" }} onClick={props.scrollToFirst}>
-                  <KeyboardDoubleArrowDownIcon
-                    fontSize="large"
-                    sx={{ color: "white" }}
-                  />
-                </IconButton>
-              </Slide>
-            </Box>
-          )}
           {!isSmallScreen && (
             <Slide in={animateLabel} direction="up" timeout={1000}>
               <Box
@@ -109,7 +97,7 @@ export default function TitlePanel(props: TitlePanelProps) {
                       variant="h5"
                       sx={{
                         color: "white",
-                        fontFamily: "subheader",
+                        fontFamily: "header",
                         mb: 1,
                       }}
                     >
@@ -125,12 +113,13 @@ export default function TitlePanel(props: TitlePanelProps) {
                           );
                         }}
                         sx={{
-                          fontFamily: "header",
+                          fontFamily: "body",
                           textTransform: "none",
                           fontSize: theme.typography.body1.fontSize,
                           color: theme.palette.primary.main,
                           "&:hover": {
                             backgroundColor: "transparent",
+                            color: "white",
                           },
                         }}
                       >
@@ -141,11 +130,12 @@ export default function TitlePanel(props: TitlePanelProps) {
                       size="large"
                       sx={{
                         textTransform: "none",
-                        fontFamily: "header",
+                        fontFamily: "body",
                         fontSize: theme.typography.body1.fontSize,
                         color: theme.palette.primary.main,
                         "&:hover": {
                           backgroundColor: "transparent",
+                          color: "white",
                         },
                       }}
                       onClick={() => {
@@ -154,6 +144,14 @@ export default function TitlePanel(props: TitlePanelProps) {
                     >
                       509-455-7411
                     </Button>
+                    <Box>
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "white", fontFamily: "body" }}
+                      >
+                        Delivery. Online Orders. Great Pizza.
+                      </Typography>
+                    </Box>
                   </Box>
                 </Box>
                 <Box>
@@ -161,7 +159,7 @@ export default function TitlePanel(props: TitlePanelProps) {
                     variant="h5"
                     sx={{
                       color: "white",
-                      fontFamily: "subheader",
+                      fontFamily: "header",
                       mb: 1,
                     }}
                   >
@@ -177,11 +175,12 @@ export default function TitlePanel(props: TitlePanelProps) {
                     }}
                     sx={{
                       textTransform: "none",
-                      fontFamily: "header",
+                      fontFamily: "body",
                       fontSize: theme.typography.body1.fontSize,
                       color: theme.palette.primary.main,
                       "&:hover": {
                         backgroundColor: "transparent",
+                        color: "white",
                       },
                     }}
                   >
@@ -192,11 +191,12 @@ export default function TitlePanel(props: TitlePanelProps) {
                       size="large"
                       sx={{
                         textTransform: "none",
-                        fontFamily: "header",
+                        fontFamily: "body",
                         fontSize: theme.typography.body1.fontSize,
-                        color: theme.palette.primary.main,
+                        color: "theme.palette.primary.main",
                         "&:hover": {
                           backgroundColor: "transparent",
+                          color: "white",
                         },
                       }}
                       onClick={() => {
@@ -205,6 +205,14 @@ export default function TitlePanel(props: TitlePanelProps) {
                     >
                       509-290-5018
                     </Button>
+                    <Box>
+                      <Typography
+                        variant="body2"
+                        sx={{ color: "white", fontFamily: "body" }}
+                      >
+                        Huge Tap Selection. Carry-Out. Still great Pizza.
+                      </Typography>
+                    </Box>
                   </Box>
                 </Box>
               </Box>

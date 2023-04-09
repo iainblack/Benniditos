@@ -2,65 +2,39 @@ import React, { useEffect, useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
-import { Box, CircularProgress, useMediaQuery } from "@mui/material";
+import { Box, CircularProgress, useMediaQuery, useTheme } from "@mui/material";
 
 const urls = [
-  "/ditosMain.jpg",
-  "/ditosMain.jpg",
-  "/ditosMain.jpg",
-  "/ditosMain.jpg",
-  "/ditosMain.jpg",
+  "/slide4.jpg",
+  "/slide3.jpg",
+  "/slide1.jpg",
+  "/slide5.jpg",
+  "/pasta.jpg",
+  "/slide6.jpg",
+  "/slide7.jpg",
+  "/slide8.jpg",
+  "/slide10.jpg",
 ];
 
 export default function ImageSlider() {
-  const isSmallScreen = useMediaQuery("(max-width: 600px)");
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  const [sliderRef, instanceRef] = useKeenSlider(
-    {
-      initial: 0,
-      slideChanged(slider) {
-        setCurrentSlide(slider.track.details.rel);
-      },
-      slides: {
-        perView: isSmallScreen ? 1 : 2,
-        spacing: isSmallScreen ? 0 : 15,
-      },
-      created() {
-        setLoaded(true);
-      },
+  const [sliderRef, instanceRef] = useKeenSlider({
+    initial: 0,
+    loop: true,
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
     },
-    [
-      (slider) => {
-        let timeout: ReturnType<typeof setTimeout>;
-        let mouseOver = false;
-        function clearNextTimeout() {
-          clearTimeout(timeout);
-        }
-        function nextTimeout() {
-          clearTimeout(timeout);
-          if (mouseOver) return;
-          timeout = setTimeout(() => {
-            slider.next();
-          }, 2000);
-        }
-        slider.on("created", () => {
-          slider.container.addEventListener("mouseover", () => {
-            mouseOver = true;
-            clearNextTimeout();
-          });
-          slider.container.addEventListener("mouseout", () => {
-            mouseOver = false;
-            nextTimeout();
-          });
-          nextTimeout();
-        });
-        slider.on("dragStarted", clearNextTimeout);
-        slider.on("animationEnded", nextTimeout);
-        slider.on("updated", nextTimeout);
-      },
-    ]
-  );
+    slides: {
+      perView: isLargeScreen ? 3 : isSmallScreen ? 1 : 2,
+    },
+    created() {
+      setLoaded(true);
+    },
+  });
 
   useEffect(() => {
     setTimeout(() => {
@@ -91,6 +65,8 @@ export default function ImageSlider() {
       instanceRef.current?.update();
     }, 500);
   }, []);
+
+  const dotOffset = isSmallScreen ? 0 : isLargeScreen ? 2 : 1;
 
   return (
     <Box sx={{ height: "100%", width: "100%" }}>
@@ -138,10 +114,6 @@ export default function ImageSlider() {
               onClick={(e: any) =>
                 e.stopPropagation() || instanceRef.current?.next()
               }
-              disabled={
-                currentSlide ===
-                instanceRef.current.track.details.slides.length - 1
-              }
             />
           </>
         )}
@@ -150,7 +122,7 @@ export default function ImageSlider() {
         <div className="dots">
           {[
             ...Array(
-              instanceRef.current.track.details.slides.length - 1
+              instanceRef.current.track.details.slides.length - dotOffset
             ).keys(),
           ].map((idx) => {
             return (

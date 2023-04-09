@@ -49,7 +49,7 @@ export default function FooterPanel() {
                   <Typography
                     sx={{
                       color: "white",
-                      fontFamily: "subheader",
+                      fontFamily: "header",
                       fontSize: { xs: 12, md: theme.typography.body1.fontSize },
                       mb: 1,
                     }}
@@ -67,7 +67,7 @@ export default function FooterPanel() {
                       );
                     }}
                     sx={{
-                      fontFamily: "header",
+                      fontFamily: "body",
                       textTransform: "none",
                       fontSize: { xs: 12, md: theme.typography.body1.fontSize },
                     }}
@@ -79,7 +79,7 @@ export default function FooterPanel() {
                   <Button
                     size="small"
                     sx={{
-                      fontFamily: "header",
+                      fontFamily: "body",
                       fontSize: { xs: 12, md: theme.typography.body1.fontSize },
                     }}
                     onClick={() => {
@@ -97,19 +97,39 @@ export default function FooterPanel() {
             variant="middle"
             sx={{ background: "white", display: { xs: "none", md: "block" } }}
           />
-          <IconButton
-            onClick={() => {
-              window.open(
-                "https://instagram.com/benniditospizza?igshid=Mzc1MmZhNjY=",
-                "_blank"
-              );
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              textAlign: "center",
             }}
           >
-            <InstagramIcon
-              fontSize={isSmallScreen ? "small" : "large"}
-              sx={{ color: "white" }}
-            />
-          </IconButton>
+            <Box>
+              <Typography
+                variant="body2"
+                fontFamily={"header"}
+                sx={{ color: "white", display: { xs: "none", md: "flex" } }}
+              >
+                Follow us on Instagram
+              </Typography>
+            </Box>
+            <Box>
+              <IconButton
+                onClick={() => {
+                  window.open(
+                    "https://instagram.com/benniditospizza?igshid=Mzc1MmZhNjY=",
+                    "_blank"
+                  );
+                }}
+              >
+                <InstagramIcon
+                  fontSize={isSmallScreen ? "small" : "large"}
+                  sx={{ color: "white" }}
+                />
+              </IconButton>
+            </Box>
+          </Box>
           <Divider
             orientation="vertical"
             variant="middle"
@@ -121,7 +141,7 @@ export default function FooterPanel() {
                 <Typography
                   sx={{
                     color: "white",
-                    fontFamily: "subheader",
+                    fontFamily: "header",
                     mb: 1,
                     fontSize: { xs: 12, md: theme.typography.body1.fontSize },
                   }}
@@ -139,7 +159,7 @@ export default function FooterPanel() {
                     );
                   }}
                   sx={{
-                    fontFamily: "header",
+                    fontFamily: "body",
                     textTransform: "none",
                     fontSize: { xs: 12, md: theme.typography.body1.fontSize },
                   }}
@@ -151,7 +171,7 @@ export default function FooterPanel() {
                 <Button
                   size="small"
                   sx={{
-                    fontFamily: "header",
+                    fontFamily: "body",
                     fontSize: { xs: 12, md: theme.typography.body1.fontSize },
                   }}
                   onClick={() => {

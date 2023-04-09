@@ -4,7 +4,6 @@ import theme from "@/Theme";
 import { useEffect } from "react";
 import React from "react";
 import Header from "@/src/components/header";
-import background from "@/public/ditosMain.jpg";
 import { BenniditosHours } from "@/src/components/Panels/HoursLocationsPanel";
 import { HideOnScroll } from "@/src/utils/utils";
 import { BenniditosDeliveryPanel } from "@/src/components/Panels/DeliveryPanel";
@@ -26,14 +25,15 @@ export default function BenniditosHome() {
     logo: false,
   });
 
+  const slideShowRef = React.useRef<HTMLDivElement>(null);
   const hoursLocationsRef = React.useRef<HTMLDivElement>(null);
   const deliveryRef = React.useRef<HTMLDivElement>(null);
 
   const scrollToFirst = () => {
-    hoursLocationsRef.current &&
-      hoursLocationsRef.current.scrollIntoView({
+    slideShowRef.current &&
+      slideShowRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "start",
+        block: "center",
       });
   };
 
@@ -101,7 +101,11 @@ export default function BenniditosHome() {
           </AppBar>
         </HideOnScroll>
         <TitlePanel scrollToFirst={scrollToFirst} />
-        <PanelContainer id="slideshow-container">
+        <PanelContainer
+          id="slideshow-container"
+          ref={slideShowRef}
+          contentHeight
+        >
           <SlideShowPanel />
         </PanelContainer>
         <PanelContainer id="hours-container" ref={hoursLocationsRef}>

@@ -184,6 +184,7 @@ export default function Header(props: HeaderProps) {
                   primaryTypographyProps={{
                     textAlign: "center",
                     fontFamily: "header",
+                    fontSize: theme.typography.body1.fontSize,
                   }}
                 />
               </ListItemButton>
@@ -314,7 +315,7 @@ export default function Header(props: HeaderProps) {
             onClick={() => setDrawerOpen(true)}
             sx={{ color: "white" }}
           >
-            <MenuIcon />
+            <MenuIcon fontSize="large" />
           </IconButton>
           <Drawer
             anchor="right"
@@ -365,8 +366,8 @@ export default function Header(props: HeaderProps) {
                 sx={{
                   textTransform: "none",
                   color: "white",
-                  fontFamily: "subheader",
-                  fontSize: theme.typography.body1.fontSize,
+                  fontFamily: "header",
+                  fontSize: 22,
                 }}
               />
               <Tab
@@ -374,8 +375,8 @@ export default function Header(props: HeaderProps) {
                 sx={{
                   textTransform: "none",
                   color: "white",
-                  fontFamily: "subheader",
-                  fontSize: theme.typography.body1.fontSize,
+                  fontFamily: "header",
+                  fontSize: 22,
                 }}
               />
               <Tab
@@ -386,8 +387,8 @@ export default function Header(props: HeaderProps) {
                 sx={{
                   textTransform: "none",
                   color: "white",
-                  fontFamily: "subheader",
-                  fontSize: theme.typography.body1.fontSize,
+                  fontFamily: "header",
+                  fontSize: 22,
                 }}
               />
               <Popover
@@ -469,8 +470,8 @@ export default function Header(props: HeaderProps) {
                 sx={{
                   textTransform: "none",
                   color: "white",
-                  fontFamily: "subheader",
-                  fontSize: theme.typography.body1.fontSize,
+                  fontFamily: "header",
+                  fontSize: 22,
                 }}
               />
             </Tabs>
