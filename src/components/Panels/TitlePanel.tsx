@@ -50,7 +50,7 @@ export default function TitlePanel(props: TitlePanelProps) {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-around",
+            justifyContent: { xs: "flex-start", md: "space-around" },
             alignItems: "center",
             textAlign: "center",
           }}
@@ -61,8 +61,8 @@ export default function TitlePanel(props: TitlePanelProps) {
                 sx={{
                   display: "flex",
                   justifyContent: "center",
-                  height: "30vh",
-                  width: { xs: "80vw", md: "40vw" },
+                  height: "25vh",
+                  width: { xs: "80vw", md: "35vw" },
                   position: "relative",
                 }}
               >
@@ -71,6 +71,7 @@ export default function TitlePanel(props: TitlePanelProps) {
                   alt="Benniditos"
                   fill
                   sizes="100%"
+                  priority
                   style={{ objectFit: "contain", objectPosition: "center" }}
                 />
               </Box>

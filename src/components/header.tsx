@@ -65,7 +65,7 @@ export default function Header(props: HeaderProps) {
     <Box
       role="presentation"
       color={"text.primary"}
-      sx={{ width: 350, borderLeft: 1 }}
+      sx={{ width: { xs: 250, sm: 300 }, borderLeft: 1 }}
     >
       <List>
         {sections.map((text, index) => (
@@ -325,7 +325,7 @@ export default function Header(props: HeaderProps) {
             }}
             PaperProps={{
               sx: {
-                width: 350,
+                width: { xs: 250, sm: 300 },
                 backgroundImage: `url(${bg3.src})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
