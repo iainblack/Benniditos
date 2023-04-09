@@ -24,7 +24,7 @@ export const PanelContainer = styled(Box, {
     backgroundColor,
   }) => ({
     backgroundColor: backgroundColor,
-    minHeight: contentHeight ? "fit-content" : "80vh",
+    minHeight: contentHeight ? "80vh" : "80vh",
     width: fullWidth ? "100vw" : "90vw",
     padding: theme.spacing(8),
     paddingTop: noPaddingTop ? 0 : theme.spacing(8),
