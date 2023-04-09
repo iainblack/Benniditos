@@ -25,9 +25,17 @@ export default function BenniditosHome() {
     elevated: false,
     logo: false,
   });
-  const aboutUsRef = React.useRef<HTMLDivElement>(null);
+
   const hoursLocationsRef = React.useRef<HTMLDivElement>(null);
   const deliveryRef = React.useRef<HTMLDivElement>(null);
+
+  const scrollToFirst = () => {
+    hoursLocationsRef.current &&
+      hoursLocationsRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+  };
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     switch (newValue) {
@@ -92,7 +100,7 @@ export default function BenniditosHome() {
             <Header handleTabChange={handleTabChange} logo={AppBarState.logo} />
           </AppBar>
         </HideOnScroll>
-        <TitlePanel />
+        <TitlePanel scrollToFirst={scrollToFirst} />
         <PanelContainer id="slideshow-container">
           <SlideShowPanel />
         </PanelContainer>

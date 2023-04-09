@@ -12,8 +12,11 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import bg from "@/public/ditosTitle2.jpg";
 import React, { useEffect } from "react";
+import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
-interface TitlePanelProps {}
+interface TitlePanelProps {
+  scrollToFirst: () => void;
+}
 
 export default function TitlePanel(props: TitlePanelProps) {
   const [animateLabel, setAnimateLabel] = React.useState(false);
@@ -50,7 +53,7 @@ export default function TitlePanel(props: TitlePanelProps) {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: { xs: "flex-start", md: "space-around" },
+            justifyContent: { xs: "space-between", md: "space-around" },
             alignItems: "center",
             textAlign: "center",
           }}
@@ -77,6 +80,18 @@ export default function TitlePanel(props: TitlePanelProps) {
               </Box>
             </Slide>
           </Box>
+          {isSmallScreen && (
+            <Box>
+              <Slide in={animateLabel} direction="up" timeout={1000}>
+                <IconButton sx={{ pb: 4 }} onClick={props.scrollToFirst}>
+                  <KeyboardDoubleArrowDownIcon
+                    fontSize="large"
+                    sx={{ color: "white" }}
+                  />
+                </IconButton>
+              </Slide>
+            </Box>
+          )}
           {!isSmallScreen && (
             <Slide in={animateLabel} direction="up" timeout={1000}>
               <Box sx={{ mt: 6, display: "flex" }}>
