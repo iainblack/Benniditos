@@ -11,6 +11,7 @@ import {
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import bg from "@/public/ditosTitle2.jpg";
+import chris from "@/public/chris2.jpg";
 import React, { useEffect } from "react";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
@@ -34,9 +35,9 @@ export default function TitlePanel(props: TitlePanelProps) {
       sx={{
         height: "100vh",
         width: "100vw",
-        backgroundImage: `url(${bg.src})`,
+        backgroundImage: `url(${chris.src})`,
         backgroundSize: "cover",
-        backgroundPosition: "center top",
+        backgroundPosition: "center",
         mb: { xs: 4, md: 8 },
       }}
     >
@@ -44,7 +45,7 @@ export default function TitlePanel(props: TitlePanelProps) {
         sx={{
           width: "100%",
           height: "100%",
-          backgroundColor: "rgba(0,0,0,0.8)",
+          backgroundColor: "rgba(0,0,0,0.7)",
           p: 3,
         }}
       >
@@ -81,8 +82,8 @@ export default function TitlePanel(props: TitlePanelProps) {
             </Slide>
           </Box>
           {isSmallScreen && (
-            <Box>
-              <Slide in={animateLabel} direction="up" timeout={1000}>
+            <Box className="scroll-hint">
+              <Slide in={animateLabel} direction="up" timeout={750}>
                 <IconButton sx={{ pb: "15vh" }} onClick={props.scrollToFirst}>
                   <KeyboardDoubleArrowDownIcon
                     fontSize="large"
@@ -94,8 +95,15 @@ export default function TitlePanel(props: TitlePanelProps) {
           )}
           {!isSmallScreen && (
             <Slide in={animateLabel} direction="up" timeout={1000}>
-              <Box sx={{ mt: 6, display: "flex" }}>
-                <Box sx={{ mr: 3 }}>
+              <Box
+                sx={{
+                  mt: 6,
+                  display: "flex",
+                  width: "100%",
+                  justifyContent: "space-around",
+                }}
+              >
+                <Box>
                   <Box sx={{ mb: 2 }}>
                     <Typography
                       variant="h5"
@@ -148,7 +156,7 @@ export default function TitlePanel(props: TitlePanelProps) {
                     </Button>
                   </Box>
                 </Box>
-                <Box sx={{ ml: 3 }}>
+                <Box>
                   <Typography
                     variant="h5"
                     sx={{
