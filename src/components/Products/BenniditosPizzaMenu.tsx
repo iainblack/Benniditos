@@ -47,13 +47,13 @@ export default function BenniditosPizzaMenu({
               }}
             >
               {data.pizza.description1 && (
-                <Typography fontSize={14} fontFamily="body">
+                <Typography fontFamily="body" variant="body2">
                   <i>{data.pizza.description1} </i>
                 </Typography>
               )}
 
               {data.pizza.description2 && (
-                <Typography fontSize={12} fontFamily="body">
+                <Typography fontFamily="body" variant="body2">
                   <i>{data.pizza.description2} </i>
                 </Typography>
               )}
@@ -78,7 +78,6 @@ export default function BenniditosPizzaMenu({
                       </Typography>
                       <Typography
                         variant="body2"
-                        fontSize={12}
                         sx={{
                           maxWidth: 400,
                           mx: "auto",
@@ -91,11 +90,7 @@ export default function BenniditosPizzaMenu({
                       >
                         {item.description}
                       </Typography>
-                      <Typography
-                        variant="body2"
-                        fontSize={12}
-                        fontFamily="body"
-                      >
+                      <Typography variant="body2" fontFamily="body">
                         <b>{`${item.small} | ${item.medium} | ${item.large}`}</b>
                       </Typography>
                     </Box>
@@ -134,7 +129,6 @@ export default function BenniditosPizzaMenu({
                         </Typography>
                         <Typography
                           variant="body2"
-                          fontSize={12}
                           sx={{
                             maxWidth: 400,
                             mx: "auto",
@@ -147,11 +141,7 @@ export default function BenniditosPizzaMenu({
                         >
                           {item.description}
                         </Typography>
-                        <Typography
-                          variant="body2"
-                          fontSize={12}
-                          fontFamily="body"
-                        >
+                        <Typography variant="body2" fontFamily="body">
                           <b>{`${item.small} | ${item.medium} | ${item.large}`}</b>
                         </Typography>
                       </Box>
@@ -198,13 +188,17 @@ export default function BenniditosPizzaMenu({
                     }}
                   >
                     {data.pizza.bySlice.description1 && (
-                      <Typography fontSize={14} fontFamily="body">
+                      <Typography
+                        fontSize={14}
+                        fontFamily="body"
+                        sx={{ fontSize: theme.typography.body1.fontSize }}
+                      >
                         <i>{data.pizza.description1} </i>
                       </Typography>
                     )}
 
                     {data.pizza.bySlice.description2 && (
-                      <Typography fontSize={12} fontFamily="body">
+                      <Typography fontFamily="body">
                         <i>{data.pizza.description2} </i>
                       </Typography>
                     )}
@@ -223,7 +217,6 @@ export default function BenniditosPizzaMenu({
                               </Typography>
                               <Typography
                                 variant="body2"
-                                fontSize={12}
                                 sx={{
                                   maxWidth: 400,
                                   mx: "auto",
@@ -238,7 +231,6 @@ export default function BenniditosPizzaMenu({
                                 return (
                                   <Typography
                                     variant="body2"
-                                    fontSize={12}
                                     fontFamily="body"
                                     key={index2}
                                     textAlign="center"

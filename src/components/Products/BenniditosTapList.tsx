@@ -41,7 +41,6 @@ export default function BenniditosTapList({
                   {item.description && (
                     <Typography
                       variant="body2"
-                      fontSize={12}
                       sx={{
                         maxWidth: 400,
                         mx: "auto",
@@ -52,7 +51,7 @@ export default function BenniditosTapList({
                       {item.description}
                     </Typography>
                   )}
-                  <Typography variant="body2" fontFamily="header" fontSize={12}>
+                  <Typography variant="body2" fontFamily="header">
                     <b>{`${item.abv}`}</b>
                   </Typography>
                 </Box>

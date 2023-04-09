@@ -31,7 +31,7 @@ export default function BenniditosToppings({
                 px: 1,
               }}
             >
-              <Typography fontSize={12} fontFamily="body">
+              <Typography variant="body2" fontFamily="body">
                 <i>{data.toppings.description} </i>
               </Typography>
             </Box>
@@ -71,7 +71,6 @@ export default function BenniditosToppings({
                       <Box>
                         <Typography
                           variant="body2"
-                          fontSize={12}
                           sx={{
                             maxWidth: 400,
                             mx: "auto",
@@ -101,7 +100,6 @@ export default function BenniditosToppings({
                       <Box>
                         <Typography
                           variant="body2"
-                          fontSize={12}
                           sx={{
                             maxWidth: 400,
                             mx: "auto",
@@ -131,7 +129,6 @@ export default function BenniditosToppings({
                       <Box>
                         <Typography
                           variant="body2"
-                          fontSize={12}
                           sx={{
                             maxWidth: 400,
                             mx: "auto",
@@ -175,7 +172,6 @@ export default function BenniditosToppings({
                       <Box>
                         <Typography
                           variant="body2"
-                          fontSize={12}
                           sx={{
                             maxWidth: 400,
                             mx: "auto",

@@ -51,7 +51,7 @@ export default function BenniditosStarters({
                 textAlign: "center",
               }}
             >
-              <Typography fontSize={12} fontFamily="body">
+              <Typography variant="body2" fontFamily="body">
                 <i>{data.starters.description}</i>
               </Typography>
             </Box>
@@ -81,7 +81,6 @@ export default function BenniditosStarters({
                   {item.description && (
                     <Typography
                       variant="body2"
-                      fontSize={12}
                       sx={{
                         maxWidth: 400,
                         mx: "auto",
@@ -92,7 +91,7 @@ export default function BenniditosStarters({
                       {item.description}
                     </Typography>
                   )}
-                  <Typography variant="body2" fontSize={12} fontFamily="body">
+                  <Typography variant="body2" fontFamily="body">
                     <b>{`${item.price}`}</b>
                   </Typography>
                 </Box>

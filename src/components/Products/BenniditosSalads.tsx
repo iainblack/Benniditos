@@ -49,7 +49,7 @@ export default function BenniditosSalads({
                 textAlign: "center",
               }}
             >
-              <Typography fontSize={12} fontFamily="body">
+              <Typography variant="body2" fontFamily="body">
                 <i>{data.salads.description}</i>
               </Typography>
             </Box>
@@ -66,7 +66,6 @@ export default function BenniditosSalads({
                   </Typography>
                   <Typography
                     variant="body2"
-                    fontSize={12}
                     fontFamily="body"
                     sx={{
                       maxWidth: 400,
@@ -76,7 +75,7 @@ export default function BenniditosSalads({
                   >
                     {item.description}
                   </Typography>
-                  <Typography variant="body2" fontSize={12} fontFamily="body">
+                  <Typography variant="body2" fontFamily="body">
                     <b>{`${item.small} | ${item.medium} | ${item.large}`}</b>
                   </Typography>
                 </Box>

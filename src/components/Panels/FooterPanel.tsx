@@ -50,7 +50,7 @@ export default function FooterPanel() {
                     sx={{
                       color: "white",
                       fontFamily: "subheader",
-                      fontSize: { xs: 10, md: theme.typography.body1.fontSize },
+                      fontSize: theme.typography.body1.fontSize,
                       mb: 1,
                     }}
                   >
@@ -69,7 +69,7 @@ export default function FooterPanel() {
                     sx={{
                       fontFamily: "header",
                       textTransform: "none",
-                      fontSize: { xs: 10, md: theme.typography.body1.fontSize },
+                      fontSize: theme.typography.body1.fontSize,
                     }}
                   >
                     1426 S Lincoln St, Spokane, WA 99203
@@ -80,7 +80,7 @@ export default function FooterPanel() {
                     size="small"
                     sx={{
                       fontFamily: "header",
-                      fontSize: { xs: 10, md: theme.typography.body1.fontSize },
+                      fontSize: theme.typography.body1.fontSize,
                     }}
                     onClick={() => {
                       window.open("tel:+5094557411", "_blank");
@@ -122,7 +122,7 @@ export default function FooterPanel() {
                   sx={{
                     color: "white",
                     fontFamily: "subheader",
-                    fontSize: { xs: 10, md: theme.typography.body1.fontSize },
+                    fontSize: theme.typography.body1.fontSize,
                     mb: 1,
                   }}
                 >

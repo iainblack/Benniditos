@@ -117,7 +117,11 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 <Box sx={{ my: 1 }}>
                   <Button
                     variant="outlined"
-                    sx={{ textTransform: "none", fontFamily: "header" }}
+                    sx={{
+                      textTransform: "none",
+                      fontFamily: "header",
+                      fontSize: theme.typography.body1.fontSize,
+                    }}
                     onClick={() => {
                       window.open(
                         "https://weborder7.microworks.com/benniditos/",

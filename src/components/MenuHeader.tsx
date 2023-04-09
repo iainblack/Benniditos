@@ -37,7 +37,7 @@ export default function MenuHeader(props: {
     <Box
       role="presentation"
       color={"text.primary"}
-      sx={{ width: 250, borderLeft: 1 }}
+      sx={{ width: 350, borderLeft: 1 }}
     >
       <List>
         <ListItem disablePadding>
@@ -58,7 +58,7 @@ export default function MenuHeader(props: {
             }}
           >
             <ListItemText
-              primary="HOME"
+              primary="Home"
               primaryTypographyProps={{
                 textAlign: "center",
                 fontFamily: "header",
@@ -84,7 +84,7 @@ export default function MenuHeader(props: {
             }}
           >
             <ListItemText
-              primary={props.firstNavName?.toLocaleUpperCase()}
+              primary={props.firstNavName}
               primaryTypographyProps={{
                 textAlign: "center",
                 fontFamily: "header",
@@ -110,7 +110,7 @@ export default function MenuHeader(props: {
             }}
           >
             <ListItemText
-              primary={props.secondNavName.toLocaleUpperCase()}
+              primary={props.secondNavName}
               primaryTypographyProps={{
                 textAlign: "center",
                 fontFamily: "header",
@@ -162,7 +162,10 @@ export default function MenuHeader(props: {
               },
             }}
             onClick={() => {
-              setDrawerOpen(false);
+              window.open(
+                "https://weborder7.microworks.com/benniditos/",
+                "_blank"
+              );
             }}
           >
             <ListItemText
@@ -198,8 +201,8 @@ export default function MenuHeader(props: {
           <Image
             src={props.logo.src}
             alt="logo"
-            width={200}
-            height={60}
+            width={230}
+            height={70}
             priority
             style={{
               marginTop: theme.spacing(1),
@@ -231,7 +234,7 @@ export default function MenuHeader(props: {
             }}
             PaperProps={{
               sx: {
-                width: 250,
+                width: 350,
                 backgroundImage: `url(${bg3.src})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
@@ -262,6 +265,7 @@ export default function MenuHeader(props: {
                     textTransform: "none",
                     color: "white",
                     fontFamily: "subheader",
+                    fontSize: theme.typography.body1.fontSize,
                   }}
                 />
                 {props.firstNavName && (
@@ -274,6 +278,7 @@ export default function MenuHeader(props: {
                       textTransform: "none",
                       color: "white",
                       fontFamily: "subheader",
+                      fontSize: theme.typography.body1.fontSize,
                     }}
                   />
                 )}
@@ -287,6 +292,7 @@ export default function MenuHeader(props: {
                       textTransform: "none",
                       color: "white",
                       fontFamily: "subheader",
+                      fontSize: theme.typography.body1.fontSize,
                     }}
                   />
                 )}
@@ -299,6 +305,7 @@ export default function MenuHeader(props: {
                   color: "white",
                   borderColor: "white",
                   whiteSpace: "nowrap",
+                  fontSize: theme.typography.body1.fontSize,
                   "&:hover": {
                     backgroundColor: "white",
                     color: theme.palette.primary.main,

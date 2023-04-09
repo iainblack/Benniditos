@@ -9,11 +9,9 @@ import { BenniditosHours } from "@/src/components/Panels/HoursLocationsPanel";
 import { HideOnScroll } from "@/src/utils/utils";
 import { BenniditosDeliveryPanel } from "@/src/components/Panels/DeliveryPanel";
 import bg3 from "@/public/bg3.jpeg";
-import { BenniditosAboutUs } from "@/src/components/Panels/BenniditosAboutUs";
 import SlideShowPanel from "@/src/components/Panels/SlideShowPanel";
 import TitlePanel from "@/src/components/Panels/TitlePanel";
 import FooterPanel from "@/src/components/Panels/FooterPanel";
-import ImageSlider from "@/src/components/imageSlider";
 
 interface AppBarState {
   transparent: boolean;
@@ -34,20 +32,13 @@ export default function BenniditosHome() {
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     switch (newValue) {
       case 0:
-        aboutUsRef.current &&
-          aboutUsRef.current.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        break;
-      case 1:
         hoursLocationsRef.current &&
           hoursLocationsRef.current.scrollIntoView({
             behavior: "smooth",
             block: "start",
           });
         break;
-      case 2:
+      case 1:
         deliveryRef.current &&
           deliveryRef.current.scrollIntoView({
             behavior: "smooth",

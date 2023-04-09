@@ -14,7 +14,7 @@ export const PanelContainer = styled(Box, {
   padding: theme.spacing(8),
   paddingTop: noPaddingTop ? 0 : theme.spacing(8),
   marginTop: marginTop ? marginTop : 0,
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("sm")]: {
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
     paddingBottom: theme.spacing(4),

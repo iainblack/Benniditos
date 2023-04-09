@@ -49,7 +49,7 @@ export default function BenniditosPasta({
               }}
             >
               <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <Typography fontSize={12} fontFamily="body">
+                <Typography variant="body2" fontFamily="body">
                   <i>
                     Pair one of our delicious <b>Fettuccine or Spaghetti</b>{" "}
                     pastas with your choice of signature sauce and a side of our
@@ -81,7 +81,6 @@ export default function BenniditosPasta({
                       {item.description && (
                         <Typography
                           variant="body2"
-                          fontSize={12}
                           sx={{
                             maxWidth: 400,
                             mx: "auto",
@@ -92,11 +91,7 @@ export default function BenniditosPasta({
                           {item.description}
                         </Typography>
                       )}
-                      <Typography
-                        variant="body2"
-                        fontSize={12}
-                        fontFamily="body"
-                      >
+                      <Typography variant="body2" fontFamily="body">
                         {item.whole ? (
                           <b>{`${item.half} | ${item.whole}`}</b>
                         ) : (
@@ -156,7 +151,6 @@ export default function BenniditosPasta({
             </Typography>
             <Typography
               variant="body2"
-              fontSize={12}
               fontFamily="body"
               sx={{
                 maxWidth: 400,

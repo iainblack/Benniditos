@@ -25,13 +25,13 @@ const mainTheme = createTheme({
       },
     },
     body1: {
-      fontSize: "0.8rem",
+      fontSize: "1rem",
       "@media (min-width:600px)": {
-        fontSize: "1rem",
+        fontSize: "1.5rem",
       },
     },
     body2: {
-      fontSize: "0.8rem",
+      fontSize: "0.9rem",
       "@media (min-width:600px)": {
         fontSize: "1rem",
       },
@@ -54,7 +54,7 @@ const mainTheme = createTheme({
       xs: 0,
       sm: 600,
       md: 1015,
-      lg: 1120,
+      lg: 1300,
       xl: 1536,
     },
   },

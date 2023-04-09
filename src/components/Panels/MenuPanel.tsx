@@ -32,7 +32,7 @@ interface MenuPanelProps {
 
 export function MenuPanel(props: MenuPanelProps) {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("lg"));
   const isLargeSreen = useMediaQuery(theme.breakpoints.up("md"));
   const [value, setValue] = React.useState(0);
 
@@ -154,6 +154,7 @@ function MenuTabs(props: {
   handleChange: (event: React.SyntheticEvent, newValue: number) => void;
   isSmallScreen: boolean;
 }) {
+  const theme = useTheme();
   return (
     <Tabs
       value={props.value}
@@ -178,6 +179,7 @@ function MenuTabs(props: {
               sx={{
                 textTransform: "none",
                 fontFamily: "subheader",
+                fontSize: theme.typography.body1.fontSize,
               }}
             />
           );
@@ -189,6 +191,7 @@ function MenuTabs(props: {
             sx={{
               textTransform: "none",
               fontFamily: "subheader",
+              fontSize: theme.typography.body1.fontSize,
             }}
           />
         );
@@ -203,6 +206,7 @@ function MenuSelect(props: {
   handleChange: (event: SelectChangeEvent) => void;
   isSmallScreen: boolean;
 }) {
+  const theme = useTheme();
   return (
     <Box
       sx={{
@@ -236,6 +240,7 @@ function MenuSelect(props: {
                     fontFamily: "subheader",
                     display: "flex",
                     justifyContent: "center",
+                    fontSize: theme.typography.body1.fontSize,
                   }}
                 >
                   {"desserts & soda"}
@@ -250,6 +255,7 @@ function MenuSelect(props: {
                   fontFamily: "subheader",
                   display: "flex",
                   justifyContent: "center",
+                  fontSize: theme.typography.body1.fontSize,
                 }}
               >
                 {item}

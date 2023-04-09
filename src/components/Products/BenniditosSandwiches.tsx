@@ -35,7 +35,7 @@ export default function BenniditosSandwiches({
               textAlign: "center",
             }}
           >
-            <Typography fontSize={12} fontFamily="body">
+            <Typography variant="body2" fontFamily="body">
               <i>{data.sandwiches.description}</i>
             </Typography>
           </Box>
@@ -92,7 +92,6 @@ function HotSandwichesColumn(props: { data: BenniditosMenuConfig }) {
                   {item.description && (
                     <Typography
                       variant="body2"
-                      fontSize={12}
                       fontFamily="body"
                       sx={{
                         maxWidth: 400,
@@ -103,7 +102,7 @@ function HotSandwichesColumn(props: { data: BenniditosMenuConfig }) {
                       {item.description}
                     </Typography>
                   )}
-                  <Typography variant="body2" fontSize={12} fontFamily="body">
+                  <Typography variant="body2" fontFamily="body">
                     {item.whole ? (
                       <b>{`${item.half} | ${item.whole}`}</b>
                     ) : (
@@ -155,7 +154,6 @@ function ColdSandwichesColumn(props: { data: BenniditosMenuConfig }) {
                     {item.description && (
                       <Typography
                         variant="body2"
-                        fontSize={12}
                         fontFamily="body"
                         sx={{
                           maxWidth: 400,
@@ -166,7 +164,7 @@ function ColdSandwichesColumn(props: { data: BenniditosMenuConfig }) {
                         {item.description}
                       </Typography>
                     )}
-                    <Typography variant="body2" fontSize={12} fontFamily="body">
+                    <Typography variant="body2" fontFamily="body">
                       {item.whole ? (
                         <b>{`${item.half} | ${item.whole}`}</b>
                       ) : (
@@ -203,7 +201,7 @@ function CalzonesColumn(props: { data: BenniditosMenuConfig }) {
                 textAlign: "center",
               }}
             >
-              <Typography fontSize={12} fontFamily="body">
+              <Typography variant="body2" fontFamily="body">
                 <i>{props.data.sandwiches.description}</i>
               </Typography>
             </Box>
@@ -232,7 +230,6 @@ function CalzonesColumn(props: { data: BenniditosMenuConfig }) {
                   {item.description && (
                     <Typography
                       variant="body2"
-                      fontSize={12}
                       fontFamily="body"
                       sx={{
                         maxWidth: 400,
@@ -243,7 +240,7 @@ function CalzonesColumn(props: { data: BenniditosMenuConfig }) {
                       {item.description}
                     </Typography>
                   )}
-                  <Typography variant="body2" fontSize={12} fontFamily="body">
+                  <Typography variant="body2" fontFamily="body">
                     <b>{`${item.price}`}</b>
                   </Typography>
                 </Box>

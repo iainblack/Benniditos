@@ -40,22 +40,6 @@ export default function BenniditosCalzones({
               </Typography>
             </Box>
           </Box>
-          {data.starters.description && (
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                mb: 2,
-                mt: 2,
-                p: 1,
-                textAlign: "center",
-              }}
-            >
-              <Typography fontSize={12} fontFamily="body">
-                <i>{data.starters.description}</i>
-              </Typography>
-            </Box>
-          )}
           {data.calzones &&
             data.calzones.map((item, index) => {
               return (
@@ -82,7 +66,6 @@ export default function BenniditosCalzones({
                     {item.description && (
                       <Typography
                         variant="body2"
-                        fontSize={12}
                         sx={{
                           maxWidth: 400,
                           mx: "auto",
@@ -93,7 +76,7 @@ export default function BenniditosCalzones({
                         {item.description}
                       </Typography>
                     )}
-                    <Typography variant="body2" fontSize={12} fontFamily="body">
+                    <Typography variant="body2" fontFamily="body">
                       <b>{`${item.price}`}</b>
                     </Typography>
                   </Box>

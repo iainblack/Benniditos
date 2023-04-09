@@ -45,7 +45,7 @@ export default function BenniditosDessertSoda({
                   textAlign: "center",
                 }}
               >
-                <Typography fontSize={12} fontFamily="body">
+                <Typography variant="body2" fontFamily="body">
                   <i>{data.desserts.description} </i>
                 </Typography>
               </Box>
@@ -68,7 +68,6 @@ export default function BenniditosDessertSoda({
                   {item.description && (
                     <Typography
                       variant="body2"
-                      fontSize={12}
                       fontFamily="body"
                       sx={{
                         maxWidth: 400,
@@ -80,7 +79,7 @@ export default function BenniditosDessertSoda({
                       {item.description}
                     </Typography>
                   )}
-                  <Typography variant="body2" fontSize={12} fontFamily="body">
+                  <Typography variant="body2" fontFamily="body">
                     {item.medium && item.large ? (
                       <b>{`${item.small} | ${item.medium} | ${item.large}`}</b>
                     ) : (

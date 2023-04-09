@@ -13,6 +13,7 @@ import {
   useTheme,
   Collapse,
   Popover,
+  Slide,
 } from "@mui/material";
 import React, { useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -30,9 +31,10 @@ interface HeaderProps {
 }
 
 export default function Header(props: HeaderProps) {
+  const [animateTabs, setAnimateTabs] = React.useState(false);
   const router = useRouter();
   const theme = useTheme();
-  const sections = ["About Us", "Hours & Locations", "Delivery"];
+  const sections = ["Hours & Locations", "Delivery"];
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [menusOpen, setMenusOpen] = React.useState(false);
   const scrollAfterClose = React.useRef<Record<string, any> | undefined>(
@@ -53,11 +55,17 @@ export default function Header(props: HeaderProps) {
     }
   }, [drawerOpen]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimateTabs(true);
+    }, 1000);
+  }, []);
+
   const list = () => (
     <Box
       role="presentation"
       color={"text.primary"}
-      sx={{ width: 250, borderLeft: 1 }}
+      sx={{ width: 350, borderLeft: 1 }}
     >
       <List>
         {sections.map((text, index) => (
@@ -282,8 +290,8 @@ export default function Header(props: HeaderProps) {
             <Image
               src="/ditosLogo.png"
               alt="logo"
-              width={200}
-              height={60}
+              width={230}
+              height={70}
               priority
               style={{
                 marginTop: theme.spacing(1),
@@ -296,7 +304,7 @@ export default function Header(props: HeaderProps) {
         <Box
           sx={{
             flexGrow: 1,
-            display: { xs: "flex", lg: "none" },
+            display: { xs: "flex", md: "none" },
             justifyContent: "right",
           }}
         >
@@ -317,7 +325,7 @@ export default function Header(props: HeaderProps) {
             }}
             PaperProps={{
               sx: {
-                width: 250,
+                width: 350,
                 backgroundImage: `url(${bg3.src})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
@@ -330,162 +338,173 @@ export default function Header(props: HeaderProps) {
         <Box
           sx={{
             flexGrow: 1,
-            display: { xs: "none", lg: "flex" },
+            display: { xs: "none", md: "flex" },
             overflow: "hidden",
             justifyContent: "right",
           }}
           id="container"
           ref={containerRef}
         >
-          <Tabs
-            value={false}
-            onChange={props.handleTabChange}
-            TabIndicatorProps={{
-              style: {
-                backgroundColor: "transparent",
-              },
-            }}
+          <Slide
+            in={animateTabs}
+            direction="up"
+            container={containerRef.current}
+            timeout={1000}
           >
-            <Tab
-              label="About Us"
-              sx={{
-                textTransform: "none",
-                color: "white",
-                fontFamily: "subheader",
-              }}
-            />
-            <Tab
-              label="Hours & Locations"
-              sx={{
-                textTransform: "none",
-                color: "white",
-                fontFamily: "subheader",
-              }}
-            />
-            <Tab
-              label="Delivery"
-              sx={{
-                textTransform: "none",
-                color: "white",
-                fontFamily: "subheader",
-              }}
-            />
-            <Tab
-              label="Menus"
-              onClick={(e) => {
-                handleMenuTabClick(e);
-              }}
-              sx={{
-                textTransform: "none",
-                color: "white",
-                fontFamily: "subheader",
-              }}
-            />
-            <Popover
-              disableScrollLock
-              open={popoverOpen}
-              anchorEl={anchorEl}
-              onClose={handleMenuTabClose}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "center",
-              }}
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "center",
-              }}
-              PaperProps={{
-                sx: {
-                  borderRadius: 1,
-                  border: 1,
+            <Tabs
+              value={false}
+              onChange={props.handleTabChange}
+              TabIndicatorProps={{
+                style: {
+                  backgroundColor: "transparent",
                 },
               }}
             >
-              <List>
-                <ListItem disablePadding>
-                  <ListItemButton
-                    sx={{
-                      backgroundColor: "white",
-                      whiteSpace: "nowrap",
-                      "&:hover": {
+              <Tab
+                label="Hours & Locations"
+                sx={{
+                  textTransform: "none",
+                  color: "white",
+                  fontFamily: "subheader",
+                  fontSize: theme.typography.body1.fontSize,
+                }}
+              />
+              <Tab
+                label="Delivery"
+                sx={{
+                  textTransform: "none",
+                  color: "white",
+                  fontFamily: "subheader",
+                  fontSize: theme.typography.body1.fontSize,
+                }}
+              />
+              <Tab
+                label="Menus"
+                onClick={(e) => {
+                  handleMenuTabClick(e);
+                }}
+                sx={{
+                  textTransform: "none",
+                  color: "white",
+                  fontFamily: "subheader",
+                  fontSize: theme.typography.body1.fontSize,
+                }}
+              />
+              <Popover
+                disableScrollLock
+                open={popoverOpen}
+                anchorEl={anchorEl}
+                onClose={handleMenuTabClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "center",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "center",
+                }}
+                PaperProps={{
+                  sx: {
+                    borderRadius: 1,
+                    border: 1,
+                  },
+                }}
+              >
+                <List>
+                  <ListItem disablePadding>
+                    <ListItemButton
+                      sx={{
                         backgroundColor: "white",
-                        color: "primary.main",
-                        borderColor: "none",
-                      },
-                    }}
-                    onClick={() => {
-                      router.push("/BenniditosMenu");
-                    }}
-                  >
-                    <ListItemText
-                      primary="South Hill Menu"
-                      primaryTypographyProps={{
-                        textAlign: "center",
-                        fontFamily: "header",
+                        whiteSpace: "nowrap",
+                        "&:hover": {
+                          backgroundColor: "white",
+                          color: "primary.main",
+                          borderColor: "none",
+                        },
                       }}
-                    />
-                  </ListItemButton>
-                </ListItem>
-                <ListItem disablePadding>
-                  <ListItemButton
-                    sx={{
-                      backgroundColor: "white",
-                      whiteSpace: "nowrap",
-                      "&:hover": {
+                      onClick={() => {
+                        router.push("/BenniditosMenu");
+                      }}
+                    >
+                      <ListItemText
+                        primary="South Hill Menu"
+                        primaryTypographyProps={{
+                          textAlign: "center",
+                          fontFamily: "header",
+                        }}
+                      />
+                    </ListItemButton>
+                  </ListItem>
+                  <ListItem disablePadding>
+                    <ListItemButton
+                      sx={{
                         backgroundColor: "white",
-                        color: "primary.main",
-                        borderColor: "none",
-                      },
-                    }}
-                    onClick={() => {
-                      router.push("/BrewPubMenu");
-                    }}
-                  >
-                    <ListItemText
-                      primary="BrewPub Menu"
-                      primaryTypographyProps={{
-                        textAlign: "center",
-                        fontFamily: "header",
+                        whiteSpace: "nowrap",
+                        "&:hover": {
+                          backgroundColor: "white",
+                          color: "primary.main",
+                          borderColor: "none",
+                        },
                       }}
-                    />
-                  </ListItemButton>
-                </ListItem>
-              </List>
-            </Popover>
-            <Tab
-              label="Tap List"
-              onClick={() => {
-                router.push("/OnTap");
-              }}
-              sx={{
-                textTransform: "none",
-                color: "white",
-                fontFamily: "subheader",
-              }}
-            />
-          </Tabs>
-          <Button
-            variant={"outlined"}
-            sx={{
-              ml: 2,
-              fontFamily: "header",
-              color: "white",
-              borderColor: "white",
-              whiteSpace: "nowrap",
-              "&:hover": {
-                backgroundColor: "white",
-                color: "primary.main",
-              },
-            }}
-            onClick={(e) => {
-              window.open(
-                "https://weborder7.microworks.com/benniditos/",
-                "_blank"
-              );
-            }}
+                      onClick={() => {
+                        router.push("/BrewPubMenu");
+                      }}
+                    >
+                      <ListItemText
+                        primary="BrewPub Menu"
+                        primaryTypographyProps={{
+                          textAlign: "center",
+                          fontFamily: "header",
+                        }}
+                      />
+                    </ListItemButton>
+                  </ListItem>
+                </List>
+              </Popover>
+              <Tab
+                label="Tap List"
+                onClick={() => {
+                  router.push("/OnTap");
+                }}
+                sx={{
+                  textTransform: "none",
+                  color: "white",
+                  fontFamily: "subheader",
+                  fontSize: theme.typography.body1.fontSize,
+                }}
+              />
+            </Tabs>
+          </Slide>
+          <Slide
+            in={animateTabs}
+            direction="up"
+            container={containerRef.current}
+            timeout={1000}
           >
-            Order Online
-          </Button>
+            <Button
+              variant={"outlined"}
+              sx={{
+                ml: 2,
+                fontFamily: "header",
+                color: "white",
+                borderColor: "white",
+                whiteSpace: "nowrap",
+                fontSize: theme.typography.body1.fontSize,
+                "&:hover": {
+                  backgroundColor: "white",
+                  color: "primary.main",
+                },
+              }}
+              onClick={(e) => {
+                window.open(
+                  "https://weborder7.microworks.com/benniditos/",
+                  "_blank"
+                );
+              }}
+            >
+              Order Online
+            </Button>
+          </Slide>
         </Box>
       </Toolbar>
     </>

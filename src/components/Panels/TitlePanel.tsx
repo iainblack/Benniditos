@@ -18,14 +18,7 @@ interface TitlePanelProps {}
 export default function TitlePanel(props: TitlePanelProps) {
   const [animateLabel, setAnimateLabel] = React.useState(false);
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const slideProps = {
-    duration: 3000,
-    autoplay: true,
-    transitionDuration: 500,
-    infinite: true,
-    easing: "ease",
-  };
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   useEffect(() => {
     setTimeout(() => {
@@ -63,13 +56,13 @@ export default function TitlePanel(props: TitlePanelProps) {
           }}
         >
           <Box sx={{ mt: 6 }}>
-            <Slide in timeout={1000}>
+            <Slide in timeout={1000} direction={"down"}>
               <Box
                 sx={{
                   display: "flex",
                   justifyContent: "center",
                   height: "30vh",
-                  width: { xs: "70vw", md: "40vw" },
+                  width: { xs: "80vw", md: "40vw" },
                   position: "relative",
                 }}
               >
@@ -83,71 +76,73 @@ export default function TitlePanel(props: TitlePanelProps) {
               </Box>
             </Slide>
           </Box>
-          <Slide in={animateLabel} direction="up" timeout={1000}>
-            <Box sx={{ mt: 6 }}>
-              <Box sx={{ mb: 2 }}>
-                <Typography
-                  variant="h6"
-                  sx={{
-                    color: theme.palette.primary.main,
-                    fontFamily: "subheader",
-                  }}
-                >
-                  Benniditos Pizza
-                </Typography>
-                <Box>
-                  <Button
-                    size="large"
-                    onClick={() => {
-                      window.open(
-                        "http://maps.google.com/?q=1426 S Lincoln St, Spokane, WA 99203",
-                        "_blank"
-                      );
-                    }}
-                    sx={{
-                      fontFamily: "body",
-                      textTransform: "none",
-                      fontSize: theme.typography.body1.fontSize,
-                      color: "white",
-                      "&:hover": {
+          {!isSmallScreen && (
+            <Slide in={animateLabel} direction="up" timeout={1000}>
+              <Box sx={{ mt: 6, display: "flex" }}>
+                <Box sx={{ mr: 3 }}>
+                  <Box sx={{ mb: 2 }}>
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        color: "white",
+                        fontFamily: "subheader",
+                        mb: 1,
+                      }}
+                    >
+                      Benniditos Pizza
+                    </Typography>
+                    <Box>
+                      <Button
+                        size="large"
+                        onClick={() => {
+                          window.open(
+                            "http://maps.google.com/?q=1426 S Lincoln St, Spokane, WA 99203",
+                            "_blank"
+                          );
+                        }}
+                        sx={{
+                          fontFamily: "header",
+                          textTransform: "none",
+                          fontSize: theme.typography.body1.fontSize,
+                          color: theme.palette.primary.main,
+                          "&:hover": {
+                            backgroundColor: "transparent",
+                          },
+                        }}
+                      >
+                        1426 S Lincoln St, Spokane, WA 99203
+                      </Button>
+                    </Box>
+                    <Button
+                      size="large"
+                      sx={{
+                        textTransform: "none",
+                        fontFamily: "header",
+                        fontSize: theme.typography.body1.fontSize,
                         color: theme.palette.primary.main,
-                        backgroundColor: "transparent",
-                      },
+                        "&:hover": {
+                          backgroundColor: "transparent",
+                        },
+                      }}
+                      onClick={() => {
+                        window.open("tel:+5094557411", "_blank");
+                      }}
+                    >
+                      509-455-7411
+                    </Button>
+                  </Box>
+                </Box>
+                <Box sx={{ ml: 3 }}>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      color: "white",
+                      fontFamily: "subheader",
+                      mb: 1,
                     }}
                   >
-                    1426 S Lincoln St, Spokane, WA 99203
-                  </Button>
-                </Box>
-                <Button
-                  size="large"
-                  sx={{
-                    textTransform: "none",
-                    fontFamily: "body",
-                    fontSize: theme.typography.body1.fontSize,
-                    color: "white",
-                    "&:hover": {
-                      color: theme.palette.primary.main,
-                      backgroundColor: "transparent",
-                    },
-                  }}
-                  onClick={() => {
-                    window.open("tel:+5094557411", "_blank");
-                  }}
-                >
-                  509-455-7411
-                </Button>
-              </Box>
-              <Box>
-                <Typography
-                  variant="h6"
-                  sx={{
-                    color: theme.palette.secondary.main,
-                    fontFamily: "subheader",
-                  }}
-                >
-                  Benniditos BrewPub
-                </Typography>
-                <Box>
+                    Benniditos BrewPub
+                  </Typography>
                   <Button
                     size="large"
                     onClick={() => {
@@ -158,39 +153,39 @@ export default function TitlePanel(props: TitlePanelProps) {
                     }}
                     sx={{
                       textTransform: "none",
-                      fontFamily: "body",
+                      fontFamily: "header",
                       fontSize: theme.typography.body1.fontSize,
-                      color: "white",
+                      color: theme.palette.primary.main,
                       "&:hover": {
-                        color: theme.palette.secondary.main,
                         backgroundColor: "transparent",
                       },
                     }}
                   >
                     1909 E Sprague Ave, Spokane, WA 99202
                   </Button>
+                  <Box>
+                    <Button
+                      size="large"
+                      sx={{
+                        textTransform: "none",
+                        fontFamily: "header",
+                        fontSize: theme.typography.body1.fontSize,
+                        color: theme.palette.primary.main,
+                        "&:hover": {
+                          backgroundColor: "transparent",
+                        },
+                      }}
+                      onClick={() => {
+                        window.open("tel:+5092905018", "_blank");
+                      }}
+                    >
+                      509-290-5018
+                    </Button>
+                  </Box>
                 </Box>
-                <Button
-                  size="large"
-                  sx={{
-                    textTransform: "none",
-                    fontFamily: "body",
-                    fontSize: theme.typography.body1.fontSize,
-                    color: "white",
-                    "&:hover": {
-                      color: theme.palette.secondary.main,
-                      backgroundColor: "transparent",
-                    },
-                  }}
-                  onClick={() => {
-                    window.open("tel:+5092905018", "_blank");
-                  }}
-                >
-                  509-290-5018
-                </Button>
               </Box>
-            </Box>
-          </Slide>
+            </Slide>
+          )}
         </Box>
       </Box>
     </Box>
