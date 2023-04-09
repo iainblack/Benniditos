@@ -2,7 +2,7 @@ import { Box, Fade, Typography, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
 import BenniditosTapList from "../Products/BenniditosTapList";
 import SectionHeader from "../SectionHeader";
-import { BenniditosTapListData } from "@/src/utils/BenniditosTapListData";
+import BenniditosTapListData from "@/src/utils/BenniditosTapListData.json";
 interface MenuPanelProps {
   transitionIn: boolean;
 }

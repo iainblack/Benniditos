@@ -1,7 +1,7 @@
 {
   "pizza": {
-    "description1": "Available in traditional hand tossed or Detroit style (10\"x14\")",
-    "description2": "Dough options: Flour or Gluten Free for 3.00 extra",
+    "description1": "Available in traditional hand tossed (10\", 15\", 19\") or Detroit style (10\"x14\")",
+    "description2": "Dough options: Flour or Gluten Free (10\" only) for 3.00 extra",
     "column1": [
       {
         "name": "Your Own Creation",
@@ -205,7 +205,7 @@
             },
             {
               "topping": "Just the slice",
-              "price": "Market Price"
+              "price": "Cheese 2.99, Pepperoni 3.50"
             }
           ]
         }
@@ -339,6 +339,20 @@
         "description": "Romaine lettuce mix, salami, roasted garlic, artichokes, fontina cheese, green olives, red onions, & pepperoncini with oil & vinegar dressing",
         "small": "8.99",
         "medium": "16.50",
+        "large": "24.00"
+      },
+      {
+        "name": "Spinach Salad",
+        "description": "Fresh spinach, tomatoes, red onion, and bacon with oil and vinegar dressing",
+        "small": "6.99",
+        "medium": "13.99",
+        "large": "20.99"
+      },
+      {
+        "name": "Southwest Salad",
+        "description": "ROmaine lettuce, cilantro and chipotle pesto, sour cream, with Cheddar Jack, chicken, black olives, and red peppers. Topped with green onions lettuce, tomatoes & thin tortilla chips",
+        "small": "6.99",
+        "medium": "13.99",
         "large": "24.00"
       }
     ]
