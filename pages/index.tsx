@@ -101,16 +101,16 @@ export default function BenniditosHome() {
           </AppBar>
         </HideOnScroll>
         <TitlePanel scrollToFirst={scrollToFirst} />
-        <BackgroundWrapper>
-          <PanelContainer
-            id="slideshow-container"
-            ref={slideShowRef}
-            contentHeight
-            backgroundColor="white"
-          >
-            <SlideShowPanel />
-          </PanelContainer>
-        </BackgroundWrapper>
+        {/* <BackgroundWrapper> */}
+        <PanelContainer
+          id="slideshow-container"
+          ref={slideShowRef}
+          contentHeight
+          backgroundColor="white"
+        >
+          <SlideShowPanel />
+        </PanelContainer>
+        {/* </BackgroundWrapper> */}
         <BackgroundWrapper>
           <PanelContainer id="hours-container" ref={hoursLocationsRef}>
             <BenniditosHours transitionIn />
