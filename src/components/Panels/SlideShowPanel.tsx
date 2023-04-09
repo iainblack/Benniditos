@@ -12,6 +12,7 @@ export default function SlideShowPanel() {
     <Box
       sx={{
         width: "100%",
+        height: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

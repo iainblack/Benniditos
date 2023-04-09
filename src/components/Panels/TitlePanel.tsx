@@ -31,10 +31,12 @@ export default function TitlePanel(props: TitlePanelProps) {
 
   return (
     <Box
-      //className={isSmallScreen ? "ripTitleSmall" : "ripTitleLarge"}
+      className={isSmallScreen ? "ripTitleSmall" : "ripTitleLarge"}
       sx={{
         height: "100vh",
         width: "100vw",
+        // hack undo
+        mt: -10,
       }}
     >
       <Box
