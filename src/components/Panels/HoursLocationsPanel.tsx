@@ -21,7 +21,7 @@ export function BenniditosHours(props: HoursLocationProps) {
   const containerRef = React.useRef<HTMLDivElement>(null);
   return (
     <Box
-      className={isSmallScreen ? "ripBottomSmall" : "ripBottomLarge"}
+      //className={isSmallScreen ? "ripBottomSmall" : "ripBottomLarge"}
       sx={{
         width: "100%",
         display: "flex",
