@@ -15,12 +15,13 @@ export default function SlideShowPanel() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        backgroundColor: "white",
       }}
     >
       <Box
         sx={{
           border: 2,
-          //backgroundColor: "white",
+          backgroundColor: "white",
           width: "100%",
           height: { xs: "40vh", md: "50vh", lg: "60vh" },
         }}
