@@ -38,7 +38,7 @@ const mainTheme = createTheme({
     },
   },
   palette: {
-    mode: "dark",
+    mode: "light",
     primary: {
       main: "#e1a32b",
     },
