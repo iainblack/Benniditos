@@ -35,18 +35,12 @@ export default function TitlePanel(props: TitlePanelProps) {
       sx={{
         height: "100vh",
         width: "100vw",
-        // backgroundImage: `url(${chris.src})`,
-        // backgroundSize: "cover",
-        // backgroundPosition: "center top",
       }}
     >
       <Box
         sx={{
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0,0,0,0.7)",
-          p: 3,
-          zIndex: 1,
+          width: "100vw",
+          height: "100vh",
         }}
       >
         <Image
