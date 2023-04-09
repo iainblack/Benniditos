@@ -31,13 +31,13 @@ export default function TitlePanel(props: TitlePanelProps) {
 
   return (
     <Box
-      className="ripBottom"
+      className={isSmallScreen ? "ripTitleSmall" : "ripTitleLarge"}
       sx={{
         height: "100vh",
         width: "100vw",
-        backgroundImage: `url(${chris.src})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center top",
+        // backgroundImage: `url(${chris.src})`,
+        // backgroundSize: "cover",
+        // backgroundPosition: "center top",
       }}
     >
       <Box
@@ -46,8 +46,21 @@ export default function TitlePanel(props: TitlePanelProps) {
           height: "100%",
           backgroundColor: "rgba(0,0,0,0.7)",
           p: 3,
+          zIndex: 1,
         }}
       >
+        <Image
+          src="/chris2.jpg"
+          fill
+          sizes="100%"
+          alt="alt"
+          priority
+          style={{
+            objectFit: "cover",
+            objectPosition: "center top",
+            filter: "brightness(0.3)",
+          }}
+        />
         <Box
           sx={{
             height: "100%",
@@ -56,6 +69,8 @@ export default function TitlePanel(props: TitlePanelProps) {
             justifyContent: { xs: "flex-start", md: "space-around" },
             alignItems: "center",
             textAlign: "center",
+            zIndex: 1,
+            position: "relative",
           }}
         >
           <Box sx={{ mt: 6 }}>
@@ -68,6 +83,7 @@ export default function TitlePanel(props: TitlePanelProps) {
                   height: "25vh",
                   width: { xs: "80vw", md: "35vw" },
                   position: "relative",
+                  zIndex: 1,
                 }}
               >
                 <Image
@@ -75,8 +91,11 @@ export default function TitlePanel(props: TitlePanelProps) {
                   alt="Benniditos"
                   fill
                   sizes="100%"
-                  priority
-                  style={{ objectFit: "contain", objectPosition: "center" }}
+                  style={{
+                    objectFit: "contain",
+                    objectPosition: "center",
+                    zIndex: 1,
+                  }}
                 />
               </Box>
             </Slide>

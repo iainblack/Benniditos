@@ -44,7 +44,19 @@ left:-0px;
  z-index:1;
 }
 
-.ripBottom:after{
+.ripTitleSmall:after{
+  content:" ";
+  display:block;
+  height: 69px;
+  background-image:url('https://ecorelos.com/wp-content/uploads/2020/04/torn-border2.png');
+  position:absolute;
+  bottom:-75px;
+ width:100%;
+left:0px;
+z-index:1;
+}
+
+.ripTitleLarge:after{
   content:" ";
   display:block;
   height: 55px;
@@ -52,7 +64,8 @@ left:-0px;
   position:absolute;
   bottom:-15px;
  width:100%;
-left:0px;    
+left:0px;
+z-index:1;
 }
 
 .ripBottomSmall:after{
