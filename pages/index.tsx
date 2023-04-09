@@ -1,5 +1,5 @@
 import { CssBaseline, Box, ThemeProvider, AppBar } from "@mui/material";
-import { PanelContainer } from "@/src/components/styles";
+import { BackgroundWrapper, PanelContainer } from "@/src/components/styles";
 import theme from "@/Theme";
 import { useEffect } from "react";
 import React from "react";
@@ -101,16 +101,21 @@ export default function BenniditosHome() {
           </AppBar>
         </HideOnScroll>
         <TitlePanel scrollToFirst={scrollToFirst} />
-        <PanelContainer
-          id="slideshow-container"
-          ref={slideShowRef}
-          contentHeight
-        >
-          <SlideShowPanel />
-        </PanelContainer>
-        <PanelContainer id="hours-container" ref={hoursLocationsRef}>
-          <BenniditosHours transitionIn />
-        </PanelContainer>
+        <BackgroundWrapper>
+          <PanelContainer
+            id="slideshow-container"
+            ref={slideShowRef}
+            contentHeight
+            backgroundColor="white"
+          >
+            <SlideShowPanel />
+          </PanelContainer>
+        </BackgroundWrapper>
+        <BackgroundWrapper>
+          <PanelContainer id="hours-container" ref={hoursLocationsRef}>
+            <BenniditosHours transitionIn />
+          </PanelContainer>
+        </BackgroundWrapper>
         <PanelContainer id="delivery-container" ref={deliveryRef}>
           <BenniditosDeliveryPanel transitionIn />
         </PanelContainer>

@@ -6,31 +6,55 @@ export const PanelContainer = styled(Box, {
     prop !== "noPaddingTop" &&
     prop !== "fullWidth" &&
     prop !== "marginTop" &&
-    prop !== "contentHeight",
+    prop !== "contentHeight" &&
+    prop !== "backgroundColor",
 })<{
   noPaddingTop?: boolean;
   fullWidth?: boolean;
   marginTop?: string;
   contentHeight?: boolean;
-}>(({ noPaddingTop, theme, fullWidth, marginTop, contentHeight }) => ({
-  minHeight: contentHeight ? "fit-content" : "80vh",
-  width: fullWidth ? "100vw" : "90vw",
-  padding: theme.spacing(8),
-  paddingTop: noPaddingTop ? 0 : theme.spacing(8),
-  marginTop: marginTop ? marginTop : 0,
-  [theme.breakpoints.down("md")]: {
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-    paddingBottom: theme.spacing(4),
-    paddingTop: noPaddingTop ? 0 : theme.spacing(4),
-    minHeight: "fit-content",
-    maxWidth: "100vw",
-    width: "fit-content",
+  backgroundColor?: string;
+}>(
+  ({
+    noPaddingTop,
+    theme,
+    fullWidth,
+    marginTop,
+    contentHeight,
+    backgroundColor,
+  }) => ({
+    backgroundColor: backgroundColor,
+    minHeight: contentHeight ? "fit-content" : "80vh",
+    width: fullWidth ? "100vw" : "90vw",
+    padding: theme.spacing(8),
+    paddingTop: noPaddingTop ? 0 : theme.spacing(8),
     marginTop: marginTop ? marginTop : 0,
-  },
+    [theme.breakpoints.down("md")]: {
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2),
+      paddingBottom: theme.spacing(4),
+      paddingTop: noPaddingTop ? 0 : theme.spacing(4),
+      minHeight: "fit-content",
+      maxWidth: "100vw",
+      width: "fit-content",
+      marginTop: marginTop ? marginTop : 0,
+    },
+    display: "flex",
+    justifyContent: "center",
+    height: "fit-content",
+  })
+);
+
+export const BackgroundWrapper = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "noPaddingTop",
+})<{
+  noPaddingTop?: boolean;
+}>(({}) => ({
+  width: "100vw",
+  height: "100%",
+  backgroundColor: "white",
   display: "flex",
   justifyContent: "center",
-  height: "fit-content",
 }));
 
 export const InfoBox = styled(Box, {

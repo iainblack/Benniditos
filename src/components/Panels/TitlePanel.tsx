@@ -31,13 +31,13 @@ export default function TitlePanel(props: TitlePanelProps) {
 
   return (
     <Box
+      className="ripBottom"
       sx={{
         height: "100vh",
         width: "100vw",
         backgroundImage: `url(${chris.src})`,
         backgroundSize: "cover",
         backgroundPosition: "center top",
-        mb: { xs: 4, md: 8 },
       }}
     >
       <Box

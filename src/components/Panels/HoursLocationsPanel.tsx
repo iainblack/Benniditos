@@ -5,6 +5,7 @@ import {
   Fade,
   Theme,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import React from "react";
@@ -16,15 +17,17 @@ interface HoursLocationProps {
 
 export function BenniditosHours(props: HoursLocationProps) {
   const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   const containerRef = React.useRef<HTMLDivElement>(null);
   return (
     <Box
+      className={isSmallScreen ? "ripBottomSmall" : "ripBottomLarge"}
       sx={{
         width: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        //minWidth: { xs: "fit-content", lg: "100vw" },
+        position: "relative",
       }}
     >
       <Box ref={containerRef}>
