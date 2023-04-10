@@ -38,6 +38,8 @@ export default function BenniditosHome() {
 
   const aboutUsRef = React.useRef<HTMLDivElement>(null);
   const locationsRef = React.useRef<HTMLDivElement>(null);
+  const southHillRef = React.useRef<HTMLDivElement>(null);
+  const brewPubRef = React.useRef<HTMLDivElement>(null);
   const deliveryRef = React.useRef<HTMLDivElement>(null);
   const reservationsRef = React.useRef<HTMLDivElement>(null);
   const contactRef = React.useRef<HTMLDivElement>(null);
@@ -45,6 +47,22 @@ export default function BenniditosHome() {
   const scrollToLocations = () => {
     locationsRef.current &&
       locationsRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+  };
+
+  const scrollToSouthHill = () => {
+    southHillRef.current &&
+      southHillRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+  };
+
+  const scrollToBrewPub = () => {
+    brewPubRef.current &&
+      brewPubRef.current.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -157,7 +175,10 @@ export default function BenniditosHome() {
           </AppBar>
         </HideOnScroll>
         <BackgroundWrapper backgroundColor="black">
-          <TitlePanel />
+          <TitlePanel
+            scrollToSouthHill={scrollToSouthHill}
+            scrollToBrewPub={scrollToBrewPub}
+          />
         </BackgroundWrapper>
         <BackgroundWrapper backgroundColor="white">
           <PanelContainer id="slideshow-container" ref={aboutUsRef}>
@@ -186,7 +207,7 @@ export default function BenniditosHome() {
             </Typography>
           </Box>
         </BackgroundWrapper>
-        <PanelContainer id="south-hill-container">
+        <PanelContainer id="south-hill-container" ref={southHillRef}>
           <SouthHillPanel transitionIn />
         </PanelContainer>
         <BackgroundWrapper>
@@ -195,7 +216,7 @@ export default function BenniditosHome() {
           </PanelContainer>
         </BackgroundWrapper>
         <BackgroundWrapper backgroundColor="white">
-          <PanelContainer id="brewpub-container">
+          <PanelContainer id="brewpub-container" ref={brewPubRef}>
             <BrewPubPanel transitionIn />
           </PanelContainer>
         </BackgroundWrapper>

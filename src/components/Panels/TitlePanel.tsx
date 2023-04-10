@@ -10,9 +10,11 @@ import {
 } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import React, { useEffect } from "react";
+import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 
 interface TitlePanelProps {
-  scrollToFirst?: () => void;
+  scrollToSouthHill: () => void;
+  scrollToBrewPub: () => void;
 }
 
 export default function TitlePanel(props: TitlePanelProps) {
@@ -30,7 +32,6 @@ export default function TitlePanel(props: TitlePanelProps) {
   return (
     <Box
       ref={containerRef}
-      // className={isSmallScreen ? "ripTitleSmall" : "ripTitleLarge"}
       sx={{
         height: { xs: "100vh", md: "100vh" },
         width: "100vw",
@@ -60,20 +61,20 @@ export default function TitlePanel(props: TitlePanelProps) {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: { xs: "flex-start", md: "space-around" },
+            justifyContent: "center",
             alignItems: "center",
             textAlign: "center",
             zIndex: 1,
             position: "relative",
           }}
         >
-          <Box sx={{ mt: { xs: 16, md: 10 } }}>
-            <Slide
-              in
-              timeout={1000}
-              direction={"up"}
-              container={containerRef.current}
-            >
+          <Slide
+            in
+            timeout={1000}
+            direction={"up"}
+            container={containerRef.current}
+          >
+            <Box sx={{ mb: { xs: 16, md: 10 } }}>
               <Box
                 sx={{
                   mt: 8,
@@ -98,152 +99,50 @@ export default function TitlePanel(props: TitlePanelProps) {
                   }}
                 />
               </Box>
-            </Slide>
-          </Box>
-          {!isSmallScreen && (
-            <Slide
-              in={animateLabel}
-              direction="up"
-              timeout={1000}
-              container={containerRef.current}
-            >
-              <Box
-                sx={{
-                  mt: 6,
-                  display: "flex",
-                  width: "100%",
-                  justifyContent: "space-evenly",
-                }}
-              >
-                <Box>
-                  <Box sx={{ mb: 2 }}>
-                    <Typography
-                      variant="h5"
-                      sx={{
-                        color: "white",
-                        fontFamily: "header",
-                        mb: 1,
-                      }}
-                    >
-                      Benniditos Pizza
-                    </Typography>
-                    <Box>
-                      <Button
-                        size="large"
-                        onClick={() => {
-                          window.open(
-                            "http://maps.google.com/?q=1426 S Lincoln St, Spokane, WA 99203",
-                            "_blank"
-                          );
-                        }}
-                        sx={{
-                          fontFamily: "body",
-                          textTransform: "none",
-                          fontSize: theme.typography.body1.fontSize,
-                          color: theme.palette.primary.main,
-                          "&:hover": {
-                            backgroundColor: "transparent",
-                            color: "white",
-                          },
-                        }}
-                      >
-                        1426 S Lincoln St, Spokane, WA 99203
-                      </Button>
-                    </Box>
-                    <Button
-                      size="large"
-                      sx={{
-                        textTransform: "none",
-                        fontFamily: "body",
-                        fontSize: theme.typography.body1.fontSize,
-                        color: theme.palette.primary.main,
-                        "&:hover": {
-                          backgroundColor: "transparent",
-                          color: "white",
-                        },
-                      }}
-                      onClick={() => {
-                        window.open("tel:+5094557411", "_blank");
-                      }}
-                    >
-                      509-455-7411
-                    </Button>
-                    <Box>
-                      <Typography
-                        variant="body2"
-                        fontWeight="bold"
-                        sx={{ color: "white", fontFamily: "body" }}
-                      >
-                        Delivery. Online Orders. Great Pizza.
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Box>
-                <Box>
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      color: "white",
-                      fontFamily: "header",
-                      mb: 1,
-                    }}
-                  >
-                    Benniditos BrewPub
-                  </Typography>
-                  <Button
-                    size="large"
-                    onClick={() => {
-                      window.open(
-                        "http://maps.google.com/?q=1909 E Sprague Ave, Spokane, WA 99202",
-                        "_blank"
-                      );
-                    }}
-                    sx={{
-                      textTransform: "none",
-                      fontFamily: "body",
-                      fontSize: theme.typography.body1.fontSize,
-                      color: theme.palette.primary.main,
-                      "&:hover": {
-                        backgroundColor: "transparent",
-                        color: "white",
-                      },
-                    }}
-                  >
-                    1909 E Sprague Ave, Spokane, WA 99202
-                  </Button>
-                  <Box>
-                    <Button
-                      size="large"
-                      sx={{
-                        textTransform: "none",
-                        fontFamily: "body",
-                        fontSize: theme.typography.body1.fontSize,
-                        color: "theme.palette.primary.main",
-                        "&:hover": {
-                          backgroundColor: "transparent",
-                          color: "white",
-                        },
-                      }}
-                      onClick={() => {
-                        window.open("tel:+5092905018", "_blank");
-                      }}
-                    >
-                      509-290-5018
-                    </Button>
-                    <Box>
-                      <Typography
-                        variant="body2"
-                        fontWeight="bold"
-                        sx={{ color: "white", fontFamily: "body" }}
-                      >
-                        Reservations. Carry-Out. Same great Pizza.
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Box>
+            </Box>
+          </Slide>
+          <Slide
+            in={animateLabel}
+            timeout={1000}
+            direction={"up"}
+            container={containerRef.current}
+          >
+            <Box>
+              <Box>
+                <Button
+                  endIcon={<KeyboardDoubleArrowRightIcon />}
+                  variant="outlined"
+                  sx={{
+                    color: "white",
+                    textTransform: "none",
+                    borderRadius: 10,
+                    borderColor: "white",
+                    minWidth: 200,
+                  }}
+                  onClick={props.scrollToSouthHill}
+                >
+                  Bennidito&apos;s Pizza
+                </Button>
               </Box>
-            </Slide>
-          )}
+              <Box>
+                <Button
+                  endIcon={<KeyboardDoubleArrowRightIcon />}
+                  variant="outlined"
+                  sx={{
+                    color: "white",
+                    textTransform: "none",
+                    borderRadius: 10,
+                    borderColor: "white",
+                    minWidth: 200,
+                    mt: 2,
+                  }}
+                  onClick={props.scrollToBrewPub}
+                >
+                  Bennidito&apos;s BrewPub
+                </Button>
+              </Box>
+            </Box>
+          </Slide>
         </Box>
       </Box>
     </Box>

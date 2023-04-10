@@ -23,6 +23,7 @@ import BenniditosPasta from "../Products/BenniditosPasta";
 import BenniditosStarters from "../Products/BenniditosStarters";
 import BenniditosCalzones from "../Products/BenniditosCalzones";
 import BenniditosSandwiches from "../Products/BenniditosSandwiches";
+import { StaticImageData } from "next/image";
 
 interface MenuPanelProps {
   transitionIn: boolean;
@@ -55,7 +56,12 @@ export function MenuPanel(props: MenuPanelProps) {
       <Box ref={containerRef}>
         <Fade in={props.transitionIn} timeout={1000}>
           <Box>
-            <SectionHeader title={props.header} imagePath={"/ditosMain.jpg"} />
+            <SectionHeader
+              title={props.header}
+              imagePath={
+                props.header === "BREWPUB MENU" ? "/bread.jpg" : "/dough.jpg"
+              }
+            />
             <Box sx={{ backgroundColor: "white" }}>
               {!isSmallScreen && (
                 <MenuTabs
