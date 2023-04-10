@@ -45,12 +45,11 @@ export function SouthHillPanel(props: SouthHillPanelProps) {
             <Box
               sx={{
                 position: "relative",
-                width: { xs: "100%", xl: "70%" },
-                height: { xs: "50vh", xl: "80vh" },
-                order: { xs: 2, xl: 2 },
+                width: "70%",
+                height: "90vh",
+                order: 2,
                 border: 1,
-                borderTop: { xs: 0, xl: 1 },
-                mt: { xs: 3, xl: 0 },
+                display: { xs: "none", xl: "flex" },
               }}
             >
               <Image
@@ -69,14 +68,13 @@ export function SouthHillPanel(props: SouthHillPanelProps) {
                 width: { xs: "100%", xl: "30%" },
                 border: "1px solid",
                 mr: { xs: 0, xl: 3 },
-                px: 2,
-                py: { xs: 4, xl: 8 },
+                p: 4,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-evenly",
                 backgroundColor: "white",
                 order: { xs: 1, xl: 1 },
-                height: { xs: "fit-content", xl: "80vh" },
+                height: { xs: "fit-content", xl: "90vh" },
               }}
             >
               <Box
@@ -119,24 +117,6 @@ export function SouthHillPanel(props: SouthHillPanelProps) {
                     }}
                   >
                     View Menu
-                  </Button>
-                </Box>
-                <Box sx={{ my: 1 }}>
-                  <Button
-                    variant="outlined"
-                    sx={{
-                      textTransform: "none",
-                      fontFamily: "header",
-                      fontSize: theme.typography.body1.fontSize,
-                    }}
-                    onClick={() => {
-                      window.open(
-                        "https://weborder7.microworks.com/benniditos/",
-                        "_blank"
-                      );
-                    }}
-                  >
-                    Order Online
                   </Button>
                 </Box>
               </Box>

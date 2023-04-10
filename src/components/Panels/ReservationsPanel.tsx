@@ -1,23 +1,27 @@
+import { BenniditosInfo } from "@/src/utils/utils";
 import {
   Box,
   Button,
   Divider,
   Fade,
+  Theme,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
-import Image, { StaticImageData } from "next/image";
 import React from "react";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/router";
 
-interface HoursLocationProps {
+interface ReservationsPanelProps {
   transitionIn: boolean;
 }
 
-export function BenniditosDeliveryPanel(props: HoursLocationProps) {
-  const containerRef = React.useRef<HTMLDivElement>(null);
+export function ReservationsPanel(props: ReservationsPanelProps) {
+  const router = useRouter();
   const theme = useTheme();
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box
       sx={{
@@ -25,7 +29,8 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        height: "fit-content",
+        position: "relative",
+        mb: 5,
       }}
     >
       <Box ref={containerRef}>
@@ -39,51 +44,48 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
             }}
           >
             <Box
-              id="map-container"
               sx={{
                 position: "relative",
-                width: { xs: "100%", xl: "70%" },
-                height: { xs: "50vh", xl: "80vh" },
-                order: { xs: 2, xl: 1 },
-                border: 1,
-                borderTop: { xs: 0, xl: 1 },
+                width: "70%",
+                height: "80vh",
+                order: 1,
+                display: { xs: "none", xl: "flex" },
               }}
             >
-              <iframe
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYtw6jLiRYtOFLkrDEoV0aR2J4U-Gd7b4&q=Bennidito's+Pizza+Spokane,+WA+99203&zoom=13"
-              ></iframe>
+              <Image
+                src="/reservations.jpeg"
+                alt="Outside"
+                fill
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center",
+                }}
+              />
             </Box>
             <Box
               sx={{
                 textAlign: "center",
                 width: { xs: "100%", xl: "30%" },
-                border: "1px solid",
                 ml: { xs: 0, xl: 3 },
-                px: 2,
-                py: { xs: 4, xl: 8 },
+                p: 4,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-evenly",
                 backgroundColor: "white",
-                order: { xs: 1, xl: 2 },
+                order: 2,
                 height: { xs: "fit-content", xl: "80vh" },
               }}
             >
               <Box
                 sx={{
                   justifyContent: "center",
-                  mb: 6,
                 }}
               >
                 <Typography
                   sx={{ textAlign: "center", mb: 1, fontFamily: "Header" }}
                   variant="h4"
                 >
-                  Delivery
+                  Reservations
                 </Typography>
                 <Divider
                   sx={{
@@ -100,9 +102,9 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                     fontFamily: "body",
                   }}
                 >
-                  The South Hill location is the <b>only location</b> that
-                  offers delivery and online orders. Our delivery radius is *add
-                  additional info here*
+                  The BrewPub location is the <b>only location</b> that takes
+                  reservations of up to 15 people. Please call the BrewPub to
+                  make a reservation.
                 </Typography>
               </Box>
               <Box
@@ -120,13 +122,10 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                       fontSize: theme.typography.body1.fontSize,
                     }}
                     onClick={() => {
-                      window.open(
-                        "https://weborder7.microworks.com/benniditos/",
-                        "_blank"
-                      );
+                      window.open("tel:+5092905018", "_blank");
                     }}
                   >
-                    Order Online
+                    (509) 290-5018
                   </Button>
                 </Box>
               </Box>

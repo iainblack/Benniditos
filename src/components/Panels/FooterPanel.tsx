@@ -16,7 +16,6 @@ export default function FooterPanel() {
   return (
     <Box
       sx={{
-        mt: { xs: 4, md: 0 },
         width: "100%",
         height: "20vh",
         backgroundImage: `url(${bg.src})`,

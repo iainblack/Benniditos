@@ -22,7 +22,7 @@ export default function SlideShowPanel(props: SlideShowPanelProps) {
 
   return (
     <Box
-      // className={isSmallScreen ? "ripBottomSmall" : "ripBottomLarge"}
+      className={isSmallScreen ? "ripBottomSmall" : "ripBottomLarge"}
       sx={{
         width: "100%",
         height: "100%",
@@ -54,8 +54,6 @@ export default function SlideShowPanel(props: SlideShowPanelProps) {
           justifyContent: "center",
           my: 3,
           textAlign: "center",
-          // mx: "auto",
-          // maxWidth: 1000,
         }}
       >
         <Typography fontFamily={"body"} variant="body1">

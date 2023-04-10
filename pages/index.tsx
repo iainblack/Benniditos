@@ -19,6 +19,7 @@ import TitlePanel from "@/src/components/Panels/TitlePanel";
 import FooterPanel from "@/src/components/Panels/FooterPanel";
 import SectionHeader from "@/src/components/SectionHeader";
 import { BrewPubPanel } from "@/src/components/Panels/BrewPubPanel";
+import { ReservationsPanel } from "@/src/components/Panels/ReservationsPanel";
 
 interface AppBarState {
   transparent: boolean;
@@ -116,18 +117,29 @@ export default function BenniditosHome() {
             <SlideShowPanel scrollToLocations={scrollToLocations} />
           </PanelContainer>
         </BackgroundWrapper>
-        <BackgroundWrapper backgroundColor="white">
-          <Typography
-            variant="h3"
-            fontFamily="header"
-            color="primary.main"
-            sx={{ py: 8 }}
+        <BackgroundWrapper>
+          {/* <Box
+            sx={{
+              backgroundColor: "white",
+              mt: 5,
+              mb: 3,
+              p: 2,
+              pb: 1,
+              border: 1,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+              width: "90vw",
+            }}
           >
-            OUR LOCATIONS
-          </Typography>
+            <Typography variant="h3" fontFamily="header" color="primary.main">
+              OUR LOCATIONS
+            </Typography>
+          </Box> */}
         </BackgroundWrapper>
-        <BackgroundWrapper backgroundColor="white">
-          <PanelContainer ref={hoursLocationsRef} noPaddingTop>
+        <BackgroundWrapper>
+          <PanelContainer ref={hoursLocationsRef}>
             <SouthHillPanel transitionIn />
           </PanelContainer>
         </BackgroundWrapper>
@@ -135,8 +147,17 @@ export default function BenniditosHome() {
           <BenniditosDeliveryPanel transitionIn />
         </PanelContainer>
         <BackgroundWrapper backgroundColor="white">
-          <PanelContainer ref={hoursLocationsRef} noPaddingTop>
+          <PanelContainer ref={hoursLocationsRef}>
             <BrewPubPanel transitionIn />
+          </PanelContainer>
+        </BackgroundWrapper>
+        <BackgroundWrapper backgroundColor="white">
+          <PanelContainer
+            id="reservations-container"
+            ref={deliveryRef}
+            contentHeight
+          >
+            <ReservationsPanel transitionIn />
           </PanelContainer>
         </BackgroundWrapper>
         <FooterPanel />
