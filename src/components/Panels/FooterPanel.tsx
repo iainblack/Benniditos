@@ -49,7 +49,10 @@ export default function FooterPanel() {
                     sx={{
                       color: "white",
                       fontFamily: "header",
-                      fontSize: { xs: 12, sm: theme.typography.h6.fontSize },
+                      fontSize: {
+                        xs: theme.typography.body1.fontSize,
+                        sm: theme.typography.h6.fontSize,
+                      },
                       mb: 1,
                     }}
                   >
@@ -142,7 +145,10 @@ export default function FooterPanel() {
                     color: "white",
                     fontFamily: "header",
                     mb: 1,
-                    fontSize: { xs: 12, sm: theme.typography.h6.fontSize },
+                    fontSize: {
+                      xs: theme.typography.body1.fontSize,
+                      sm: theme.typography.h6.fontSize,
+                    },
                   }}
                 >
                   Benniditos BrewPub
