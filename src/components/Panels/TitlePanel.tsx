@@ -9,19 +9,17 @@ import {
   IconButton,
 } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
-import bg from "@/public/ditosTitle2.jpg";
-import chris from "@/public/chris2.jpg";
 import React, { useEffect } from "react";
 
 interface TitlePanelProps {
-  scrollToFirst: () => void;
+  scrollToFirst?: () => void;
 }
 
 export default function TitlePanel(props: TitlePanelProps) {
   const [animateLabel, setAnimateLabel] = React.useState(false);
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -31,12 +29,12 @@ export default function TitlePanel(props: TitlePanelProps) {
 
   return (
     <Box
-      className={isSmallScreen ? "ripTitleSmall" : "ripTitleLarge"}
+      ref={containerRef}
+      // className={isSmallScreen ? "ripTitleSmall" : "ripTitleLarge"}
       sx={{
-        height: "100vh",
+        height: { xs: "100vh", md: "100vh" },
         width: "100vw",
-        // hack undo
-        mt: -10,
+        mt: { xs: -10, sm: 0 },
       }}
     >
       <Box
@@ -54,7 +52,7 @@ export default function TitlePanel(props: TitlePanelProps) {
           style={{
             objectFit: "cover",
             objectPosition: "center top",
-            filter: "brightness(0.4)",
+            filter: "brightness(0.7)",
           }}
         />
         <Box
@@ -69,8 +67,13 @@ export default function TitlePanel(props: TitlePanelProps) {
             position: "relative",
           }}
         >
-          <Box sx={{ mt: 6 }}>
-            <Slide in timeout={1000} direction={"down"}>
+          <Box sx={{ mt: { xs: 16, md: 10 } }}>
+            <Slide
+              in
+              timeout={1000}
+              direction={"up"}
+              container={containerRef.current}
+            >
               <Box
                 sx={{
                   mt: 8,
@@ -98,13 +101,18 @@ export default function TitlePanel(props: TitlePanelProps) {
             </Slide>
           </Box>
           {!isSmallScreen && (
-            <Slide in={animateLabel} direction="up" timeout={1000}>
+            <Slide
+              in={animateLabel}
+              direction="up"
+              timeout={1000}
+              container={containerRef.current}
+            >
               <Box
                 sx={{
                   mt: 6,
                   display: "flex",
                   width: "100%",
-                  justifyContent: "space-around",
+                  justifyContent: "space-evenly",
                 }}
               >
                 <Box>
@@ -163,6 +171,7 @@ export default function TitlePanel(props: TitlePanelProps) {
                     <Box>
                       <Typography
                         variant="body2"
+                        fontWeight="bold"
                         sx={{ color: "white", fontFamily: "body" }}
                       >
                         Delivery. Online Orders. Great Pizza.
@@ -224,9 +233,10 @@ export default function TitlePanel(props: TitlePanelProps) {
                     <Box>
                       <Typography
                         variant="body2"
+                        fontWeight="bold"
                         sx={{ color: "white", fontFamily: "body" }}
                       >
-                        Huge Tap Selection. Carry-Out. Still great Pizza.
+                        Reservations. Carry-Out. Same great Pizza.
                       </Typography>
                     </Box>
                   </Box>

@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Divider,
   Fade,
   Slide,
@@ -118,6 +119,141 @@ export interface BenniditosTapList {
     abv: string;
     description: string;
   }[];
+}
+
+export function BenniditosInfo(props: { theme: Theme }) {
+  return (
+    <Box sx={{ p: { xs: 0, md: 2 } }}>
+      <Box>
+        <Box sx={{ mb: { xs: 3, md: 3 } }}>
+          <Box sx={{ alignItems: "center" }}>
+            <Button
+              size="large"
+              onClick={() => {
+                window.open(
+                  "http://maps.google.com/?q=1426 S Lincoln St, Spokane, WA 99203",
+                  "_blank"
+                );
+              }}
+              sx={{
+                fontFamily: "header",
+                textTransform: "none",
+                fontSize: props.theme.typography.body1.fontSize,
+              }}
+            >
+              1426 S Lincoln St, Spokane, WA 99203
+            </Button>
+          </Box>
+          <Button
+            size="large"
+            sx={{
+              fontFamily: "header",
+              fontSize: props.theme.typography.body1.fontSize,
+            }}
+            onClick={() => {
+              window.open("tel:+5094557411", "_blank");
+            }}
+          >
+            (509) 455-7411
+          </Button>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          justifyContent: "center",
+        }}
+      >
+        <Typography variant="body1" fontFamily="subheader" sx={{ mb: 1 }}>
+          <b>Monday - Thursday</b>
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 2 }}>
+          11:00 AM - 10:00 PM
+        </Typography>
+        <Typography variant="body1" fontFamily="subheader" sx={{ mb: 1 }}>
+          <b>Friday</b>
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 2 }}>
+          11:00 AM - 11:00 PM
+        </Typography>
+        <Typography variant="body1" fontFamily="subheader" sx={{ mb: 1 }}>
+          <b>Saturday</b>
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 2 }}>
+          11:00 AM - 10:00 PM
+        </Typography>
+        <Typography variant="body1" fontFamily="subheader" sx={{ mb: 1 }}>
+          <b>Sunday</b>
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 2 }}>
+          12:00 PM - 9:00 PM
+        </Typography>
+      </Box>
+    </Box>
+  );
+}
+
+export function BrewPubInfo(props: { theme: Theme }) {
+  return (
+    <Box sx={{ p: { xs: 0, md: 4 } }}>
+      <Box sx={{ mb: { xs: 3, md: 6 } }}>
+        <Box sx={{ alignItems: "center" }}>
+          <Button
+            size="large"
+            onClick={() => {
+              window.open(
+                "http://maps.google.com/?q=1909 E Sprague Ave, Spokane, WA 99202",
+                "_blank"
+              );
+            }}
+            sx={{
+              fontFamily: "header",
+              textTransform: "none",
+              fontSize: props.theme.typography.body1.fontSize,
+            }}
+          >
+            1909 E Sprague Ave, Spokane, WA 99202
+          </Button>
+        </Box>
+        <Button
+          size="large"
+          sx={{
+            fontFamily: "header",
+            fontSize: props.theme.typography.body1.fontSize,
+          }}
+          onClick={() => {
+            window.open("tel:+5092905018", "_blank");
+          }}
+        >
+          (509) 290-5018
+        </Button>
+      </Box>
+      <Box
+        sx={{
+          justifyContent: "center",
+        }}
+      >
+        <Typography variant="body1" fontFamily="subheader" sx={{ mb: 1 }}>
+          <b>Monday - Wednesday</b>
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 2 }}>
+          11:00 AM - 8:00 PM
+        </Typography>
+        <Typography variant="body1" fontFamily="subheader" sx={{ mb: 1 }}>
+          <b>Thursday - Saturday</b>
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 2 }}>
+          11:00 AM - 9:00 PM
+        </Typography>
+        <Typography variant="body1" fontFamily="subheader" sx={{ mb: 1 }}>
+          <b>Sunday</b>
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 2 }}>
+          Closed
+        </Typography>
+      </Box>
+      <Box></Box>
+    </Box>
+  );
 }
 
 export interface BenniditosMenuConfig {

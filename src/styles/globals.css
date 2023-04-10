@@ -47,7 +47,7 @@ left:-0px;
 .ripTitleSmall:after{
   content:" ";
   display:block;
-  height: 69px;
+  height: 55px;
   background-image:url('https://ecorelos.com/wp-content/uploads/2020/04/torn-border2.png');
   position:absolute;
   bottom:-15px;
@@ -74,9 +74,9 @@ z-index:1;
   height: 69px;
   background-image:url('/ripbottom.png');
   position:absolute;
-  bottom:-75px;
- width:300%;
-left:-500px;
+  bottom:-755px;
+ width:100%;
+left:0px;
 z-index:1;
 }
 
@@ -86,9 +86,9 @@ z-index:1;
   height: 69px;
   background-image:url('/ripbottom.png');
   position:absolute;
-  bottom:-105px;
- width:300%;
-left:-500px;
+  bottom:-835px;
+ width:100%;
+left:0px;
 z-index:1;
 }
 

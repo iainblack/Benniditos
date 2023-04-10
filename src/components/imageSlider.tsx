@@ -7,6 +7,7 @@ import { Box, CircularProgress, useMediaQuery, useTheme } from "@mui/material";
 const urls = [
   "/slide4.jpg",
   "/slide3.jpg",
+  "/slide11.jpg",
   "/slide1.jpg",
   "/slide5.jpg",
   "/pasta.jpg",
@@ -30,6 +31,7 @@ export default function ImageSlider() {
     },
     slides: {
       perView: isLargeScreen ? 3 : isSmallScreen ? 1 : 2,
+      spacing: isSmallScreen ? 0 : 10,
     },
     created() {
       setLoaded(true);
@@ -82,7 +84,6 @@ export default function ImageSlider() {
               position: "relative",
               height: "100%",
               width: "100%",
-              //backgroundColor: "white",
             }}
           >
             {urls.map((url, index) => {

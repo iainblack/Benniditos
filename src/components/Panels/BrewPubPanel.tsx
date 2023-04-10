@@ -1,23 +1,27 @@
+import { BenniditosInfo, BrewPubInfo } from "@/src/utils/utils";
 import {
   Box,
   Button,
   Divider,
   Fade,
+  Theme,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
-import Image, { StaticImageData } from "next/image";
 import React from "react";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/router";
 
-interface HoursLocationProps {
+interface BrewPubPanelProps {
   transitionIn: boolean;
 }
 
-export function BenniditosDeliveryPanel(props: HoursLocationProps) {
-  const containerRef = React.useRef<HTMLDivElement>(null);
+export function BrewPubPanel(props: BrewPubPanelProps) {
+  const router = useRouter();
   const theme = useTheme();
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box
       sx={{
@@ -25,7 +29,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        height: "fit-content",
+        position: "relative",
       }}
     >
       <Box ref={containerRef}>
@@ -39,51 +43,53 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
             }}
           >
             <Box
-              id="map-container"
               sx={{
                 position: "relative",
                 width: { xs: "100%", xl: "70%" },
                 height: { xs: "50vh", xl: "80vh" },
-                order: { xs: 2, xl: 1 },
+                order: { xs: 2, xl: 2 },
                 border: 1,
                 borderTop: { xs: 0, xl: 1 },
+                mt: { xs: 3, xl: 0 },
               }}
             >
-              <iframe
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYtw6jLiRYtOFLkrDEoV0aR2J4U-Gd7b4&q=Bennidito's+Pizza+Spokane,+WA+99203&zoom=13"
-              ></iframe>
+              <Image
+                src="/brewpubOutside.jpeg"
+                alt="Outside"
+                fill
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "center",
+                }}
+              />
             </Box>
             <Box
               sx={{
                 textAlign: "center",
                 width: { xs: "100%", xl: "30%" },
                 border: "1px solid",
-                ml: { xs: 0, xl: 3 },
+                mr: { xs: 0, xl: 3 },
                 px: 2,
                 py: { xs: 4, xl: 8 },
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-evenly",
                 backgroundColor: "white",
-                order: { xs: 1, xl: 2 },
+                order: { xs: 1, xl: 1 },
                 height: { xs: "fit-content", xl: "80vh" },
               }}
             >
               <Box
                 sx={{
                   justifyContent: "center",
-                  mb: 6,
+                  mb: 2,
                 }}
               >
                 <Typography
                   sx={{ textAlign: "center", mb: 1, fontFamily: "Header" }}
                   variant="h4"
                 >
-                  DELIVERY
+                  Bennidito&apos;s BrewPub
                 </Typography>
                 <Divider
                   sx={{
@@ -92,18 +98,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                     borderBottomStyle: "dashed",
                   }}
                 />
-                <Typography
-                  variant="body1"
-                  sx={{
-                    mx: "auto",
-                    px: 2,
-                    fontFamily: "body",
-                  }}
-                >
-                  The South Hill location is the <b>only location</b> that
-                  offers delivery and online orders. Our delivery radius is *add
-                  additional info here*
-                </Typography>
+                <BrewPubInfo theme={theme} />
               </Box>
               <Box
                 sx={{
@@ -120,13 +115,10 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                       fontSize: theme.typography.body1.fontSize,
                     }}
                     onClick={() => {
-                      window.open(
-                        "https://weborder7.microworks.com/benniditos/",
-                        "_blank"
-                      );
+                      router.push("/BrewPubMenu");
                     }}
                   >
-                    Order Online
+                    View Menu
                   </Button>
                 </Box>
               </Box>

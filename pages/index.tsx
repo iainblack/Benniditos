@@ -1,16 +1,24 @@
-import { CssBaseline, Box, ThemeProvider, AppBar } from "@mui/material";
+import {
+  CssBaseline,
+  Box,
+  ThemeProvider,
+  AppBar,
+  Typography,
+} from "@mui/material";
 import { BackgroundWrapper, PanelContainer } from "@/src/components/styles";
 import theme from "@/Theme";
 import { useEffect } from "react";
 import React from "react";
 import Header from "@/src/components/header";
-import { BenniditosHours } from "@/src/components/Panels/HoursLocationsPanel";
+import { SouthHillPanel } from "@/src/components/Panels/SouthHillPanel";
 import { HideOnScroll } from "@/src/utils/utils";
 import { BenniditosDeliveryPanel } from "@/src/components/Panels/DeliveryPanel";
 import bg3 from "@/public/bg3.jpeg";
 import SlideShowPanel from "@/src/components/Panels/SlideShowPanel";
 import TitlePanel from "@/src/components/Panels/TitlePanel";
 import FooterPanel from "@/src/components/Panels/FooterPanel";
+import SectionHeader from "@/src/components/SectionHeader";
+import { BrewPubPanel } from "@/src/components/Panels/BrewPubPanel";
 
 interface AppBarState {
   transparent: boolean;
@@ -29,11 +37,11 @@ export default function BenniditosHome() {
   const hoursLocationsRef = React.useRef<HTMLDivElement>(null);
   const deliveryRef = React.useRef<HTMLDivElement>(null);
 
-  const scrollToFirst = () => {
-    slideShowRef.current &&
-      slideShowRef.current.scrollIntoView({
+  const scrollToLocations = () => {
+    hoursLocationsRef.current &&
+      hoursLocationsRef.current.scrollIntoView({
         behavior: "smooth",
-        block: "center",
+        block: "start",
       });
   };
 
@@ -100,25 +108,37 @@ export default function BenniditosHome() {
             <Header handleTabChange={handleTabChange} logo={AppBarState.logo} />
           </AppBar>
         </HideOnScroll>
-        <TitlePanel scrollToFirst={scrollToFirst} />
-        <BackgroundWrapper>
-          <PanelContainer
-            id="slideshow-container"
-            ref={slideShowRef}
-            contentHeight
-            backgroundColor="white"
-          >
-            <SlideShowPanel />
+        <BackgroundWrapper backgroundColor="black">
+          <TitlePanel />
+        </BackgroundWrapper>
+        <BackgroundWrapper backgroundColor="white">
+          <PanelContainer id="slideshow-container" ref={slideShowRef}>
+            <SlideShowPanel scrollToLocations={scrollToLocations} />
           </PanelContainer>
         </BackgroundWrapper>
-        <BackgroundWrapper>
-          <PanelContainer id="hours-container" ref={hoursLocationsRef}>
-            <BenniditosHours transitionIn />
+        <BackgroundWrapper backgroundColor="white">
+          <Typography
+            variant="h3"
+            fontFamily="header"
+            color="primary.main"
+            sx={{ py: 8 }}
+          >
+            OUR LOCATIONS
+          </Typography>
+        </BackgroundWrapper>
+        <BackgroundWrapper backgroundColor="white">
+          <PanelContainer ref={hoursLocationsRef} noPaddingTop>
+            <SouthHillPanel transitionIn />
           </PanelContainer>
         </BackgroundWrapper>
         <PanelContainer id="delivery-container" ref={deliveryRef}>
           <BenniditosDeliveryPanel transitionIn />
         </PanelContainer>
+        <BackgroundWrapper backgroundColor="white">
+          <PanelContainer ref={hoursLocationsRef} noPaddingTop>
+            <BrewPubPanel transitionIn />
+          </PanelContainer>
+        </BackgroundWrapper>
         <FooterPanel />
       </Box>
     </ThemeProvider>

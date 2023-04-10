@@ -6,55 +6,53 @@ export const PanelContainer = styled(Box, {
     prop !== "noPaddingTop" &&
     prop !== "fullWidth" &&
     prop !== "marginTop" &&
-    prop !== "contentHeight" &&
-    prop !== "backgroundColor",
+    prop !== "contentHeight",
 })<{
   noPaddingTop?: boolean;
   fullWidth?: boolean;
   marginTop?: string;
   contentHeight?: boolean;
-  backgroundColor?: string;
-}>(
-  ({
-    noPaddingTop,
-    theme,
-    fullWidth,
-    marginTop,
-    contentHeight,
-    backgroundColor,
-  }) => ({
-    backgroundColor: backgroundColor,
-    minHeight: contentHeight ? "80vh" : "80vh",
-    width: fullWidth ? "100vw" : "90vw",
-    padding: theme.spacing(8),
-    paddingTop: noPaddingTop ? 0 : theme.spacing(8),
+}>(({ noPaddingTop, theme, fullWidth, marginTop, contentHeight }) => ({
+  minHeight: contentHeight ? "fit-content" : "90vh",
+  width: fullWidth ? "100vw" : "90vw",
+  padding: theme.spacing(8),
+  paddingLeft: theme.spacing(4),
+  paddingRight: theme.spacing(4),
+  paddingTop: noPaddingTop ? 0 : theme.spacing(8),
+  marginTop: marginTop ? marginTop : 0,
+  [theme.breakpoints.down("md")]: {
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
+    // paddingBottom: theme.spacing(8),
+    // paddingTop: noPaddingTop ? 0 : theme.spacing(8),
+    minHeight: "80vh",
+    maxWidth: "100vw",
+    width: "fit-content",
     marginTop: marginTop ? marginTop : 0,
-    [theme.breakpoints.down("md")]: {
-      paddingLeft: theme.spacing(2),
-      paddingRight: theme.spacing(2),
-      paddingBottom: theme.spacing(4),
-      paddingTop: noPaddingTop ? 0 : theme.spacing(4),
-      minHeight: "fit-content",
-      maxWidth: "100vw",
-      width: "fit-content",
-      marginTop: marginTop ? marginTop : 0,
-    },
-    display: "flex",
-    justifyContent: "center",
-    height: "fit-content",
-  })
-);
+  },
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "fit-content",
+}));
 
 export const BackgroundWrapper = styled(Box, {
-  shouldForwardProp: (prop) => prop !== "noPaddingTop",
+  shouldForwardProp: (prop) =>
+    prop !== "backgroundImage" && prop !== "backgroundColor",
 })<{
-  noPaddingTop?: boolean;
-}>(({}) => ({
+  backgroundImage?: string;
+  backgroundColor?: string;
+}>(({ backgroundImage, backgroundColor }) => ({
   width: "100vw",
   height: "100%",
-  backgroundColor: "white",
+  backgroundColor: backgroundColor ? backgroundColor : "none",
   display: "flex",
   justifyContent: "center",
+  alignItems: "center",
+  backgroundImage: `url(${backgroundImage})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
 }));
 
 export const InfoBox = styled(Box, {

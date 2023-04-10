@@ -12,7 +12,7 @@ const mainTheme = createTheme({
     },
     h4: {
       fontWeight: 800,
-      fontSize: "1.5rem",
+      fontSize: "1.75rem",
       "@media (min-width:600px)": {
         fontSize: "3rem",
       },
