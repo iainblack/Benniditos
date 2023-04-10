@@ -57,7 +57,7 @@ export default function SlideShowPanel(props: SlideShowPanelProps) {
         }}
       >
         <Typography fontFamily={"body"} variant="body1">
-          <b>Family-owned and operated since 1996</b>, Bennidito&apos;s has been
+          <b>Family owned and operated since 1996</b>, Bennidito&apos;s has been
           serving Spokane, WA for over 25 years. Both of our{" "}
           <Link
             onClick={props.scrollToLocations}
