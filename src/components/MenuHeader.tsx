@@ -148,39 +148,41 @@ export default function MenuHeader(props: {
             </ListItemButton>
           </ListItem>
         )}
-        <ListItem disablePadding>
-          <ListItemButton
-            sx={{
-              backgroundColor: "white",
-              mx: "10%",
-              whiteSpace: "nowrap",
-              border: 1,
-              my: 1,
-              "&:hover": {
+        {props.firstNavName === "BrewPub Menu" && (
+          <ListItem disablePadding>
+            <ListItemButton
+              sx={{
                 backgroundColor: "white",
-                color: "primary.main",
-              },
-            }}
-            onClick={() => {
-              window.open(
-                "https://weborder7.microworks.com/benniditos/",
-                "_blank"
-              );
-            }}
-          >
-            <ListItemText
-              primary="Order Online"
-              primaryTypographyProps={{
-                textAlign: "center",
-                fontFamily: "header",
+                mx: "10%",
+                whiteSpace: "nowrap",
+                border: 1,
+                my: 1,
+                "&:hover": {
+                  backgroundColor: "white",
+                  color: "primary.main",
+                },
               }}
-            />
-            <OpenInNewOutlined
-              fontSize="small"
-              sx={{ height: 14, width: 14 }}
-            />
-          </ListItemButton>
-        </ListItem>
+              onClick={() => {
+                window.open(
+                  "https://weborder7.microworks.com/benniditos/",
+                  "_blank"
+                );
+              }}
+            >
+              <ListItemText
+                primary="Order Online"
+                primaryTypographyProps={{
+                  textAlign: "center",
+                  fontFamily: "header",
+                }}
+              />
+              <OpenInNewOutlined
+                fontSize="small"
+                sx={{ height: 14, width: 14 }}
+              />
+            </ListItemButton>
+          </ListItem>
+        )}
       </List>
     </Box>
   );
@@ -296,29 +298,31 @@ export default function MenuHeader(props: {
                   />
                 )}
               </Tabs>
-              <Button
-                variant={"outlined"}
-                sx={{
-                  ml: 2,
-                  fontFamily: "header",
-                  color: "white",
-                  borderColor: "white",
-                  whiteSpace: "nowrap",
-                  fontSize: theme.typography.body1.fontSize,
-                  "&:hover": {
-                    backgroundColor: "white",
-                    color: theme.palette.primary.main,
-                  },
-                }}
-                onClick={(e) => {
-                  window.open(
-                    "https://weborder7.microworks.com/benniditos/",
-                    "_blank"
-                  );
-                }}
-              >
-                Order Online
-              </Button>
+              {props.firstNavName === "BrewPub Menu" && (
+                <Button
+                  variant={"outlined"}
+                  sx={{
+                    ml: 2,
+                    fontFamily: "header",
+                    color: "white",
+                    borderColor: "white",
+                    whiteSpace: "nowrap",
+                    fontSize: theme.typography.body1.fontSize,
+                    "&:hover": {
+                      backgroundColor: "white",
+                      color: theme.palette.primary.main,
+                    },
+                  }}
+                  onClick={(e) => {
+                    window.open(
+                      "https://weborder7.microworks.com/benniditos/",
+                      "_blank"
+                    );
+                  }}
+                >
+                  Order Online
+                </Button>
+              )}
             </>
           </Box>
         )}

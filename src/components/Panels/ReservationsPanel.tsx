@@ -30,7 +30,6 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
         flexDirection: "column",
         justifyContent: "center",
         position: "relative",
-        mb: 5,
       }}
     >
       <Box ref={containerRef}>
@@ -120,6 +119,7 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
                       textTransform: "none",
                       fontFamily: "header",
                       fontSize: theme.typography.body1.fontSize,
+                      mt: { xs: 5, xl: 0 },
                     }}
                     onClick={() => {
                       window.open("tel:+5092905018", "_blank");

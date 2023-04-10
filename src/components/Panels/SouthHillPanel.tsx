@@ -73,7 +73,7 @@ export function SouthHillPanel(props: SouthHillPanelProps) {
                 flexDirection: "column",
                 justifyContent: "space-evenly",
                 backgroundColor: "white",
-                order: { xs: 1, xl: 1 },
+                order: 1,
                 height: { xs: "fit-content", xl: "90vh" },
               }}
             >

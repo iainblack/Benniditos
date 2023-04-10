@@ -13,7 +13,7 @@ export default function SectionHeader({
       <Box
         sx={{
           height: "30vh",
-          width: "100vw",
+          width: "100%",
           border: 1,
           borderBottom: 0,
           backgroundImage: `url('${imagePath}')`,

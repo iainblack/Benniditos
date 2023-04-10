@@ -25,6 +25,7 @@ interface AppBarState {
   transparent: boolean;
   elevated: boolean;
   logo: boolean;
+  display: boolean;
 }
 
 export default function BenniditosHome() {
@@ -32,15 +33,18 @@ export default function BenniditosHome() {
     transparent: true,
     elevated: false,
     logo: false,
+    display: true,
   });
 
-  const slideShowRef = React.useRef<HTMLDivElement>(null);
-  const hoursLocationsRef = React.useRef<HTMLDivElement>(null);
+  const aboutUsRef = React.useRef<HTMLDivElement>(null);
+  const locationsRef = React.useRef<HTMLDivElement>(null);
   const deliveryRef = React.useRef<HTMLDivElement>(null);
+  const reservationsRef = React.useRef<HTMLDivElement>(null);
+  const contactRef = React.useRef<HTMLDivElement>(null);
 
   const scrollToLocations = () => {
-    hoursLocationsRef.current &&
-      hoursLocationsRef.current.scrollIntoView({
+    locationsRef.current &&
+      locationsRef.current.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
@@ -49,15 +53,36 @@ export default function BenniditosHome() {
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     switch (newValue) {
       case 0:
-        hoursLocationsRef.current &&
-          hoursLocationsRef.current.scrollIntoView({
+        aboutUsRef.current &&
+          aboutUsRef.current.scrollIntoView({
             behavior: "smooth",
             block: "start",
           });
         break;
       case 1:
+        locationsRef.current &&
+          locationsRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        break;
+      case 2:
         deliveryRef.current &&
           deliveryRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        break;
+      case 3:
+        reservationsRef.current &&
+          reservationsRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        break;
+      case 4:
+        contactRef.current &&
+          contactRef.current.scrollIntoView({
             behavior: "smooth",
             block: "start",
           });
@@ -67,13 +92,34 @@ export default function BenniditosHome() {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (window.visualViewport?.height && window.scrollY < 5) {
+        setAppBarState({
+          transparent: true,
+          elevated: false,
+          logo: false,
+          display: true,
+        });
+      }
+      if (
+        window.visualViewport?.height &&
+        window.scrollY > 5 &&
+        window.scrollY < window.visualViewport?.height
+      ) {
+        setAppBarState({
+          ...AppBarState,
+          display: false,
+        });
+      }
       if (
         window.visualViewport?.height &&
         window.scrollY > window.visualViewport?.height
       ) {
-        setAppBarState({ transparent: false, elevated: true, logo: true });
-      } else {
-        setAppBarState({ transparent: true, elevated: false, logo: false });
+        setAppBarState({
+          transparent: false,
+          elevated: false,
+          logo: true,
+          display: true,
+        });
       }
     };
     window.addEventListener("scroll", handleScroll);
@@ -98,6 +144,7 @@ export default function BenniditosHome() {
         <HideOnScroll>
           <AppBar
             sx={{
+              display: AppBarState.display ? "flex" : "none",
               backgroundColor: AppBarState.transparent
                 ? "transparent"
                 : theme.palette.primary.main,
@@ -113,12 +160,13 @@ export default function BenniditosHome() {
           <TitlePanel />
         </BackgroundWrapper>
         <BackgroundWrapper backgroundColor="white">
-          <PanelContainer id="slideshow-container" ref={slideShowRef}>
+          <PanelContainer id="slideshow-container" ref={aboutUsRef}>
             <SlideShowPanel scrollToLocations={scrollToLocations} />
           </PanelContainer>
         </BackgroundWrapper>
         <BackgroundWrapper>
-          {/* <Box
+          <Box
+            ref={locationsRef}
             sx={{
               backgroundColor: "white",
               mt: 5,
@@ -130,37 +178,39 @@ export default function BenniditosHome() {
               alignItems: "center",
               justifyContent: "center",
               textAlign: "center",
-              width: "90vw",
+              width: { xs: "80vw", sm: "unset" },
             }}
           >
             <Typography variant="h3" fontFamily="header" color="primary.main">
               OUR LOCATIONS
             </Typography>
-          </Box> */}
+          </Box>
         </BackgroundWrapper>
+        <PanelContainer id="south-hill-container">
+          <SouthHillPanel transitionIn />
+        </PanelContainer>
         <BackgroundWrapper>
-          <PanelContainer ref={hoursLocationsRef}>
-            <SouthHillPanel transitionIn />
+          <PanelContainer id="delivery-container" ref={deliveryRef}>
+            <BenniditosDeliveryPanel transitionIn />
           </PanelContainer>
         </BackgroundWrapper>
-        <PanelContainer id="delivery-container" ref={deliveryRef}>
-          <BenniditosDeliveryPanel transitionIn />
-        </PanelContainer>
         <BackgroundWrapper backgroundColor="white">
-          <PanelContainer ref={hoursLocationsRef}>
+          <PanelContainer id="brewpub-container">
             <BrewPubPanel transitionIn />
           </PanelContainer>
         </BackgroundWrapper>
         <BackgroundWrapper backgroundColor="white">
           <PanelContainer
             id="reservations-container"
-            ref={deliveryRef}
+            ref={reservationsRef}
             contentHeight
           >
             <ReservationsPanel transitionIn />
           </PanelContainer>
         </BackgroundWrapper>
-        <FooterPanel />
+        <BackgroundWrapper ref={contactRef}>
+          <FooterPanel />
+        </BackgroundWrapper>
       </Box>
     </ThemeProvider>
   );

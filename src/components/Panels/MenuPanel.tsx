@@ -49,7 +49,7 @@ export function MenuPanel(props: MenuPanelProps) {
       id="back-to-top-anchor"
       sx={{
         height: "fit-content",
-        width: "100vw",
+        width: "90vw",
       }}
     >
       <Box ref={containerRef}>

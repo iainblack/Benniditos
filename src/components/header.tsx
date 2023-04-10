@@ -14,6 +14,7 @@ import {
   Collapse,
   Popover,
   Slide,
+  Divider,
 } from "@mui/material";
 import React, { useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -34,7 +35,13 @@ export default function Header(props: HeaderProps) {
   const [animateTabs, setAnimateTabs] = React.useState(false);
   const router = useRouter();
   const theme = useTheme();
-  const sections = ["Hours & Locations", "Delivery"];
+  const sections = [
+    "About Us",
+    "Locations",
+    "Delivery",
+    "Reservations",
+    "Contact",
+  ];
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const [menusOpen, setMenusOpen] = React.useState(false);
   const scrollAfterClose = React.useRef<Record<string, any> | undefined>(
@@ -97,6 +104,7 @@ export default function Header(props: HeaderProps) {
             </ListItemButton>
           </ListItem>
         ))}
+        <Divider sx={{ borderTop: 1, my: 1 }} />
         <ListItem disablePadding>
           <ListItemButton
             sx={{
@@ -168,7 +176,7 @@ export default function Header(props: HeaderProps) {
                 }}
                 sx={{
                   textAlign: "center",
-                  width: "70%",
+                  width: "80%",
                   backgroundColor: "white",
                   whiteSpace: "nowrap",
                   border: 1,
@@ -203,7 +211,7 @@ export default function Header(props: HeaderProps) {
                 sx={{
                   textAlign: "center",
                   pl: 2,
-                  width: "70%",
+                  width: "80%",
                   backgroundColor: "white",
                   whiteSpace: "nowrap",
                   border: 1,
@@ -225,7 +233,7 @@ export default function Header(props: HeaderProps) {
             </ListItem>
           </Collapse>
         </ListItem>
-        <ListItem disablePadding>
+        {/* <ListItem disablePadding>
           <ListItemButton
             sx={{
               backgroundColor: "white",
@@ -257,7 +265,7 @@ export default function Header(props: HeaderProps) {
               sx={{ height: 14, width: 14 }}
             />
           </ListItemButton>
-        </ListItem>
+        </ListItem> */}
       </List>
     </Box>
   );
@@ -361,7 +369,16 @@ export default function Header(props: HeaderProps) {
               }}
             >
               <Tab
-                label="Hours & Locations"
+                label="About Us"
+                sx={{
+                  textTransform: "none",
+                  color: "white",
+                  fontFamily: "header",
+                  fontSize: 22,
+                }}
+              />
+              <Tab
+                label="Locations"
                 sx={{
                   textTransform: "none",
                   color: "white",
@@ -371,6 +388,24 @@ export default function Header(props: HeaderProps) {
               />
               <Tab
                 label="Delivery"
+                sx={{
+                  textTransform: "none",
+                  color: "white",
+                  fontFamily: "header",
+                  fontSize: 22,
+                }}
+              />
+              <Tab
+                label="Reservations"
+                sx={{
+                  textTransform: "none",
+                  color: "white",
+                  fontFamily: "header",
+                  fontSize: 22,
+                }}
+              />
+              <Tab
+                label="Contact"
                 sx={{
                   textTransform: "none",
                   color: "white",
@@ -474,36 +509,6 @@ export default function Header(props: HeaderProps) {
                 }}
               />
             </Tabs>
-          </Slide>
-          <Slide
-            in={animateTabs}
-            direction="up"
-            container={containerRef.current}
-            timeout={1000}
-          >
-            <Button
-              variant={"outlined"}
-              sx={{
-                ml: 2,
-                fontFamily: "header",
-                color: "white",
-                borderColor: "white",
-                whiteSpace: "nowrap",
-                fontSize: theme.typography.body1.fontSize,
-                "&:hover": {
-                  backgroundColor: "white",
-                  color: "primary.main",
-                },
-              }}
-              onClick={(e) => {
-                window.open(
-                  "https://weborder7.microworks.com/benniditos/",
-                  "_blank"
-                );
-              }}
-            >
-              Order Online
-            </Button>
           </Slide>
         </Box>
       </Toolbar>

@@ -26,7 +26,6 @@ export const PanelContainer = styled(Box, {
     paddingRight: theme.spacing(2),
     minHeight: contentHeight ? "fit-content" : "80vh",
     maxWidth: "100vw",
-    width: "fit-content",
     marginTop: marginTop ? marginTop : 0,
   },
   display: "flex",
