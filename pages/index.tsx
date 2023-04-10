@@ -192,6 +192,7 @@ export default function BenniditosHome() {
               backgroundColor: "white",
               mt: 5,
               mb: 3,
+              mx: { xs: 2, sm: 0 },
               p: 2,
               pb: 1,
               border: 1,
@@ -199,7 +200,6 @@ export default function BenniditosHome() {
               alignItems: "center",
               justifyContent: "center",
               textAlign: "center",
-              width: { xs: "80vw", sm: "unset" },
             }}
           >
             <Typography variant="h3" fontFamily="header" color="primary.main">
