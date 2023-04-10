@@ -59,24 +59,24 @@ z-index:1;
 .ripTopSmall:before{
   content:" ";
 display:block;
-width:100%;
+width:110%;
 height: 65px;
 background-image:url('https://ecorelos.com/wp-content/uploads/2020/04/torn-border2.png');
 position:absolute;
-margin-top:-650px;
-left:-0px;
+margin-top:-675px;
+left:-15px;
  z-index:1;
 }
 
 .ripTopLarge:before{
   content:" ";
 display:block;
-width:100%;
+width:200%;
 height: 65px;
 background-image:url('https://ecorelos.com/wp-content/uploads/2020/04/torn-border2.png');
 position:absolute;
 margin-top:-925px;
-left:0px;
+left:-45px;
  z-index:1;
 }
 
@@ -88,7 +88,7 @@ left:0px;
   position:absolute;
   bottom:-825px;
  width:100%;
-left:0px;
+left:-0px;
 z-index:1;
 }
 
@@ -98,7 +98,7 @@ z-index:1;
   height: 69px;
   background-image:url('/ripbottom.png');
   position:absolute;
-  bottom:-990px;
+  bottom:-950px;
  width:100%;
 left:0px;
 z-index:1;

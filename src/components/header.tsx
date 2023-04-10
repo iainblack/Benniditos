@@ -233,39 +233,6 @@ export default function Header(props: HeaderProps) {
             </ListItem>
           </Collapse>
         </ListItem>
-        {/* <ListItem disablePadding>
-          <ListItemButton
-            sx={{
-              backgroundColor: "white",
-              mx: "10%",
-              whiteSpace: "nowrap",
-              border: 1,
-              my: 1,
-              "&:hover": {
-                backgroundColor: "white",
-                color: "primary.main",
-              },
-            }}
-            onClick={() => {
-              window.open(
-                "https://weborder7.microworks.com/benniditos/",
-                "_blank"
-              );
-            }}
-          >
-            <ListItemText
-              primary="Order Online"
-              primaryTypographyProps={{
-                textAlign: "center",
-                fontFamily: "header",
-              }}
-            />
-            <OpenInNewOutlined
-              fontSize="small"
-              sx={{ height: 14, width: 14 }}
-            />
-          </ListItemButton>
-        </ListItem> */}
       </List>
     </Box>
   );
@@ -300,7 +267,7 @@ export default function Header(props: HeaderProps) {
               src="/ditosLogo.png"
               alt="logo"
               width={230}
-              height={70}
+              height={65}
               style={{
                 marginTop: theme.spacing(1),
                 marginBottom: theme.spacing(1),
@@ -312,7 +279,7 @@ export default function Header(props: HeaderProps) {
         <Box
           sx={{
             flexGrow: 1,
-            display: { xs: "flex", md: "none" },
+            display: { xs: "flex", lg: "none" },
             justifyContent: "right",
           }}
         >
@@ -322,7 +289,7 @@ export default function Header(props: HeaderProps) {
             onClick={() => setDrawerOpen(true)}
             sx={{ color: "white" }}
           >
-            <MenuIcon fontSize="large" />
+            <MenuIcon fontSize="medium" />
           </IconButton>
           <Drawer
             anchor="right"
@@ -346,7 +313,7 @@ export default function Header(props: HeaderProps) {
         <Box
           sx={{
             flexGrow: 1,
-            display: { xs: "none", md: "flex" },
+            display: { xs: "none", lg: "flex" },
             overflow: "hidden",
             justifyContent: "right",
           }}
