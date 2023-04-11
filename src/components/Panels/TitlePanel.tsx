@@ -121,7 +121,7 @@ export default function TitlePanel(props: TitlePanelProps) {
                   }}
                   onClick={props.scrollToSouthHill}
                 >
-                  Bennidito&apos;s Pizza
+                  South Hill Location
                 </Button>
               </Box>
               <Box>
@@ -138,7 +138,7 @@ export default function TitlePanel(props: TitlePanelProps) {
                   }}
                   onClick={props.scrollToBrewPub}
                 >
-                  Bennidito&apos;s BrewPub
+                  Sprague Location
                 </Button>
               </Box>
             </Box>
