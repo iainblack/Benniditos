@@ -199,8 +199,8 @@ export default function BenniditosHome() {
             ref={locationsRef}
             sx={{
               backgroundColor: "white",
-              mt: 5,
-              mb: 3,
+              mb: { xs: 1, md: 4 },
+              mt: { xs: 2, md: 8 },
               mx: { xs: 2, sm: 0 },
               p: 2,
               pb: 1,
@@ -216,7 +216,11 @@ export default function BenniditosHome() {
             </Typography>
           </Box>
         </BackgroundWrapper>
-        <PanelContainer id="south-hill-container" ref={southHillRef}>
+        <PanelContainer
+          id="south-hill-container"
+          ref={southHillRef}
+          contentHeight
+        >
           <SouthHillPanel transitionIn />
         </PanelContainer>
         <BackgroundWrapper>
@@ -225,7 +229,7 @@ export default function BenniditosHome() {
           </PanelContainer>
         </BackgroundWrapper>
         <BackgroundWrapper>
-          <PanelContainer id="brewpub-container" ref={brewPubRef}>
+          <PanelContainer id="brewpub-container" ref={brewPubRef} contentHeight>
             <BrewPubPanel transitionIn />
           </PanelContainer>
         </BackgroundWrapper>
@@ -239,7 +243,7 @@ export default function BenniditosHome() {
           </PanelContainer>
         </BackgroundWrapper>
         <Box sx={{ width: "100%" }}>
-          <Divider color="black" />
+          <Divider color="black" sx={{ mt: { xs: 1, md: 4 } }} />
         </Box>
         <BackgroundWrapper ref={contactRef}>
           <FooterPanel />

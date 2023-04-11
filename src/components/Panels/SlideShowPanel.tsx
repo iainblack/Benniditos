@@ -30,7 +30,7 @@ export default function SlideShowPanel(props: SlideShowPanelProps) {
         flexDirection: "column",
         justifyContent: "center",
         backgroundColor: "white",
-        mb: 1,
+        mt: { xs: 2, md: 4 },
       }}
     >
       <Box>
@@ -72,7 +72,7 @@ export default function SlideShowPanel(props: SlideShowPanelProps) {
         sx={{
           backgroundColor: "white",
           width: "100%",
-          my: 2,
+          my: 6,
           maxHeight: { xs: "40vh", md: "50vh", lg: "60vh" },
         }}
       >

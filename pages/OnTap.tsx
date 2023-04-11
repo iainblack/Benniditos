@@ -12,7 +12,11 @@ import MenuHeader from "@/src/components/MenuHeader";
 import logo from "@/public/ditosLogo.png";
 import React from "react";
 import StartFirebase from "@/src/components/firebaseConfig";
-import { BenniditosMenuConfig, TapListConfig } from "@/src/utils/utils";
+import {
+  BenniditosMenuConfig,
+  HideOnScroll,
+  TapListConfig,
+} from "@/src/utils/utils";
 import { ref, get, child } from "firebase/database";
 import TapList from "@/src/utils/BenniditosTapListData.json";
 
@@ -40,21 +44,23 @@ export default function BenniditosMenuPage() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <AppBar
-        sx={{
-          backgroundColor: theme.palette.primary.main,
-          pr: { xs: 2, lg: 6 },
-          pl: { xs: 0, lg: 6 },
-        }}
-      >
-        <MenuHeader
-          logo={logo}
-          firstNavName="South Hill Menu"
-          firstNavPath="/BenniditosMenu"
-          secondNavName="BrewPub Menu"
-          secondNavPath="/BrewPubMenu"
-        />
-      </AppBar>
+      <HideOnScroll>
+        <AppBar
+          sx={{
+            backgroundColor: theme.palette.primary.main,
+            pr: { xs: 2, lg: 6 },
+            pl: { xs: 0, lg: 6 },
+          }}
+        >
+          <MenuHeader
+            logo={logo}
+            firstNavName="South Hill Menu"
+            firstNavPath="/BenniditosMenu"
+            secondNavName="BrewPub Menu"
+            secondNavPath="/BrewPubMenu"
+          />
+        </AppBar>
+      </HideOnScroll>
       <PanelContainer
         fullWidth
         marginTop={"76px"}

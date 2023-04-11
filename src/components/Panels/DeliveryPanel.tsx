@@ -64,7 +64,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 border: "1px solid",
                 ml: { xs: 0, xl: 3 },
                 px: 2,
-                py: { xs: 4, xl: 8 },
+                py: { xs: 2, xl: 8 },
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-evenly",
