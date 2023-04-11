@@ -49,13 +49,19 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 borderTop: { xs: 0, xl: 1 },
               }}
             >
-              <iframe
+              {/* <iframe
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 referrerPolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYtw6jLiRYtOFLkrDEoV0aR2J4U-Gd7b4&q=Bennidito's+Pizza+Spokane,+WA+99203&zoom=13"
-              ></iframe>
+              ></iframe> */}
+              <Image
+                src="/deliveryMap.png"
+                alt="map"
+                fill
+                style={{ objectFit: "fill", objectPosition: "center" }}
+              />
             </Box>
             <Box
               sx={{
@@ -76,7 +82,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
               <Box
                 sx={{
                   justifyContent: "center",
-                  mb: 6,
+                  mb: 2,
                 }}
               >
                 <Typography
@@ -102,6 +108,16 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 >
                   The South Hill location offers both carryout and delivery.
                   Call the store or order online.
+                </Typography>
+              </Box>
+              <Box>
+                <Typography
+                  variant="body1"
+                  sx={{ fontFamily: "body", mx: "auto", px: 2, mb: 6 }}
+                >
+                  Please reference image for our <b>delivery area</b>. If
+                  ordering site claims you are out of range when you are not,
+                  please call the store to place your order.
                 </Typography>
               </Box>
               <Box
