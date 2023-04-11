@@ -204,7 +204,7 @@ export default function MenuHeader(props: {
             src={props.logo.src}
             alt="logo"
             width={230}
-            height={70}
+            height={65}
             style={{
               marginTop: theme.spacing(1),
               marginBottom: theme.spacing(1),
@@ -225,7 +225,7 @@ export default function MenuHeader(props: {
             onClick={() => setDrawerOpen(true)}
             sx={{ color: "white" }}
           >
-            <MenuIcon fontSize="large" />
+            <MenuIcon fontSize="medium" />
           </IconButton>
           <Drawer
             anchor="right"
