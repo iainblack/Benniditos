@@ -85,7 +85,7 @@ export default function FooterPanel() {
                       fontSize: { xs: 12, md: theme.typography.body1.fontSize },
                     }}
                     onClick={() => {
-                      window.open("tel:+5094557411", "_blank");
+                      window.open("tel:+5094557411", "_self");
                     }}
                   >
                     (509) 455-7411
@@ -180,7 +180,7 @@ export default function FooterPanel() {
                     fontSize: { xs: 12, md: theme.typography.body1.fontSize },
                   }}
                   onClick={() => {
-                    window.open("tel:+5092905018", "_blank");
+                    window.open("tel:+5092905018", "_self");
                   }}
                 >
                   (509) 290-5018

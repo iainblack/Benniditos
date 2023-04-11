@@ -122,7 +122,7 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
                       mt: { xs: 5, xl: 0 },
                     }}
                     onClick={() => {
-                      window.open("tel:+5092905018", "_blank");
+                      window.open("tel:+5092905018", "_self");
                     }}
                   >
                     (509) 290-5018

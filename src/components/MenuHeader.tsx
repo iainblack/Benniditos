@@ -134,7 +134,7 @@ export default function MenuHeader(props: {
               }}
               onClick={() => {
                 setDrawerOpen(false);
-                window.open(`tel:${props.phoneNum}`, "_blank");
+                window.open(`tel:${props.phoneNum}`, "_self");
               }}
             >
               <ListItemText
