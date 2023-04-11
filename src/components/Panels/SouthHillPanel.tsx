@@ -46,7 +46,7 @@ export function SouthHillPanel(props: SouthHillPanelProps) {
               sx={{
                 position: "relative",
                 width: "70%",
-                height: "90vh",
+                minHeight: "90vh",
                 order: 2,
                 border: 1,
                 display: { xs: "none", xl: "flex" },
@@ -74,7 +74,7 @@ export function SouthHillPanel(props: SouthHillPanelProps) {
                 justifyContent: "space-evenly",
                 backgroundColor: "white",
                 order: 1,
-                height: { xs: "fit-content", xl: "90vh" },
+                minHeight: { xs: "fit-content", xl: "90vh" },
               }}
             >
               <Box

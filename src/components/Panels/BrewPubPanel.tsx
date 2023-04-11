@@ -21,10 +21,8 @@ export function BrewPubPanel(props: BrewPubPanelProps) {
   const router = useRouter();
   const theme = useTheme();
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box
-      className={isSmallScreen ? "ripTopSmall" : "ripTopLarge"}
       sx={{
         width: "100%",
         display: "flex",
@@ -47,7 +45,7 @@ export function BrewPubPanel(props: BrewPubPanelProps) {
               sx={{
                 position: "relative",
                 width: "70%",
-                height: "90vh",
+                minHeight: "90vh",
                 order: 2,
                 display: { xs: "none", xl: "flex" },
               }}
@@ -73,7 +71,8 @@ export function BrewPubPanel(props: BrewPubPanelProps) {
                 justifyContent: "space-evenly",
                 backgroundColor: "white",
                 order: { xs: 1, xl: 1 },
-                height: { xs: "fit-content", xl: "90vh" },
+                minHeight: { xs: "fit-content", xl: "90vh" },
+                border: 1,
               }}
             >
               <Box

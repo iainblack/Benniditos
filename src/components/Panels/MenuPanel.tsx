@@ -60,9 +60,13 @@ export function MenuPanel(props: MenuPanelProps) {
               title={props.header}
               imagePath={
                 // props.header === "BREWPUB MENU" ? "/bread.jpg" : "/dough.jpg"
-                props.header === "BREWPUB MENU"
-                  ? "/brewpubOutside.jpeg"
-                  : "/ditosOutside.jpg"
+                isSmallScreen
+                  ? props.header === "BREWPUB MENU"
+                    ? "/brewpubOutside.jpeg"
+                    : "/ditosOutside.jpg"
+                  : props.header === "BREWPUB MENU"
+                  ? "/bread.jpg"
+                  : "/dough.jpg"
               }
             />
             <Box sx={{ backgroundColor: "white" }}>

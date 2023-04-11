@@ -13,7 +13,7 @@ export const PanelContainer = styled(Box, {
   marginTop?: string;
   contentHeight?: boolean;
 }>(({ noPaddingTop, theme, fullWidth, marginTop, contentHeight }) => ({
-  minHeight: "90vh",
+  minHeight: contentHeight ? "fit-content" : "90vh",
   width: "100vw",
   padding: theme.spacing(8),
   paddingLeft: theme.spacing(4),

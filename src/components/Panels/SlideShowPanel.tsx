@@ -8,6 +8,7 @@ import {
   Slide,
   Typography,
   Link,
+  Divider,
 } from "@mui/material";
 import React, { useEffect } from "react";
 import ImageSlider from "../imageSlider";
@@ -19,12 +20,9 @@ interface SlideShowPanelProps {
 
 export default function SlideShowPanel(props: SlideShowPanelProps) {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
-  const router = useRouter();
 
   return (
     <Box
-      className={isSmallScreen ? "ripBottomSmall" : "ripBottomLarge"}
       sx={{
         width: "100%",
         height: "100%",
@@ -75,7 +73,7 @@ export default function SlideShowPanel(props: SlideShowPanelProps) {
           backgroundColor: "white",
           width: "100%",
           my: 2,
-          height: { xs: "40vh", md: "50vh", lg: "60vh" },
+          maxHeight: { xs: "40vh", md: "50vh", lg: "60vh" },
         }}
       >
         <ImageSlider />

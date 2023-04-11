@@ -4,6 +4,7 @@ import {
   ThemeProvider,
   AppBar,
   Typography,
+  Divider,
 } from "@mui/material";
 import { BackgroundWrapper, PanelContainer } from "@/src/components/styles";
 import theme from "@/Theme";
@@ -180,11 +181,17 @@ export default function BenniditosHome() {
             scrollToBrewPub={scrollToBrewPub}
           />
         </BackgroundWrapper>
+        <Box sx={{ width: "100%" }}>
+          <Divider color="black" />
+        </Box>
         <BackgroundWrapper backgroundColor="white">
           <PanelContainer id="slideshow-container" ref={aboutUsRef}>
             <SlideShowPanel scrollToLocations={scrollToLocations} />
           </PanelContainer>
         </BackgroundWrapper>
+        <Box sx={{ width: "100%" }}>
+          <Divider color="black" />
+        </Box>
         <BackgroundWrapper>
           <Box
             ref={locationsRef}
@@ -215,12 +222,12 @@ export default function BenniditosHome() {
             <BenniditosDeliveryPanel transitionIn />
           </PanelContainer>
         </BackgroundWrapper>
-        <BackgroundWrapper backgroundColor="white">
+        <BackgroundWrapper>
           <PanelContainer id="brewpub-container" ref={brewPubRef}>
             <BrewPubPanel transitionIn />
           </PanelContainer>
         </BackgroundWrapper>
-        <BackgroundWrapper backgroundColor="white">
+        <BackgroundWrapper>
           <PanelContainer
             id="reservations-container"
             ref={reservationsRef}
@@ -229,6 +236,9 @@ export default function BenniditosHome() {
             <ReservationsPanel transitionIn />
           </PanelContainer>
         </BackgroundWrapper>
+        <Box sx={{ width: "100%" }}>
+          <Divider color="black" />
+        </Box>
         <BackgroundWrapper ref={contactRef}>
           <FooterPanel />
         </BackgroundWrapper>

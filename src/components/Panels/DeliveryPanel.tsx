@@ -70,7 +70,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 justifyContent: "space-evenly",
                 backgroundColor: "white",
                 order: { xs: 1, xl: 2 },
-                height: { xs: "fit-content", xl: "80vh" },
+                minHeight: { xs: "fit-content", xl: "80vh" },
               }}
             >
               <Box
@@ -81,7 +81,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
               >
                 <Typography
                   sx={{ textAlign: "center", mb: 1, fontFamily: "Header" }}
-                  variant="h4"
+                  variant="h5"
                 >
                   Delivery/Carry-Out
                 </Typography>

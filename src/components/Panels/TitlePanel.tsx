@@ -52,7 +52,7 @@ export default function TitlePanel(props: TitlePanelProps) {
           priority
           style={{
             objectFit: "cover",
-            objectPosition: "center top",
+            objectPosition: "center",
             filter: "brightness(0.7)",
           }}
         />

@@ -46,7 +46,7 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
               sx={{
                 position: "relative",
                 width: "70%",
-                height: "80vh",
+                minHeight: { xs: "fit-content", xl: "80vh" },
                 order: 1,
                 display: { xs: "none", xl: "flex" },
               }}
@@ -72,7 +72,8 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
                 justifyContent: "space-evenly",
                 backgroundColor: "white",
                 order: 2,
-                height: { xs: "fit-content", xl: "80vh" },
+                minHeight: { md: "fit-content", xl: "80vh" },
+                border: 1,
               }}
             >
               <Box
@@ -86,7 +87,7 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
                     mb: 1,
                     fontFamily: "Header",
                   }}
-                  variant="h4"
+                  variant="h5"
                 >
                   Reservations/Carry-Out
                 </Typography>
