@@ -115,9 +115,9 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                   variant="body1"
                   sx={{ fontFamily: "body", mx: "auto", px: 2, mb: 6 }}
                 >
-                  Please reference image for our <b>delivery area</b>. If
-                  ordering site claims you are out of range when you are not,
-                  please call the store to place your order.
+                  Please reference the map for our <b>area of delivery</b>. If
+                  the ordering site claims you are out of range when you are
+                  not, please call the store to place your order.
                 </Typography>
               </Box>
               <Box
