@@ -256,7 +256,7 @@ export default function MenuHeader(props: {
             id="container"
           >
             <>
-              <Tabs>
+              <Tabs value={false}>
                 <Tab
                   label="Home"
                   onClick={() => {

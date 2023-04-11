@@ -66,7 +66,7 @@ export default function BenniditosMenuPage() {
         }}
       >
         {!menuData && <CircularProgress />}
-        {menuData && <BenniditosOnTap transitionIn />}
+        {menuData && <BenniditosOnTap transitionIn data={menuData} />}
       </PanelContainer>
     </ThemeProvider>
   );

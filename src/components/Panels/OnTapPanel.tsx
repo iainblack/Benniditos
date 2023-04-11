@@ -3,8 +3,10 @@ import React from "react";
 import BenniditosTapList from "../Products/BenniditosTapList";
 import SectionHeader from "../SectionHeader";
 import BenniditosTapListData from "@/src/utils/BenniditosTapListData.json";
+import { TapListConfig } from "@/src/utils/utils";
 interface MenuPanelProps {
   transitionIn: boolean;
+  data: TapListConfig;
 }
 
 export function BenniditosOnTap(props: MenuPanelProps) {
@@ -28,7 +30,7 @@ export function BenniditosOnTap(props: MenuPanelProps) {
                 <BenniditosTapList
                   theme={theme}
                   isSmallScreen={isSmallScreen}
-                  data={BenniditosTapListData}
+                  data={props.data}
                 />
               </Box>
             </Box>

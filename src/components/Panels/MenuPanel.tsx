@@ -8,6 +8,7 @@ import {
   SelectChangeEvent,
   Tab,
   Tabs,
+  Theme,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
@@ -43,6 +44,20 @@ export function MenuPanel(props: MenuPanelProps) {
     setValue(parseInt(event.target.value));
   };
 
+  const orderedTabs =
+    props.header !== "BREWPUB MENU"
+      ? [
+          "pizza",
+          "toppings",
+          "starters",
+          "calzones",
+          "salads",
+          "sandwiches",
+          "pasta",
+          "desserts",
+        ]
+      : ["pizza", "toppings", "starters", "salads", "sandwiches", "desserts"];
+
   const containerRef = React.useRef<HTMLDivElement>(null);
   return (
     <Box
@@ -74,6 +89,7 @@ export function MenuPanel(props: MenuPanelProps) {
                   value={value}
                   isSmallScreen={isSmallScreen}
                   handleChange={handleChange}
+                  orderedTabs={orderedTabs}
                 />
               )}
               {isSmallScreen && (
@@ -82,10 +98,11 @@ export function MenuPanel(props: MenuPanelProps) {
                   handleChange={handleSelectChange}
                   value={value}
                   isSmallScreen={isSmallScreen}
+                  orderedTabs={orderedTabs}
                 />
               )}
             </Box>
-            {Object.keys(props.data).map((item, index) => {
+            {orderedTabs.map((item, index) => {
               return (
                 <TabPanel key={index} value={value} index={index}>
                   {item === "pizza" && (
@@ -164,8 +181,10 @@ function MenuTabs(props: {
   value: number;
   handleChange: (event: React.SyntheticEvent, newValue: number) => void;
   isSmallScreen: boolean;
+  orderedTabs: string[];
 }) {
   const theme = useTheme();
+  const keys = Object.keys(props.data);
   return (
     <Tabs
       value={props.value}
@@ -178,15 +197,25 @@ function MenuTabs(props: {
         borderBottom: 0,
       }}
     >
-      {Object.keys(props.data).map((item, index) => {
-        if (item === "soda") {
-          return null;
-        }
-        if (item === "desserts") {
+      {props.orderedTabs.map((item, index) => {
+        if (keys.includes(item)) {
+          if (item === "desserts") {
+            return (
+              <Tab
+                key={index}
+                label={"desserts & soda"}
+                sx={{
+                  textTransform: "none",
+                  fontFamily: "subheader",
+                  fontSize: theme.typography.body1.fontSize,
+                }}
+              />
+            );
+          }
           return (
             <Tab
               key={index}
-              label={"desserts & soda"}
+              label={item}
               sx={{
                 textTransform: "none",
                 fontFamily: "subheader",
@@ -195,17 +224,6 @@ function MenuTabs(props: {
             />
           );
         }
-        return (
-          <Tab
-            key={index}
-            label={item}
-            sx={{
-              textTransform: "none",
-              fontFamily: "subheader",
-              fontSize: theme.typography.body1.fontSize,
-            }}
-          />
-        );
       })}
     </Tabs>
   );
@@ -216,8 +234,11 @@ function MenuSelect(props: {
   value: number;
   handleChange: (event: SelectChangeEvent) => void;
   isSmallScreen: boolean;
+  orderedTabs: string[];
 }) {
   const theme = useTheme();
+  const keys = Object.keys(props.data);
+
   return (
     <Box
       sx={{
@@ -238,11 +259,24 @@ function MenuSelect(props: {
           inputProps={{ MenuProps: { disableScrollLock: true } }}
           sx={{ fontFamily: "subheader", minWidth: 120 }}
         >
-          {Object.keys(props.data).map((item, index) => {
-            if (item === "soda") {
-              return null;
-            }
-            if (item === "desserts") {
+          {props.orderedTabs.map((item, index) => {
+            if (keys.includes(item)) {
+              if (item === "desserts") {
+                return (
+                  <MenuItem
+                    key={index}
+                    value={index}
+                    sx={{
+                      fontFamily: "subheader",
+                      display: "flex",
+                      justifyContent: "center",
+                      fontSize: theme.typography.body1.fontSize,
+                    }}
+                  >
+                    {"desserts & soda"}
+                  </MenuItem>
+                );
+              }
               return (
                 <MenuItem
                   key={index}
@@ -254,24 +288,10 @@ function MenuSelect(props: {
                     fontSize: theme.typography.body1.fontSize,
                   }}
                 >
-                  {"desserts & soda"}
+                  {item}
                 </MenuItem>
               );
             }
-            return (
-              <MenuItem
-                key={index}
-                value={index}
-                sx={{
-                  fontFamily: "subheader",
-                  display: "flex",
-                  justifyContent: "center",
-                  fontSize: theme.typography.body1.fontSize,
-                }}
-              >
-                {item}
-              </MenuItem>
-            );
           })}
         </Select>
       </FormControl>

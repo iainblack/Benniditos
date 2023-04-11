@@ -141,9 +141,54 @@ export default function BenniditosTapList({
                 </Box>
               );
             })}
-            <Typography fontFamily="subheader" sx={{ mt: { xs: 4, md: 8 } }}>
-              Ask about our rotating tap list!
-            </Typography>
+            {data.rotation && (
+              <Box
+                sx={{
+                  p: 1,
+                  mt: 6,
+                  mb: 3,
+                }}
+              >
+                <Typography variant="h4" color="primary" fontFamily="header">
+                  {"ON ROTATION"}
+                </Typography>
+              </Box>
+            )}
+            {data.rotation &&
+              data.rotation.map((item, index) => {
+                return (
+                  <Box key={item.name} sx={{ mb: 2, px: 1 }}>
+                    <Box sx={{ mb: 2 }}>
+                      <Typography
+                        variant="h5"
+                        fontFamily="subheader"
+                        sx={{ mb: 2 }}
+                      >
+                        {item.name}
+                      </Typography>
+                      {item.description && (
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            maxWidth: 400,
+                            mx: "auto",
+                            mb: 2,
+                            height: { xs: "auto", md: 30 },
+                          }}
+                        >
+                          {item.description}
+                        </Typography>
+                      )}
+                      <Typography variant="body2" fontFamily="header">
+                        <b>{`${item.abv}`}</b>
+                      </Typography>
+                    </Box>
+                    {data.rotation && index !== data.rotation.length - 1 ? (
+                      <Divider sx={{ mx: { xs: 4, md: 8 } }} />
+                    ) : null}
+                  </Box>
+                );
+              })}
           </Box>
         </Box>
       </Box>

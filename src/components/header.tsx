@@ -267,6 +267,7 @@ export default function Header(props: HeaderProps) {
               alt="logo"
               width={230}
               height={65}
+              priority
               style={{
                 marginTop: theme.spacing(1),
                 marginBottom: theme.spacing(1),

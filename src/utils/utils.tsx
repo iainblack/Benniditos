@@ -119,6 +119,11 @@ export interface TapListConfig {
     abv: string;
     description: string;
   }[];
+  rotation?: {
+    name: string;
+    abv: string;
+    description: string;
+  }[];
 }
 
 export function BenniditosInfo(props: { theme: Theme }) {
