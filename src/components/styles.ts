@@ -21,8 +21,8 @@ export const PanelContainer = styled(Box, {
   paddingRight: theme.spacing(4),
   marginTop: marginTop ? marginTop : 0,
   [theme.breakpoints.down("md")]: {
-    padding: theme.spacing(1),
-    paddingTop: noPaddingTop ? 0 : theme.spacing(1),
+    padding: theme.spacing(2),
+    paddingTop: noPaddingTop ? 0 : theme.spacing(2),
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
     minHeight: contentHeight ? "fit-content" : "80vh",

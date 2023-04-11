@@ -29,7 +29,6 @@ export function BrewPubPanel(props: BrewPubPanelProps) {
         flexDirection: "column",
         justifyContent: "center",
         position: "relative",
-        mt: { xs: 4, md: 0 },
       }}
     >
       <Box ref={containerRef}>

@@ -187,7 +187,11 @@ export default function BenniditosHome() {
           <Divider color="black" />
         </Box>
         <BackgroundWrapper backgroundColor="white">
-          <PanelContainer id="slideshow-container" ref={aboutUsRef}>
+          <PanelContainer
+            id="slideshow-container"
+            ref={aboutUsRef}
+            contentHeight
+          >
             <SlideShowPanel scrollToLocations={scrollToLocations} />
           </PanelContainer>
         </BackgroundWrapper>
@@ -199,8 +203,8 @@ export default function BenniditosHome() {
             ref={locationsRef}
             sx={{
               backgroundColor: "white",
-              mb: { xs: 1, md: 4 },
-              mt: { xs: 2, md: 8 },
+              mb: { xs: 2, md: 4 },
+              mt: { xs: 4, md: 8 },
               mx: { xs: 2, sm: 0 },
               p: 2,
               pb: 1,
