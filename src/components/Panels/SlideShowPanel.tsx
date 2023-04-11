@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import React, { useEffect } from "react";
 import ImageSlider from "../imageSlider";
+import { useRouter } from "next/router";
 
 interface SlideShowPanelProps {
   scrollToLocations: () => void;
@@ -19,6 +20,7 @@ interface SlideShowPanelProps {
 export default function SlideShowPanel(props: SlideShowPanelProps) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const router = useRouter();
 
   return (
     <Box
@@ -66,11 +68,19 @@ export default function SlideShowPanel(props: SlideShowPanelProps) {
             two locations
           </Link>{" "}
           use only the freshest ingredients in our delicious pizzas, salads,
-          sandwiches, and pasta. We are also known for our high quality beer
-          that is brewed in-house. We promote a relaxed and friendly atmosphere,
-          making Bennidito&apos;s Pizza the perfect spot to enjoy a meal with
-          friends and family, or catch the game while sipping on one of our
-          tasty brews.
+          sandwiches, and pasta. We are also known for our high quality{" "}
+          <Link
+            onClick={() => {
+              router.push("/OnTap");
+            }}
+            sx={{ textDecoration: "none" }}
+          >
+            beers
+          </Link>{" "}
+          that are brewed in-house. We promote a relaxed and friendly
+          atmosphere, making Bennidito&apos;s Pizza the perfect spot to enjoy a
+          meal with friends and family, or catch the game while sipping on one
+          of our tasty brews.
         </Typography>
       </Box>
       <Box

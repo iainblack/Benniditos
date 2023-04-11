@@ -21,7 +21,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Image, { StaticImageData } from "next/image";
 import bg3 from "@/public/bg3.jpeg";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import { OpenInNewOutlined } from "@mui/icons-material";
