@@ -1,19 +1,11 @@
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import "keen-slider/keen-slider.min.css";
-import {
-  Box,
-  useTheme,
-  useMediaQuery,
-  Slide,
-  Typography,
-  Link,
-  Divider,
-} from "@mui/material";
+import { Box, useTheme, Typography, Link } from "@mui/material";
 import React, { useEffect } from "react";
 import ImageSlider from "../imageSlider";
-import { useRouter } from "next/router";
-
+import pizza from "@/public/pizza.png";
+import Image from "next/image";
 interface SlideShowPanelProps {
   scrollToLocations: () => void;
 }
@@ -25,14 +17,44 @@ export default function SlideShowPanel(props: SlideShowPanelProps) {
     <Box
       sx={{
         width: "100%",
-        height: "100%",
+        minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         backgroundColor: "white",
         mt: { xs: 2, md: 4 },
+        position: "relative",
       }}
     >
+      <Box
+        sx={{
+          height: "10%",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          position: "absolute",
+          top: 0,
+          left: 0,
+        }}
+      >
+        <Box
+          sx={{
+            width: { xs: 35, md: 55 },
+            height: { xs: 35, md: 55 },
+            position: "relative",
+          }}
+        >
+          <Image
+            src={pizza.src}
+            alt="pizza"
+            fill
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
+          />
+        </Box>
+      </Box>
       <Box>
         <Typography
           variant="h3"
