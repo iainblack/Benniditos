@@ -42,7 +42,7 @@ export interface BenniditosMenuProps {
 export interface BenniditosTapListProps {
   theme: Theme;
   isSmallScreen: boolean;
-  data: BenniditosTapList;
+  data: TapListConfig;
 }
 
 export function HideOnScroll(props: any) {
@@ -108,7 +108,7 @@ interface SandwichOptions {
   whole: string;
 }
 
-export interface BenniditosTapList {
+export interface TapListConfig {
   prices: {
     name: string;
     price: string;

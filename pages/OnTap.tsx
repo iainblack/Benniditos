@@ -1,12 +1,42 @@
 import { PanelContainer } from "@/src/components/styles";
 import theme from "@/Theme";
-import { ThemeProvider, CssBaseline, AppBar } from "@mui/material";
+import {
+  ThemeProvider,
+  CssBaseline,
+  AppBar,
+  CircularProgress,
+} from "@mui/material";
 import background from "@/public/bg3.jpeg";
 import { BenniditosOnTap } from "@/src/components/Panels/OnTapPanel";
 import MenuHeader from "@/src/components/MenuHeader";
 import logo from "@/public/ditosLogo.png";
+import React from "react";
+import StartFirebase from "@/src/components/firebaseConfig";
+import { BenniditosMenuConfig, TapListConfig } from "@/src/utils/utils";
+import { ref, get, child } from "firebase/database";
+import TapList from "@/src/utils/BenniditosTapListData.json";
 
 export default function BenniditosMenuPage() {
+  const [menuData, setMenuData] = React.useState<TapListConfig | undefined>(
+    undefined
+  );
+
+  const database = StartFirebase();
+  const dbRef = ref(database);
+
+  get(child(dbRef, "TapList"))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        setMenuData(snapshot.val());
+      } else {
+        console.log("Tap List Data not found");
+        setMenuData(TapList);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      setMenuData(TapList);
+    });
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -35,7 +65,8 @@ export default function BenniditosMenuPage() {
           backgroundPosition: "center",
         }}
       >
-        <BenniditosOnTap transitionIn />
+        {!menuData && <CircularProgress />}
+        {menuData && <BenniditosOnTap transitionIn />}
       </PanelContainer>
     </ThemeProvider>
   );

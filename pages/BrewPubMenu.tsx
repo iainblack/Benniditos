@@ -1,13 +1,43 @@
 import { PanelContainer } from "@/src/components/styles";
 import theme from "@/Theme";
-import { ThemeProvider, CssBaseline, AppBar } from "@mui/material";
+import {
+  ThemeProvider,
+  CssBaseline,
+  AppBar,
+  CircularProgress,
+} from "@mui/material";
 import background from "@/public/bg3.jpeg";
 import MenuHeader from "@/src/components/MenuHeader";
 import { MenuPanel } from "@/src/components/Panels/MenuPanel";
 import BrewPubMenuData from "@/src/utils/BrewPubMenuData.json";
 import brewPub from "@/public/brewpubLogoCropped.png";
+import StartFirebase from "@/src/components/firebaseConfig";
+import { BenniditosMenuConfig } from "@/src/utils/utils";
+import { ref, get, child } from "firebase/database";
+import React from "react";
 
 export default function BrewPubMenuPage() {
+  const [menuData, setMenuData] = React.useState<
+    BenniditosMenuConfig | undefined
+  >(undefined);
+
+  const database = StartFirebase();
+  const dbRef = ref(database);
+
+  get(child(dbRef, "BrewPub"))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        setMenuData(snapshot.val());
+      } else {
+        console.log("BrewPub Menu Data not found");
+        setMenuData(BrewPubMenuData);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      setMenuData(BrewPubMenuData);
+    });
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -36,7 +66,14 @@ export default function BrewPubMenuPage() {
           backgroundPosition: "center",
         }}
       >
-        <MenuPanel transitionIn data={BrewPubMenuData} header="BREWPUB MENU" />
+        {!menuData && <CircularProgress />}
+        {menuData && (
+          <MenuPanel
+            transitionIn
+            data={BrewPubMenuData}
+            header="BREWPUB MENU"
+          />
+        )}
       </PanelContainer>
     </ThemeProvider>
   );

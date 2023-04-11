@@ -21,6 +21,8 @@ import FooterPanel from "@/src/components/Panels/FooterPanel";
 import SectionHeader from "@/src/components/SectionHeader";
 import { BrewPubPanel } from "@/src/components/Panels/BrewPubPanel";
 import { ReservationsPanel } from "@/src/components/Panels/ReservationsPanel";
+import StartFirebase from "@/src/components/firebaseConfig";
+import { ref, onValue, get, child } from "firebase/database";
 
 interface AppBarState {
   transparent: boolean;
