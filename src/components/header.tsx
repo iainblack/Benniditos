@@ -37,7 +37,7 @@ export default function Header(props: HeaderProps) {
   const sections = [
     "About Us",
     "Locations",
-    "Delivery",
+    "Online Orders",
     "Reservations",
     "Contact",
   ];
@@ -353,7 +353,7 @@ export default function Header(props: HeaderProps) {
                 }}
               />
               <Tab
-                label="Delivery"
+                label="Online Orders"
                 sx={{
                   textTransform: "none",
                   color: "white",

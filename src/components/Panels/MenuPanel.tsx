@@ -33,7 +33,7 @@ interface MenuPanelProps {
 
 export function MenuPanel(props: MenuPanelProps) {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("lg"));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   const isLargeSreen = useMediaQuery(theme.breakpoints.up("md"));
   const [value, setValue] = React.useState(0);
 
@@ -59,7 +59,10 @@ export function MenuPanel(props: MenuPanelProps) {
             <SectionHeader
               title={props.header}
               imagePath={
-                props.header === "BREWPUB MENU" ? "/bread.jpg" : "/dough.jpg"
+                // props.header === "BREWPUB MENU" ? "/bread.jpg" : "/dough.jpg"
+                props.header === "BREWPUB MENU"
+                  ? "/brewpubOutside.jpeg"
+                  : "/ditosOutside.jpg"
               }
             />
             <Box sx={{ backgroundColor: "white" }}>

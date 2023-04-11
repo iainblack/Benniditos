@@ -83,7 +83,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                   sx={{ textAlign: "center", mb: 1, fontFamily: "Header" }}
                   variant="h4"
                 >
-                  Delivery
+                  Delivery/Carry-Out
                 </Typography>
                 <Divider
                   sx={{
@@ -100,9 +100,8 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                     fontFamily: "body",
                   }}
                 >
-                  The South Hill location is the <b>only location</b> that
-                  offers delivery and online orders. Our delivery radius is *add
-                  additional info here*
+                  The South Hill location offers both carryout and delivery.
+                  Call the store or order online.
                 </Typography>
               </Box>
               <Box
@@ -127,6 +126,21 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                     }}
                   >
                     Order Online
+                  </Button>
+                </Box>
+                <Box sx={{ my: 1 }}>
+                  <Button
+                    variant="outlined"
+                    sx={{
+                      textTransform: "none",
+                      fontFamily: "header",
+                      fontSize: theme.typography.body1.fontSize,
+                    }}
+                    onClick={() => {
+                      window.open("tel:+5094557411", "_self");
+                    }}
+                  >
+                    (509) 455-7411
                   </Button>
                 </Box>
               </Box>

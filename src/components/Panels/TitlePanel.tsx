@@ -45,7 +45,7 @@ export default function TitlePanel(props: TitlePanelProps) {
         }}
       >
         <Image
-          src="/chris2.jpg"
+          src="/meat primo 2.jpg"
           fill
           sizes="100%"
           alt="alt"

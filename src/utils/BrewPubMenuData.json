@@ -176,6 +176,7 @@
     ],
     "bySlice": {
       "description1": "No salad substitutions - mixed greens only",
+      "description2": "Available in traditional hand tossed or Detroit style",
       "comboOptions": [
         {
           "name": "Slice, Salad, Soda",

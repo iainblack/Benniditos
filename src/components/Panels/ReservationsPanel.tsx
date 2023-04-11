@@ -81,10 +81,14 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
                 }}
               >
                 <Typography
-                  sx={{ textAlign: "center", mb: 1, fontFamily: "Header" }}
+                  sx={{
+                    textAlign: "center",
+                    mb: 1,
+                    fontFamily: "Header",
+                  }}
                   variant="h4"
                 >
-                  Reservations
+                  Reservations/Carry-Out
                 </Typography>
                 <Divider
                   sx={{
@@ -101,9 +105,8 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
                     fontFamily: "body",
                   }}
                 >
-                  The BrewPub location is the <b>only location</b> that takes
-                  reservations of up to 15 people. Please call the BrewPub to
-                  make a reservation.
+                  The BrewPub offers carry-out orders and reservations placed
+                  over the phone.
                 </Typography>
               </Box>
               <Box

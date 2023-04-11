@@ -169,7 +169,10 @@ export default function BenniditosPizzaMenu({
                       <Typography
                         variant="h4"
                         color="primary"
-                        sx={{ fontFamily: "header", textAlign: "center" }}
+                        sx={{
+                          fontFamily: "header",
+                          textAlign: "center",
+                        }}
                       >
                         {"BY THE SLICE"}
                       </Typography>
@@ -189,17 +192,23 @@ export default function BenniditosPizzaMenu({
                   >
                     {data.pizza.bySlice.description1 && (
                       <Typography
-                        fontSize={14}
                         fontFamily="body"
-                        sx={{ fontSize: theme.typography.body1.fontSize }}
+                        variant="body2"
+                        sx={{
+                          fontSize: theme.typography.body2.fontSize,
+                        }}
                       >
-                        <i>{data.pizza.description1} </i>
+                        <i>{data.pizza.bySlice.description1} </i>
                       </Typography>
                     )}
 
                     {data.pizza.bySlice.description2 && (
-                      <Typography fontFamily="body">
-                        <i>{data.pizza.description2} </i>
+                      <Typography
+                        fontFamily="body"
+                        variant="body2"
+                        sx={{ fontSize: theme.typography.body2.fontSize }}
+                      >
+                        <i>{data.pizza.bySlice.description2} </i>
                       </Typography>
                     )}
                   </Box>
@@ -230,7 +239,7 @@ export default function BenniditosPizzaMenu({
                               {item.options.map((option, index2) => {
                                 return (
                                   <Typography
-                                    variant="body2"
+                                    variant="body1"
                                     fontFamily="body"
                                     key={index2}
                                     textAlign="center"

@@ -59,28 +59,15 @@ export default function SlideShowPanel(props: SlideShowPanelProps) {
         }}
       >
         <Typography fontFamily={"body"} variant="body1">
-          <b>Family owned and operated since 1996</b>, Bennidito&apos;s has been
-          serving Spokane, WA for over 25 years. Both of our{" "}
+          Bennidito&apos;s has been <b>family owned and operated since 1996</b>.
+          We have{" "}
           <Link
             onClick={props.scrollToLocations}
             sx={{ textDecoration: "none" }}
           >
             two locations
-          </Link>{" "}
-          use only the freshest ingredients in our delicious pizzas, salads,
-          sandwiches, and pasta. We are also known for our high quality{" "}
-          <Link
-            onClick={() => {
-              router.push("/OnTap");
-            }}
-            sx={{ textDecoration: "none" }}
-          >
-            beers
-          </Link>{" "}
-          that are brewed in-house. We promote a relaxed and friendly
-          atmosphere, making Bennidito&apos;s Pizza the perfect spot to enjoy a
-          meal with friends and family, or catch the game while sipping on one
-          of our tasty brews.
+          </Link>
+          , one on the South Hill and the other on East Sprague.
         </Typography>
       </Box>
       <Box
