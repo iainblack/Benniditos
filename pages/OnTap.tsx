@@ -13,11 +13,7 @@ import MenuHeader from "@/src/components/MenuHeader";
 import logo from "@/public/ditosLogo.png";
 import React, { useEffect } from "react";
 import StartFirebase from "@/src/components/firebaseConfig";
-import {
-  BenniditosMenuConfig,
-  HideOnScroll,
-  TapListConfig,
-} from "@/src/utils/utils";
+import { HideOnScroll, TapListConfig } from "@/src/utils/utils";
 import { ref, get, child } from "firebase/database";
 import TapList from "@/src/utils/BenniditosTapListData.json";
 

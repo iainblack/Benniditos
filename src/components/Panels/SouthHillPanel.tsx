@@ -4,7 +4,6 @@ import {
   Button,
   Divider,
   Fade,
-  Theme,
   Typography,
   useMediaQuery,
   useTheme,

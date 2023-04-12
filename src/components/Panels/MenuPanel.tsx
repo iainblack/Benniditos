@@ -8,7 +8,6 @@ import {
   SelectChangeEvent,
   Tab,
   Tabs,
-  Theme,
   useMediaQuery,
   useTheme,
 } from "@mui/material";

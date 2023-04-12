@@ -1,11 +1,7 @@
 import { Box, Typography, Divider } from "@mui/material";
 import { BenniditosMenuProps } from "../../utils/utils";
 
-export default function BenniditosSalads({
-  theme,
-  isSmallScreen,
-  data,
-}: BenniditosMenuProps) {
+export default function BenniditosSalads({ theme, data }: BenniditosMenuProps) {
   return (
     <Box>
       <Box

@@ -3,13 +3,12 @@ import {
   Button,
   Divider,
   Fade,
+  Theme,
   Typography,
   useTheme,
 } from "@mui/material";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import React from "react";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 
 interface HoursLocationProps {
   transitionIn: boolean;
@@ -49,6 +48,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 borderTop: { xs: 0, xl: 1 },
               }}
             >
+              {/* Placeholder for google maps api implementation/}
               {/* <iframe
                 width="100%"
                 height="100%"
@@ -78,91 +78,99 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 minHeight: { xs: "fit-content", xl: "80vh" },
               }}
             >
-              <Box
-                sx={{
-                  justifyContent: "center",
-                  mb: 2,
-                }}
-              >
-                <Typography
-                  sx={{ textAlign: "center", mb: 1, fontFamily: "Header" }}
-                  variant="h4"
-                >
-                  Delivery & Carry-Out
-                </Typography>
-                <Divider
-                  sx={{
-                    mb: 2,
-                    mx: { xs: "15%", sm: "30%", md: "20%" },
-                    borderBottomStyle: "dashed",
-                  }}
-                />
-                <Typography
-                  variant="body1"
-                  sx={{
-                    mx: "auto",
-                    px: 2,
-                    fontFamily: "body",
-                  }}
-                >
-                  The South Hill location offers both carryout and delivery.
-                  Call the store or order online.
-                </Typography>
-              </Box>
-              <Box>
-                <Typography
-                  variant="body1"
-                  sx={{ fontFamily: "body", mx: "auto", px: 2, mb: 6 }}
-                >
-                  Please reference the map for our <b>area of delivery</b>. If
-                  the ordering site claims you are out of range when you are
-                  not, please call the store to place your order.
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <Box sx={{ my: 1 }}>
-                  <Button
-                    variant="outlined"
-                    sx={{
-                      textTransform: "none",
-                      fontFamily: "header",
-                      fontSize: theme.typography.body1.fontSize,
-                    }}
-                    onClick={() => {
-                      window.open(
-                        "https://weborder7.microworks.com/benniditos/",
-                        "_blank"
-                      );
-                    }}
-                  >
-                    Order Online
-                  </Button>
-                </Box>
-                <Box sx={{ my: 1 }}>
-                  <Button
-                    variant="outlined"
-                    sx={{
-                      textTransform: "none",
-                      fontFamily: "header",
-                      fontSize: theme.typography.body1.fontSize,
-                    }}
-                    onClick={() => {
-                      window.open("tel:+5094557411", "_self");
-                    }}
-                  >
-                    (509) 455-7411
-                  </Button>
-                </Box>
-              </Box>
+              <DeliveryInfo theme={theme} />
             </Box>
           </Box>
         </Fade>
       </Box>
     </Box>
+  );
+}
+
+function DeliveryInfo(props: { theme: Theme }) {
+  return (
+    <>
+      <Box
+        sx={{
+          justifyContent: "center",
+          mb: 2,
+        }}
+      >
+        <Typography
+          sx={{ textAlign: "center", mb: 1, fontFamily: "Header" }}
+          variant="h4"
+        >
+          Delivery & Carry-Out
+        </Typography>
+        <Divider
+          sx={{
+            mb: 2,
+            mx: { xs: "15%", sm: "30%", md: "20%" },
+            borderBottomStyle: "dashed",
+          }}
+        />
+        <Typography
+          variant="body1"
+          sx={{
+            mx: "auto",
+            px: 2,
+            fontFamily: "body",
+          }}
+        >
+          The South Hill location offers both carryout and delivery. Call the
+          store or order online.
+        </Typography>
+      </Box>
+      <Box>
+        <Typography
+          variant="body1"
+          sx={{ fontFamily: "body", mx: "auto", px: 2, mb: 6 }}
+        >
+          Please reference the map for our <b>area of delivery</b>. If the
+          ordering site claims you are out of range when you are not, please
+          call the store to place your order.
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <Box sx={{ my: 1 }}>
+          <Button
+            variant="outlined"
+            sx={{
+              textTransform: "none",
+              fontFamily: "header",
+              fontSize: props.theme.typography.body1.fontSize,
+            }}
+            onClick={() => {
+              window.open(
+                "https://weborder7.microworks.com/benniditos/",
+                "_blank"
+              );
+            }}
+          >
+            Order Online
+          </Button>
+        </Box>
+        <Box sx={{ my: 1 }}>
+          <Button
+            variant="outlined"
+            sx={{
+              textTransform: "none",
+              fontFamily: "header",
+              fontSize: props.theme.typography.body1.fontSize,
+            }}
+            onClick={() => {
+              window.open("tel:+5094557411", "_self");
+            }}
+          >
+            (509) 455-7411
+          </Button>
+        </Box>
+      </Box>
+    </>
   );
 }

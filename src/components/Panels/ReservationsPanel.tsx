@@ -1,4 +1,3 @@
-import { BenniditosInfo } from "@/src/utils/utils";
 import {
   Box,
   Button,

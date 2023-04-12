@@ -1,11 +1,7 @@
 import { Box, Typography, Divider } from "@mui/material";
 import { BenniditosMenuProps } from "../../utils/utils";
 
-export default function BenniditosToppings({
-  theme,
-  isSmallScreen,
-  data,
-}: BenniditosMenuProps) {
+export default function BenniditosToppings({ data }: BenniditosMenuProps) {
   return (
     <Box sx={{ width: "100%" }}>
       <Box

@@ -1,11 +1,7 @@
 import { Box, Typography, Divider } from "@mui/material";
 import { BenniditosTapListProps } from "../../utils/utils";
 
-export default function BenniditosTapList({
-  theme,
-  isSmallScreen,
-  data,
-}: BenniditosTapListProps) {
+export default function BenniditosTapList({ data }: BenniditosTapListProps) {
   return (
     <Box>
       <Box

@@ -19,11 +19,8 @@ import smallbg from "@/public/bg3.jpeg";
 import SlideShowPanel from "@/src/components/Panels/SlideShowPanel";
 import TitlePanel from "@/src/components/Panels/TitlePanel";
 import FooterPanel from "@/src/components/Panels/FooterPanel";
-import SectionHeader from "@/src/components/SectionHeader";
 import { BrewPubPanel } from "@/src/components/Panels/BrewPubPanel";
 import { ReservationsPanel } from "@/src/components/Panels/ReservationsPanel";
-import StartFirebase from "@/src/components/firebaseConfig";
-import { ref, onValue, get, child } from "firebase/database";
 
 interface AppBarState {
   transparent: boolean;
@@ -237,8 +234,7 @@ export default function BenniditosHome() {
           <Box
             sx={{
               backgroundColor: "white",
-              mb: { xs: 2, md: 4 },
-              mt: { xs: 2, md: 4 },
+              my: { xs: 2, md: 4 },
               mx: { xs: 2, sm: 0 },
               p: 2,
               pb: 1,

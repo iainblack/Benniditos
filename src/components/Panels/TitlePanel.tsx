@@ -1,13 +1,4 @@
-import {
-  Box,
-  useTheme,
-  useMediaQuery,
-  Slide,
-  Typography,
-  Button,
-  Fade,
-  IconButton,
-} from "@mui/material";
+import { Box, useTheme, useMediaQuery, Slide, Button } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import React, { useEffect } from "react";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
