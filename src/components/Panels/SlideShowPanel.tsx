@@ -22,19 +22,15 @@ export default function SlideShowPanel(props: SlideShowPanelProps) {
         flexDirection: "column",
         justifyContent: "center",
         backgroundColor: "white",
-        mt: { xs: 2, md: 4 },
         position: "relative",
       }}
     >
       <Box
         sx={{
-          height: "10%",
           width: "100%",
           display: "flex",
           justifyContent: "center",
-          position: "absolute",
-          top: 0,
-          left: 0,
+          mb: 10,
         }}
       >
         <Box
