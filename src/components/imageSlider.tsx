@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
-import { Box, CircularProgress, useMediaQuery, useTheme } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 
 const urls = [
   "/slide4.jpg",
@@ -37,36 +37,6 @@ export default function ImageSlider() {
       setLoaded(true);
     },
   });
-
-  useEffect(() => {
-    setTimeout(() => {
-      instanceRef.current?.update();
-    }, 100);
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      instanceRef.current?.update();
-    }, 200);
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      instanceRef.current?.update();
-    }, 300);
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      instanceRef.current?.update();
-    }, 400);
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      instanceRef.current?.update();
-    }, 500);
-  }, []);
 
   const dotOffset = isSmallScreen ? 0 : isLargeScreen ? 2 : 1;
 
