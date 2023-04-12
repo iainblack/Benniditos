@@ -30,7 +30,7 @@ export default function SlideShowPanel(props: SlideShowPanelProps) {
           width: "100%",
           display: "flex",
           justifyContent: "center",
-          mb: 10,
+          mb: { xs: 6, md: 10 },
         }}
       >
         <Box
