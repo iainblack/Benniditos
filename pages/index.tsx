@@ -14,7 +14,8 @@ import Header from "@/src/components/header";
 import { SouthHillPanel } from "@/src/components/Panels/SouthHillPanel";
 import { HideOnScroll } from "@/src/utils/utils";
 import { BenniditosDeliveryPanel } from "@/src/components/Panels/DeliveryPanel";
-import bg3 from "@/public/bg3.jpeg";
+import bg from "@/public/bg4.jpeg";
+import smallbg from "@/public/bg3.jpeg";
 import SlideShowPanel from "@/src/components/Panels/SlideShowPanel";
 import TitlePanel from "@/src/components/Panels/TitlePanel";
 import FooterPanel from "@/src/components/Panels/FooterPanel";
@@ -153,7 +154,7 @@ export default function BenniditosHome() {
       <Box
         id="benniditosHome"
         sx={{
-          backgroundImage: `url(${bg3.src})`,
+          backgroundImage: { xs: `url(${smallbg.src})`, sm: `url(${bg.src})` },
           backgroundSize: "contain",
           backgroundPosition: "center",
           display: "flex",
