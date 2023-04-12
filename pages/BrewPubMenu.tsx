@@ -15,29 +15,28 @@ import brewPub from "@/public/brewpubLogoCropped.png";
 import StartFirebase from "@/src/components/firebaseConfig";
 import { BenniditosMenuConfig, HideOnScroll } from "@/src/utils/utils";
 import { ref, get, child } from "firebase/database";
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function BrewPubMenuPage() {
-  const [menuData, setMenuData] = React.useState<
-    BenniditosMenuConfig | undefined
-  >(undefined);
+  const [menuData, setMenuData] =
+    React.useState<BenniditosMenuConfig>(BrewPubMenuData);
 
-  const database = StartFirebase();
-  const dbRef = ref(database);
+  useEffect(() => {
+    const database = StartFirebase();
+    const dbRef = ref(database);
 
-  get(child(dbRef, "BrewPub"))
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        setMenuData(snapshot.val());
-      } else {
-        console.log("BrewPub Menu Data not found");
-        setMenuData(BrewPubMenuData);
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-      setMenuData(BrewPubMenuData);
-    });
+    get(child(dbRef, "BrewPub"))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          setMenuData(snapshot.val());
+        } else {
+          console.log("BrewPub Menu Data not found");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>

@@ -11,7 +11,7 @@ import bg3 from "@/public/bg3.jpeg";
 import { BenniditosOnTap } from "@/src/components/Panels/OnTapPanel";
 import MenuHeader from "@/src/components/MenuHeader";
 import logo from "@/public/ditosLogo.png";
-import React from "react";
+import React, { useEffect } from "react";
 import StartFirebase from "@/src/components/firebaseConfig";
 import {
   BenniditosMenuConfig,
@@ -22,26 +22,25 @@ import { ref, get, child } from "firebase/database";
 import TapList from "@/src/utils/BenniditosTapListData.json";
 
 export default function BenniditosMenuPage() {
-  const [menuData, setMenuData] = React.useState<TapListConfig | undefined>(
-    undefined
-  );
+  const [menuData, setMenuData] = React.useState<TapListConfig>(TapList);
 
-  const database = StartFirebase();
-  const dbRef = ref(database);
+  useEffect(() => {
+    const database = StartFirebase();
+    const dbRef = ref(database);
 
-  get(child(dbRef, "TapList"))
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        setMenuData(snapshot.val());
-      } else {
-        console.log("Tap List Data not found");
-        setMenuData(TapList);
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-      setMenuData(TapList);
-    });
+    get(child(dbRef, "TapList"))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          setMenuData(snapshot.val());
+        } else {
+          console.log("Tap List Data not found");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

@@ -15,29 +15,28 @@ import logo from "@/public/ditosLogo.png";
 import StartFirebase from "@/src/components/firebaseConfig";
 import { ref, get, child } from "firebase/database";
 import { BenniditosMenuConfig, HideOnScroll } from "@/src/utils/utils";
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function BenniditosMenuPage() {
-  const [menuData, setMenuData] = React.useState<
-    BenniditosMenuConfig | undefined
-  >(undefined);
+  const [menuData, setMenuData] =
+    React.useState<BenniditosMenuConfig>(BenniditosMenuData);
 
-  const database = StartFirebase();
-  const dbRef = ref(database);
+  useEffect(() => {
+    const database = StartFirebase();
+    const dbRef = ref(database);
 
-  get(child(dbRef, "SouthHill"))
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        setMenuData(snapshot.val());
-      } else {
-        console.log("Benniditos Menu Data not found");
-        setMenuData(BenniditosMenuData);
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-      setMenuData(BenniditosMenuData);
-    });
+    get(child(dbRef, "SouthHill"))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          setMenuData(snapshot.val());
+        } else {
+          console.log("Benniditos Menu Data not found");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
