@@ -44,7 +44,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 position: "relative",
                 width: { xs: "100%", xl: "70%" },
                 height: { xs: "50vh", xl: "80vh" },
-                order: { xs: 2, xl: 1 },
+                order: 2,
                 border: 1,
                 borderTop: { xs: 0, xl: 1 },
               }}
@@ -68,14 +68,13 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 textAlign: "center",
                 width: { xs: "100%", xl: "30%" },
                 border: "1px solid",
-                ml: { xs: 0, xl: 3 },
-                px: 2,
-                py: { xs: 2, xl: 8 },
+                mr: { xs: 0, xl: 3 },
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-evenly",
                 backgroundColor: "white",
-                order: { xs: 1, xl: 2 },
+                order: 1,
+                p: 4,
                 minHeight: { xs: "fit-content", xl: "80vh" },
               }}
             >
@@ -87,9 +86,9 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
               >
                 <Typography
                   sx={{ textAlign: "center", mb: 1, fontFamily: "Header" }}
-                  variant="h5"
+                  variant="h4"
                 >
-                  Delivery/Carry-Out
+                  Delivery & Carry-Out
                 </Typography>
                 <Divider
                   sx={{

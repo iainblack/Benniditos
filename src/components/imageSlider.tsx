@@ -7,7 +7,7 @@ import { Box, CircularProgress, useMediaQuery, useTheme } from "@mui/material";
 const urls = [
   "/slide4.jpg",
   "/slide3.jpg",
-  "/slide11.jpg",
+  "/slide11.5.jpg",
   "/slide1.jpg",
   "/slide5.jpg",
   "/pasta.jpg",

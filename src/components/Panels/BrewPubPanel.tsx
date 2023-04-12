@@ -46,7 +46,7 @@ export function BrewPubPanel(props: BrewPubPanelProps) {
                 position: "relative",
                 width: "70%",
                 minHeight: "90vh",
-                order: 2,
+                order: 1,
                 display: { xs: "none", xl: "flex" },
               }}
             >
@@ -64,13 +64,13 @@ export function BrewPubPanel(props: BrewPubPanelProps) {
               sx={{
                 textAlign: "center",
                 width: { xs: "100%", xl: "30%" },
-                mr: { xs: 0, xl: 3 },
+                ml: { xs: 0, xl: 3 },
                 p: 4,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-evenly",
                 backgroundColor: "white",
-                order: { xs: 1, xl: 1 },
+                order: 2,
                 minHeight: { xs: "fit-content", xl: "90vh" },
                 border: 1,
               }}

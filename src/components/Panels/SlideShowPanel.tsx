@@ -39,8 +39,8 @@ export default function SlideShowPanel(props: SlideShowPanelProps) {
       >
         <Box
           sx={{
-            width: { xs: 35, md: 55 },
-            height: { xs: 35, md: 55 },
+            width: { xs: 35, sm: 55 },
+            height: { xs: 35, sm: 55 },
             position: "relative",
           }}
         >
@@ -95,7 +95,7 @@ export default function SlideShowPanel(props: SlideShowPanelProps) {
           backgroundColor: "white",
           width: "100%",
           my: 6,
-          maxHeight: { xs: "40vh", md: "50vh", lg: "60vh" },
+          height: "50vh",
         }}
       >
         <ImageSlider />

@@ -228,13 +228,34 @@ export default function BenniditosHome() {
           <SouthHillPanel transitionIn />
         </PanelContainer>
         <BackgroundWrapper>
-          <PanelContainer id="delivery-container" ref={deliveryRef}>
-            <BenniditosDeliveryPanel transitionIn />
+          <PanelContainer id="brewpub-container" ref={brewPubRef} contentHeight>
+            <BrewPubPanel transitionIn />
           </PanelContainer>
         </BackgroundWrapper>
         <BackgroundWrapper>
-          <PanelContainer id="brewpub-container" ref={brewPubRef} contentHeight>
-            <BrewPubPanel transitionIn />
+          <Box
+            sx={{
+              backgroundColor: "white",
+              mb: { xs: 2, md: 4 },
+              mt: { xs: 4, md: 8 },
+              mx: { xs: 2, sm: 0 },
+              p: 2,
+              pb: 1,
+              border: 1,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+            }}
+          >
+            <Typography variant="h3" fontFamily="header" color="primary.main">
+              OUR SERVICES
+            </Typography>
+          </Box>
+        </BackgroundWrapper>
+        <BackgroundWrapper>
+          <PanelContainer id="delivery-container" ref={deliveryRef}>
+            <BenniditosDeliveryPanel transitionIn />
           </PanelContainer>
         </BackgroundWrapper>
         <BackgroundWrapper>

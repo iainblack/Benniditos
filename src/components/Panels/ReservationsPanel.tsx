@@ -87,9 +87,9 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
                     mb: 1,
                     fontFamily: "Header",
                   }}
-                  variant="h5"
+                  variant="h4"
                 >
-                  Reservations/Carry-Out
+                  Reservations & Carry-Out
                 </Typography>
                 <Divider
                   sx={{
