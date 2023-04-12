@@ -6,7 +6,8 @@ import {
   AppBar,
   CircularProgress,
 } from "@mui/material";
-import background from "@/public/bg3.jpeg";
+import bg3 from "@/public/bg3.jpeg";
+import bg4 from "@/public/bg4.jpeg";
 import MenuHeader from "@/src/components/MenuHeader";
 import BenniditosMenuData from "@/src/utils/BenniditosMenuData.json";
 import { MenuPanel } from "@/src/components/Panels/MenuPanel";
@@ -63,7 +64,7 @@ export default function BenniditosMenuPage() {
         fullWidth
         marginTop={"76px"}
         sx={{
-          backgroundImage: `url(${background.src})`,
+          backgroundImage: { xs: `url(${bg3.src})`, sm: `url(${bg4.src})` },
           backgroundSize: "contain",
           backgroundPosition: "center",
         }}

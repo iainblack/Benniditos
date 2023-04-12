@@ -6,7 +6,8 @@ import {
   AppBar,
   CircularProgress,
 } from "@mui/material";
-import background from "@/public/bg3.jpeg";
+import bg4 from "@/public/bg4.jpeg";
+import bg3 from "@/public/bg3.jpeg";
 import { BenniditosOnTap } from "@/src/components/Panels/OnTapPanel";
 import MenuHeader from "@/src/components/MenuHeader";
 import logo from "@/public/ditosLogo.png";
@@ -66,7 +67,7 @@ export default function BenniditosMenuPage() {
         marginTop={"76px"}
         id="menu-container"
         sx={{
-          backgroundImage: `url(${background.src})`,
+          backgroundImage: { xs: `url(${bg3.src})`, sm: `url(${bg4.src})` },
           backgroundSize: "contain",
           backgroundPosition: "center",
         }}
