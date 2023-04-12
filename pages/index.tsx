@@ -238,7 +238,7 @@ export default function BenniditosHome() {
             sx={{
               backgroundColor: "white",
               mb: { xs: 2, md: 4 },
-              mt: { xs: 4, md: 8 },
+              mt: { xs: 2, md: 4 },
               mx: { xs: 2, sm: 0 },
               p: 2,
               pb: 1,
