@@ -81,8 +81,9 @@ export default function SlideShowPanel(props: SlideShowPanelProps) {
               sx={{ textDecoration: "none" }}
             >
               two locations
-            </Link>
-            , one on the South Hill and the other on East Sprague.
+            </Link>{" "}
+            in Spokane, WA - one on the South Hill and the other on East
+            Sprague.
           </Typography>
         </Box>
         <Box
