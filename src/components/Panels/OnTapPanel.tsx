@@ -11,7 +11,7 @@ interface MenuPanelProps {
 
 export function BenniditosOnTap(props: MenuPanelProps) {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
 
   const containerRef = React.useRef<HTMLDivElement>(null);
   return (
@@ -25,7 +25,10 @@ export function BenniditosOnTap(props: MenuPanelProps) {
         <Fade in={props.transitionIn} timeout={1000}>
           <Box>
             <Box>
-              <SectionHeader title="TAP LIST" imagePath="/taps.jpg" />
+              <SectionHeader
+                title="TAP LIST"
+                imagePath={isSmallScreen ? "/taps.jpg" : "/taps2.jpg"}
+              />
               <Box>
                 <BenniditosTapList
                   theme={theme}

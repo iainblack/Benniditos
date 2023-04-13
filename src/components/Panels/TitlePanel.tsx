@@ -1,4 +1,11 @@
-import { Box, useTheme, useMediaQuery, Slide, Button } from "@mui/material";
+import {
+  Box,
+  useTheme,
+  useMediaQuery,
+  Slide,
+  Button,
+  Fade,
+} from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import React, { useEffect } from "react";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
@@ -17,12 +24,11 @@ export default function TitlePanel(props: TitlePanelProps) {
   useEffect(() => {
     setTimeout(() => {
       setAnimateLabel(true);
-    }, 750);
+    }, 1000);
   }, []);
 
   return (
     <Box
-      ref={containerRef}
       sx={{
         height: { xs: "100vh", md: "100vh" },
         width: "100vw",
@@ -48,6 +54,7 @@ export default function TitlePanel(props: TitlePanelProps) {
           }}
         />
         <Box
+          ref={containerRef}
           sx={{
             height: "100%",
             display: "flex",
@@ -59,42 +66,46 @@ export default function TitlePanel(props: TitlePanelProps) {
             position: "relative",
           }}
         >
-          <Slide
-            in
-            timeout={750}
-            direction={"up"}
-            container={containerRef.current}
-          >
-            <Box sx={{ mb: { xs: 16, md: 10 } }}>
-              <Box
-                sx={{
-                  mt: 8,
-                  display: "flex",
-                  justifyContent: "center",
-                  height: "25vh",
-                  width: { xs: "80vw", md: "35vw" },
-                  position: "relative",
-                  zIndex: 1,
-                }}
+          <Fade in timeout={1750}>
+            <Box>
+              <Slide
+                in
+                timeout={1000}
+                direction={"up"}
+                container={containerRef.current}
               >
-                <Image
-                  src={"/ditosLogo.png"}
-                  alt="Benniditos"
-                  fill
-                  sizes="100%"
-                  priority
-                  style={{
-                    objectFit: "contain",
-                    objectPosition: "center",
-                    zIndex: 1,
-                  }}
-                />
-              </Box>
+                <Box sx={{ mb: { xs: 16, md: 10 } }}>
+                  <Box
+                    sx={{
+                      mt: 8,
+                      display: "flex",
+                      justifyContent: "center",
+                      height: "25vh",
+                      width: { xs: "80vw", md: "35vw" },
+                      position: "relative",
+                      zIndex: 1,
+                    }}
+                  >
+                    <Image
+                      src={"/ditosLogo.png"}
+                      alt="Benniditos"
+                      fill
+                      sizes="100%"
+                      priority
+                      style={{
+                        objectFit: "contain",
+                        objectPosition: "center",
+                        zIndex: 1,
+                      }}
+                    />
+                  </Box>
+                </Box>
+              </Slide>
             </Box>
-          </Slide>
+          </Fade>
           <Slide
             in={animateLabel}
-            timeout={750}
+            timeout={1000}
             direction={"up"}
             container={containerRef.current}
           >

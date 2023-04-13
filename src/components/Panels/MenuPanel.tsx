@@ -23,7 +23,6 @@ import BenniditosPasta from "../Products/BenniditosPasta";
 import BenniditosStarters from "../Products/BenniditosStarters";
 import BenniditosCalzones from "../Products/BenniditosCalzones";
 import BenniditosSandwiches from "../Products/BenniditosSandwiches";
-import { StaticImageData } from "next/image";
 
 interface MenuPanelProps {
   transitionIn: boolean;

@@ -64,7 +64,7 @@ export default function Header(props: HeaderProps) {
   useEffect(() => {
     setTimeout(() => {
       setAnimateTabs(true);
-    }, 750);
+    }, 1000);
   }, []);
 
   const list = () => (

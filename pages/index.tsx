@@ -5,6 +5,7 @@ import {
   AppBar,
   Typography,
   Divider,
+  Fade,
 } from "@mui/material";
 import { BackgroundWrapper, PanelContainer } from "@/src/components/styles";
 import theme from "@/Theme";
@@ -29,6 +30,14 @@ interface AppBarState {
   display: boolean;
 }
 
+interface TransitionState {
+  aboutUsTransitionIn: boolean;
+  southHillTransitionIn: boolean;
+  brewPubTransitionIn: boolean;
+  deliveryTransitionIn: boolean;
+  reservationsTransitionIn: boolean;
+}
+
 export default function BenniditosHome() {
   const [AppBarState, setAppBarState] = React.useState<AppBarState>({
     transparent: true,
@@ -36,6 +45,16 @@ export default function BenniditosHome() {
     logo: false,
     display: true,
   });
+
+  const [transitionState, setTransitionState] = React.useState<TransitionState>(
+    {
+      aboutUsTransitionIn: false,
+      southHillTransitionIn: false,
+      brewPubTransitionIn: false,
+      deliveryTransitionIn: false,
+      reservationsTransitionIn: false,
+    }
+  );
 
   const aboutUsRef = React.useRef<HTMLDivElement>(null);
   const locationsRef = React.useRef<HTMLDivElement>(null);
@@ -111,33 +130,73 @@ export default function BenniditosHome() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.visualViewport?.height && window.scrollY < 5) {
+      const scrollPosition = window.scrollY;
+      if (window.visualViewport?.height && scrollPosition < 5) {
         setAppBarState({
           transparent: true,
           elevated: false,
           logo: false,
           display: true,
         });
-      }
-      if (
+      } else if (
         window.visualViewport?.height &&
-        window.scrollY > 5 &&
-        window.scrollY < window.visualViewport?.height
+        scrollPosition > 5 &&
+        scrollPosition < window.visualViewport?.height
       ) {
         setAppBarState({
           ...AppBarState,
           display: false,
         });
-      }
-      if (
+      } else if (
         window.visualViewport?.height &&
-        window.scrollY > window.visualViewport?.height
+        scrollPosition > window.visualViewport?.height
       ) {
         setAppBarState({
           transparent: false,
           elevated: false,
           logo: true,
           display: true,
+        });
+      }
+      const aboutUsTop = aboutUsRef.current?.offsetTop;
+      const southHillTop = southHillRef.current?.offsetTop;
+      const brewPubTop = brewPubRef.current?.offsetTop;
+      const deliveryTop = deliveryRef.current?.offsetTop;
+      const reservationsTop = reservationsRef.current?.offsetTop;
+      if (aboutUsTop && scrollPosition < aboutUsTop + 100) {
+        setTransitionState({
+          ...transitionState,
+          aboutUsTransitionIn: true,
+        });
+      } else if (southHillTop && scrollPosition < southHillTop) {
+        setTransitionState({
+          ...transitionState,
+          aboutUsTransitionIn: true,
+          southHillTransitionIn: true,
+        });
+      } else if (brewPubTop && scrollPosition < brewPubTop) {
+        setTransitionState({
+          ...transitionState,
+          aboutUsTransitionIn: true,
+          southHillTransitionIn: true,
+          brewPubTransitionIn: true,
+        });
+      } else if (deliveryTop && scrollPosition < deliveryTop) {
+        setTransitionState({
+          ...transitionState,
+          aboutUsTransitionIn: true,
+          southHillTransitionIn: true,
+          brewPubTransitionIn: true,
+          deliveryTransitionIn: true,
+        });
+      } else if (reservationsTop && scrollPosition < reservationsTop) {
+        setTransitionState({
+          ...transitionState,
+          aboutUsTransitionIn: true,
+          southHillTransitionIn: true,
+          brewPubTransitionIn: true,
+          deliveryTransitionIn: true,
+          reservationsTransitionIn: true,
         });
       }
     };
@@ -190,69 +249,80 @@ export default function BenniditosHome() {
             ref={aboutUsRef}
             contentHeight
           >
-            <SlideShowPanel scrollToLocations={scrollToLocations} />
+            <SlideShowPanel
+              scrollToLocations={scrollToLocations}
+              transitionIn={transitionState.aboutUsTransitionIn}
+            />
           </PanelContainer>
         </BackgroundWrapper>
         <Box sx={{ width: "100%" }}>
           <Divider color="black" />
         </Box>
         <BackgroundWrapper>
-          <Box
-            ref={locationsRef}
-            sx={{
-              backgroundColor: "white",
-              mb: { xs: 2, md: 4 },
-              mt: { xs: 4, md: 8 },
-              mx: { xs: 2, sm: 0 },
-              p: 2,
-              pb: 1,
-              border: 1,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Typography variant="h3" fontFamily="header" color="primary.main">
-              OUR LOCATIONS
-            </Typography>
-          </Box>
+          <Fade in={transitionState.southHillTransitionIn} timeout={1000}>
+            <Box
+              ref={locationsRef}
+              sx={{
+                backgroundColor: "white",
+                mb: { xs: 2, md: 4 },
+                mt: { xs: 4, md: 8 },
+                mx: { xs: 2, sm: 0 },
+                p: 2,
+                pb: 1,
+                border: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+              }}
+            >
+              <Typography variant="h3" fontFamily="header" color="primary.main">
+                OUR LOCATIONS
+              </Typography>
+            </Box>
+          </Fade>
         </BackgroundWrapper>
         <PanelContainer
           id="south-hill-container"
           ref={southHillRef}
           contentHeight
         >
-          <SouthHillPanel transitionIn />
+          <SouthHillPanel
+            transitionIn={transitionState.southHillTransitionIn}
+          />
         </PanelContainer>
         <BackgroundWrapper>
           <PanelContainer id="brewpub-container" ref={brewPubRef} contentHeight>
-            <BrewPubPanel transitionIn />
+            <BrewPubPanel transitionIn={transitionState.brewPubTransitionIn} />
           </PanelContainer>
         </BackgroundWrapper>
         <BackgroundWrapper>
-          <Box
-            sx={{
-              backgroundColor: "white",
-              my: { xs: 2, md: 4 },
-              mx: { xs: 2, sm: 0 },
-              p: 2,
-              pb: 1,
-              border: 1,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              textAlign: "center",
-            }}
-          >
-            <Typography variant="h3" fontFamily="header" color="primary.main">
-              OUR SERVICES
-            </Typography>
-          </Box>
+          <Fade in={transitionState.deliveryTransitionIn} timeout={1000}>
+            <Box
+              sx={{
+                backgroundColor: "white",
+                my: { xs: 2, md: 4 },
+                mx: { xs: 2, sm: 0 },
+                p: 2,
+                pb: 1,
+                border: 1,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+              }}
+            >
+              <Typography variant="h3" fontFamily="header" color="primary.main">
+                OUR SERVICES
+              </Typography>
+            </Box>
+          </Fade>
         </BackgroundWrapper>
         <BackgroundWrapper>
           <PanelContainer id="delivery-container" ref={deliveryRef}>
-            <BenniditosDeliveryPanel transitionIn />
+            <BenniditosDeliveryPanel
+              transitionIn={transitionState.deliveryTransitionIn}
+            />
           </PanelContainer>
         </BackgroundWrapper>
         <BackgroundWrapper>
@@ -261,7 +331,9 @@ export default function BenniditosHome() {
             ref={reservationsRef}
             contentHeight
           >
-            <ReservationsPanel transitionIn />
+            <ReservationsPanel
+              transitionIn={transitionState.reservationsTransitionIn}
+            />
           </PanelContainer>
         </BackgroundWrapper>
         <Box sx={{ width: "100%" }}>

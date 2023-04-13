@@ -61,7 +61,7 @@ export default function BenniditosMenuPage() {
       </HideOnScroll>
       <PanelContainer
         fullWidth
-        marginTop={"76px"}
+        marginTop={"81px"}
         sx={{
           backgroundImage: { xs: `url(${bg3.src})`, sm: `url(${bg4.src})` },
           backgroundSize: "contain",
