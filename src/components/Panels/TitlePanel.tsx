@@ -17,7 +17,7 @@ export default function TitlePanel(props: TitlePanelProps) {
   useEffect(() => {
     setTimeout(() => {
       setAnimateLabel(true);
-    }, 1000);
+    }, 750);
   }, []);
 
   return (
@@ -61,7 +61,7 @@ export default function TitlePanel(props: TitlePanelProps) {
         >
           <Slide
             in
-            timeout={1000}
+            timeout={750}
             direction={"up"}
             container={containerRef.current}
           >
@@ -94,7 +94,7 @@ export default function TitlePanel(props: TitlePanelProps) {
           </Slide>
           <Slide
             in={animateLabel}
-            timeout={1000}
+            timeout={750}
             direction={"up"}
             container={containerRef.current}
           >
