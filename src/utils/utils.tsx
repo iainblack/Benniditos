@@ -1,14 +1,17 @@
 import {
   Box,
   Button,
-  Divider,
   Fade,
+  IconButton,
   Slide,
   Theme,
   Typography,
+  useMediaQuery,
   useScrollTrigger,
-  useTheme,
 } from "@mui/material";
+
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
 
 export interface TabPanelProps {
   children?: React.ReactNode;
@@ -141,7 +144,7 @@ export function BenniditosInfo(props: { theme: Theme }) {
                 );
               }}
               sx={{
-                fontFamily: "header",
+                fontFamily: "body",
                 textTransform: "none",
                 fontSize: props.theme.typography.body1.fontSize,
               }}
@@ -152,7 +155,7 @@ export function BenniditosInfo(props: { theme: Theme }) {
           <Button
             size="large"
             sx={{
-              fontFamily: "header",
+              fontFamily: "body",
               fontSize: props.theme.typography.body1.fontSize,
             }}
             onClick={() => {
@@ -211,7 +214,7 @@ export function BrewPubInfo(props: { theme: Theme }) {
               );
             }}
             sx={{
-              fontFamily: "header",
+              fontFamily: "body",
               textTransform: "none",
               fontSize: props.theme.typography.body1.fontSize,
             }}
@@ -222,7 +225,7 @@ export function BrewPubInfo(props: { theme: Theme }) {
         <Button
           size="large"
           sx={{
-            fontFamily: "header",
+            fontFamily: "body",
             fontSize: props.theme.typography.body1.fontSize,
           }}
           onClick={() => {
@@ -338,4 +341,47 @@ export interface BenniditosMenuConfig {
     price: string;
     options: string[];
   };
+}
+
+export function SocialMediaInfo(props: { theme: Theme }) {
+  const isSmallScreen = useMediaQuery(props.theme.breakpoints.down("sm"));
+  return (
+    <>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          textAlign: "center",
+        }}
+      >
+        <Box>
+          <IconButton
+            onClick={() => {
+              window.open(
+                "https://instagram.com/benniditospizza?igshid=Mzc1MmZhNjY=",
+                "_blank"
+              );
+            }}
+          >
+            <InstagramIcon
+              fontSize={isSmallScreen ? "medium" : "large"}
+              sx={{ color: "white" }}
+            />
+          </IconButton>
+        </Box>
+        <Box>
+          <IconButton
+            onClick={() => {
+              window.open("https://www.facebook.com/Benniditos", "_blank");
+            }}
+          >
+            <FacebookIcon
+              fontSize={isSmallScreen ? "medium" : "large"}
+              sx={{ color: "white" }}
+            />
+          </IconButton>
+        </Box>
+      </Box>
+    </>
+  );
 }

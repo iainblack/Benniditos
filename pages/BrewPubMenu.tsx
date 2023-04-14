@@ -64,6 +64,7 @@ export default function BrewPubMenuPage() {
         marginTop={"81px"}
         sx={{
           backgroundImage: { xs: `url(${bg3.src})`, sm: `url(${bg4.src})` },
+          backgroundColor: "#fefcf9",
           backgroundSize: "contain",
           backgroundPosition: "center",
         }}

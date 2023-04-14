@@ -6,8 +6,13 @@ import {
   Typography,
   Divider,
   Fade,
+  useMediaQuery,
 } from "@mui/material";
-import { BackgroundWrapper, PanelContainer } from "@/src/components/styles";
+import {
+  BackgroundWrapper,
+  PanelContainer,
+  SectionHeader,
+} from "@/src/components/styles";
 import theme from "@/Theme";
 import { useEffect } from "react";
 import React from "react";
@@ -39,6 +44,7 @@ interface TransitionState {
 }
 
 export default function BenniditosHome() {
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const [AppBarState, setAppBarState] = React.useState<AppBarState>({
     transparent: true,
     elevated: false,
@@ -163,46 +169,61 @@ export default function BenniditosHome() {
       const brewPubTop = brewPubRef.current?.offsetTop;
       const deliveryTop = deliveryRef.current?.offsetTop;
       const reservationsTop = reservationsRef.current?.offsetTop;
-      if (aboutUsTop && scrollPosition < aboutUsTop + 100) {
+
+      if (
+        aboutUsTop &&
+        !transitionState.aboutUsTransitionIn &&
+        scrollPosition > aboutUsTop - 500
+      ) {
         setTransitionState({
           ...transitionState,
           aboutUsTransitionIn: true,
         });
-      } else if (southHillTop && scrollPosition < southHillTop) {
+      }
+      if (
+        southHillTop &&
+        !transitionState.southHillTransitionIn &&
+        scrollPosition > southHillTop - 500
+      ) {
         setTransitionState({
           ...transitionState,
-          aboutUsTransitionIn: true,
           southHillTransitionIn: true,
         });
-      } else if (brewPubTop && scrollPosition < brewPubTop) {
+      }
+      if (
+        brewPubTop &&
+        !transitionState.brewPubTransitionIn &&
+        scrollPosition > brewPubTop - 500
+      ) {
         setTransitionState({
           ...transitionState,
-          aboutUsTransitionIn: true,
-          southHillTransitionIn: true,
           brewPubTransitionIn: true,
         });
-      } else if (deliveryTop && scrollPosition < deliveryTop) {
+      }
+      if (
+        deliveryTop &&
+        !transitionState.deliveryTransitionIn &&
+        scrollPosition > deliveryTop - 500
+      ) {
         setTransitionState({
           ...transitionState,
-          aboutUsTransitionIn: true,
-          southHillTransitionIn: true,
-          brewPubTransitionIn: true,
           deliveryTransitionIn: true,
         });
-      } else if (reservationsTop && scrollPosition < reservationsTop) {
+      }
+      if (
+        reservationsTop &&
+        !transitionState.reservationsTransitionIn &&
+        scrollPosition > reservationsTop - 600
+      ) {
         setTransitionState({
           ...transitionState,
-          aboutUsTransitionIn: true,
-          southHillTransitionIn: true,
-          brewPubTransitionIn: true,
-          deliveryTransitionIn: true,
           reservationsTransitionIn: true,
         });
       }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [AppBarState, transitionState]);
 
   return (
     <ThemeProvider theme={theme}>
@@ -210,9 +231,7 @@ export default function BenniditosHome() {
       <Box
         id="benniditosHome"
         sx={{
-          backgroundImage: { xs: `url(${smallbg.src})`, sm: `url(${bg.src})` },
-          backgroundSize: "contain",
-          backgroundPosition: "center",
+          backgroundColor: "#fefcf9",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
@@ -240,15 +259,21 @@ export default function BenniditosHome() {
             scrollToBrewPub={scrollToBrewPub}
           />
         </BackgroundWrapper>
+        <Box sx={{ width: "100%", mt: 3 }}>
+          <Divider color="black" />
+        </Box>
+        <BackgroundWrapper backgroundImage={bg.src} ref={aboutUsRef}>
+          <SectionHeader isSmallScreen={isSmallScreen}>
+            <Typography variant="h3" fontFamily="header" color="primary.main">
+              ABOUT US
+            </Typography>
+          </SectionHeader>
+        </BackgroundWrapper>
         <Box sx={{ width: "100%" }}>
           <Divider color="black" />
         </Box>
-        <BackgroundWrapper backgroundColor="white">
-          <PanelContainer
-            id="slideshow-container"
-            ref={aboutUsRef}
-            contentHeight
-          >
+        <BackgroundWrapper backgroundColor="#fefcf9">
+          <PanelContainer id="slideshow-container" contentHeight>
             <SlideShowPanel
               scrollToLocations={scrollToLocations}
               transitionIn={transitionState.aboutUsTransitionIn}
@@ -258,87 +283,69 @@ export default function BenniditosHome() {
         <Box sx={{ width: "100%" }}>
           <Divider color="black" />
         </Box>
-        <BackgroundWrapper>
-          <Fade in={transitionState.southHillTransitionIn} timeout={1000}>
-            <Box
-              ref={locationsRef}
-              sx={{
-                backgroundColor: "white",
-                mb: { xs: 2, md: 4 },
-                mt: { xs: 4, md: 8 },
-                mx: { xs: 2, sm: 0 },
-                p: 2,
-                pb: 1,
-                border: 1,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                textAlign: "center",
-              }}
-            >
-              <Typography variant="h3" fontFamily="header" color="primary.main">
-                OUR LOCATIONS
-              </Typography>
-            </Box>
-          </Fade>
+        <BackgroundWrapper backgroundImage={bg.src} ref={locationsRef}>
+          <SectionHeader>
+            <Typography variant="h3" fontFamily="header" color="primary.main">
+              OUR LOCATIONS
+            </Typography>
+          </SectionHeader>
         </BackgroundWrapper>
-        <PanelContainer
-          id="south-hill-container"
-          ref={southHillRef}
-          contentHeight
-        >
-          <SouthHillPanel
-            transitionIn={transitionState.southHillTransitionIn}
-          />
-        </PanelContainer>
-        <BackgroundWrapper>
-          <PanelContainer id="brewpub-container" ref={brewPubRef} contentHeight>
-            <BrewPubPanel transitionIn={transitionState.brewPubTransitionIn} />
-          </PanelContainer>
-        </BackgroundWrapper>
-        <BackgroundWrapper>
-          <Fade in={transitionState.deliveryTransitionIn} timeout={1000}>
-            <Box
-              sx={{
-                backgroundColor: "white",
-                my: { xs: 2, md: 4 },
-                mx: { xs: 2, sm: 0 },
-                p: 2,
-                pb: 1,
-                border: 1,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                textAlign: "center",
-              }}
-            >
-              <Typography variant="h3" fontFamily="header" color="primary.main">
-                OUR SERVICES
-              </Typography>
-            </Box>
-          </Fade>
-        </BackgroundWrapper>
-        <BackgroundWrapper>
-          <PanelContainer id="delivery-container" ref={deliveryRef}>
-            <BenniditosDeliveryPanel
-              transitionIn={transitionState.deliveryTransitionIn}
-            />
-          </PanelContainer>
-        </BackgroundWrapper>
-        <BackgroundWrapper>
-          <PanelContainer
-            id="reservations-container"
-            ref={reservationsRef}
-            contentHeight
-          >
-            <ReservationsPanel
-              transitionIn={transitionState.reservationsTransitionIn}
-            />
-          </PanelContainer>
-        </BackgroundWrapper>
-        <Box sx={{ width: "100%" }}>
-          <Divider color="black" sx={{ mt: { xs: 1, md: 4 } }} />
+        <Box sx={{ width: "100%", mb: { xs: 2, md: 4 } }}>
+          <Divider color="black" />
         </Box>
+        <BackgroundWrapper backgroundColor="#fefcf9" ref={southHillRef}>
+          <Fade in={transitionState.southHillTransitionIn} timeout={1000}>
+            <PanelContainer
+              id="south-hill-container"
+              contentHeight
+              backgroundColor="#fefcf9"
+            >
+              <SouthHillPanel
+                transitionIn={transitionState.southHillTransitionIn}
+              />
+            </PanelContainer>
+          </Fade>
+        </BackgroundWrapper>
+        <BackgroundWrapper backgroundColor="#fefcf9" ref={brewPubRef}>
+          <Fade in={transitionState.brewPubTransitionIn} timeout={1000}>
+            <PanelContainer id="brewpub-container" contentHeight>
+              <BrewPubPanel
+                transitionIn={transitionState.brewPubTransitionIn}
+              />
+            </PanelContainer>
+          </Fade>
+        </BackgroundWrapper>
+        <Box sx={{ width: "100%", mt: 4 }}>
+          <Divider color="black" />
+        </Box>
+        <BackgroundWrapper backgroundImage={bg.src}>
+          <SectionHeader>
+            <Typography variant="h3" fontFamily="header" color="primary.main">
+              OUR SERVICES
+            </Typography>
+          </SectionHeader>
+        </BackgroundWrapper>
+        <Box sx={{ width: "100%", mb: 4 }}>
+          <Divider color="black" />
+        </Box>
+        <BackgroundWrapper backgroundColor="#fefcf9" ref={deliveryRef}>
+          <Fade in={transitionState.deliveryTransitionIn} timeout={1000}>
+            <PanelContainer id="delivery-container">
+              <BenniditosDeliveryPanel
+                transitionIn={transitionState.deliveryTransitionIn}
+              />
+            </PanelContainer>
+          </Fade>
+        </BackgroundWrapper>
+        <BackgroundWrapper backgroundColor="#fefcf9" ref={reservationsRef}>
+          <Fade in={transitionState.reservationsTransitionIn} timeout={1000}>
+            <PanelContainer id="reservations-container" contentHeight>
+              <ReservationsPanel
+                transitionIn={transitionState.reservationsTransitionIn}
+              />
+            </PanelContainer>
+          </Fade>
+        </BackgroundWrapper>
         <BackgroundWrapper ref={contactRef}>
           <FooterPanel />
         </BackgroundWrapper>

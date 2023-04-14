@@ -7,6 +7,7 @@ import {
   Typography,
   useMediaQuery,
   useTheme,
+  Slide,
 } from "@mui/material";
 import React from "react";
 import Image, { StaticImageData } from "next/image";
@@ -17,10 +18,8 @@ interface ReservationsPanelProps {
 }
 
 export function ReservationsPanel(props: ReservationsPanelProps) {
-  const router = useRouter();
   const theme = useTheme();
   const containerRef = React.useRef<HTMLDivElement>(null);
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box
       sx={{
@@ -31,111 +30,125 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
         position: "relative",
       }}
     >
-      <Box ref={containerRef}>
-        <Fade in={props.transitionIn} timeout={1000}>
-          <Box
-            sx={{
-              height: "fit-content",
-              display: "flex",
-              flexDirection: { xs: "column", xl: "row" },
-              justifyContent: "space-between",
-            }}
-          >
+      <Slide in={props.transitionIn} timeout={1000} direction="right">
+        <Box ref={containerRef}>
+          <Fade in={props.transitionIn} timeout={1000}>
             <Box
               sx={{
-                position: "relative",
-                width: "70%",
-                minHeight: { xs: "fit-content", xl: "80vh" },
-                order: 1,
-                display: { xs: "none", xl: "flex" },
-              }}
-            >
-              <Image
-                src="/reservations.jpeg"
-                alt="Outside"
-                fill
-                style={{
-                  objectFit: "cover",
-                  objectPosition: "center",
-                }}
-              />
-            </Box>
-            <Box
-              sx={{
-                textAlign: "center",
-                width: { xs: "100%", xl: "30%" },
-                ml: { xs: 0, xl: 3 },
-                p: 4,
+                height: "fit-content",
                 display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-evenly",
-                backgroundColor: "white",
-                order: 2,
-                minHeight: { md: "fit-content", xl: "80vh" },
-                border: 1,
+                flexDirection: { xs: "column", xl: "row" },
+                justifyContent: "space-between",
               }}
             >
               <Box
                 sx={{
-                  justifyContent: "center",
+                  position: "relative",
+                  width: "70%",
+                  minHeight: { xs: "fit-content", xl: "80vh" },
+                  order: 1,
+                  display: { xs: "none", xl: "flex" },
+                  boxShadow: 8,
+                  padding: 3,
+                  backgroundColor: "white",
                 }}
               >
-                <Typography
+                <Box
                   sx={{
-                    textAlign: "center",
-                    mb: 1,
-                    fontFamily: "Header",
-                  }}
-                  variant="h4"
-                >
-                  Reservations & Carry-Out
-                </Typography>
-                <Divider
-                  sx={{
-                    mb: 2,
-                    mx: { xs: "15%", sm: "30%", md: "20%" },
-                    borderBottomStyle: "dashed",
-                  }}
-                />
-                <Typography
-                  variant="body1"
-                  sx={{
-                    mx: "auto",
-                    px: 2,
-                    fontFamily: "body",
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                    overflow: "hidden",
                   }}
                 >
-                  The BrewPub offers carry-out orders and reservations placed
-                  over the phone.
-                </Typography>
+                  <Image
+                    src="/reservations.jpeg"
+                    alt="Outside"
+                    fill
+                    style={{
+                      objectFit: "cover",
+                      objectPosition: "center",
+                    }}
+                  />
+                </Box>
               </Box>
               <Box
                 sx={{
+                  textAlign: "center",
+                  width: { xs: "100%", xl: "30%" },
+                  ml: { xs: 0, xl: 3 },
+                  p: 4,
                   display: "flex",
                   flexDirection: "column",
+                  justifyContent: "space-evenly",
+                  backgroundColor: "white",
+                  order: 2,
+                  minHeight: { md: "fit-content", xl: "80vh" },
+                  boxShadow: 8,
                 }}
               >
-                <Box sx={{ my: 1 }}>
-                  <Button
-                    variant="outlined"
+                <Box
+                  sx={{
+                    justifyContent: "center",
+                  }}
+                >
+                  <Typography
                     sx={{
-                      textTransform: "none",
-                      fontFamily: "header",
-                      fontSize: theme.typography.body1.fontSize,
-                      mt: { xs: 5, xl: 0 },
+                      textAlign: "center",
+                      mb: 1,
+                      fontFamily: "Header",
                     }}
-                    onClick={() => {
-                      window.open("tel:+5092905018", "_self");
+                    variant="h4"
+                  >
+                    Reservations & Carry-Out
+                  </Typography>
+                  <Divider
+                    sx={{
+                      mb: 2,
+                      mx: { xs: "15%", sm: "30%", md: "20%" },
+                      borderBottomStyle: "dashed",
+                    }}
+                  />
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      mx: "auto",
+                      px: 2,
+                      fontFamily: "body",
                     }}
                   >
-                    (509) 290-5018
-                  </Button>
+                    The BrewPub offers carry-out orders and reservations placed
+                    over the phone.
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
+                >
+                  <Box sx={{ my: 1 }}>
+                    <Button
+                      variant="outlined"
+                      sx={{
+                        textTransform: "none",
+                        fontFamily: "header",
+                        fontSize: theme.typography.body1.fontSize,
+                        mt: { xs: 5, xl: 0 },
+                      }}
+                      onClick={() => {
+                        window.open("tel:+5092905018", "_self");
+                      }}
+                    >
+                      (509) 290-5018
+                    </Button>
+                  </Box>
                 </Box>
               </Box>
             </Box>
-          </Box>
-        </Fade>
-      </Box>
+          </Fade>
+        </Box>
+      </Slide>
     </Box>
   );
 }

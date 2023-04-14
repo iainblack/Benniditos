@@ -6,6 +6,7 @@ import {
   Theme,
   Typography,
   useTheme,
+  Slide,
 } from "@mui/material";
 import Image from "next/image";
 import React from "react";
@@ -27,28 +28,31 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
         height: "fit-content",
       }}
     >
-      <Box ref={containerRef}>
-        <Fade in={props.transitionIn} timeout={1000}>
-          <Box
-            sx={{
-              height: "fit-content",
-              display: "flex",
-              flexDirection: { xs: "column", xl: "row" },
-              justifyContent: "space-between",
-            }}
-          >
+      <Slide in={props.transitionIn} timeout={1000} direction="left">
+        <Box ref={containerRef}>
+          <Fade in={props.transitionIn} timeout={1000}>
             <Box
-              id="map-container"
               sx={{
-                position: "relative",
-                width: { xs: "100%", xl: "70%" },
-                height: { xs: "50vh", xl: "80vh" },
-                order: 2,
-                border: 1,
-                borderTop: { xs: 0, xl: 1 },
+                height: "fit-content",
+                display: "flex",
+                flexDirection: { xs: "column", xl: "row" },
+                justifyContent: "space-between",
               }}
             >
-              {/* Placeholder for google maps api implementation/}
+              <Box
+                id="map-container"
+                sx={{
+                  mt: { xs: 4, xl: 0 },
+                  position: "relative",
+                  width: { xs: "100%", xl: "70%" },
+                  height: { xs: "50vh", xl: "80vh" },
+                  order: 2,
+                  boxShadow: 8,
+                  padding: { xs: 0, xl: 3 },
+                  backgroundColor: "white",
+                }}
+              >
+                {/* Placeholder for google maps api implementation/}
               {/* <iframe
                 width="100%"
                 height="100%"
@@ -56,33 +60,43 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 referrerPolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYtw6jLiRYtOFLkrDEoV0aR2J4U-Gd7b4&q=Bennidito's+Pizza+Spokane,+WA+99203&zoom=13"
               ></iframe> */}
-              <Image
-                src="/deliveryMap.png"
-                alt="map"
-                fill
-                style={{ objectFit: "fill", objectPosition: "center" }}
-              />
+                <Box
+                  sx={{
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                    overflow: "hidden",
+                  }}
+                >
+                  <Image
+                    src="/deliveryMap.png"
+                    alt="map"
+                    fill
+                    style={{ objectFit: "fill", objectPosition: "center" }}
+                  />
+                </Box>
+              </Box>
+              <Box
+                sx={{
+                  textAlign: "center",
+                  width: { xs: "100%", xl: "30%" },
+                  boxShadow: 8,
+                  mr: { xs: 0, xl: 3 },
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-evenly",
+                  backgroundColor: "white",
+                  order: 1,
+                  p: 4,
+                  minHeight: { xs: "fit-content", xl: "80vh" },
+                }}
+              >
+                <DeliveryInfo theme={theme} />
+              </Box>
             </Box>
-            <Box
-              sx={{
-                textAlign: "center",
-                width: { xs: "100%", xl: "30%" },
-                border: "1px solid",
-                mr: { xs: 0, xl: 3 },
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-evenly",
-                backgroundColor: "white",
-                order: 1,
-                p: 4,
-                minHeight: { xs: "fit-content", xl: "80vh" },
-              }}
-            >
-              <DeliveryInfo theme={theme} />
-            </Box>
-          </Box>
-        </Fade>
-      </Box>
+          </Fade>
+        </Box>
+      </Slide>
     </Box>
   );
 }

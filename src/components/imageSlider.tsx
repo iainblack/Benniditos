@@ -4,20 +4,13 @@ import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 
-const urls = [
-  "/slide4.jpg",
-  "/slide3.jpg",
-  "/slide11.5.jpg",
-  "/slide1.jpg",
-  "/slide5.jpg",
-  "/pasta.jpg",
-  "/slide6.jpg",
-  "/slide7.jpg",
-  "/slide8.jpg",
-  "/slide10.jpg",
-];
+interface ImageSliderProps {
+  urls: string[];
+  perView?: number;
+  loop?: boolean;
+}
 
-export default function ImageSlider() {
+export default function ImageSlider(props: ImageSliderProps) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
@@ -25,20 +18,32 @@ export default function ImageSlider() {
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider({
     initial: 0,
-    loop: true,
+    loop: props.loop ? true : false,
     slideChanged(slider) {
       setCurrentSlide(slider.track.details.rel);
     },
     slides: {
-      perView: isLargeScreen ? 3 : isSmallScreen ? 1 : 2,
-      spacing: isSmallScreen ? 0 : 10,
+      perView: props.perView
+        ? props.perView
+        : isLargeScreen
+        ? 3
+        : isSmallScreen
+        ? 1
+        : 2,
+      spacing: props.perView === 1 ? 0 : isSmallScreen ? 0 : 10,
     },
     created() {
       setLoaded(true);
     },
   });
 
-  const dotOffset = isSmallScreen ? 0 : isLargeScreen ? 2 : 1;
+  useEffect(() => {
+    setTimeout(() => {
+      if (instanceRef.current) {
+        instanceRef.current.update();
+      }
+    }, 10);
+  }, []);
 
   return (
     <Box sx={{ height: "100%", width: "100%" }}>
@@ -56,9 +61,13 @@ export default function ImageSlider() {
               width: "100%",
             }}
           >
-            {urls.map((url, index) => {
+            {props.urls.map((url, index) => {
               return (
-                <Box className="keen-slider__slide number-slide1" key={index}>
+                <Box
+                  className="keen-slider__slide number-slide1"
+                  key={index}
+                  sx={{ borderRadius: 1 }}
+                >
                   <Image
                     src={url}
                     alt="image"
@@ -71,7 +80,7 @@ export default function ImageSlider() {
             })}
           </Box>
         }
-        {loaded && instanceRef.current && (
+        {loaded && instanceRef.current && props.loop && (
           <>
             <Arrow
               left
@@ -89,12 +98,10 @@ export default function ImageSlider() {
           </>
         )}
       </Box>
-      {loaded && instanceRef.current && (
+      {loaded && instanceRef.current && props.loop && (
         <div className="dots">
           {[
-            ...Array(
-              instanceRef.current.track.details.slides.length - dotOffset
-            ).keys(),
+            ...Array(instanceRef.current.track.details.slides.length).keys(),
           ].map((idx) => {
             return (
               <button

@@ -9,6 +9,7 @@ import {
 import Image, { StaticImageData } from "next/image";
 import React, { useEffect } from "react";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import { SocialMediaInfo } from "@/src/utils/utils";
 
 interface TitlePanelProps {
   scrollToSouthHill: () => void;
@@ -143,6 +144,16 @@ export default function TitlePanel(props: TitlePanelProps) {
                   Sprague Location
                 </Button>
               </Box>
+            </Box>
+          </Slide>
+          <Slide
+            in={animateLabel}
+            timeout={1000}
+            direction={"up"}
+            container={containerRef.current}
+          >
+            <Box sx={{ position: "absolute", right: 10, bottom: 0 }}>
+              <SocialMediaInfo theme={theme} />
             </Box>
           </Slide>
         </Box>

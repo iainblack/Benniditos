@@ -9,7 +9,6 @@ import {
   useTheme,
 } from "@mui/material";
 import bg from "@/public/footer.jpg";
-import InstagramIcon from "@mui/icons-material/Instagram";
 
 export default function FooterPanel() {
   const theme = useTheme();
@@ -17,7 +16,7 @@ export default function FooterPanel() {
     <Box
       sx={{
         width: "100%",
-        maxHeight: "20vh",
+        height: "30vh",
         backgroundImage: `url(${bg.src})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -56,7 +55,6 @@ export default function FooterPanel() {
               window.open("tel:+5094557411", "_self");
             }}
           />
-          <SocialMediaInfo theme={theme} />
           <LocationContactInfo
             theme={theme}
             title="Benniditos BrewPub"
@@ -133,56 +131,5 @@ function LocationContactInfo(props: {
         </Box>
       </Box>
     </Box>
-  );
-}
-
-function SocialMediaInfo(props: { theme: Theme }) {
-  const isSmallScreen = useMediaQuery(props.theme.breakpoints.down("sm"));
-  return (
-    <>
-      <Divider
-        orientation="vertical"
-        variant="middle"
-        sx={{ background: "white", display: { xs: "none", md: "block" } }}
-      />
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
-        <Box>
-          <Typography
-            variant="body2"
-            fontFamily={"header"}
-            sx={{ color: "white", display: { xs: "none", md: "flex" } }}
-          >
-            Follow us on Instagram
-          </Typography>
-        </Box>
-        <Box>
-          <IconButton
-            onClick={() => {
-              window.open(
-                "https://instagram.com/benniditospizza?igshid=Mzc1MmZhNjY=",
-                "_blank"
-              );
-            }}
-          >
-            <InstagramIcon
-              fontSize={isSmallScreen ? "small" : "large"}
-              sx={{ color: "white" }}
-            />
-          </IconButton>
-        </Box>
-      </Box>
-      <Divider
-        orientation="vertical"
-        variant="middle"
-        sx={{ background: "white", display: { xs: "none", md: "block" } }}
-      />
-    </>
   );
 }

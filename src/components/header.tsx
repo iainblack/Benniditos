@@ -103,8 +103,7 @@ export default function Header(props: HeaderProps) {
             </ListItemButton>
           </ListItem>
         ))}
-        <Divider sx={{ borderTop: 1, my: 1 }} />
-        <ListItem disablePadding>
+        <ListItem disablePadding sx={{ mt: 2 }}>
           <ListItemButton
             sx={{
               backgroundColor: "white",

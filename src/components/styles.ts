@@ -6,35 +6,47 @@ export const PanelContainer = styled(Box, {
     prop !== "noPaddingTop" &&
     prop !== "fullWidth" &&
     prop !== "marginTop" &&
-    prop !== "contentHeight",
+    prop !== "contentHeight" &&
+    prop !== "backgroundColor",
 })<{
   noPaddingTop?: boolean;
   fullWidth?: boolean;
   marginTop?: string;
   contentHeight?: boolean;
-}>(({ noPaddingTop, theme, fullWidth, marginTop, contentHeight }) => ({
-  minHeight: contentHeight ? "fit-content" : "90vh",
-  width: "100vw",
-  padding: theme.spacing(4),
-  paddingTop: noPaddingTop ? 0 : theme.spacing(4),
-  paddingLeft: theme.spacing(4),
-  paddingRight: theme.spacing(4),
-  marginTop: marginTop ? marginTop : 0,
-  [theme.breakpoints.down("md")]: {
-    padding: theme.spacing(2),
-    paddingTop: noPaddingTop ? 0 : theme.spacing(2),
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-    minHeight: contentHeight ? "fit-content" : "80vh",
-    maxWidth: "100vw",
+  backgroundColor?: string;
+}>(
+  ({
+    noPaddingTop,
+    theme,
+    fullWidth,
+    marginTop,
+    contentHeight,
+    backgroundColor,
+  }) => ({
+    backgroundColor: backgroundColor ? backgroundColor : "none",
+    minHeight: contentHeight ? "fit-content" : "90vh",
+    width: "100vw",
+    padding: theme.spacing(4),
+    paddingTop: noPaddingTop ? 0 : theme.spacing(4),
+    paddingLeft: theme.spacing(4),
+    paddingRight: theme.spacing(4),
     marginTop: marginTop ? marginTop : 0,
-  },
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  height: "fit-content",
-}));
+    [theme.breakpoints.down("md")]: {
+      padding: theme.spacing(2),
+      paddingTop: noPaddingTop ? 0 : theme.spacing(2),
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2),
+      minHeight: contentHeight ? "fit-content" : "80vh",
+      maxWidth: "100vw",
+      marginTop: marginTop ? marginTop : 0,
+    },
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "fit-content",
+  })
+);
 
 export const BackgroundWrapper = styled(Box, {
   shouldForwardProp: (prop) =>
@@ -52,4 +64,23 @@ export const BackgroundWrapper = styled(Box, {
   backgroundImage: `url(${backgroundImage})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
+}));
+
+export const SectionHeader = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "isSmallScreen",
+})<{
+  isSmallScreen?: boolean;
+}>(({ theme, isSmallScreen }) => ({
+  backgroundColor: "white",
+  marginBottom: isSmallScreen ? theme.spacing(2) : theme.spacing(4),
+  marginTop: isSmallScreen ? theme.spacing(2) : theme.spacing(4),
+  marginRight: isSmallScreen ? theme.spacing(2) : theme.spacing(0),
+  marginLeft: isSmallScreen ? theme.spacing(2) : theme.spacing(0),
+  padding: theme.spacing(2),
+  paddingBottom: theme.spacing(1),
+  border: "1px solid",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  textAlign: "center",
 }));
