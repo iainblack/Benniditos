@@ -3,14 +3,14 @@ import { getDatabase } from "firebase/database";
 
 export default function StartFirebase() {
   const firebaseConfig = {
-    apiKey: "AIzaSyDYtw6jLiRYtOFLkrDEoV0aR2J4U-Gd7b4",
-    authDomain: "benniditos.firebaseapp.com",
-    databaseURL: "https://benniditos-default-rtdb.firebaseio.com",
-    projectId: "benniditos",
-    storageBucket: "benniditos.appspot.com",
-    messagingSenderId: "106838092070",
-    appId: "1:106838092070:web:b21b64dc834dbe82a4b9e7",
-    measurementId: "G-HMWPBPD7EM",
+    apiKey: "AIzaSyAKNAcyH3iSPckU99a8zIpyfodYxaJ5mZs",
+    authDomain: "benniditos-menus.firebaseapp.com",
+    databaseURL: "https://benniditos-menus-default-rtdb.firebaseio.com",
+    projectId: "benniditos-menus",
+    storageBucket: "benniditos-menus.appspot.com",
+    messagingSenderId: "265742194599",
+    appId: "1:265742194599:web:2bb2473e9208f3f3bfc882",
+    measurementId: "G-PZVN62CHLC",
   };
 
   const app = initializeApp(firebaseConfig);
