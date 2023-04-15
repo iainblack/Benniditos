@@ -38,11 +38,11 @@ export default function ImageSlider(props: ImageSliderProps) {
   });
 
   useEffect(() => {
-    setTimeout(() => {
-      if (instanceRef.current) {
-        instanceRef.current.update();
-      }
-    }, 10);
+    // setTimeout(() => {
+    if (instanceRef.current) {
+      instanceRef.current.update();
+    }
+    // }, 10);
   }, []);
 
   return (
