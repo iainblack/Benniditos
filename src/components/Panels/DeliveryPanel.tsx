@@ -41,21 +41,20 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 justifyContent: "space-between",
               }}
             >
-              {isLargeScreen && (
-                <Box
-                  id="map-container"
-                  sx={{
-                    mt: { xs: 4, xl: 0 },
-                    position: "relative",
-                    width: { xs: "100%", xl: "70%" },
-                    height: { xs: "50vh", xl: "80vh" },
-                    order: 2,
-                    boxShadow: 8,
-                    padding: { xs: 0, xl: 3 },
-                    backgroundColor: "white",
-                  }}
-                >
-                  {/* Placeholder for google maps api implementation/}
+              <Box
+                id="map-container"
+                sx={{
+                  mt: { xs: 4, xl: 0 },
+                  position: "relative",
+                  width: { xs: "100%", xl: "70%" },
+                  height: { xs: "50vh", xl: "80vh" },
+                  order: 2,
+                  boxShadow: 8,
+                  padding: { xs: 0, xl: 3 },
+                  backgroundColor: "white",
+                }}
+              >
+                {/* Placeholder for google maps api implementation/}
               {/* <iframe
                 width="100%"
                 height="100%"
@@ -63,23 +62,22 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                 referrerPolicy="no-referrer-when-downgrade"
                 src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYtw6jLiRYtOFLkrDEoV0aR2J4U-Gd7b4&q=Bennidito's+Pizza+Spokane,+WA+99203&zoom=13"
               ></iframe> */}
-                  <Box
-                    sx={{
-                      position: "relative",
-                      width: "100%",
-                      height: "100%",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <Image
-                      src="/deliveryMap.png"
-                      alt="map"
-                      fill
-                      style={{ objectFit: "fill", objectPosition: "center" }}
-                    />
-                  </Box>
+                <Box
+                  sx={{
+                    position: "relative",
+                    width: "100%",
+                    height: "100%",
+                    overflow: "hidden",
+                  }}
+                >
+                  <Image
+                    src="/deliveryMap.png"
+                    alt="map"
+                    fill
+                    style={{ objectFit: "fill", objectPosition: "center" }}
+                  />
                 </Box>
-              )}
+              </Box>
               <Box
                 sx={{
                   textAlign: "center",

@@ -31,11 +31,7 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
         position: "relative",
       }}
     >
-      <Slide
-        in={props.transitionIn}
-        timeout={1000}
-        direction={isLargeScreen ? "right" : "left"}
-      >
+      <Slide in={props.transitionIn} timeout={1000} direction={"right"}>
         <Box ref={containerRef}>
           <Fade in={props.transitionIn} timeout={1000}>
             <Box

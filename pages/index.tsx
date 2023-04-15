@@ -457,52 +457,6 @@ export default function BenniditosHome() {
               <BenniditosDeliveryPanel
                 transitionIn={transitionState.deliveryTransitionIn}
               />
-              {!isLargeScreen && (
-                <Slide
-                  in={transitionState.mapTransitionIn}
-                  timeout={1000}
-                  direction="right"
-                >
-                  <Box
-                    ref={mapRef}
-                    id="map-container"
-                    sx={{
-                      mt: 4,
-                      position: "relative",
-                      width: "100%",
-                      height: "50vh",
-                      order: 2,
-                      boxShadow: 8,
-                      padding: 0,
-                      backgroundColor: "white",
-                    }}
-                  >
-                    {/* Placeholder for google maps api implementation/}
-              {/* <iframe
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYtw6jLiRYtOFLkrDEoV0aR2J4U-Gd7b4&q=Bennidito's+Pizza+Spokane,+WA+99203&zoom=13"
-              ></iframe> */}
-                    <Box
-                      sx={{
-                        position: "relative",
-                        width: "100%",
-                        height: "100%",
-                        overflow: "hidden",
-                      }}
-                    >
-                      <Image
-                        src="/deliveryMap.png"
-                        alt="map"
-                        fill
-                        style={{ objectFit: "fill", objectPosition: "center" }}
-                      />
-                    </Box>
-                  </Box>
-                </Slide>
-              )}
             </PanelContainer>
           </Fade>
         </BackgroundWrapper>
