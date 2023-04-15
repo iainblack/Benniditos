@@ -19,6 +19,7 @@ interface ReservationsPanelProps {
 
 export function ReservationsPanel(props: ReservationsPanelProps) {
   const theme = useTheme();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
   const containerRef = React.useRef<HTMLDivElement>(null);
   return (
     <Box
@@ -30,7 +31,11 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
         position: "relative",
       }}
     >
-      <Slide in={props.transitionIn} timeout={1000} direction="right">
+      <Slide
+        in={props.transitionIn}
+        timeout={1000}
+        direction={isLargeScreen ? "right" : "left"}
+      >
         <Box ref={containerRef}>
           <Fade in={props.transitionIn} timeout={1000}>
             <Box

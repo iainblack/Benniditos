@@ -7,6 +7,7 @@ import {
   Divider,
   Fade,
   useMediaQuery,
+  Slide,
 } from "@mui/material";
 import {
   BackgroundWrapper,
@@ -27,6 +28,8 @@ import TitlePanel from "@/src/components/Panels/TitlePanel";
 import FooterPanel from "@/src/components/Panels/FooterPanel";
 import { BrewPubPanel } from "@/src/components/Panels/BrewPubPanel";
 import { ReservationsPanel } from "@/src/components/Panels/ReservationsPanel";
+import ImageSlider from "@/src/components/imageSlider";
+import Image from "next/image";
 
 interface AppBarState {
   transparent: boolean;
@@ -38,13 +41,17 @@ interface AppBarState {
 interface TransitionState {
   aboutUsTransitionIn: boolean;
   southHillTransitionIn: boolean;
+  southHillImageTransitionIn: boolean;
   brewPubTransitionIn: boolean;
+  brewPubImageTransitionIn: boolean;
   deliveryTransitionIn: boolean;
+  mapTransitionIn: boolean;
   reservationsTransitionIn: boolean;
 }
 
 export default function BenniditosHome() {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
   const [AppBarState, setAppBarState] = React.useState<AppBarState>({
     transparent: true,
     elevated: false,
@@ -56,8 +63,11 @@ export default function BenniditosHome() {
     {
       aboutUsTransitionIn: false,
       southHillTransitionIn: false,
+      southHillImageTransitionIn: false,
       brewPubTransitionIn: false,
+      brewPubImageTransitionIn: false,
       deliveryTransitionIn: false,
+      mapTransitionIn: false,
       reservationsTransitionIn: false,
     }
   );
@@ -65,8 +75,11 @@ export default function BenniditosHome() {
   const aboutUsRef = React.useRef<HTMLDivElement>(null);
   const locationsRef = React.useRef<HTMLDivElement>(null);
   const southHillRef = React.useRef<HTMLDivElement>(null);
+  const southHillImageRef = React.useRef<HTMLDivElement>(null);
   const brewPubRef = React.useRef<HTMLDivElement>(null);
+  const brewPubImageRef = React.useRef<HTMLDivElement>(null);
   const deliveryRef = React.useRef<HTMLDivElement>(null);
+  const mapRef = React.useRef<HTMLDivElement>(null);
   const reservationsRef = React.useRef<HTMLDivElement>(null);
   const contactRef = React.useRef<HTMLDivElement>(null);
 
@@ -166,8 +179,11 @@ export default function BenniditosHome() {
       }
       const aboutUsTop = aboutUsRef.current?.offsetTop;
       const southHillTop = southHillRef.current?.offsetTop;
+      const southHillImageTop = southHillImageRef.current?.offsetTop;
       const brewPubTop = brewPubRef.current?.offsetTop;
+      const brewPubImageTop = brewPubImageRef.current?.offsetTop;
       const deliveryTop = deliveryRef.current?.offsetTop;
+      const mapTop = mapRef.current?.offsetTop;
       const reservationsTop = reservationsRef.current?.offsetTop;
 
       if (
@@ -183,7 +199,7 @@ export default function BenniditosHome() {
       if (
         southHillTop &&
         !transitionState.southHillTransitionIn &&
-        scrollPosition > southHillTop - 500
+        scrollPosition > southHillTop - 600
       ) {
         setTransitionState({
           ...transitionState,
@@ -191,9 +207,19 @@ export default function BenniditosHome() {
         });
       }
       if (
+        southHillImageTop &&
+        !transitionState.southHillImageTransitionIn &&
+        scrollPosition > southHillImageTop - 600
+      ) {
+        setTransitionState({
+          ...transitionState,
+          southHillImageTransitionIn: true,
+        });
+      }
+      if (
         brewPubTop &&
         !transitionState.brewPubTransitionIn &&
-        scrollPosition > brewPubTop - 500
+        scrollPosition > brewPubTop - 600
       ) {
         setTransitionState({
           ...transitionState,
@@ -201,13 +227,33 @@ export default function BenniditosHome() {
         });
       }
       if (
+        brewPubImageTop &&
+        !transitionState.brewPubImageTransitionIn &&
+        scrollPosition > brewPubImageTop - 600
+      ) {
+        setTransitionState({
+          ...transitionState,
+          brewPubImageTransitionIn: true,
+        });
+      }
+      if (
         deliveryTop &&
         !transitionState.deliveryTransitionIn &&
-        scrollPosition > deliveryTop - 500
+        scrollPosition > deliveryTop - 600
       ) {
         setTransitionState({
           ...transitionState,
           deliveryTransitionIn: true,
+        });
+      }
+      if (
+        mapTop &&
+        !transitionState.mapTransitionIn &&
+        scrollPosition > mapTop - 600
+      ) {
+        setTransitionState({
+          ...transitionState,
+          mapTransitionIn: true,
         });
       }
       if (
@@ -303,6 +349,44 @@ export default function BenniditosHome() {
               <SouthHillPanel
                 transitionIn={transitionState.southHillTransitionIn}
               />
+              {!isLargeScreen && (
+                <Slide
+                  in={transitionState.southHillImageTransitionIn}
+                  timeout={1000}
+                  direction="right"
+                >
+                  <Box
+                    ref={southHillImageRef}
+                    sx={{
+                      width: "100%",
+                      minHeight: "50vh",
+                      height: "50vh",
+                      boxShadow: 8,
+                      order: 2,
+                      display: "flex",
+                      padding: 0,
+                      mt: 4,
+                      mb: 2,
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        position: "relative",
+                        width: "100%",
+                        height: "100%",
+                      }}
+                    >
+                      <ImageSlider
+                        urls={[
+                          "/ditosOutside.jpg",
+                          "/south hill3.jpg",
+                          "/chris2.jpg",
+                        ]}
+                      />
+                    </Box>
+                  </Box>
+                </Slide>
+              )}
             </PanelContainer>
           </Fade>
         </BackgroundWrapper>
@@ -312,6 +396,45 @@ export default function BenniditosHome() {
               <BrewPubPanel
                 transitionIn={transitionState.brewPubTransitionIn}
               />
+              {!isLargeScreen && (
+                <Slide
+                  in={transitionState.brewPubImageTransitionIn}
+                  timeout={1000}
+                  direction="right"
+                >
+                  <Box
+                    ref={brewPubImageRef}
+                    sx={{
+                      position: "relative",
+                      width: "100%",
+                      minHeight: "50vh",
+                      height: "50vh",
+                      order: 2,
+                      display: "flex",
+                      boxShadow: 8,
+                      padding: 0,
+                      mt: 4,
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        position: "relative",
+                        width: "100%",
+                        height: "100%",
+                        overflow: "hidden",
+                      }}
+                    >
+                      <ImageSlider
+                        urls={[
+                          "/brewpubOutside.jpeg",
+                          "/betterbeer.jpeg",
+                          "/box 2.jpg",
+                        ]}
+                      />
+                    </Box>
+                  </Box>
+                </Slide>
+              )}
             </PanelContainer>
           </Fade>
         </BackgroundWrapper>
@@ -334,6 +457,52 @@ export default function BenniditosHome() {
               <BenniditosDeliveryPanel
                 transitionIn={transitionState.deliveryTransitionIn}
               />
+              {!isLargeScreen && (
+                <Slide
+                  in={transitionState.mapTransitionIn}
+                  timeout={1000}
+                  direction="right"
+                >
+                  <Box
+                    ref={mapRef}
+                    id="map-container"
+                    sx={{
+                      mt: 4,
+                      position: "relative",
+                      width: "100%",
+                      height: "50vh",
+                      order: 2,
+                      boxShadow: 8,
+                      padding: 0,
+                      backgroundColor: "white",
+                    }}
+                  >
+                    {/* Placeholder for google maps api implementation/}
+              {/* <iframe
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                referrerPolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYtw6jLiRYtOFLkrDEoV0aR2J4U-Gd7b4&q=Bennidito's+Pizza+Spokane,+WA+99203&zoom=13"
+              ></iframe> */}
+                    <Box
+                      sx={{
+                        position: "relative",
+                        width: "100%",
+                        height: "100%",
+                        overflow: "hidden",
+                      }}
+                    >
+                      <Image
+                        src="/deliveryMap.png"
+                        alt="map"
+                        fill
+                        style={{ objectFit: "fill", objectPosition: "center" }}
+                      />
+                    </Box>
+                  </Box>
+                </Slide>
+              )}
             </PanelContainer>
           </Fade>
         </BackgroundWrapper>

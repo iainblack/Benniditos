@@ -6,6 +6,7 @@ import {
   Fade,
   Slide,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import React from "react";
@@ -21,6 +22,7 @@ export function BrewPubPanel(props: BrewPubPanelProps) {
   const router = useRouter();
   const theme = useTheme();
   const containerRef = React.useRef<HTMLDivElement>(null);
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
   return (
     <Box
       sx={{
@@ -31,7 +33,11 @@ export function BrewPubPanel(props: BrewPubPanelProps) {
         position: "relative",
       }}
     >
-      <Slide in={props.transitionIn} timeout={1000} direction="right">
+      <Slide
+        in={props.transitionIn}
+        timeout={1000}
+        direction={isLargeScreen ? "right" : "left"}
+      >
         <Box ref={containerRef}>
           <Fade in={props.transitionIn} timeout={1000}>
             <Box
@@ -42,36 +48,38 @@ export function BrewPubPanel(props: BrewPubPanelProps) {
                 justifyContent: "space-between",
               }}
             >
-              <Box
-                sx={{
-                  position: "relative",
-                  width: { xs: "100%", xl: "70%" },
-                  minHeight: { xs: "50vh", lg: "90vh" },
-                  height: { xs: "50vh", xl: "unset" },
-                  order: { xs: 2, xl: 1 },
-                  display: "flex",
-                  boxShadow: 8,
-                  padding: { xs: 0, xl: 3 },
-                  mt: { xs: 4, xl: 0 },
-                }}
-              >
+              {isLargeScreen && (
                 <Box
                   sx={{
                     position: "relative",
-                    width: "100%",
-                    height: "100%",
-                    overflow: "hidden",
+                    width: { xs: "100%", xl: "70%" },
+                    minHeight: { xs: "50vh", lg: "90vh" },
+                    height: { xs: "50vh", xl: "unset" },
+                    order: { xs: 2, xl: 1 },
+                    display: "flex",
+                    boxShadow: 8,
+                    padding: { xs: 0, xl: 3 },
+                    mt: { xs: 4, xl: 0 },
                   }}
                 >
-                  <ImageSlider
-                    urls={[
-                      "/brewpubOutside.jpeg",
-                      "/betterbeer.jpeg",
-                      "/box 2.jpg",
-                    ]}
-                  />
+                  <Box
+                    sx={{
+                      position: "relative",
+                      width: "100%",
+                      height: "100%",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <ImageSlider
+                      urls={[
+                        "/brewpubOutside.jpeg",
+                        "/betterbeer.jpeg",
+                        "/box 2.jpg",
+                      ]}
+                    />
+                  </Box>
                 </Box>
-              </Box>
+              )}
               <Box
                 sx={{
                   textAlign: "center",

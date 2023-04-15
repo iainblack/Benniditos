@@ -6,6 +6,7 @@ import {
   Fade,
   Slide,
   Typography,
+  useMediaQuery,
   useTheme,
 } from "@mui/material";
 import React from "react";
@@ -20,6 +21,7 @@ interface SouthHillPanelProps {
 export function SouthHillPanel(props: SouthHillPanelProps) {
   const router = useRouter();
   const theme = useTheme();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
   const containerRef = React.useRef<HTMLDivElement>(null);
 
   return (
@@ -43,35 +45,37 @@ export function SouthHillPanel(props: SouthHillPanelProps) {
                 justifyContent: "space-between",
               }}
             >
-              <Box
-                sx={{
-                  width: { xs: "100%", xl: "70%" },
-                  minHeight: { xs: "50vh", lg: "90vh" },
-                  height: { xs: "50vh", xl: "unset" },
-                  boxShadow: 8,
-                  order: 2,
-                  display: "flex",
-                  padding: { xs: 0, xl: 3 },
-                  mt: { xs: 4, xl: 0 },
-                  mb: { xs: 2, xl: 0 },
-                }}
-              >
+              {isLargeScreen && (
                 <Box
                   sx={{
-                    position: "relative",
-                    width: "100%",
-                    height: "100%",
+                    width: "70%",
+                    minHeight: { xs: "50vh", lg: "90vh" },
+                    height: { xs: "50vh", xl: "unset" },
+                    boxShadow: 8,
+                    order: 2,
+                    display: "flex",
+                    padding: { xs: 0, xl: 3 },
+                    mt: { xs: 4, xl: 0 },
+                    mb: { xs: 2, xl: 0 },
                   }}
                 >
-                  <ImageSlider
-                    urls={[
-                      "/ditosOutside.jpg",
-                      "/south hill3.jpg",
-                      "/chris2.jpg",
-                    ]}
-                  />
+                  <Box
+                    sx={{
+                      position: "relative",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  >
+                    <ImageSlider
+                      urls={[
+                        "/ditosOutside.jpg",
+                        "/south hill3.jpg",
+                        "/chris2.jpg",
+                      ]}
+                    />
+                  </Box>
                 </Box>
-              </Box>
+              )}
               <Box
                 sx={{
                   textAlign: "center",
