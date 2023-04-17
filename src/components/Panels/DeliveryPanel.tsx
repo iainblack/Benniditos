@@ -116,7 +116,7 @@ function DeliveryInfo(props: { theme: Theme }) {
           sx={{ textAlign: "center", mb: 1, fontFamily: "Header" }}
           variant="h4"
         >
-          Delivery & Carry-Out
+          Delivery
         </Typography>
         <Divider
           sx={{
@@ -133,8 +133,8 @@ function DeliveryInfo(props: { theme: Theme }) {
             fontFamily: "body",
           }}
         >
-          The South Hill location offers both carryout and delivery. Call the
-          store or order online.
+          In addition to dine-in and carry-out, the South Hill location offers{" "}
+          <b>delivery</b> and <b>online orders</b>.
         </Typography>
       </Box>
       <Box>

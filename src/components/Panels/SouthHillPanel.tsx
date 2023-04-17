@@ -133,6 +133,24 @@ export function SouthHillPanel(props: SouthHillPanelProps) {
                       View Menu
                     </Button>
                   </Box>
+                  <Box sx={{ my: 1 }}>
+                    <Button
+                      variant="outlined"
+                      sx={{
+                        textTransform: "none",
+                        fontFamily: "header",
+                        fontSize: theme.typography.body1.fontSize,
+                      }}
+                      onClick={() => {
+                        window.open(
+                          "https://weborder7.microworks.com/benniditos/",
+                          "_blank"
+                        );
+                      }}
+                    >
+                      Order Online
+                    </Button>
+                  </Box>
                 </Box>
               </Box>
             </Box>

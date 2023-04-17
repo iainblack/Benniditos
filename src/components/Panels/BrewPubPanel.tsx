@@ -109,7 +109,6 @@ export function BrewPubPanel(props: BrewPubPanelProps) {
                   </Typography>
                   <Divider
                     sx={{
-                      mb: 2,
                       mx: { xs: "15%", sm: "30%", md: "20%" },
                       borderBottomStyle: "dashed",
                     }}

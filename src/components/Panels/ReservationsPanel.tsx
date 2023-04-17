@@ -101,7 +101,7 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
                     }}
                     variant="h4"
                   >
-                    Reservations & Carry-Out
+                    Reservations
                   </Typography>
                   <Divider
                     sx={{
@@ -118,8 +118,8 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
                       fontFamily: "body",
                     }}
                   >
-                    The BrewPub offers carry-out orders and reservations placed
-                    over the phone.
+                    In addition to dine-in and carry-out, the BrewPub offers{" "}
+                    <b>reservations</b> placed over the phone.
                   </Typography>
                 </Box>
                 <Box

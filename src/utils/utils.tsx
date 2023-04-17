@@ -3,6 +3,7 @@ import {
   Button,
   Fade,
   IconButton,
+  Link,
   Slide,
   Theme,
   Typography,
@@ -156,6 +157,7 @@ export function BenniditosInfo(props: { theme: Theme }) {
             size="large"
             sx={{
               fontFamily: "body",
+              textTransform: "none",
               fontSize: props.theme.typography.body1.fontSize,
             }}
             onClick={() => {
@@ -226,6 +228,7 @@ export function BrewPubInfo(props: { theme: Theme }) {
           size="large"
           sx={{
             fontFamily: "body",
+            textTransform: "none",
             fontSize: props.theme.typography.body1.fontSize,
           }}
           onClick={() => {
