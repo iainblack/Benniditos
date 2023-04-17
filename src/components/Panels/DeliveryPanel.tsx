@@ -8,18 +8,64 @@ import {
   useTheme,
   Slide,
   useMediaQuery,
+  CircularProgress,
 } from "@mui/material";
 import Image from "next/image";
-import React from "react";
+import { GoogleMap, useLoadScript, KmlLayer } from "@react-google-maps/api";
+import { useRef, useState, useCallback, useEffect } from "react";
 
 interface HoursLocationProps {
   transitionIn: boolean;
 }
 
 export function BenniditosDeliveryPanel(props: HoursLocationProps) {
-  const containerRef = React.useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const theme = useTheme();
-  const isLargeScreen = useMediaQuery(theme.breakpoints.up("xl"));
+  const [homeAddress, setHomeAddress] = useState("");
+  const [isWithinBounds, setIsWithinBounds] = useState(false);
+  let kmlLayer = useRef<any>(null);
+
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyBBGv_pZbvxC0tn-fC7Pt6UJ_W1OXfNKms",
+  });
+  const [map, setMap] = useState(null);
+  const onLoad = useCallback((map: any) => {
+    setMap(map);
+  }, []);
+
+  useEffect(() => {
+    if (isLoaded && map) {
+      kmlLayer.current = new window.google.maps.KmlLayer({
+        url: "https://storage.googleapis.com/benniditos-map/ditos.kml",
+        map: map,
+      });
+    }
+  }, [map, isLoaded]);
+
+  const onMarkerLoad = (marker: any) => {
+    const geocoder = new window.google.maps.Geocoder();
+
+    geocoder.geocode({ address: homeAddress }, (results, status) => {
+      if (status === "OK") {
+        const homeLocation = results && results[0].geometry.location;
+        const kmlBounds = kmlLayer.current.getDefaultViewport();
+
+        if (kmlBounds && kmlBounds.contains(homeLocation)) {
+          console.log("IN BOUNDS");
+          setIsWithinBounds(true);
+        } else {
+          console.log("NOT IN BOUNDS");
+          setIsWithinBounds(false);
+        }
+      } else {
+        console.log(
+          "Geocode was not successful for the following reason:",
+          status
+        );
+      }
+    });
+  };
+
   return (
     <Box
       sx={{
@@ -54,29 +100,27 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                   backgroundColor: "white",
                 }}
               >
-                {/* Placeholder for google maps api implementation/}
-              {/* <iframe
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDYtw6jLiRYtOFLkrDEoV0aR2J4U-Gd7b4&q=Bennidito's+Pizza+Spokane,+WA+99203&zoom=13"
-              ></iframe> */}
-                <Box
-                  sx={{
-                    position: "relative",
-                    width: "100%",
-                    height: "100%",
-                    overflow: "hidden",
-                  }}
-                >
-                  <Image
-                    src="/deliveryMap.png"
-                    alt="map"
-                    fill
-                    style={{ objectFit: "fill", objectPosition: "center" }}
-                  />
-                </Box>
+                {!isLoaded && (
+                  <Box
+                    sx={{
+                      display: "flex",
+                      width: "100%",
+                      height: "100%",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <CircularProgress />
+                  </Box>
+                )}
+                {isLoaded && (
+                  <GoogleMap
+                    zoom={11.6}
+                    center={{ lng: -117.416, lat: 47.6388 }}
+                    mapContainerClassName={"mapContainer"}
+                    onLoad={onLoad}
+                  ></GoogleMap>
+                )}
               </Box>
               <Box
                 sx={{
@@ -93,7 +137,12 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                   minHeight: { xs: "fit-content", xl: "80vh" },
                 }}
               >
-                <DeliveryInfo theme={theme} />
+                <DeliveryInfo
+                  theme={theme}
+                  onMarkerLoad={onMarkerLoad}
+                  homeAddress={homeAddress}
+                  setHomeAddress={setHomeAddress}
+                />
               </Box>
             </Box>
           </Fade>
@@ -103,7 +152,12 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
   );
 }
 
-function DeliveryInfo(props: { theme: Theme }) {
+function DeliveryInfo(props: {
+  theme: Theme;
+  homeAddress: string;
+  setHomeAddress: any;
+  onMarkerLoad: any;
+}) {
   return (
     <>
       <Box
@@ -147,6 +201,13 @@ function DeliveryInfo(props: { theme: Theme }) {
           call the store to place your order.
         </Typography>
       </Box>
+      <input
+        type="text"
+        placeholder="Enter your home address"
+        value={props.homeAddress}
+        onChange={(e) => props.setHomeAddress(e.target.value)}
+      />
+      <button onClick={props.onMarkerLoad}>Check Address</button>
       <Box
         sx={{
           display: "flex",
