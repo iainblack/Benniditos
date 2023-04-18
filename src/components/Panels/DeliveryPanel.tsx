@@ -222,7 +222,6 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                       />
                     </Box>
                     <GoogleMap
-                      zoom={11.6}
                       center={{ lng: -117.416, lat: 47.6388 }}
                       mapContainerClassName={"mapContainer"}
                       onLoad={onLoad}
@@ -277,8 +276,8 @@ function PlacesAutocomplete(props: {
         }}
       >
         <TextField
-          sx={{ backgroundColor: "white", minWidth: 250, borderRadius: 1 }}
-          placeholder="Search for your address"
+          sx={{ backgroundColor: "white", minWidth: 350, borderRadius: 1 }}
+          placeholder="Search address or location..."
           variant="outlined"
           size="small"
           value={props.value}
