@@ -273,7 +273,6 @@ function PlacesAutocomplete(props: {
         onPlaceChanged={props.onPlaceChanged}
         onLoad={props.onAutoCompleteLoad}
         options={{
-          types: ["address"],
           componentRestrictions: { country: "us" },
         }}
       >
