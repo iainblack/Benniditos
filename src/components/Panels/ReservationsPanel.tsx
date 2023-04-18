@@ -63,6 +63,7 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
                   }}
                 >
                   <Image
+                    priority={true}
                     src="/reservations.jpeg"
                     alt="Outside"
                     fill
