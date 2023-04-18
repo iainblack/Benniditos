@@ -3,7 +3,7 @@ import { getDatabase } from "firebase/database";
 
 export default function StartFirebase() {
   const firebaseConfig = {
-    apiKey: "AIzaSyAKNAcyH3iSPckU99a8zIpyfodYxaJ5mZs",
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
     authDomain: "benniditos-menus.firebaseapp.com",
     databaseURL: "https://benniditos-menus-default-rtdb.firebaseio.com",
     projectId: "benniditos-menus",

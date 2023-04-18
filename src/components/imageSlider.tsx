@@ -38,11 +38,9 @@ export default function ImageSlider(props: ImageSliderProps) {
   });
 
   useEffect(() => {
-    // setTimeout(() => {
     if (instanceRef.current) {
       instanceRef.current.update();
     }
-    // }, 10);
   }, []);
 
   return (
@@ -69,6 +67,7 @@ export default function ImageSlider(props: ImageSliderProps) {
                   sx={{ borderRadius: 1 }}
                 >
                   <Image
+                    priority={true}
                     src={url}
                     alt="image"
                     fill
