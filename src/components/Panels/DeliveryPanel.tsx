@@ -7,31 +7,48 @@ import {
   Typography,
   useTheme,
   Slide,
-  useMediaQuery,
   CircularProgress,
+  TextField,
 } from "@mui/material";
 import Image from "next/image";
-import { GoogleMap, useLoadScript, KmlLayer } from "@react-google-maps/api";
-import { useRef, useState, useCallback, useEffect } from "react";
+import { GoogleMap, useLoadScript, Autocomplete } from "@react-google-maps/api";
+import { useRef, useState, useCallback, useEffect, useMemo } from "react";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
 
 interface HoursLocationProps {
   transitionIn: boolean;
 }
 
+const libraries: (
+  | "drawing"
+  | "geometry"
+  | "localContext"
+  | "places"
+  | "visualization"
+)[] = ["places"];
+
 export function BenniditosDeliveryPanel(props: HoursLocationProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const theme = useTheme();
   const [homeAddress, setHomeAddress] = useState("");
-  const [isWithinBounds, setIsWithinBounds] = useState(false);
-  let kmlLayer = useRef<any>(null);
+  const [autoComplete, setAutoComplete] = useState<any>(null);
+  const [isWithinBounds, setIsWithinBounds] = useState<boolean | null>(null);
+  const kmlLayer = useRef<any>(null);
+  const markerRef = useRef<any>(null);
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: "AIzaSyBBGv_pZbvxC0tn-fC7Pt6UJ_W1OXfNKms",
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
+    libraries: libraries,
   });
   const [map, setMap] = useState(null);
   const onLoad = useCallback((map: any) => {
     setMap(map);
   }, []);
+
+  const onAutoCompleteLoad = (autocomplete: any) => {
+    setAutoComplete(autocomplete);
+  };
 
   useEffect(() => {
     if (isLoaded && map) {
@@ -39,24 +56,75 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
         url: "https://storage.googleapis.com/benniditos-map/ditos.kml",
         map: map,
       });
+      new window.google.maps.Geocoder().geocode(
+        { address: "1426 S Lincoln St, Spokane, WA 99203" },
+        (results, status) => {
+          if (status === "OK") {
+            const homeLocation = results && results[0].geometry.location;
+            new window.google.maps.Marker({
+              position: homeLocation,
+              map: map,
+              icon: {
+                url: "/favicon.ico",
+                scaledSize: new window.google.maps.Size(30, 30),
+              },
+            });
+          } else {
+            console.log(
+              "Geocode was not successful for the following reason:",
+              status
+            );
+          }
+        }
+      );
     }
   }, [map, isLoaded]);
 
-  const onMarkerLoad = (marker: any) => {
+  const addMarker = async (val: string, geocoder: google.maps.Geocoder) => {
+    if (val) {
+      geocoder.geocode({ address: val }, (results, status) => {
+        if (status === "OK") {
+          const homeLocation = results && results[0].geometry.location;
+          const marker = new window.google.maps.Marker({
+            position: homeLocation,
+            map: map,
+          });
+          if (markerRef.current) {
+            markerRef.current.setMap(null);
+          }
+          markerRef.current = marker;
+        } else {
+          console.log(
+            "Geocode was not successful for the following reason:",
+            status
+          );
+        }
+      });
+    }
+  };
+
+  const removeMarker = () => {
+    if (markerRef.current) {
+      markerRef.current.setMap(null);
+    }
+  };
+
+  const validateAddress = (address: string) => {
+    if (!address) return;
     const geocoder = new window.google.maps.Geocoder();
 
-    geocoder.geocode({ address: homeAddress }, (results, status) => {
+    geocoder.geocode({ address }, (results, status) => {
       if (status === "OK") {
         const homeLocation = results && results[0].geometry.location;
         const kmlBounds = kmlLayer.current.getDefaultViewport();
 
         if (kmlBounds && kmlBounds.contains(homeLocation)) {
-          console.log("IN BOUNDS");
           setIsWithinBounds(true);
         } else {
           console.log("NOT IN BOUNDS");
           setIsWithinBounds(false);
         }
+        addMarker(address, geocoder);
       } else {
         console.log(
           "Geocode was not successful for the following reason:",
@@ -64,6 +132,25 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
         );
       }
     });
+  };
+
+  useEffect(() => {
+    if (homeAddress === "") {
+      setIsWithinBounds(null);
+      removeMarker();
+    }
+  }, [homeAddress]);
+
+  const onPlaceChanged = () => {
+    if (autoComplete !== null) {
+      const place = autoComplete.getPlace();
+      if (place.formatted_address) {
+        setHomeAddress(place.formatted_address);
+        validateAddress(place.formatted_address);
+      }
+    } else {
+      console.log("Autocomplete is not loaded yet!");
+    }
   };
 
   return (
@@ -108,18 +195,43 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                       height: "100%",
                       justifyContent: "center",
                       alignItems: "center",
+                      position: "relative",
                     }}
                   >
                     <CircularProgress />
                   </Box>
                 )}
                 {isLoaded && (
-                  <GoogleMap
-                    zoom={11.6}
-                    center={{ lng: -117.416, lat: 47.6388 }}
-                    mapContainerClassName={"mapContainer"}
-                    onLoad={onLoad}
-                  ></GoogleMap>
+                  <>
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        left: "50%",
+                        top: "5%",
+                        transform: "translate(-50%)",
+                        zIndex: 99,
+                      }}
+                    >
+                      <PlacesAutocomplete
+                        setSelected={setHomeAddress}
+                        onPlaceChanged={onPlaceChanged}
+                        onAutoCompleteLoad={onAutoCompleteLoad}
+                        value={homeAddress}
+                        setValue={setHomeAddress}
+                        isInBounds={isWithinBounds}
+                      />
+                    </Box>
+                    <GoogleMap
+                      zoom={11.6}
+                      center={{ lng: -117.416, lat: 47.6388 }}
+                      mapContainerClassName={"mapContainer"}
+                      onLoad={onLoad}
+                      options={{
+                        mapTypeControl: false,
+                        streetViewControl: false,
+                      }}
+                    ></GoogleMap>
+                  </>
                 )}
               </Box>
               <Box
@@ -137,12 +249,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                   minHeight: { xs: "fit-content", xl: "80vh" },
                 }}
               >
-                <DeliveryInfo
-                  theme={theme}
-                  onMarkerLoad={onMarkerLoad}
-                  homeAddress={homeAddress}
-                  setHomeAddress={setHomeAddress}
-                />
+                <DeliveryInfo theme={theme} />
               </Box>
             </Box>
           </Fade>
@@ -152,12 +259,52 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
   );
 }
 
-function DeliveryInfo(props: {
-  theme: Theme;
-  homeAddress: string;
-  setHomeAddress: any;
-  onMarkerLoad: any;
+function PlacesAutocomplete(props: {
+  setSelected: any;
+  onPlaceChanged: any;
+  onAutoCompleteLoad: any;
+  value: string;
+  setValue: any;
+  isInBounds: boolean | null;
 }) {
+  return (
+    <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Autocomplete
+        onPlaceChanged={props.onPlaceChanged}
+        onLoad={props.onAutoCompleteLoad}
+        options={{
+          types: ["address"],
+          componentRestrictions: { country: "us" },
+        }}
+      >
+        <TextField
+          sx={{ backgroundColor: "white", minWidth: 250, borderRadius: 1 }}
+          placeholder="Search for your address"
+          variant="outlined"
+          size="small"
+          value={props.value}
+          onChange={(e) => {
+            props.setValue(e.target.value);
+          }}
+          inputProps={{
+            style: {
+              fontFamily: "body",
+              fontSize: "14px",
+            },
+          }}
+        />
+      </Autocomplete>
+      {props.isInBounds !== null && props.isInBounds && (
+        <CheckCircleIcon sx={{ color: "green", ml: 1 }} />
+      )}
+      {props.isInBounds !== null && !props.isInBounds && (
+        <CancelIcon sx={{ color: "red", ml: 1 }} />
+      )}
+    </Box>
+  );
+}
+
+function DeliveryInfo(props: { theme: Theme }) {
   return (
     <>
       <Box
@@ -201,13 +348,6 @@ function DeliveryInfo(props: {
           call the store to place your order.
         </Typography>
       </Box>
-      <input
-        type="text"
-        placeholder="Enter your home address"
-        value={props.homeAddress}
-        onChange={(e) => props.setHomeAddress(e.target.value)}
-      />
-      <button onClick={props.onMarkerLoad}>Check Address</button>
       <Box
         sx={{
           display: "flex",

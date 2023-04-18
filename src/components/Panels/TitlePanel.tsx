@@ -40,6 +40,7 @@ export default function TitlePanel(props: TitlePanelProps) {
         sx={{
           width: "100vw",
           height: "100vh",
+          position: "relative",
         }}
       >
         <Image
@@ -47,7 +48,7 @@ export default function TitlePanel(props: TitlePanelProps) {
           fill
           sizes="100%"
           alt="alt"
-          priority
+          priority={true}
           style={{
             objectFit: "cover",
             objectPosition: "center",
