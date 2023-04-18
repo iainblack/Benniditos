@@ -315,7 +315,7 @@ function DeliveryInfo(props: { theme: Theme }) {
           sx={{ textAlign: "center", mb: 1, fontFamily: "Header" }}
           variant="h4"
         >
-          Delivery
+          Online Orders & Delivery
         </Typography>
         <Divider
           sx={{
@@ -341,9 +341,9 @@ function DeliveryInfo(props: { theme: Theme }) {
           variant="body1"
           sx={{ fontFamily: "body", mx: "auto", px: 2, mb: 6 }}
         >
-          Please reference the map for our <b>area of delivery</b>. If the
-          ordering site claims you are out of range when you are not, please
-          call the store to place your order.
+          Please reference the map for our <b>area of delivery</b>. If our
+          online ordering site claims you are out of range when you are not,
+          please call the store to place your order.
         </Typography>
       </Box>
       <Box
