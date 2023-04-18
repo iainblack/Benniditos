@@ -10,7 +10,6 @@ import {
   useTheme,
 } from "@mui/material";
 import React from "react";
-import Image, { StaticImageData } from "next/image";
 import { useRouter } from "next/router";
 import ImageSlider from "../imageSlider";
 
@@ -57,6 +56,7 @@ export function SouthHillPanel(props: SouthHillPanelProps) {
                     padding: { xs: 0, xl: 3 },
                     mt: { xs: 4, xl: 0 },
                     mb: { xs: 2, xl: 0 },
+                    borderRadius: 1,
                   }}
                 >
                   <Box
@@ -89,6 +89,7 @@ export function SouthHillPanel(props: SouthHillPanelProps) {
                   order: 1,
                   minHeight: { xs: "fit-content", xl: "90vh" },
                   boxShadow: 8,
+                  borderRadius: 1,
                 }}
               >
                 <Box

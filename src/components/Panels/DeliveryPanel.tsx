@@ -185,6 +185,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                   boxShadow: 8,
                   padding: { xs: 0, xl: 3 },
                   backgroundColor: "white",
+                  borderRadius: 1,
                 }}
               >
                 {!isLoaded && (
@@ -246,6 +247,7 @@ export function BenniditosDeliveryPanel(props: HoursLocationProps) {
                   order: 1,
                   p: 4,
                   minHeight: { xs: "fit-content", xl: "80vh" },
+                  borderRadius: 1,
                 }}
               >
                 <DeliveryInfo theme={theme} />
@@ -276,7 +278,11 @@ function PlacesAutocomplete(props: {
         }}
       >
         <TextField
-          sx={{ backgroundColor: "white", minWidth: 350, borderRadius: 1 }}
+          sx={{
+            backgroundColor: "white",
+            minWidth: { xs: 300, md: 350 },
+            borderRadius: 1,
+          }}
           placeholder="Search address or location..."
           variant="outlined"
           size="small"

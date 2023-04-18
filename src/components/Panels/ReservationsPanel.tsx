@@ -52,6 +52,7 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
                   boxShadow: 8,
                   padding: 3,
                   backgroundColor: "white",
+                  borderRadius: 1,
                 }}
               >
                 <Box
@@ -87,6 +88,7 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
                   order: 2,
                   minHeight: { md: "fit-content", xl: "80vh" },
                   boxShadow: 8,
+                  borderRadius: 1,
                 }}
               >
                 <Box

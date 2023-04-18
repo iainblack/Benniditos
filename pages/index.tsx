@@ -366,7 +366,6 @@ export default function BenniditosHome() {
                       display: "flex",
                       padding: 0,
                       mt: 4,
-                      mb: 2,
                     }}
                   >
                     <Box

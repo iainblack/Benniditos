@@ -60,6 +60,7 @@ export function BrewPubPanel(props: BrewPubPanelProps) {
                     boxShadow: 8,
                     padding: { xs: 0, xl: 3 },
                     mt: { xs: 4, xl: 0 },
+                    borderRadius: 1,
                   }}
                 >
                   <Box
@@ -93,6 +94,7 @@ export function BrewPubPanel(props: BrewPubPanelProps) {
                   order: { xs: 1, xl: 2 },
                   minHeight: { xs: "fit-content", xl: "90vh" },
                   boxShadow: 8,
+                  borderRadius: 1,
                 }}
               >
                 <Box
