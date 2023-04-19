@@ -52,7 +52,7 @@ export default function TitlePanel(props: TitlePanelProps) {
           style={{
             objectFit: "cover",
             objectPosition: "center",
-            filter: "brightness(0.7)",
+            filter: "brightness(0.5)",
           }}
         />
         <Box
