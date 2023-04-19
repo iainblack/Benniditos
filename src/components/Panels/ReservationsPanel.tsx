@@ -29,6 +29,7 @@ export function ReservationsPanel(props: ReservationsPanelProps) {
         flexDirection: "column",
         justifyContent: "center",
         position: "relative",
+        mb: { xs: 2, xl: 4 },
       }}
     >
       <Slide in={props.transitionIn} timeout={1000} direction={"right"}>
