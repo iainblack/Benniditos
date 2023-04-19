@@ -59,6 +59,10 @@ export default function BenniditosHome() {
     display: true,
   });
 
+  useEffect(() => {
+    document.title = "Bennidito's";
+  }, []);
+
   const [transitionState, setTransitionState] = React.useState<TransitionState>(
     {
       aboutUsTransitionIn: false,
