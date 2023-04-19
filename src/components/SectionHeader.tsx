@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import Image from "next/image";
 
 interface SectionHeaderProps {
   title: string;
@@ -16,30 +17,37 @@ export default function SectionHeader({
           width: "100%",
           border: 1,
           borderBottom: 0,
-          backgroundImage: `url('${imagePath}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          position: "relative",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
+        <Image
+          src={imagePath}
+          fill
+          sizes="100%"
+          alt="alt"
+          priority={true}
+          style={{
+            objectFit: "cover",
+            objectPosition: "center",
+            filter: "brightness(0.5)",
+          }}
+        />
         <Box
           sx={{
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0,0,0,0.5)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
+            textAlign: "center",
+            position: "relative",
           }}
         >
-          <Box sx={{ textAlign: "center" }}>
-            <Typography
-              variant="h4"
-              fontFamily="header"
-              sx={{ color: "white" }}
-            >
-              {title}
-            </Typography>
-          </Box>
+          <Typography
+            variant="h4"
+            fontFamily="header"
+            sx={{ color: "white", zIndex: 2 }}
+          >
+            {title}
+          </Typography>
         </Box>
       </Box>
     </Box>

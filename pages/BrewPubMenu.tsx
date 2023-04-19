@@ -16,6 +16,7 @@ import StartFirebase from "@/src/components/firebaseConfig";
 import { BenniditosMenuConfig, HideOnScroll } from "@/src/utils/utils";
 import { ref, get, child } from "firebase/database";
 import React, { useEffect } from "react";
+import Head from "next/head";
 
 export default function BrewPubMenuPage() {
   const [menuData, setMenuData] =
@@ -41,6 +42,9 @@ export default function BrewPubMenuPage() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Head>
+        <title>Bennidito&apos;s</title>
+      </Head>
       <HideOnScroll>
         <AppBar
           sx={{

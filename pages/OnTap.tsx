@@ -16,6 +16,7 @@ import StartFirebase from "@/src/components/firebaseConfig";
 import { HideOnScroll, TapListConfig } from "@/src/utils/utils";
 import { ref, get, child } from "firebase/database";
 import TapList from "@/src/utils/BenniditosTapListData.json";
+import Head from "next/head";
 
 export default function BenniditosMenuPage() {
   const [menuData, setMenuData] = React.useState<TapListConfig>(TapList);
@@ -40,6 +41,9 @@ export default function BenniditosMenuPage() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Head>
+        <title>Bennidito&apos;s</title>
+      </Head>
       <HideOnScroll>
         <AppBar
           sx={{

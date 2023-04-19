@@ -30,6 +30,7 @@ import { BrewPubPanel } from "@/src/components/Panels/BrewPubPanel";
 import { ReservationsPanel } from "@/src/components/Panels/ReservationsPanel";
 import ImageSlider from "@/src/components/imageSlider";
 import Image from "next/image";
+import Head from "next/head";
 
 interface AppBarState {
   transparent: boolean;
@@ -58,10 +59,6 @@ export default function BenniditosHome() {
     logo: false,
     display: true,
   });
-
-  useEffect(() => {
-    document.title = "Bennidito's";
-  }, []);
 
   const [transitionState, setTransitionState] = React.useState<TransitionState>(
     {
@@ -278,6 +275,9 @@ export default function BenniditosHome() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Head>
+        <title>Bennidito&apos;s</title>
+      </Head>
       <Box
         id="benniditosHome"
         sx={{
