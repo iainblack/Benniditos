@@ -42,7 +42,7 @@ export default function FooterPanel() {
         >
           <LocationContactInfo
             theme={theme}
-            title=" Benniditos Pizza"
+            title="South Hill"
             address="1426 S Lincoln St, Spokane, WA 99203"
             onAddressClick={() => {
               window.open(
@@ -55,9 +55,10 @@ export default function FooterPanel() {
               window.open("tel:+5094557411", "_self");
             }}
           />
+          <Divider orientation="vertical" sx={{ backgroundColor: "white" }} />
           <LocationContactInfo
             theme={theme}
-            title="Benniditos BrewPub"
+            title="Sprague"
             address="1909 E Sprague Ave, Spokane, WA 99202"
             onAddressClick={() => {
               window.open(
