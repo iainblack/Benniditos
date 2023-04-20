@@ -25,6 +25,8 @@ export default function SectionHeader({
       >
         <Image
           src={imagePath}
+          placeholder="blur"
+          blurDataURL={imagePath}
           fill
           sizes="100%"
           alt="alt"
