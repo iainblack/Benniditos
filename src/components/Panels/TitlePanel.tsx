@@ -50,7 +50,7 @@ export default function TitlePanel(props: TitlePanelProps) {
           alt="alt"
           priority={true}
           placeholder="blur"
-          blurDataURL="/meat primo 2.jpg"
+          blurDataURL="/blur.png"
           style={{
             objectFit: "cover",
             objectPosition: "center",
