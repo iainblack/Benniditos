@@ -95,7 +95,7 @@ export default function TitlePanel(props: TitlePanelProps) {
                       alt="Benniditos"
                       fill
                       sizes="100%"
-                      priority
+                      priority={true}
                       style={{
                         objectFit: "contain",
                         objectPosition: "center",

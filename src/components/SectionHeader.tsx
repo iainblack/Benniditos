@@ -30,7 +30,7 @@ export default function SectionHeader({
           fill
           sizes="100%"
           alt="alt"
-          priority={true}
+          // priority={true}
           style={{
             objectFit: "cover",
             objectPosition: "center",
