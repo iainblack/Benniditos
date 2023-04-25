@@ -67,7 +67,6 @@ export default function ImageSlider(props: ImageSliderProps) {
                   sx={{ borderRadius: 1 }}
                 >
                   <Image
-                    priority={true}
                     src={url}
                     alt="image"
                     fill
