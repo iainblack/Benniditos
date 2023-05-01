@@ -5,15 +5,18 @@ import {
   Slide,
   Button,
   Fade,
+  IconButton,
 } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import React, { useEffect } from "react";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import { SocialMediaInfo } from "@/src/utils/utils";
+import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
 interface TitlePanelProps {
   scrollToSouthHill: () => void;
   scrollToBrewPub: () => void;
+  scrollToAbout: () => void;
 }
 
 export default function TitlePanel(props: TitlePanelProps) {
@@ -62,7 +65,7 @@ export default function TitlePanel(props: TitlePanelProps) {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
+            justifyContent: { xs: "space-evenly", md: "center" },
             alignItems: "center",
             textAlign: "center",
             zIndex: 1,
@@ -113,39 +116,55 @@ export default function TitlePanel(props: TitlePanelProps) {
             container={containerRef.current}
           >
             <Box>
-              <Box>
-                <Button
-                  endIcon={<KeyboardDoubleArrowRightIcon />}
-                  variant="outlined"
-                  sx={{
-                    color: "white",
-                    textTransform: "none",
-                    borderRadius: 10,
-                    borderColor: "white",
-                    minWidth: 200,
-                  }}
-                  onClick={props.scrollToSouthHill}
-                >
-                  South Hill Location
-                </Button>
-              </Box>
-              <Box>
-                <Button
-                  endIcon={<KeyboardDoubleArrowRightIcon />}
-                  variant="outlined"
-                  sx={{
-                    color: "white",
-                    textTransform: "none",
-                    borderRadius: 10,
-                    borderColor: "white",
-                    minWidth: 200,
-                    mt: 2,
-                  }}
-                  onClick={props.scrollToBrewPub}
-                >
-                  Sprague Location
-                </Button>
-              </Box>
+              {!isSmallScreen && (
+                <>
+                  <Box>
+                    <Button
+                      endIcon={<KeyboardDoubleArrowRightIcon />}
+                      variant="outlined"
+                      sx={{
+                        color: "white",
+                        textTransform: "none",
+                        borderRadius: 10,
+                        borderColor: "white",
+                        minWidth: 200,
+                      }}
+                      onClick={props.scrollToSouthHill}
+                    >
+                      South Hill Location
+                    </Button>
+                  </Box>
+                  <Box>
+                    <Button
+                      endIcon={<KeyboardDoubleArrowRightIcon />}
+                      variant="outlined"
+                      sx={{
+                        color: "white",
+                        textTransform: "none",
+                        borderRadius: 10,
+                        borderColor: "white",
+                        minWidth: 200,
+                        mt: 2,
+                      }}
+                      onClick={props.scrollToBrewPub}
+                    >
+                      Sprague Location
+                    </Button>
+                  </Box>
+                </>
+              )}
+              {isSmallScreen && (
+                <IconButton>
+                  <KeyboardDoubleArrowDownIcon
+                    className="bounce"
+                    sx={{
+                      color: "white",
+                      fontSize: "2.5rem",
+                    }}
+                    onClick={props.scrollToAbout}
+                  />
+                </IconButton>
+              )}
             </Box>
           </Slide>
           <Slide

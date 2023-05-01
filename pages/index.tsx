@@ -108,6 +108,14 @@ export default function BenniditosHome() {
       });
   };
 
+  const scrollToAboutUs = () => {
+    aboutUsRef.current &&
+      aboutUsRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+  };
+
   const handleTabChange = (event: React.SyntheticEvent, newValue: number) => {
     switch (newValue) {
       case 0:
@@ -309,6 +317,7 @@ export default function BenniditosHome() {
           <TitlePanel
             scrollToSouthHill={scrollToSouthHill}
             scrollToBrewPub={scrollToBrewPub}
+            scrollToAbout={scrollToAboutUs}
           />
         </BackgroundWrapper>
         <Box sx={{ width: "100%", mt: 3 }}>
