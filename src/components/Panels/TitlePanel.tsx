@@ -31,9 +31,8 @@ export default function TitlePanel(props: TitlePanelProps) {
   return (
     <Box
       sx={{
-        height: { xs: "100vh", md: "100vh" },
+        height: "100vh",
         width: "100vw",
-        mt: { xs: -10, sm: 0 },
       }}
     >
       <Box
