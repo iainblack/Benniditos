@@ -43,7 +43,7 @@ export default function BrewPubMenuPage() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Head>
-        <title>Bennidito&apos;s</title>
+        <title>Bennidito&apos;s Pizza</title>
       </Head>
       <HideOnScroll>
         <AppBar
