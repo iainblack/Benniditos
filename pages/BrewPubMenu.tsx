@@ -75,11 +75,7 @@ export default function BrewPubMenuPage() {
       >
         {!menuData && <CircularProgress />}
         {menuData && (
-          <MenuPanel
-            transitionIn
-            data={BrewPubMenuData}
-            header="BREWPUB MENU"
-          />
+          <MenuPanel transitionIn data={menuData} header="BREWPUB MENU" />
         )}
       </PanelContainer>
     </ThemeProvider>
