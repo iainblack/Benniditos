@@ -42,7 +42,7 @@ export default function BenniditosMenuPage() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Head>
-        <title>Bennidito&apos;s Pizza</title>
+        <title>Bennidito&apos;s Pizza & BrewPub</title>
       </Head>
       <HideOnScroll>
         <AppBar

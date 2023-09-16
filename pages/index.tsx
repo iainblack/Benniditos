@@ -284,7 +284,7 @@ export default function BenniditosHome() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Head>
-        <title>Bennidito&apos;s Pizza</title>
+        <title>Bennidito&apos;s Pizza & BrewPub</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
