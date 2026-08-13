@@ -164,7 +164,7 @@ export default function MenuHeader(props: {
               }}
               onClick={() => {
                 window.open(
-                  "https://weborder7.microworks.com/benniditos/",
+                  "https://benniditos.weborder.net/",
                   "_blank"
                 );
               }}
@@ -315,7 +315,7 @@ export default function MenuHeader(props: {
                   }}
                   onClick={(e) => {
                     window.open(
-                      "https://weborder7.microworks.com/benniditos/",
+                      "https://benniditos.weborder.net/",
                       "_blank"
                     );
                   }}

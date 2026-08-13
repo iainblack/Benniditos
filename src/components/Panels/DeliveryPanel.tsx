@@ -369,7 +369,7 @@ function DeliveryInfo(props: { theme: Theme }) {
             }}
             onClick={() => {
               window.open(
-                "https://weborder7.microworks.com/benniditos/",
+                "https://benniditos.weborder.net/",
                 "_blank"
               );
             }}
