@@ -88,16 +88,17 @@ export default function Header(props: HeaderProps) {
                   color: "primary.main",
                 },
               }}
-              onClick={(e) => {
+              onClick={(e: React.MouseEvent) => {
                 scrollAfterClose.current = { event: e, index: index };
                 setDrawerOpen(false);
               }}
             >
               <ListItemText
                 primary={text}
-                primaryTypographyProps={{
-                  textAlign: "center",
-                  fontFamily: "header",
+                slotProps={{
+                  primary: {
+                    sx: { textAlign: "center", fontFamily: "header" },
+                  },
                 }}
               />
             </ListItemButton>
@@ -122,9 +123,10 @@ export default function Header(props: HeaderProps) {
           >
             <ListItemText
               primary="Tap List"
-              primaryTypographyProps={{
-                textAlign: "center",
-                fontFamily: "header",
+              slotProps={{
+                primary: {
+                  sx: { textAlign: "center", fontFamily: "header" },
+                },
               }}
             />
           </ListItemButton>
@@ -153,9 +155,10 @@ export default function Header(props: HeaderProps) {
           >
             <ListItemText
               primary="Menus"
-              primaryTypographyProps={{
-                textAlign: "center",
-                fontFamily: "header",
+              slotProps={{
+                primary: {
+                  sx: { textAlign: "center", fontFamily: "header" },
+                },
               }}
             />
             {menusOpen ? <ExpandLess /> : <ExpandMore />}
@@ -187,10 +190,14 @@ export default function Header(props: HeaderProps) {
               >
                 <ListItemText
                   primary="South Hill Menu"
-                  primaryTypographyProps={{
-                    textAlign: "center",
-                    fontFamily: "header",
-                    fontSize: theme.typography.body1.fontSize,
+                  slotProps={{
+                    primary: {
+                      sx: {
+                        textAlign: "center",
+                        fontFamily: "header",
+                        fontSize: theme.typography.body1.fontSize,
+                      },
+                    },
                   }}
                 />
               </ListItemButton>
@@ -222,9 +229,10 @@ export default function Header(props: HeaderProps) {
               >
                 <ListItemText
                   primary="BrewPub Menu"
-                  primaryTypographyProps={{
-                    textAlign: "center",
-                    fontFamily: "header",
+                  slotProps={{
+                    primary: {
+                      sx: { textAlign: "center", fontFamily: "header" },
+                    },
                   }}
                 />
               </ListItemButton>
@@ -380,7 +388,7 @@ export default function Header(props: HeaderProps) {
               />
               <Tab
                 label="Menus"
-                onClick={(e) => {
+                onClick={(e: React.MouseEvent) => {
                   handleMenuTabClick(e);
                 }}
                 sx={{
@@ -428,9 +436,10 @@ export default function Header(props: HeaderProps) {
                     >
                       <ListItemText
                         primary="South Hill Menu"
-                        primaryTypographyProps={{
-                          textAlign: "center",
-                          fontFamily: "header",
+                        slotProps={{
+                          primary: {
+                            sx: { textAlign: "center", fontFamily: "header" },
+                          },
                         }}
                       />
                     </ListItemButton>
@@ -452,9 +461,10 @@ export default function Header(props: HeaderProps) {
                     >
                       <ListItemText
                         primary="BrewPub Menu"
-                        primaryTypographyProps={{
-                          textAlign: "center",
-                          fontFamily: "header",
+                        slotProps={{
+                          primary: {
+                            sx: { textAlign: "center", fontFamily: "header" },
+                          },
                         }}
                       />
                     </ListItemButton>

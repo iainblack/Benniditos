@@ -59,9 +59,10 @@ export default function MenuHeader(props: {
           >
             <ListItemText
               primary="Home"
-              primaryTypographyProps={{
-                textAlign: "center",
-                fontFamily: "header",
+              slotProps={{
+                primary: {
+                  sx: { textAlign: "center", fontFamily: "header" },
+                },
               }}
             />
           </ListItemButton>
@@ -85,9 +86,10 @@ export default function MenuHeader(props: {
           >
             <ListItemText
               primary={props.firstNavName}
-              primaryTypographyProps={{
-                textAlign: "center",
-                fontFamily: "header",
+              slotProps={{
+                primary: {
+                  sx: { textAlign: "center", fontFamily: "header" },
+                },
               }}
             />
           </ListItemButton>
@@ -111,9 +113,10 @@ export default function MenuHeader(props: {
           >
             <ListItemText
               primary={props.secondNavName}
-              primaryTypographyProps={{
-                textAlign: "center",
-                fontFamily: "header",
+              slotProps={{
+                primary: {
+                  sx: { textAlign: "center", fontFamily: "header" },
+                },
               }}
             />
           </ListItemButton>
@@ -139,9 +142,10 @@ export default function MenuHeader(props: {
             >
               <ListItemText
                 primary="Call"
-                primaryTypographyProps={{
-                  textAlign: "center",
-                  fontFamily: "header",
+                slotProps={{
+                  primary: {
+                    sx: { textAlign: "center", fontFamily: "header" },
+                  },
                 }}
               />
               <PhoneOutlined fontSize="small" sx={{ height: 14, width: 14 }} />
@@ -171,9 +175,10 @@ export default function MenuHeader(props: {
             >
               <ListItemText
                 primary="Order Online"
-                primaryTypographyProps={{
-                  textAlign: "center",
-                  fontFamily: "header",
+                slotProps={{
+                  primary: {
+                    sx: { textAlign: "center", fontFamily: "header" },
+                  },
                 }}
               />
               <OpenInNewOutlined
@@ -313,7 +318,7 @@ export default function MenuHeader(props: {
                       color: theme.palette.primary.main,
                     },
                   }}
-                  onClick={(e) => {
+                  onClick={() => {
                     window.open(
                       "https://benniditos.weborder.net/",
                       "_blank"

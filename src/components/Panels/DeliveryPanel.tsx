@@ -288,7 +288,7 @@ function PlacesAutocomplete(props: {
           variant="outlined"
           size="small"
           value={props.value}
-          onChange={(e) => {
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             props.setValue(e.target.value);
           }}
           inputProps={{

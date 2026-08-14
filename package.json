@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mui/icons-material": "^5.11.11",
-    "@mui/material": "^5.11.15",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^9.3.1",
+    "@mui/material": "^9.3.1",
     "@mui/styled-engine-sc": "^5.11.11",
     "@react-google-maps/api": "^2.18.1",
+    "@sanity/image-url": "^2.1.1",
     "@types/node": "18.15.11",
     "@types/react": "18.0.31",
     "@types/react-dom": "18.0.11",
@@ -21,12 +24,14 @@
     "eslint-config-next": "13.2.4",
     "firebase": "^9.19.1",
     "keen-slider": "^6.8.5",
-    "next": "13.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "next": "^16.3.1",
+    "next-sanity": "^13.3.3",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "react-slideshow-image": "^4.2.1",
+    "sanity": "^6.9.2",
     "sharp": "^0.32.0",
-    "styled-components": "^5.3.9",
+    "styled-components": "^6.5.2",
     "typescript": "5.0.3"
   }
 }
