@@ -11,4 +11,10 @@ export const basicOptionsType = defineType({
     defineField({ name: "medium", title: "Medium Price", type: "string" }),
     defineField({ name: "large", title: "Large Price", type: "string" }),
   ],
+  preview: {
+    select: { title: "name", subtitle: "description" },
+    prepare({ title, subtitle }) {
+      return { title: title || "Untitled", subtitle };
+    },
+  },
 });

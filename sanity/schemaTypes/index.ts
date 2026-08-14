@@ -15,6 +15,9 @@ import {
   startersSectionType,
   pizzaColumnType,
   pizzaBySliceType,
+  toppingOptionType,
+  comboOptionType,
+  soupItemType,
 } from "./objects";
 
 import { southHillMenuType, brewPubMenuType, tapListType } from "./documents";
@@ -41,4 +44,7 @@ export const schemaTypes = [
   startersSectionType,
   pizzaColumnType,
   pizzaBySliceType,
+  toppingOptionType,
+  comboOptionType,
+  soupItemType,
 ];

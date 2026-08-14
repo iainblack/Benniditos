@@ -14,3 +14,6 @@ export { dessertsSectionType } from "./dessertsSection";
 export { startersSectionType } from "./startersSection";
 export { pizzaColumnType } from "./pizzaColumn";
 export { pizzaBySliceType } from "./pizzaBySlice";
+export { toppingOptionType } from "./toppingOption";
+export { comboOptionType } from "./comboOption";
+export { soupItemType } from "./soupItem";

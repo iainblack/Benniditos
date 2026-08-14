@@ -5,22 +5,21 @@ export const brewPubMenuType = defineType({
   title: "BrewPub Menu",
   type: "document",
   fields: [
+    defineField({ name: "pizzaDescription", title: "Pizza Size & Dough Options", type: "text", description: "e.g. Available in traditional hand tossed (10\", 15\", 19\") or Detroit style (10\"x14\")" }),
     defineField({
       name: "pizza",
       title: "Pizza",
       type: "object",
       fields: [
-        defineField({ name: "description1", title: "Description 1", type: "string" }),
-        defineField({ name: "description2", title: "Description 2", type: "string" }),
         defineField({
-          name: "column1",
-          title: "Column 1",
+          name: "traditionalPizzas",
+          title: "Traditional Pizzas",
           type: "array",
           of: [{ type: "basicOptions" }],
         }),
         defineField({
-          name: "column2",
-          title: "Column 2",
+          name: "specialtyPizzas",
+          title: "Specialty Pizzas",
           type: "array",
           of: [{ type: "basicOptions" }],
         }),
@@ -31,10 +30,10 @@ export const brewPubMenuType = defineType({
     defineField({ name: "salads", title: "Salads", type: "saladsSection" }),
     defineField({ name: "sandwiches", title: "Sandwiches", type: "sandwichSection" }),
     defineField({ name: "desserts", title: "Desserts", type: "dessertsSection" }),
-    defineField({ name: "soda", title: "Soda", type: "sodaSection" }),
+    defineField({ name: "soda", title: "Soda & Drinks", type: "sodaSection" }),
   ],
   preview: {
-    select: { title: "pizza.description1" },
+    select: { title: "title" },
     prepare({ title }) {
       return { title: title || "BrewPub Menu" };
     },

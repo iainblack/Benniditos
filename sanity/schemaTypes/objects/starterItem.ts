@@ -9,4 +9,10 @@ export const starterItemType = defineType({
     defineField({ name: "description", title: "Description", type: "text" }),
     defineField({ name: "price", title: "Price", type: "string" }),
   ],
+  preview: {
+    select: { title: "name", subtitle: "description" },
+    prepare({ title, subtitle }) {
+      return { title: title || "Untitled", subtitle };
+    },
+  },
 });

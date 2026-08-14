@@ -1,7 +1,13 @@
 import { groq } from "next-sanity";
 
 export const southHillMenuQuery = groq`*[_type == "southHillMenu"][0]{
-  pizza,
+  pizza{
+    description1,
+    description2,
+    traditionalPizzas,
+    specialtyPizzas,
+    bySlice
+  },
   toppings,
   starters,
   salads,
@@ -13,7 +19,12 @@ export const southHillMenuQuery = groq`*[_type == "southHillMenu"][0]{
 }`;
 
 export const brewPubMenuQuery = groq`*[_type == "brewPubMenu"][0]{
-  pizza,
+  pizza{
+    description1,
+    description2,
+    traditionalPizzas,
+    specialtyPizzas
+  },
   toppings,
   starters,
   salads,

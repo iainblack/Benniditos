@@ -2,7 +2,6 @@
 
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
-import { presentationTool } from "sanity/presentation";
 import { dataset, projectId, studioTitle } from "./sanity/env";
 import { schemaTypes } from "./sanity/schemaTypes";
 
@@ -30,6 +29,7 @@ export default defineConfig({
                 S.document()
                   .schemaType("southHillMenu")
                   .documentId("southHillMenu")
+                  .title("South Hill Menu")
               ),
             S.listItem()
               .title("BrewPub Menu")
@@ -38,27 +38,18 @@ export default defineConfig({
                 S.document()
                   .schemaType("brewPubMenu")
                   .documentId("brewPubMenu")
+                  .title("BrewPub Menu")
               ),
             S.listItem()
               .title("Tap List")
               .id("tapList")
-              .child(S.document().schemaType("tapList").documentId("tapList")),
+              .child(
+                S.document()
+                  .schemaType("tapList")
+                  .documentId("tapList")
+                  .title("Tap List")
+              ),
           ]),
-    }),
-    presentationTool({
-      previewUrl: {
-        initial: "/",
-        previewMode: {
-          enable: "/api/draft-mode/enable",
-        },
-      },
-      resolve: {
-        mainDocuments: [
-          { route: "/BenniditosMenu", type: "southHillMenu" },
-          { route: "/BrewPubMenu", type: "brewPubMenu" },
-          { route: "/OnTap", type: "tapList" },
-        ],
-      },
     }),
   ],
   document: {

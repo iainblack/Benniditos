@@ -10,4 +10,10 @@ export const sandwichOptionsType = defineType({
     defineField({ name: "half", title: "Half Price", type: "string" }),
     defineField({ name: "whole", title: "Whole Price", type: "string" }),
   ],
+  preview: {
+    select: { title: "name", subtitle: "description" },
+    prepare({ title, subtitle }) {
+      return { title: title || "Untitled", subtitle };
+    },
+  },
 });
