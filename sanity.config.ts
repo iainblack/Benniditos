@@ -19,10 +19,7 @@ export default defineConfig({
   },
   plugins: [
     presentationTool({
-      previewUrl: {
-        origin: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-        match: "/:path*",
-      },
+      previewUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
     }),
     structureTool({
       structure: (S) =>
