@@ -1,4 +1,4 @@
 export const apiVersion = "2026-01-01";
 export const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
-export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "";
+export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "vmmau7wd";
 export const studioTitle = "Benniditos Menu CMS";
