@@ -13,6 +13,7 @@ import logo from "@/public/ditosLogo.png";
 import { getSouthHillMenu } from "@/lib/sanity/content";
 import { BenniditosMenuConfig, HideOnScroll } from "@/src/utils/utils";
 import Head from "next/head";
+import type { GetStaticPropsContext } from "next";
 
 export default function BenniditosMenuPage({
   menuData,
@@ -58,7 +59,8 @@ export default function BenniditosMenuPage({
   );
 }
 
-export async function getStaticProps() {
-  const menuData = await getSouthHillMenu();
-  return { props: { menuData }, revalidate: 3600 };
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const draftMode = Boolean(context.draftMode);
+  const menuData = await getSouthHillMenu(draftMode);
+  return { props: { menuData, draftMode }, revalidate: 3600 };
 }

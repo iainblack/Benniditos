@@ -15,6 +15,10 @@ export const sanityClient = isSanityConfigured
       apiVersion,
       useCdn: true,
       perspective: "published",
+      stega: {
+        enabled: true,
+        studioUrl: "/studio",
+      },
       ...(readToken ? { token: readToken } : {}),
     })
   : null;
@@ -28,5 +32,9 @@ export const sanityWriteClient =
         token: writeToken,
         useCdn: false,
         perspective: "published",
+        stega: {
+          enabled: true,
+          studioUrl: "/studio",
+        },
       })
     : null;

@@ -13,6 +13,7 @@ import logo from "@/public/ditosLogo.png";
 import { getTapList } from "@/lib/sanity/content";
 import { HideOnScroll, TapListConfig } from "@/src/utils/utils";
 import Head from "next/head";
+import type { GetStaticPropsContext } from "next";
 
 export default function OnTapPage({
   menuData,
@@ -58,7 +59,8 @@ export default function OnTapPage({
   );
 }
 
-export async function getStaticProps() {
-  const menuData = await getTapList();
-  return { props: { menuData }, revalidate: 3600 };
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const draftMode = Boolean(context.draftMode);
+  const menuData = await getTapList(draftMode);
+  return { props: { menuData, draftMode }, revalidate: 3600 };
 }

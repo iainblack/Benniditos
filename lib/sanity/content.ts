@@ -93,47 +93,95 @@ function transformBrewPubMenu(data: SanityBrewPubMenu): BenniditosMenuConfig {
   };
 }
 
-async function fetchSanityDocument<T>(query: string): Promise<T | null> {
-  if (!isSanityConfigured || !sanityClient) {
+/**
+ * Returns a client configured for the current draft-mode state.
+ *
+ * When Next.js Draft Mode is enabled (e.g. because the page is being
+ * rendered inside Sanity's Presentation tool), we bypass the CDN, read the
+ * "drafts" perspective (unpublished edits), and attach a token so the
+ * request is authorized to see them. Otherwise we use the normal cached,
+ * published-only client.
+ */
+function getClientForRequest(draftMode: boolean) {
+  if (!sanityClient) return null;
+  if (!draftMode) return sanityClient;
+
+  return sanityClient.withConfig({
+    useCdn: false,
+    perspective: "drafts",
+    token: process.env.SANITY_API_READ_TOKEN,
+  });
+}
+
+async function fetchSanityDocument<T>(
+  query: string,
+  draftMode = false
+): Promise<T | null> {
+  const client = getClientForRequest(draftMode);
+  if (!isSanityConfigured || !client) {
     return null;
   }
 
   try {
-    const data = await sanityClient.fetch<T | null>(query, {}, { next: { revalidate: 3600 } });
+    const data = await client.fetch<T | null>(
+      query,
+      {},
+      draftMode ? { cache: "no-store" } : { next: { revalidate: 3600 } }
+    );
     return data;
   } catch {
     return null;
   }
 }
 
-async function fetchDocument<T>(query: string, fallback: T): Promise<T> {
-  if (!isSanityConfigured || !sanityClient) {
+async function fetchDocument<T>(
+  query: string,
+  fallback: T,
+  draftMode = false
+): Promise<T> {
+  const client = getClientForRequest(draftMode);
+  if (!isSanityConfigured || !client) {
     return fallback;
   }
 
   try {
-    const data = await sanityClient.fetch<T | null>(query, {}, { next: { revalidate: 3600 } });
+    const data = await client.fetch<T | null>(
+      query,
+      {},
+      draftMode ? { cache: "no-store" } : { next: { revalidate: 3600 } }
+    );
     return data ?? fallback;
   } catch {
     return fallback;
   }
 }
 
-export async function getSouthHillMenu(): Promise<BenniditosMenuConfig> {
-  const data = await fetchSanityDocument<SanitySouthHillMenu>(southHillMenuQuery);
+export async function getSouthHillMenu(
+  draftMode = false
+): Promise<BenniditosMenuConfig> {
+  const data = await fetchSanityDocument<SanitySouthHillMenu>(
+    southHillMenuQuery,
+    draftMode
+  );
   if (!data) return BenniditosMenuData as BenniditosMenuConfig;
   return transformSouthHillMenu(data);
 }
 
-export async function getBrewPubMenu(): Promise<BenniditosMenuConfig> {
-  const data = await fetchSanityDocument<SanityBrewPubMenu>(brewPubMenuQuery);
+export async function getBrewPubMenu(
+  draftMode = false
+): Promise<BenniditosMenuConfig> {
+  const data = await fetchSanityDocument<SanityBrewPubMenu>(
+    brewPubMenuQuery,
+    draftMode
+  );
   if (!data) return BrewPubMenuData as BenniditosMenuConfig;
   return transformBrewPubMenu(data);
 }
 
-export async function getTapList(): Promise<TapListConfig> {
+export async function getTapList(draftMode = false): Promise<TapListConfig> {
   return fetchDocument<TapListConfig>(
     tapListQuery,
-    TapListData as TapListConfig
+    TapListData as TapListConfig,
+    draftMode
   );
 }

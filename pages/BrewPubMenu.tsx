@@ -13,6 +13,7 @@ import brewPub from "@/public/brewpubLogoCropped.png";
 import { getBrewPubMenu } from "@/lib/sanity/content";
 import { BenniditosMenuConfig, HideOnScroll } from "@/src/utils/utils";
 import Head from "next/head";
+import type { GetStaticPropsContext } from "next";
 
 export default function BrewPubMenuPage({
   menuData,
@@ -59,7 +60,8 @@ export default function BrewPubMenuPage({
   );
 }
 
-export async function getStaticProps() {
-  const menuData = await getBrewPubMenu();
-  return { props: { menuData }, revalidate: 3600 };
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const draftMode = Boolean(context.draftMode);
+  const menuData = await getBrewPubMenu(draftMode);
+  return { props: { menuData, draftMode }, revalidate: 3600 };
 }
