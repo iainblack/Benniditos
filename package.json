@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:delivery-area": "node scripts/generate-delivery-area.mjs"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.15",
     "@mui/styled-engine-sc": "^5.11.11",
